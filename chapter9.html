@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Case studies | Intermediate Statistics with R</title>
+  <meta name="description" content="Chapter 9 Case studies | Intermediate Statistics with R" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Case studies | Intermediate Statistics with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="gpeterson406/Greenwood_Book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Case studies | Intermediate Statistics with R" />
+  
+  
+  
+
+<meta name="author" content="Mark C Greenwood" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chapter8.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intermediate Statistics with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Cover</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#section1-1"><i class="fa fa-check"></i><b>1.1</b> Overview of methods</a></li>
+<li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#section1-2"><i class="fa fa-check"></i><b>1.2</b> Getting started in R</a></li>
+<li class="chapter" data-level="1.3" data-path="chapter1.html"><a href="chapter1.html#section1-3"><i class="fa fa-check"></i><b>1.3</b> Basic summary statistics, histograms, and boxplots using R</a></li>
+<li class="chapter" data-level="1.4" data-path="chapter1.html"><a href="chapter1.html#section1-4"><i class="fa fa-check"></i><b>1.4</b> Chapter summary</a></li>
+<li class="chapter" data-level="1.5" data-path="chapter1.html"><a href="chapter1.html#section1-5"><i class="fa fa-check"></i><b>1.5</b> Summary of important R code</a></li>
+<li class="chapter" data-level="1.6" data-path="chapter1.html"><a href="chapter1.html#section1-6"><i class="fa fa-check"></i><b>1.6</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> (R)e-Introduction to statistics</a><ul>
+<li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#section2-1"><i class="fa fa-check"></i><b>2.1</b> Histograms, boxplots, and density curves</a></li>
+<li class="chapter" data-level="2.2" data-path="chapter2.html"><a href="chapter2.html#section2-2"><i class="fa fa-check"></i><b>2.2</b> Pirate-plots</a></li>
+<li class="chapter" data-level="2.3" data-path="chapter2.html"><a href="chapter2.html#section2-3"><i class="fa fa-check"></i><b>2.3</b> Models, hypotheses, and permutations for the two sample mean situation</a></li>
+<li class="chapter" data-level="2.4" data-path="chapter2.html"><a href="chapter2.html#section2-4"><i class="fa fa-check"></i><b>2.4</b> Permutation testing for the two sample mean situation</a></li>
+<li class="chapter" data-level="2.5" data-path="chapter2.html"><a href="chapter2.html#section2-5"><i class="fa fa-check"></i><b>2.5</b> Hypothesis testing (general)</a></li>
+<li class="chapter" data-level="2.6" data-path="chapter2.html"><a href="chapter2.html#section2-6"><i class="fa fa-check"></i><b>2.6</b> Connecting randomization (nonparametric) and parametric tests</a></li>
+<li class="chapter" data-level="2.7" data-path="chapter2.html"><a href="chapter2.html#section2-7"><i class="fa fa-check"></i><b>2.7</b> Second example of permutation tests</a></li>
+<li class="chapter" data-level="2.8" data-path="chapter2.html"><a href="chapter2.html#section2-8"><i class="fa fa-check"></i><b>2.8</b> Reproducibility Crisis: Moving beyond p &lt; 0.05, publication bias, and multiple testing issues</a></li>
+<li class="chapter" data-level="2.9" data-path="chapter2.html"><a href="chapter2.html#section2-9"><i class="fa fa-check"></i><b>2.9</b> Confidence intervals and bootstrapping</a></li>
+<li class="chapter" data-level="2.10" data-path="chapter2.html"><a href="chapter2.html#section2-10"><i class="fa fa-check"></i><b>2.10</b> Bootstrap confidence intervals for difference in GPAs</a></li>
+<li class="chapter" data-level="2.11" data-path="chapter2.html"><a href="chapter2.html#section2-11"><i class="fa fa-check"></i><b>2.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="2.12" data-path="chapter2.html"><a href="chapter2.html#section2-12"><i class="fa fa-check"></i><b>2.12</b> Summary of important R code</a></li>
+<li class="chapter" data-level="2.13" data-path="chapter2.html"><a href="chapter2.html#section2-13"><i class="fa fa-check"></i><b>2.13</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> One-Way ANOVA</a><ul>
+<li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#section3-1"><i class="fa fa-check"></i><b>3.1</b> Situation</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#section3-2"><i class="fa fa-check"></i><b>3.2</b> Linear model for One-Way ANOVA (cell means and reference-coding)</a></li>
+<li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#section3-3"><i class="fa fa-check"></i><b>3.3</b> One-Way ANOVA Sums of Squares, Mean Squares, and F-test</a></li>
+<li class="chapter" data-level="3.4" data-path="chapter3.html"><a href="chapter3.html#section3-4"><i class="fa fa-check"></i><b>3.4</b> ANOVA model diagnostics including QQ-plots</a></li>
+<li class="chapter" data-level="3.5" data-path="chapter3.html"><a href="chapter3.html#section3-5"><i class="fa fa-check"></i><b>3.5</b> Guinea pig tooth growth One-Way ANOVA example</a></li>
+<li class="chapter" data-level="3.6" data-path="chapter3.html"><a href="chapter3.html#section3-6"><i class="fa fa-check"></i><b>3.6</b> Multiple (pair-wise) comparisons using Tukey’s HSD and the compact letter display</a></li>
+<li class="chapter" data-level="3.7" data-path="chapter3.html"><a href="chapter3.html#section3-7"><i class="fa fa-check"></i><b>3.7</b> Pair-wise comparisons for the Overtake data</a></li>
+<li class="chapter" data-level="3.8" data-path="chapter3.html"><a href="chapter3.html#section3-8"><i class="fa fa-check"></i><b>3.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="3.9" data-path="chapter3.html"><a href="chapter3.html#section3-9"><i class="fa fa-check"></i><b>3.9</b> Summary of important R code</a></li>
+<li class="chapter" data-level="3.10" data-path="chapter3.html"><a href="chapter3.html#section3-10"><i class="fa fa-check"></i><b>3.10</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Two-Way ANOVA</a><ul>
+<li class="chapter" data-level="4.1" data-path="chapter4.html"><a href="chapter4.html#section4-1"><i class="fa fa-check"></i><b>4.1</b> Situation</a></li>
+<li class="chapter" data-level="4.2" data-path="chapter4.html"><a href="chapter4.html#section4-2"><i class="fa fa-check"></i><b>4.2</b> Designing a two-way experiment and visualizing results</a></li>
+<li class="chapter" data-level="4.3" data-path="chapter4.html"><a href="chapter4.html#section4-3"><i class="fa fa-check"></i><b>4.3</b> Two-Way ANOVA models and hypothesis tests</a></li>
+<li class="chapter" data-level="4.4" data-path="chapter4.html"><a href="chapter4.html#section4-4"><i class="fa fa-check"></i><b>4.4</b> Guinea pig tooth growth analysis with Two-Way ANOVA</a></li>
+<li class="chapter" data-level="4.5" data-path="chapter4.html"><a href="chapter4.html#section4-5"><i class="fa fa-check"></i><b>4.5</b> Observational study example: The Psychology of Debt</a></li>
+<li class="chapter" data-level="4.6" data-path="chapter4.html"><a href="chapter4.html#section4-6"><i class="fa fa-check"></i><b>4.6</b> Pushing Two-Way ANOVA to the limit: Un-replicated designs and Estimability</a></li>
+<li class="chapter" data-level="4.7" data-path="chapter4.html"><a href="chapter4.html#section4-7"><i class="fa fa-check"></i><b>4.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="4.8" data-path="chapter4.html"><a href="chapter4.html#section4-8"><i class="fa fa-check"></i><b>4.8</b> Summary of important R code</a></li>
+<li class="chapter" data-level="4.9" data-path="chapter4.html"><a href="chapter4.html#section4-9"><i class="fa fa-check"></i><b>4.9</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> Chi-square tests</a><ul>
+<li class="chapter" data-level="5.1" data-path="chapter5.html"><a href="chapter5.html#section5-1"><i class="fa fa-check"></i><b>5.1</b> Situation, contingency tables, and tableplots</a></li>
+<li class="chapter" data-level="5.2" data-path="chapter5.html"><a href="chapter5.html#section5-2"><i class="fa fa-check"></i><b>5.2</b> Homogeneity test hypotheses</a></li>
+<li class="chapter" data-level="5.3" data-path="chapter5.html"><a href="chapter5.html#section5-3"><i class="fa fa-check"></i><b>5.3</b> Independence test hypotheses</a></li>
+<li class="chapter" data-level="5.4" data-path="chapter5.html"><a href="chapter5.html#section5-4"><i class="fa fa-check"></i><b>5.4</b> Models for R by C tables</a></li>
+<li class="chapter" data-level="5.5" data-path="chapter5.html"><a href="chapter5.html#section5-5"><i class="fa fa-check"></i><b>5.5</b> Permutation tests for the <span class="math inline">\(X^2\)</span> statistic</a></li>
+<li class="chapter" data-level="5.6" data-path="chapter5.html"><a href="chapter5.html#section5-6"><i class="fa fa-check"></i><b>5.6</b> Chi-square distribution for the <span class="math inline">\(X^2\)</span> statistic</a></li>
+<li class="chapter" data-level="5.7" data-path="chapter5.html"><a href="chapter5.html#section5-7"><i class="fa fa-check"></i><b>5.7</b> Examining residuals for the source of differences</a></li>
+<li class="chapter" data-level="5.8" data-path="chapter5.html"><a href="chapter5.html#section5-8"><i class="fa fa-check"></i><b>5.8</b> General protocol for <span class="math inline">\(X^2\)</span> tests</a></li>
+<li class="chapter" data-level="5.9" data-path="chapter5.html"><a href="chapter5.html#section5-9"><i class="fa fa-check"></i><b>5.9</b> Political party and voting results: Complete analysis</a></li>
+<li class="chapter" data-level="5.10" data-path="chapter5.html"><a href="chapter5.html#section5-10"><i class="fa fa-check"></i><b>5.10</b> Is cheating and lying related in students?</a></li>
+<li class="chapter" data-level="5.11" data-path="chapter5.html"><a href="chapter5.html#section5-11"><i class="fa fa-check"></i><b>5.11</b> Analyzing a stratified random sample of California schools</a></li>
+<li class="chapter" data-level="5.12" data-path="chapter5.html"><a href="chapter5.html#section5-12"><i class="fa fa-check"></i><b>5.12</b> Chapter summary</a></li>
+<li class="chapter" data-level="5.13" data-path="chapter5.html"><a href="chapter5.html#section5-13"><i class="fa fa-check"></i><b>5.13</b> Summary of important R commands</a></li>
+<li class="chapter" data-level="5.14" data-path="chapter5.html"><a href="chapter5.html#section5-14"><i class="fa fa-check"></i><b>5.14</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>6</b> Correlation and Simple Linear Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="chapter6.html"><a href="chapter6.html#section6-1"><i class="fa fa-check"></i><b>6.1</b> Relationships between two quantitative variables</a></li>
+<li class="chapter" data-level="6.2" data-path="chapter6.html"><a href="chapter6.html#section6-2"><i class="fa fa-check"></i><b>6.2</b> Estimating the correlation coefficient</a></li>
+<li class="chapter" data-level="6.3" data-path="chapter6.html"><a href="chapter6.html#section6-3"><i class="fa fa-check"></i><b>6.3</b> Relationships between variables by groups</a></li>
+<li class="chapter" data-level="6.4" data-path="chapter6.html"><a href="chapter6.html#section6-4"><i class="fa fa-check"></i><b>6.4</b> Inference for the correlation coefficient</a></li>
+<li class="chapter" data-level="6.5" data-path="chapter6.html"><a href="chapter6.html#section6-5"><i class="fa fa-check"></i><b>6.5</b> Are tree diameters related to tree heights?</a></li>
+<li class="chapter" data-level="6.6" data-path="chapter6.html"><a href="chapter6.html#section6-6"><i class="fa fa-check"></i><b>6.6</b> Describing relationships with a regression model</a></li>
+<li class="chapter" data-level="6.7" data-path="chapter6.html"><a href="chapter6.html#section6-7"><i class="fa fa-check"></i><b>6.7</b> Least Squares Estimation</a></li>
+<li class="chapter" data-level="6.8" data-path="chapter6.html"><a href="chapter6.html#section6-8"><i class="fa fa-check"></i><b>6.8</b> Measuring the strength of regressions: R<sup>2</sup></a></li>
+<li class="chapter" data-level="6.9" data-path="chapter6.html"><a href="chapter6.html#section6-9"><i class="fa fa-check"></i><b>6.9</b> Outliers: leverage and influence</a></li>
+<li class="chapter" data-level="6.10" data-path="chapter6.html"><a href="chapter6.html#section6-10"><i class="fa fa-check"></i><b>6.10</b> Residual diagnostics – setting the stage for inference</a></li>
+<li class="chapter" data-level="6.11" data-path="chapter6.html"><a href="chapter6.html#section6-11"><i class="fa fa-check"></i><b>6.11</b> Old Faithful discharge and waiting times</a></li>
+<li class="chapter" data-level="6.12" data-path="chapter6.html"><a href="chapter6.html#section6-12"><i class="fa fa-check"></i><b>6.12</b> Chapter summary</a></li>
+<li class="chapter" data-level="6.13" data-path="chapter6.html"><a href="chapter6.html#section6-13"><i class="fa fa-check"></i><b>6.13</b> Summary of important R code</a></li>
+<li class="chapter" data-level="6.14" data-path="chapter6.html"><a href="chapter6.html#section6-14"><i class="fa fa-check"></i><b>6.14</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>7</b> Simple linear regression inference</a><ul>
+<li class="chapter" data-level="7.1" data-path="chapter7.html"><a href="chapter7.html#section7-1"><i class="fa fa-check"></i><b>7.1</b> Model</a></li>
+<li class="chapter" data-level="7.2" data-path="chapter7.html"><a href="chapter7.html#section7-2"><i class="fa fa-check"></i><b>7.2</b> Confidence interval and hypothesis tests for the slope and intercept</a></li>
+<li class="chapter" data-level="7.3" data-path="chapter7.html"><a href="chapter7.html#section7-3"><i class="fa fa-check"></i><b>7.3</b> Bozeman temperature trend</a></li>
+<li class="chapter" data-level="7.4" data-path="chapter7.html"><a href="chapter7.html#section7-4"><i class="fa fa-check"></i><b>7.4</b> Randomization-based inferences for the slope coefficient</a></li>
+<li class="chapter" data-level="7.5" data-path="chapter7.html"><a href="chapter7.html#section7-5"><i class="fa fa-check"></i><b>7.5</b> Transformations part I: Linearizing relationships</a></li>
+<li class="chapter" data-level="7.6" data-path="chapter7.html"><a href="chapter7.html#section7-6"><i class="fa fa-check"></i><b>7.6</b> Transformations part II: Impacts on SLR interpretations: log(y), log(x), &amp; both log(y) &amp; log(x)</a></li>
+<li class="chapter" data-level="7.7" data-path="chapter7.html"><a href="chapter7.html#section7-7"><i class="fa fa-check"></i><b>7.7</b> Confidence interval for the mean and prediction intervals for a new observation</a></li>
+<li class="chapter" data-level="7.8" data-path="chapter7.html"><a href="chapter7.html#section7-8"><i class="fa fa-check"></i><b>7.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="7.9" data-path="chapter7.html"><a href="chapter7.html#section7-9"><i class="fa fa-check"></i><b>7.9</b> Summary of important R code</a></li>
+<li class="chapter" data-level="7.10" data-path="chapter7.html"><a href="chapter7.html#section7-10"><i class="fa fa-check"></i><b>7.10</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chapter8.html"><a href="chapter8.html"><i class="fa fa-check"></i><b>8</b> Multiple linear regression</a><ul>
+<li class="chapter" data-level="8.1" data-path="chapter8.html"><a href="chapter8.html#section8-1"><i class="fa fa-check"></i><b>8.1</b> Going from SLR to MLR</a></li>
+<li class="chapter" data-level="8.2" data-path="chapter8.html"><a href="chapter8.html#section8-2"><i class="fa fa-check"></i><b>8.2</b> Validity conditions in MLR</a></li>
+<li class="chapter" data-level="8.3" data-path="chapter8.html"><a href="chapter8.html#section8-3"><i class="fa fa-check"></i><b>8.3</b> Interpretation of MLR terms</a></li>
+<li class="chapter" data-level="8.4" data-path="chapter8.html"><a href="chapter8.html#section8-4"><i class="fa fa-check"></i><b>8.4</b> Comparing multiple regression models</a></li>
+<li class="chapter" data-level="8.5" data-path="chapter8.html"><a href="chapter8.html#section8-5"><i class="fa fa-check"></i><b>8.5</b> General recommendations for MLR interpretations and VIFs</a></li>
+<li class="chapter" data-level="8.6" data-path="chapter8.html"><a href="chapter8.html#section8-6"><i class="fa fa-check"></i><b>8.6</b> MLR inference: Parameter inferences using the t-distribution</a></li>
+<li class="chapter" data-level="8.7" data-path="chapter8.html"><a href="chapter8.html#section8-7"><i class="fa fa-check"></i><b>8.7</b> Overall F-test in multiple linear regression</a></li>
+<li class="chapter" data-level="8.8" data-path="chapter8.html"><a href="chapter8.html#section8-8"><i class="fa fa-check"></i><b>8.8</b> Case study: First year college GPA and SATs</a></li>
+<li class="chapter" data-level="8.9" data-path="chapter8.html"><a href="chapter8.html#section8-9"><i class="fa fa-check"></i><b>8.9</b> Different intercepts for different groups: MLR with indicator variables</a></li>
+<li class="chapter" data-level="8.10" data-path="chapter8.html"><a href="chapter8.html#section8-10"><i class="fa fa-check"></i><b>8.10</b> Additive MLR with more than two groups: Headache example</a></li>
+<li class="chapter" data-level="8.11" data-path="chapter8.html"><a href="chapter8.html#section8-11"><i class="fa fa-check"></i><b>8.11</b> Different slopes and different intercepts</a></li>
+<li class="chapter" data-level="8.12" data-path="chapter8.html"><a href="chapter8.html#section8-12"><i class="fa fa-check"></i><b>8.12</b> F-tests for MLR models with quantitative and categorical variables and interactions</a></li>
+<li class="chapter" data-level="8.13" data-path="chapter8.html"><a href="chapter8.html#section8-13"><i class="fa fa-check"></i><b>8.13</b> AICs for model selection</a></li>
+<li class="chapter" data-level="8.14" data-path="chapter8.html"><a href="chapter8.html#section8-14"><i class="fa fa-check"></i><b>8.14</b> Case study: Forced expiratory volume model selection using AICs</a></li>
+<li class="chapter" data-level="8.15" data-path="chapter8.html"><a href="chapter8.html#section8-15"><i class="fa fa-check"></i><b>8.15</b> Chapter summary</a></li>
+<li class="chapter" data-level="8.16" data-path="chapter8.html"><a href="chapter8.html#section8-16"><i class="fa fa-check"></i><b>8.16</b> Summary of important R code</a></li>
+<li class="chapter" data-level="8.17" data-path="chapter8.html"><a href="chapter8.html#section8-17"><i class="fa fa-check"></i><b>8.17</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chapter9.html"><a href="chapter9.html"><i class="fa fa-check"></i><b>9</b> Case studies</a><ul>
+<li class="chapter" data-level="9.1" data-path="chapter9.html"><a href="chapter9.html#section9-1"><i class="fa fa-check"></i><b>9.1</b> Overview of material covered</a></li>
+<li class="chapter" data-level="9.2" data-path="chapter9.html"><a href="chapter9.html#section9-2"><i class="fa fa-check"></i><b>9.2</b> The impact of simulated chronic nitrogen deposition on the biomass and N2-fixation activity of two boreal feather moss–cyanobacteria associations</a></li>
+<li class="chapter" data-level="9.3" data-path="chapter9.html"><a href="chapter9.html#section9-3"><i class="fa fa-check"></i><b>9.3</b> Ants learn to rely on more informative attributes during decision-making</a></li>
+<li class="chapter" data-level="9.4" data-path="chapter9.html"><a href="chapter9.html#section9-4"><i class="fa fa-check"></i><b>9.4</b> Multi-variate models are essential for understanding vertebrate diversification in deep time</a></li>
+<li class="chapter" data-level="9.5" data-path="chapter9.html"><a href="chapter9.html#section9-5"><i class="fa fa-check"></i><b>9.5</b> What do didgeridoos really do about sleepiness?</a></li>
+<li class="chapter" data-level="9.6" data-path="chapter9.html"><a href="chapter9.html#section9-6"><i class="fa fa-check"></i><b>9.6</b> General summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intermediate Statistics with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapter9" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Case studies</h1>
+<div id="section9-1" class="section level2">
+<h2><span class="header-section-number">9.1</span> Overview of material covered</h2>
+<p>At the beginning of the text, we provided a schematic of methods that you would
+learn about that was (probably) gibberish. Hopefully, revisiting that same diagram
+(Figure <a href="chapter9.html#fig:Figure9-1">9.1</a>) will bring back memories of each of the chapters.
+One common theme was that categorical variables create special challenges whether they are explanatory or
+response variables.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:Figure9-1"></span>
+<img src="chapter9_files/image002.png" alt="Schematic of methods covered." width="100%" />
+<p class="caption">
+Figure 9.1: Schematic of methods covered.
+</p>
+</div>
+<p>Every scenario with a quantitative response variable was handled using linear
+models. The last material on multiple linear regression modeling tied back to
+the One-Way and Two-Way ANOVA models as categorical variables were added to the
+models. As both a review and to emphasize the connections, let’s connect some
+of the different versions of the general linear model that we considered.</p>
+<div style="page-break-after: always;"></div>
+<p>If we start with the One-Way ANOVA, the referenced-coded model was written out
+as:</p>
+<p><span class="math display">\[y_{ij}=\alpha + \tau_j + \varepsilon_{ij}.\]</span></p>
+<p>We didn’t want to introduce indicator variables at that early stage of the
+material, but we can now write out the same model using our indicator variable
+approach from Chapter <a href="chapter8.html#chapter8">8</a> for a <span class="math inline">\(J\)</span>-level categorical explanatory
+variable using <span class="math inline">\(J-1\)</span> indicator variables as:
+ </p>
+<p><span class="math display">\[y_i = \beta_0 + \beta_1I_{\text{Level }2,i} + \beta_2I_{\text{Level }3,i} +
+\cdots + \beta_{J-1}I_{\text{Level }J,i} + \varepsilon_i.\]</span></p>
+<p>We now know how the indicator variables are either 0 or 1 for each observation
+and only one takes in the value 1 (is “turned on”) at a time for each response.
+We can then equate the general notation from Chapter <a href="chapter8.html#chapter8">8</a> with our
+specific One-Way ANOVA (Chapter <a href="chapter3.html#chapter3">3</a>) notation as follows:</p>
+<ul>
+<li><p>For the baseline category, the mean is:</p>
+<p><span class="math display">\[\alpha = \beta_0\]</span></p>
+<ul>
+<li>The mean for the baseline category was modeled using <span class="math inline">\(\alpha\)</span> which is
+the intercept term in the output that we called <span class="math inline">\(\beta_0\)</span> in the
+regression models.</li>
+</ul></li>
+<li><p>For category <span class="math inline">\(j\)</span>, the mean is:</p>
+<ul>
+<li>From the One-Way ANOVA model:</li>
+</ul>
+<p><span class="math display">\[\alpha + \tau_j\]</span></p>
+<ul>
+<li>From the regression model where the only indicator variable that is 1
+is <span class="math inline">\(I_{\text{Level }j,i}\)</span>:</li>
+</ul>
+<p><span class="math display">\[\begin{array}{rl}
+  &amp;\beta_0 + \beta_1I_{\text{Level }2,i} + \beta_2I_{\text{Level }3,i} + \cdots + \beta_JI_{\text{Level }J,i} \\
+  &amp;=  \beta_0 + \beta_{j-1}\cdot1\\ 
+  &amp;= \beta_0 + \beta_{j-1}
+  \end{array}\]</span></p>
+<ul>
+<li>So with intercepts being equal, <span class="math inline">\(\beta_{j-1}=\tau_j\)</span>.</li>
+</ul></li>
+</ul>
+<p>The ANOVA reference-coding notation was used to focus on the coefficients that
+were “turned on” and their interpretation without getting bogged down in the
+full power (and notation) of general linear models.
+</p>
+<p>The same equivalence is
+possible to equate our work in the Two-Way ANOVA interaction model,
+</p>
+<p><span class="math display">\[y_{ijk} = \alpha + \tau_j + \gamma_k + \omega_{jk} + \varepsilon_{ijk},\]</span></p>
+<p>with the regression notation from the MLR model with an interaction:
+</p>
+<p><span class="math display">\[\begin{array}{rc}
+y_i=&amp;\beta_0 + \beta_1x_i +\beta_2I_{\text{Level }2,i}+\beta_3I_{\text{Level }3,i}
++\cdots+\beta_JI_{\text{Level }J,i} +\beta_{J+1}I_{\text{Level }2,i}\:x_i \\
+&amp;+\beta_{J+2}I_{\text{Level }3,i}\:x_i
++\cdots+\beta_{2J-1}I_{\text{Level }J,i}\:x_i +\varepsilon_i
+\end{array}\]</span></p>
+<p>If one of the categorical variables only had two levels, then we could simply
+replace <span class="math inline">\(x_i\)</span> with the pertinent indicator variable and be able to equate the
+two versions of the notation. That said, we won’t attempt that here. And if
+both variables have more than 2 levels, the number of coefficients to keep
+track of grows rapidly. The great increase in complexity of notation to fully
+writing out the indicator variables in the regression approach with
+interactions with two categorical variables is the other reason we explored the
+Two-Way ANOVA using a “simplified” notation system even though <code>lm</code> used the
+indicator approach to estimate the model. The Two-Way ANOVA notation helped us
+distinguish which coefficients related to main effects and the interaction,
+something that the regression notation doesn’t make clear.</p>
+<p>In the following four sections, you will have additional opportunities to see
+applications of the methods considered here to real data. The data sets are taken directly
+from published research articles, so you can see the potential utility of the
+methods we’ve been discussing for handling real problems. They are focused on
+biological applications because most come from a particular journal (<em>Biology Letters</em>) that
+encourages authors to share their data sets, making
+our re-analyses possible. Use these sections to review the methods
+from earlier in the book and to see some hints about possible extensions of the methods you have learned.</p>
+
+</div>
+<div id="section9-2" class="section level2">
+<h2><span class="header-section-number">9.2</span> The impact of simulated chronic nitrogen deposition on the biomass and N2-fixation activity of two boreal feather moss–cyanobacteria associations</h2>
+
+<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb849-1"><a href="chapter9.html#cb849-1"></a>gdn &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/gundalebachnordin_2.csv&quot;</span>)</span></code></pre></div>
+
+<div class="figure"><span id="fig:Figure9-2"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-2-1.png" alt="Pirate-plot of biomass responses by treatment and species." width="576" />
+<p class="caption">
+Figure 9.2: Pirate-plot of biomass responses by treatment and species.
+</p>
+</div>
+<p>In a 16-year experiment, <span class="citation">Gundale, Bach, and Nordin (<a href="#ref-Gundale2013" role="doc-biblioref">2013</a>)</span> studied the impacts
+of Nitrogen (N) additions on the mass of two feather moss species
+(<em>Pleurozium schreberi</em> (<code>PS</code>) and <em>Hylocomium</em> (<code>HS</code>)) in the Svartberget
+Experimental Forest in Sweden. They used a randomized block design: here this
+means that within each of 6 blocks (pre-specified areas that were divided into
+three experimental units or plots of area 0.1 hectare), one of the three
+treatments were randomly applied. <strong><em>Randomized block designs</em></strong> involve
+randomization of levels within blocks or groups as opposed to <strong><em>completely
+randomized designs</em></strong> where each <strong><em>experimental unit</em></strong> (the subject or plot
+that will be measured) could be randomly assigned to any treatment.
+
+
+
+This is
+done in agricultural studies to control for systematic differences across the
+fields by making sure each treatment level is used in each area or <strong><em>block</em></strong>
+of the field. In this example, it resulted in a balanced design with six replicates at each combination of <em>Species</em> and <em>Treatment</em>.
+</p>
+<p>The three treatments involved different levels of N applied immediately after
+snow melt, <em>Control</em> (no additional N – just the naturally deposited
+amount), 12.5 kg N <span class="math inline">\(\text{ha}^{-1}\text{yr}^{-1}\)</span> (<em>N12.5</em>), and
+50 kg N <span class="math inline">\(\text{ha}^{-1}\text{yr}^{-1}\)</span> (<em>N50</em>). The researchers were
+interested in whether the treatments would have differential impacts on the
+two species of moss growth. They measured a variety of other
+variables, but here we focus on the estimated <em>biomass</em> per hectare (mg/ha) of
+the <em>species</em> (<em>PS</em> or <em>HS</em>), both measured for each plot within each block,
+considering differences across the <em>treatments</em> (<em>Control</em>, <em>N12.5</em>, or <em>N50</em>).
+The pirate-plot in Figure <a href="chapter9.html#fig:Figure9-2">9.2</a> provides some initial information
+about the responses. Initially there seem to be some differences in the
+combinations of groups and some differences in variability in the different
+groups, especially with much more variability in the <em>control</em> treatment level
+and more variability in the <em>PS</em> responses than for the <em>HS</em> responses.</p>
+<div class="sourceCode" id="cb850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb850-1"><a href="chapter9.html#cb850-1"></a>gdn &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/gundalebachnordin_2.csv&quot;</span>)</span>
+<span id="cb850-2"><a href="chapter9.html#cb850-2"></a>gdn<span class="op">$</span>Species &lt;-<span class="st"> </span><span class="kw">factor</span>(gdn<span class="op">$</span>Species)</span>
+<span id="cb850-3"><a href="chapter9.html#cb850-3"></a>gdn<span class="op">$</span>Treatment &lt;-<span class="st"> </span><span class="kw">factor</span>(gdn<span class="op">$</span>Treatment)</span>
+<span id="cb850-4"><a href="chapter9.html#cb850-4"></a><span class="kw">library</span>(yarrr)</span>
+<span id="cb850-5"><a href="chapter9.html#cb850-5"></a><span class="kw">pirateplot</span>(Massperha<span class="op">~</span>Species<span class="op">+</span>Treatment, <span class="dt">data=</span>gdn, <span class="dt">inf.method=</span><span class="st">&quot;ci&quot;</span>, <span class="dt">inf.disp=</span><span class="st">&quot;line&quot;</span>, </span>
+<span id="cb850-6"><a href="chapter9.html#cb850-6"></a>           <span class="dt">theme=</span><span class="dv">2</span>, <span class="dt">ylab=</span><span class="st">&quot;Biomass&quot;</span>,<span class="dt">point.o=</span><span class="dv">1</span>, <span class="dt">pal=</span><span class="st">&quot;southpark&quot;</span>)</span></code></pre></div>
+<p>The Two-WAY ANOVA model that contains a <em>species</em> by <em>treatment</em> interaction is
+of interest (this has a quantitative response variable of <em>biomass</em> and two
+categorical predictors of <em>species</em> and <em>treatment</em>)<a href="#fn147" class="footnote-ref" id="fnref147"><sup>147</sup></a>. We can make an interaction plot to
+focus on the observed patterns of the means across the combinations of levels
+as provided in Figure <a href="chapter9.html#fig:Figure9-3">9.3</a>. The interaction
+plot suggests a relatively additive pattern of differences between <em>PS</em> and
+<em>HS</em> across the three treatment levels. However, the variability seems to be
+quite different based on this plot as well.</p>
+
+<div class="figure"><span id="fig:Figure9-3"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-3-1.png" alt="Interaction plot of biomass responses by treatment and species." width="960" />
+<p class="caption">
+Figure 9.3: Interaction plot of biomass responses by treatment and species.
+</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sourceCode" id="cb851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb851-1"><a href="chapter9.html#cb851-1"></a><span class="kw">source</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v2.R&quot;</span>)</span>
+<span id="cb851-2"><a href="chapter9.html#cb851-2"></a><span class="kw">intplotarray</span>(Massperha<span class="op">~</span>Species<span class="op">*</span>Treatment, <span class="dt">data=</span>gdn, <span class="dt">col=</span><span class="kw">viridis</span>(<span class="dv">4</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>],</span>
+<span id="cb851-3"><a href="chapter9.html#cb851-3"></a>             <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">cex.main=</span><span class="dv">1</span>)</span></code></pre></div>
+<p>Based on the initial plots, we are going to be concerned about the equal
+variance assumption initially. We can fit the interaction model and explore
+the diagnostic plots to verify that we have a problem.</p>
+
+<div class="sourceCode" id="cb852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb852-1"><a href="chapter9.html#cb852-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Massperha<span class="op">~</span>Species<span class="op">*</span>Treatment, <span class="dt">data=</span>gdn)</span>
+<span id="cb852-2"><a href="chapter9.html#cb852-2"></a><span class="kw">summary</span>(m1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Massperha ~ Species * Treatment, data = gdn)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -992.6 -252.2  -64.6  308.0 1252.9 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)               1694.80     211.86   8.000 6.27e-09
+## SpeciesPS                  859.88     299.62   2.870  0.00745
+## TreatmentN12.5            -588.26     299.62  -1.963  0.05893
+## TreatmentN50             -1182.91     299.62  -3.948  0.00044
+## SpeciesPS:TreatmentN12.5   199.42     423.72   0.471  0.64130
+## SpeciesPS:TreatmentN50      88.29     423.72   0.208  0.83636
+## 
+## Residual standard error: 519 on 30 degrees of freedom
+## Multiple R-squared:  0.6661, Adjusted R-squared:  0.6104 
+## F-statistic: 11.97 on 5 and 30 DF,  p-value: 2.009e-06</code></pre>
+<div class="sourceCode" id="cb854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb854-1"><a href="chapter9.html#cb854-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">oma=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
+<span id="cb854-2"><a href="chapter9.html#cb854-2"></a><span class="kw">plot</span>(m1, <span class="dt">sub.caption=</span><span class="st">&quot;Initial Massperha 2-WAY model&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-4"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-4-1.png" alt="Diagnostic plots of treatment by species interaction model for Biomass." width="960" />
+<p class="caption">
+Figure 9.4: Diagnostic plots of treatment by species interaction model for Biomass.
+</p>
+</div>
+<p>There is a clear problem with non-constant variance showing up in a fanning
+shape<a href="#fn148" class="footnote-ref" id="fnref148"><sup>148</sup></a>
+in the Residuals versus Fitted and Scale-Location plots in Figure
+<a href="chapter9.html#fig:Figure9-4">9.4</a>. Interestingly, the normality assumption is not an issue as the residuals track the 1-1 line in the QQ-plot quite closely
+so hopefully we will not worsen this result by using a transformation to try to
+address the non-constant variance issue. The independence assumption is
+violated in two ways for this model by this study design – the blocks create
+clusters or groups of observations and the block should be accounted for (they
+did this in their models by adding <em>block</em> as a categorical variable to their
+models). Using blocked designs and accounting for the blocks in the model will
+typically give more precise inferences for the effects of interest, the
+treatments randomized within the blocks. Additionally, <strong>there are two
+measurements on each plot</strong> within block, one for <em>SP</em> and one for <em>HS</em> and
+these might be related (for example, high <em>HS</em> biomass might be associated with
+high or low <em>SP</em>) so putting both observations into a model <strong>violates the
+independence assumption</strong> at a second level. It takes more advanced statistical
+models (called linear mixed models) to see how to fully deal with
+this, for now it is important to recognize the issues. The more complicated
+models provide similar results here and include the <em>treatment</em> by <em>species</em>
+interaction we are going to explore, they just add to this basic model to
+account for these other issues.</p>
+<p>Remember that <strong>before using a <em>log</em>-transformation, you always must check
+that the responses are strictly greater than 0</strong>:</p>
+<div class="sourceCode" id="cb855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb855-1"><a href="chapter9.html#cb855-1"></a><span class="kw">summary</span>(gdn<span class="op">$</span>Massperha)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   319.1  1015.1  1521.8  1582.3  2026.6  3807.6</code></pre>
+<p>The minimum is 319.1 so it is safe to apply the natural log-transformation to
+the response variable (<em>Biomass</em>) and repeat the previous plots:</p>
+
+<div class="sourceCode" id="cb857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb857-1"><a href="chapter9.html#cb857-1"></a>gdn<span class="op">$</span>logMassperha &lt;-<span class="st"> </span><span class="kw">log</span>(gdn<span class="op">$</span>Massperha)</span>
+<span id="cb857-2"><a href="chapter9.html#cb857-2"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb857-3"><a href="chapter9.html#cb857-3"></a><span class="kw">pirateplot</span>(logMassperha<span class="op">~</span>Species<span class="op">+</span>Treatment, <span class="dt">data=</span>gdn, <span class="dt">inf.method=</span><span class="st">&quot;ci&quot;</span>, <span class="dt">inf.disp=</span><span class="st">&quot;line&quot;</span>, </span>
+<span id="cb857-4"><a href="chapter9.html#cb857-4"></a>           <span class="dt">theme=</span><span class="dv">2</span>, <span class="dt">ylab=</span><span class="st">&quot;Biomass&quot;</span>,<span class="dt">point.o=</span><span class="dv">1</span>, <span class="dt">pal=</span><span class="st">&quot;southpark&quot;</span>, <span class="dt">main=</span><span class="st">&quot;(a)&quot;</span>)</span>
+<span id="cb857-5"><a href="chapter9.html#cb857-5"></a><span class="kw">intplot</span>(logMassperha<span class="op">~</span>Species<span class="op">*</span>Treatment, <span class="dt">data=</span>gdn, <span class="dt">col=</span><span class="kw">viridis</span>(<span class="dv">4</span>)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">main=</span><span class="st">&quot;(b)&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-5"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-5-1.png" alt="Pirate-plot and interaction plot of the log-Biomass responses by treatment and species." width="576" />
+<p class="caption">
+Figure 9.5: Pirate-plot and interaction plot of the log-Biomass responses by treatment and species.
+</p>
+</div>
+<p>The variability in the pirate-plot in Figure <a href="chapter9.html#fig:Figure9-5">9.5</a>(a) appears to be
+more consistent across the groups but the lines appear to be a little less
+parallel in the interaction plot Figure <a href="chapter9.html#fig:Figure9-5">9.5</a>(b) for
+the log-scale response. That is not problematic but suggests that we may now
+have an interaction present – it is hard to tell visually sometimes. Again,
+fitting the interaction model and exploring the diagnostics is the best way to
+assess the success of the transformation applied.</p>
+<p>The log(Mass per ha) version of the response variable has little issue with
+changing variability present in the residuals in Figure <a href="chapter9.html#fig:Figure9-6">9.6</a>
+with much more similar variation in the residuals across the fitted values.
+The normality assumption is leaning toward a slight violation with too little
+variability in the right tail and so maybe a little bit of a left skew. This
+is only a minor issue and fixes the other big issue (clear non-constant
+variance), so this model is at least closer to giving us trustworthy
+inferences than the original model. The model presents moderate evidence against the null hypothesis of no
+<em>Species</em> by <em>Treatment</em> interaction on the log-biomass (<span class="math inline">\(F(2,30)=4.2\)</span>, p-value<span class="math inline">\(=0.026\)</span>). This
+suggests that the effects on the log-biomass of the treatments differ between
+the two species. The mean log-biomass is lower for <em>HS</em> than <em>PS</em> with the impacts of increased nitrogen causing <em>HS</em> mean log-biomass to decrease more rapidly than for <em>PS</em>. In other words, increasing
+nitrogen has more of an impact on the resulting log-biomass for <em>HS</em> than for
+<em>PS</em>. The highest mean log-biomass rates were observed under the control
+conditions for both species making nitrogen appear to inhibit growth of these
+species.</p>
+
+<div class="sourceCode" id="cb858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb858-1"><a href="chapter9.html#cb858-1"></a>m2 &lt;-<span class="st"> </span><span class="kw">lm</span>(logMassperha<span class="op">~</span>Species<span class="op">*</span>Treatment, <span class="dt">data=</span>gdn)</span>
+<span id="cb858-2"><a href="chapter9.html#cb858-2"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = logMassperha ~ Species * Treatment, data = gdn)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.51138 -0.16821 -0.02663  0.23925  0.44190 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)                7.4108     0.1160  63.902  &lt; 2e-16
+## SpeciesPS                  0.3921     0.1640   2.391  0.02329
+## TreatmentN12.5            -0.4228     0.1640  -2.578  0.01510
+## TreatmentN50              -1.1999     0.1640  -7.316 3.79e-08
+## SpeciesPS:TreatmentN12.5   0.2413     0.2319   1.040  0.30645
+## SpeciesPS:TreatmentN50     0.6616     0.2319   2.853  0.00778
+## 
+## Residual standard error: 0.2841 on 30 degrees of freedom
+## Multiple R-squared:  0.7998, Adjusted R-squared:  0.7664 
+## F-statistic: 23.96 on 5 and 30 DF,  p-value: 1.204e-09</code></pre>
+<div class="sourceCode" id="cb860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb860-1"><a href="chapter9.html#cb860-1"></a><span class="kw">library</span>(car)</span>
+<span id="cb860-2"><a href="chapter9.html#cb860-2"></a><span class="kw">Anova</span>(m2)</span></code></pre></div>
+<pre><code>## Anova Table (Type II tests)
+## 
+## Response: logMassperha
+##                   Sum Sq Df F value    Pr(&gt;F)
+## Species           4.3233  1  53.577 3.755e-08
+## Treatment         4.6725  2  28.952 9.923e-08
+## Species:Treatment 0.6727  2   4.168   0.02528
+## Residuals         2.4208 30</code></pre>
+<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb862-1"><a href="chapter9.html#cb862-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">oma=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
+<span id="cb862-2"><a href="chapter9.html#cb862-2"></a><span class="kw">plot</span>(m2, <span class="dt">sub.caption=</span><span class="st">&quot;log-Massperha 2-WAY model&quot;</span>, <span class="dt">pch=</span><span class="dv">16</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-6"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-6-1.png" alt="Diagnostic plots of treatment by species interaction model for log-Biomass." width="960" />
+<p class="caption">
+Figure 9.6: Diagnostic plots of treatment by species interaction model for log-Biomass.
+</p>
+</div>
+<p>The researchers actually applied a <span class="math inline">\(\log(y+1)\)</span> transformation to all the
+variables. This was used because one of their many variables had a value of 0
+and so they added 1 to avoid analyzing a <span class="math inline">\(-\infty\)</span> response. This was not
+needed for most of their variables because most did not attain the value
+of 0. Adding a small value to observations and then log-transforming is a
+common but completely arbitrary practice and the choice of the added value can
+impact the results. Sometimes considering a square-root transformation can
+accomplish similar benefits as the log-transform and be applied safely to
+responses that include 0s. Or more complicated statistical models can be used
+that allow 0s in responses and still account for the violations of the linear
+model assumptions – see a statistician or continue exploring more advanced
+statistical methods for ideas in this direction.</p>
+<p>The term-plot in Figure <a href="chapter9.html#fig:Figure9-7">9.7</a> provides another display of the
+results with some information on the results for each combination of the
+species and treatments. Retaining the interaction because of moderate evidence in the interaction test suggests that the treatments caused different
+results for the different species. And it appears that
+there are some clear differences among certain combinations such as the mean
+for <em>PS-Control</em> is clearly larger than for <em>HS</em>-<em>N50</em>. The researchers were
+probably really interested in whether the <em>N12.5</em> results differed from
+<em>Control</em> for <em>HS</em> and whether the <em>species</em> differed at <em>Control</em> sites. As
+part of performing all pair-wise comparisons, we can assess those sorts of
+detailed questions. This sort of follow-up could be considered in any
+Two-Way ANOVA model but will be most interesting in situations where there are
+important interactions.</p>
+
+<div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb863-1"><a href="chapter9.html#cb863-1"></a><span class="kw">library</span>(effects)</span>
+<span id="cb863-2"><a href="chapter9.html#cb863-2"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(m2), <span class="dt">multiline=</span>T, <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ci.style=</span><span class="st">&quot;bars&quot;</span>, <span class="dt">grid=</span>T)</span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-7"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-7-1.png" alt="Term-plot of the interaction model for log-biomass." width="576" />
+<p class="caption">
+Figure 9.7: Term-plot of the interaction model for log-biomass.
+</p>
+</div>
+<!-- \newpage -->
+<p><strong>Follow-up Pairwise Comparisons:</strong></p>
+<p>Given at least moderate evidence against the null hypothesis of no interaction, many researchers would like more
+details about the source of the differences. We can re-fit the model with a
+unique mean for each combination of the two predictor variables, fitting a
+One-Way ANOVA model (here with six levels) and using Tukey’s HSD to provide
+safe inferences for differences among pairs of the true means.  There are six
+groups corresponding to all combinations of <em>Species</em> (<em>HS</em>, <em>PS</em>) and
+treatment levels (<em>Control</em>, <em>N12.5</em>, and <em>N50</em>) provided in the new
+variable <code>SpTrt</code> by the <code>interaction</code> function with new levels of
+<em>HS.Control</em>, <em>PS.Control</em>, <em>HS.N12.5</em>, <em>PS.N12.5</em>, <em>HS.N50</em>, and <em>PS.N50</em>.  The
+One-Way ANOVA <span class="math inline">\(F\)</span>-test (<span class="math inline">\(F(5,30)=23.96\)</span>, p-value <span class="math inline">\(&lt;0.0001\)</span>) suggests that there
+is strong evidence against the null hypothesis of no difference in the true mean log-biomass among the six
+treatment/species combinations and so we would conclude that at least one differs from the others. Note that the One-Way ANOVA table contains the test for
+at least one of those means being different from the others; the interaction
+test above was testing a more refined hypothesis – does the effect of
+treatment differ between the two species? As in any situation with a small p-value from the overall
+One-Way ANOVA test, the pair-wise comparisons should be of interest.</p>
+<div style="page-break-after: always;"></div>
+<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb864-1"><a href="chapter9.html#cb864-1"></a><span class="co"># Create new variable:</span></span>
+<span id="cb864-2"><a href="chapter9.html#cb864-2"></a>gdn<span class="op">$</span>SpTrt &lt;-<span class="st"> </span><span class="kw">interaction</span>(gdn<span class="op">$</span>Species, gdn<span class="op">$</span>Treatment)</span>
+<span id="cb864-3"><a href="chapter9.html#cb864-3"></a><span class="kw">levels</span>(gdn<span class="op">$</span>SpTrt)</span></code></pre></div>
+<pre><code>## [1] &quot;HS.Control&quot; &quot;PS.Control&quot; &quot;HS.N12.5&quot;   &quot;PS.N12.5&quot;   &quot;HS.N50&quot;    
+## [6] &quot;PS.N50&quot;</code></pre>
+<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="chapter9.html#cb866-1"></a>newm2 &lt;-<span class="st"> </span><span class="kw">lm</span>(logMassperha<span class="op">~</span>SpTrt, <span class="dt">data=</span>gdn)</span>
+<span id="cb866-2"><a href="chapter9.html#cb866-2"></a><span class="kw">Anova</span>(newm2)</span></code></pre></div>
+<pre><code>## Anova Table (Type II tests)
+## 
+## Response: logMassperha
+##           Sum Sq Df F value    Pr(&gt;F)
+## SpTrt     9.6685  5  23.963 1.204e-09
+## Residuals 2.4208 30</code></pre>
+<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="chapter9.html#cb868-1"></a><span class="kw">library</span>(multcomp)</span>
+<span id="cb868-2"><a href="chapter9.html#cb868-2"></a>PWnewm2 &lt;-<span class="st"> </span><span class="kw">glht</span>(newm2, <span class="dt">linfct=</span><span class="kw">mcp</span>(<span class="dt">SpTrt=</span><span class="st">&quot;Tukey&quot;</span>))</span>
+<span id="cb868-3"><a href="chapter9.html#cb868-3"></a><span class="kw">confint</span>(PWnewm2)</span></code></pre></div>
+<pre><code>## 
+##   Simultaneous Confidence Intervals
+## 
+## Multiple Comparisons of Means: Tukey Contrasts
+## 
+## 
+## Fit: lm(formula = logMassperha ~ SpTrt, data = gdn)
+## 
+## Quantile = 3.0421
+## 95% family-wise confidence level
+##  
+## 
+## Linear Hypotheses:
+##                              Estimate lwr      upr     
+## PS.Control - HS.Control == 0  0.39210 -0.10682  0.89102
+## HS.N12.5 - HS.Control == 0   -0.42277 -0.92169  0.07615
+## PS.N12.5 - HS.Control == 0    0.21064 -0.28828  0.70957
+## HS.N50 - HS.Control == 0     -1.19994 -1.69886 -0.70102
+## PS.N50 - HS.Control == 0     -0.14620 -0.64512  0.35272
+## HS.N12.5 - PS.Control == 0   -0.81487 -1.31379 -0.31595
+## PS.N12.5 - PS.Control == 0   -0.18146 -0.68038  0.31746
+## HS.N50 - PS.Control == 0     -1.59204 -2.09096 -1.09312
+## PS.N50 - PS.Control == 0     -0.53830 -1.03722 -0.03938
+## PS.N12.5 - HS.N12.5 == 0      0.63342  0.13450  1.13234
+## HS.N50 - HS.N12.5 == 0       -0.77717 -1.27609 -0.27824
+## PS.N50 - HS.N12.5 == 0        0.27657 -0.22235  0.77549
+## HS.N50 - PS.N12.5 == 0       -1.41058 -1.90950 -0.91166
+## PS.N50 - PS.N12.5 == 0       -0.35685 -0.85577  0.14208
+## PS.N50 - HS.N50 == 0          1.05374  0.55482  1.55266</code></pre>
+<p>We can also generate the Compact Letter Display (CLD) to help us group up the
+results. </p>
+<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb870-1"><a href="chapter9.html#cb870-1"></a><span class="kw">cld</span>(PWnewm2)</span></code></pre></div>
+<pre><code>## HS.Control PS.Control   HS.N12.5   PS.N12.5     HS.N50     PS.N50 
+##       &quot;bd&quot;        &quot;d&quot;        &quot;b&quot;       &quot;cd&quot;        &quot;a&quot;       &quot;bc&quot;</code></pre>
+<p>And we can add the CLD to an interaction plot to create Figure
+<a href="chapter9.html#fig:Figure9-8">9.8</a>. Researchers often use displays like this to simplify the
+presentation of pair-wise comparisons. Sometimes researchers add bars or stars
+to provide the same information about pairs that are or are not detectably
+different. The following code creates the plot of these results using our
+<code>intplot</code> function and the <code>cld=T</code> option. </p>
+
+<div class="sourceCode" id="cb872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb872-1"><a href="chapter9.html#cb872-1"></a><span class="kw">intplot</span>(logMassperha<span class="op">~</span>Species<span class="op">*</span>Treatment, <span class="dt">cld=</span>T, <span class="dt">cldshift=</span><span class="fl">0.15</span>, <span class="dt">data=</span>gdn, <span class="dt">lwd=</span><span class="dv">2</span>, </span>
+<span id="cb872-2"><a href="chapter9.html#cb872-2"></a>        <span class="dt">main=</span><span class="st">&quot;Interaction with CLD from Tukey&#39;s HSD on One-Way ANOVA&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-8"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-8-1.png" alt="Interaction plot for log-biomass with CLD from Tukey’s HSD for all pairwise comparisons." width="960" />
+<p class="caption">
+Figure 9.8: Interaction plot for log-biomass with CLD from Tukey’s HSD for all pairwise comparisons.
+</p>
+</div>
+<p>These results suggest that <em>HS-N50</em> is detectably different from all the other
+groups (letter “a”). The rest of the story is more complicated since many of
+the sets contain overlapping groups in terms of detectable differences. Some
+specific aspects of those results are most interesting. The mean log-biomasses
+were not detectably different between the species in the control group (they share a “d”). In other words,
+without treatment, there is little to no evidence against the null hypothesis of no difference in how much of the two
+species are present in the sites. For <em>N12.5</em> and <em>N50</em> treatments, there are
+detectable differences between the <em>Species</em>. These comparisons are probably of
+the most interest initially and suggest that the treatments have a different
+impact on the two species, remembering that in the control treatments, the
+results for the two species were not detectably different. Further explorations
+of the sizes of the differences that can be extracted from selected confidence
+intervals in the Tukey’s HSD results printed above. Because these results are for the log-scale responses, we could exponentiate coefficients for groups that are deviations from the baseline category and interpret those as multiplicative changes in the median relative to the baseline group, but at the end of this amount of material, I thought that might stop you from reading on any further…</p>
+
+</div>
+<div id="section9-3" class="section level2">
+<h2><span class="header-section-number">9.3</span> Ants learn to rely on more informative attributes during decision-making</h2>
+
+<p>In <span class="citation">Sasaki and Pratt (<a href="#ref-Sasaki2013" role="doc-biblioref">2013</a>)</span>, a set of ant colonies were randomly assigned to one
+of two treatments to study whether the ants could be “trained” to have a
+preference for or against certain attributes for potential nest sites. The
+colonies were either randomly assigned to experience the repeated choice of two
+identical colony sites except for having an inferior light or entrance size
+attribute. Then the ants were allowed to choose between two nests, one that had
+a large entrance but was dark and the other that had a small entrance but was
+bright. 54 of the 60 colonies that were randomly assigned to one of the two
+treatments completed the experiment by making a choice between the two types of
+sites. The data set and some processing code follows.</p>
+<p>The first question is what type of analysis is appropriate here.
+Once we recognize that there are two categorical variables being considered
+(<em>Treatment</em> group with two levels and <em>After</em> choice with two levels
+<em>SmallBright</em> or <em>LargeDark</em> for what the colonies selected), then this is recognized as being within our
+Chi-square testing framework. The random assignment of colonies (the subjects
+here) to treatment levels tells us that the <strong><em>Chi-square Homogeneity test</em></strong>
+is appropriate here and that we can make causal statements about the effects of the <em>Treatment</em> groups.</p>
+<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb873-1"><a href="chapter9.html#cb873-1"></a>sasakipratt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/sasakipratt.csv&quot;</span>)</span></code></pre></div>
+
+<div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb874-1"><a href="chapter9.html#cb874-1"></a>sasakipratt<span class="op">$</span>group &lt;-<span class="st"> </span><span class="kw">factor</span>(sasakipratt<span class="op">$</span>group)</span>
+<span id="cb874-2"><a href="chapter9.html#cb874-2"></a><span class="kw">levels</span>(sasakipratt<span class="op">$</span>group) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Light&quot;</span>,<span class="st">&quot;Entrance&quot;</span>)</span>
+<span id="cb874-3"><a href="chapter9.html#cb874-3"></a>sasakipratt<span class="op">$</span>after &lt;-<span class="st"> </span><span class="kw">factor</span>(sasakipratt<span class="op">$</span>after)</span>
+<span id="cb874-4"><a href="chapter9.html#cb874-4"></a><span class="kw">levels</span>(sasakipratt<span class="op">$</span>after) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SmallBright&quot;</span>,<span class="st">&quot;LargeDark&quot;</span>)</span>
+<span id="cb874-5"><a href="chapter9.html#cb874-5"></a>sasakipratt<span class="op">$</span>before &lt;-<span class="st"> </span><span class="kw">factor</span>(sasakipratt<span class="op">$</span>before)</span>
+<span id="cb874-6"><a href="chapter9.html#cb874-6"></a><span class="kw">levels</span>(sasakipratt<span class="op">$</span>before) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SmallBright&quot;</span>,<span class="st">&quot;LargeDark&quot;</span>)</span>
+<span id="cb874-7"><a href="chapter9.html#cb874-7"></a><span class="kw">plot</span>(after<span class="op">~</span>group, <span class="dt">data=</span>sasakipratt)</span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-9"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-9-1.png" alt="Stacked bar chart for Ant Colony results." width="576" />
+<p class="caption">
+Figure 9.9: Stacked bar chart for Ant Colony results.
+</p>
+</div>
+<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb875-1"><a href="chapter9.html#cb875-1"></a><span class="kw">library</span>(mosaic)</span>
+<span id="cb875-2"><a href="chapter9.html#cb875-2"></a><span class="kw">tally</span>(<span class="op">~</span>group<span class="op">+</span>after, <span class="dt">data=</span>sasakipratt)</span></code></pre></div>
+<pre><code>##           after
+## group      SmallBright LargeDark
+##   Light             19         9
+##   Entrance           9        17</code></pre>
+<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="chapter9.html#cb877-1"></a>table1 &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>group<span class="op">+</span>after, <span class="dt">data=</span>sasakipratt, <span class="dt">margins=</span>F)</span></code></pre></div>
+<p>The null hypothesis of interest here is that there is no difference in the
+distribution of responses on <em>After</em> – the rates of their choice of den types
+– between the two treatment <em>groups</em> in the population of all ant colonies
+like those studied. The alternative is that there is some difference in the
+distributions of <em>After</em> between the <em>groups</em> in the population.</p>
+<p>To use the Chi-square distribution to find a p-value for the <span class="math inline">\(X^2\)</span> statistic,
+we need all the expected cell counts to be larger than 5, so we should check
+that. Note that in the following, the <code>correct=F</code> option is used to keep the
+function from slightly modifying the statistic used that occurs when overall
+sample sizes are small.</p>
+<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb878-1"><a href="chapter9.html#cb878-1"></a><span class="kw">chisq.test</span>(table1, <span class="dt">correct=</span>F)<span class="op">$</span>expected</span></code></pre></div>
+<pre><code>##           after
+## group      SmallBright LargeDark
+##   Light       14.51852  13.48148
+##   Entrance    13.48148  12.51852</code></pre>
+<p>Our expected cell count condition is met, so we can proceed to explore the
+results of the parametric test:</p>
+<div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb880-1"><a href="chapter9.html#cb880-1"></a><span class="kw">chisq.test</span>(table1, <span class="dt">correct=</span>F)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  table1
+## X-squared = 5.9671, df = 1, p-value = 0.01458</code></pre>
+<p>The <span class="math inline">\(X^2\)</span> statistic is 5.97 which, if our assumptions hold, should
+approximately follow a Chi-square distribution with <span class="math inline">\((R-1)*(C-1)=1\)</span> degrees of
+freedom under the null hypothesis. The p-value is 0.015, suggesting that there
+is moderate to strong evidence against the null hypothesis and we can conclude that there is a
+difference in the distribution of the responses between the two treated groups
+in the population of all ant colonies that could have been treated. Because of
+the random assignment, we can say that the treatments caused differences in the
+colony choices. These results cannot be extended to ants beyond those being
+studied by these researchers because they were not randomly selected.</p>
+<p>Further exploration of the standardized residuals can provide more insights in
+some situations, although here they are similar for all the cells:</p>
+<div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb882-1"><a href="chapter9.html#cb882-1"></a><span class="kw">chisq.test</span>(table1, <span class="dt">correct=</span>F)<span class="op">$</span>residuals</span></code></pre></div>
+<pre><code>##           after
+## group      SmallBright LargeDark
+##   Light       1.176144 -1.220542
+##   Entrance   -1.220542  1.266616</code></pre>
+<p>When all the standardized residual contributions are similar, that suggests
+that there are differences in all the cells from what we would expect if the
+null hypothesis were true. Basically, that means that what we observed is a bit
+larger than expected for the <em>Light</em> treatment group in the <em>SmallBright</em>
+choice and lower than expected in <em>LargeDark</em> – those treated ants preferred
+the small and bright den. And for the <em>Entrance</em> treated group, they preferred
+the large entrance, dark den at a higher rate than expected if the null is
+true and lower than expected in the small entrance, bright location.</p>
+<p>The researchers extended this basic result a little further using a statistical
+model called <strong><em>logistic regression</em></strong>, which involves using something like a
+linear model but with a categorical response variable (well – it actually only
+works for a two-category response variable). They also had measured which of
+the two types of dens that each colony chose before treatment and used this model to control
+for that choice. So the actual model used in their paper contained two
+predictor variables – the randomized treatment received that we explored here
+and the prior choice of den type. The interpretation of their results related
+to the same treatment effect, but they were able to discuss it after adjusting
+for the colonies previous selection. Their conclusions were similar to those
+found with our simpler analysis. Logistic regression models are a special case
+of what are called <em>generalized linear models</em> and are a topic for the next level
+of statistics if you continue exploring.</p>
+
+</div>
+<div id="section9-4" class="section level2">
+<h2><span class="header-section-number">9.4</span> Multi-variate models are essential for understanding vertebrate diversification in deep time</h2>
+
+<p><span class="citation">Benson and Mannion (<a href="#ref-Benson2012" role="doc-biblioref">2012</a>)</span> published a paleontology study that considered
+modeling the diversity of <em>Sauropodomorphs</em> across <span class="math inline">\(n=26\)</span> “stage-level” time
+bins. Diversity is measured by the count of the number of different species
+that have been found in a particular level of fossils. Specifically, the counts
+in the <em>Sauropodomorphs</em> group were obtained for stages between <em>Carnian</em> and
+<em>Maastrichtian</em>, with the first three stages in the <em>Triassic</em>, the next ten in
+the <em>Jurassic</em>, and the last eleven in the <em>Cretaceous</em>. They were concerned
+about variation in sampling
+efforts and the ability of paleontologists to find fossils across different
+stages creating a false impression of the changes in biodiversity (counts of species) over time.
+They first wanted to see if the species counts were related to factors such as
+the count of dinosaur-bearing-formations (<em>DBF</em>) and the count of
+dinosaur-bearing-collections (<em>DBC</em>) that have been identified for each period.
+The thought is that if there are more formations or collections of fossils from
+certain stages, the diversity might be better counted (more found of those
+available to find) and those stages with less information available might be
+under-counted. They also measured the length of each stage (<em>Duration</em>) but did
+not consider it in their models since they want to reflect the diversity and
+longer stages would likely have higher diversity.</p>
+<p>Their main goal was to develop a model that would <strong>control for</strong> the effects
+of sampling efforts and allow them to perform inferences for whether the
+diversity was different between the <em>Triassic/Jurassic</em> (grouped together) and
+considered models that included two different versions of sampling effort
+variables and one for the comparisons of periods (an indicator variable
+<em>TJK</em>=0 if the observation is in <em>Triassic</em> or <em>Jurassic</em> or 1 if in
+<em>Cretaceous</em>), which are more explicitly coded below.  They <em>log-e</em> transformed all their quantitative variables
+because the untransformed variables created diagnostic issues including
+influential points.  They explored a model just based on the <em>DBC</em>
+predictor<a href="#fn149" class="footnote-ref" id="fnref149"><sup>149</sup></a> and they analyzed the residuals from that model to see if the
+biodiversity was different in the <em>Cretaceous</em> or before, finding a
+“p-value <strong>&gt;=</strong> 0.0001” (I think they meant &lt; 0.0001<a href="#fn150" class="footnote-ref" id="fnref150"><sup>150</sup></a>). They were comparing the MLR
+models you learned to some extended regression models that incorporated a
+correction for correlation in the responses over time, but we can proceed with
+fitting some of their MLR models and using an AIC comparison similar to what
+they used. There are some obvious flaws in their analysis and results that we
+will avoid<a href="#fn151" class="footnote-ref" id="fnref151"><sup>151</sup></a>.</p>
+<p>First, we start with a plot of the log-diversity vs the log-dinosaur bearing
+collections by period. We can see fairly strong positive relationships between
+the log amounts of collections and species found with potentially similar
+slopes for the two periods but what look like different intercepts. Especially
+for <em>TJK</em> level 1 (<em>Cretaceous</em> period) observations, we might need to worry
+about a curving relationship. Note that a similar plot can also be made using
+the formations version of the quantitative predictor variable and that the
+research questions involve whether <em>DBF</em> or <em>DBC</em> are better predictor
+variables.</p>
+<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="chapter9.html#cb884-1"></a>bm &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/bensonmanion.csv&quot;</span>)</span></code></pre></div>
+
+<div class="sourceCode" id="cb885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb885-1"><a href="chapter9.html#cb885-1"></a>bm2 &lt;-<span class="st"> </span>bm[,<span class="op">-</span><span class="kw">c</span>(<span class="dv">9</span><span class="op">:</span><span class="dv">10</span>)]</span>
+<span id="cb885-2"><a href="chapter9.html#cb885-2"></a>bm<span class="op">$</span>logSpecies &lt;-<span class="st"> </span><span class="kw">log</span>(bm<span class="op">$</span>Species)</span>
+<span id="cb885-3"><a href="chapter9.html#cb885-3"></a>bm<span class="op">$</span>logDBCs &lt;-<span class="st"> </span><span class="kw">log</span>(bm<span class="op">$</span>DBCs)</span>
+<span id="cb885-4"><a href="chapter9.html#cb885-4"></a>bm<span class="op">$</span>logDBFs &lt;-<span class="st"> </span><span class="kw">log</span>(bm<span class="op">$</span>DBFs)</span>
+<span id="cb885-5"><a href="chapter9.html#cb885-5"></a>bm<span class="op">$</span>TJK &lt;-<span class="st"> </span><span class="kw">factor</span>(bm<span class="op">$</span>TJK)</span>
+<span id="cb885-6"><a href="chapter9.html#cb885-6"></a><span class="kw">levels</span>(bm<span class="op">$</span>TJK) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Trias_Juras&quot;</span>,<span class="st">&quot;Cretaceous&quot;</span>)</span>
+<span id="cb885-7"><a href="chapter9.html#cb885-7"></a><span class="kw">library</span>(car); <span class="kw">library</span>(viridis)</span>
+<span id="cb885-8"><a href="chapter9.html#cb885-8"></a><span class="kw">scatterplot</span>(logSpecies<span class="op">~</span>logDBCs<span class="op">|</span>TJK, <span class="dt">data=</span>bm, <span class="dt">smooth=</span>T,</span>
+<span id="cb885-9"><a href="chapter9.html#cb885-9"></a>            <span class="dt">main=</span><span class="st">&quot;Scatterplot of log-diversity vs log-DBCs by period&quot;</span>,</span>
+<span id="cb885-10"><a href="chapter9.html#cb885-10"></a>            <span class="dt">legend=</span><span class="kw">list</span>(<span class="dt">coords=</span><span class="st">&quot;topleft&quot;</span>,<span class="dt">columns=</span><span class="dv">1</span>), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="kw">viridis</span>(<span class="dv">7</span>)[<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">1</span>)])</span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-10"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-10-1.png" alt="Scatterplot of log-biodiversity vs log-DBCs by TJK." width="960" />
+<p class="caption">
+Figure 9.10: Scatterplot of <em>log-biodiversity</em> vs <em>log-DBCs</em> by <em>TJK</em>.
+</p>
+</div>
+<div style="page-break-after: always;"></div>
+<p>The following results will allow us to explore models similar to theirs. One
+“full” model they considered is:</p>
+<p><span class="math display">\[\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBC})}_i 
++ \beta_2I_{\text{TJK},i} + \varepsilon_i\]</span></p>
+<p>which was compared to</p>
+<p><span class="math display">\[\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBF})}_i 
++ \beta_2I_{\text{TJK},i} + \varepsilon_i\]</span></p>
+<p>as well as the simpler models that each suggests:</p>
+<p><span class="math display">\[\begin{array}{rl}
+\log{(\text{count})}_i &amp;=\beta_0 + \beta_1\cdot\log{(\text{DBC})}_i 
++ \varepsilon_i, \\
+\log{(\text{count})}_i &amp;=\beta_0 + \beta_1\cdot\log{(\text{DBF})}_i
++ \varepsilon_i, \\
+\log{(\text{count})}_i &amp;=\beta_0 + \beta_2I_{\text{TJK},i} 
++ \varepsilon_i, \text{ and} \\
+\log{(\text{count})}_i &amp;=\beta_0 + \varepsilon_i.  \\
+\end{array}\]</span></p>
+<p>Both versions of the models (based on <em>DBF</em> or <em>DBC</em>) start with an MLR model
+with a quantitative variable and two slopes. We can obtain some of the needed
+model selection results from the first full model using:</p>
+<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="chapter9.html#cb886-1"></a>bd1 &lt;-<span class="st"> </span><span class="kw">lm</span>(logSpecies<span class="op">~</span>logDBCs<span class="op">+</span>TJK, <span class="dt">data=</span>bm)</span>
+<span id="cb886-2"><a href="chapter9.html#cb886-2"></a><span class="kw">library</span>(MuMIn)</span>
+<span id="cb886-3"><a href="chapter9.html#cb886-3"></a><span class="kw">options</span>(<span class="dt">na.action =</span> <span class="st">&quot;na.fail&quot;</span>)</span>
+<span id="cb886-4"><a href="chapter9.html#cb886-4"></a><span class="kw">dredge</span>(bd1, <span class="dt">rank=</span><span class="st">&quot;AIC&quot;</span>, </span>
+<span id="cb886-5"><a href="chapter9.html#cb886-5"></a>       <span class="dt">extra=</span><span class="kw">c</span>(<span class="st">&quot;R^2&quot;</span>, <span class="dt">adjRsq=</span><span class="cf">function</span>(x) <span class="kw">summary</span>(x)<span class="op">$</span>adj.r.squared))</span></code></pre></div>
+<pre><code>## Global model call: lm(formula = logSpecies ~ logDBCs + TJK, data = bm)
+## ---
+## Model selection table 
+##   (Intrc)  lgDBC TJK      R^2   adjRsq df  logLik  AIC delta weight
+## 4 -1.0890 0.7243   + 0.580900  0.54440  4 -12.652 33.3  0.00  0.987
+## 2  0.1988 0.4283     0.369100  0.34280  3 -17.969 41.9  8.63  0.013
+## 1  2.5690            0.000000  0.00000  2 -23.956 51.9 18.61  0.000
+## 3  2.5300          + 0.004823 -0.03664  3 -23.893 53.8 20.48  0.000
+## Models ranked by AIC(x)</code></pre>
+<p>And from the second model:</p>
+<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb888-1"><a href="chapter9.html#cb888-1"></a>bd2 &lt;-<span class="st"> </span><span class="kw">lm</span>(logSpecies<span class="op">~</span>logDBFs<span class="op">+</span>TJK, <span class="dt">data=</span>bm)</span>
+<span id="cb888-2"><a href="chapter9.html#cb888-2"></a><span class="kw">dredge</span>(bd2, <span class="dt">rank=</span><span class="st">&quot;AIC&quot;</span>,</span>
+<span id="cb888-3"><a href="chapter9.html#cb888-3"></a>       <span class="dt">extra=</span><span class="kw">c</span>(<span class="st">&quot;R^2&quot;</span>, <span class="dt">adjRsq=</span><span class="cf">function</span>(x) <span class="kw">summary</span>(x)<span class="op">$</span>adj.r.squared))</span></code></pre></div>
+<pre><code>## Global model call: lm(formula = logSpecies ~ logDBFs + TJK, data = bm)
+## ---
+## Model selection table 
+##   (Intrc)  lgDBF TJK      R^2   adjRsq df  logLik  AIC delta weight
+## 4 -2.4100 1.3710   + 0.519900  0.47810  4 -14.418 36.8  0.00  0.995
+## 2  0.5964 0.4882     0.209800  0.17690  3 -20.895 47.8 10.95  0.004
+## 1  2.5690            0.000000  0.00000  2 -23.956 51.9 15.08  0.001
+## 3  2.5300          + 0.004823 -0.03664  3 -23.893 53.8 16.95  0.000
+## Models ranked by AIC(x)</code></pre>
+<p>The top AIC model is
+<span class="math inline">\(\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBC})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i\)</span>
+with an AIC of 33.3. The next best ranked model on AICs was <span class="math inline">\(\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBF})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i\)</span>
+with an AIC of 36.8, so 3.5 AIC units worse than the top model and so there is clear evidence to support the <code>DBC+TJK</code> model over the best version with <code>DBF</code> and all others. We put these
+two runs of results together in Table <a href="chapter9.html#tab:Table9-1">9.1</a>, re-computing all the
+AICs based on the top model from the first full model considered to make it easier to see this.</p>
+
+<table style="width:100%;">
+<caption><span id="tab:Table9-1">Table 9.1: </span> Model comparison table.</caption>
+<colgroup>
+<col width="55%" />
+<col width="5%" />
+<col width="10%" />
+<col width="4%" />
+<col width="9%" />
+<col width="5%" />
+<col width="7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>Model</strong>                </th>
+<th align="right"><strong>R<sup>2</sup></strong></th>
+<th align="right"><strong>adj R<sup>2</sup></strong> </th>
+<th align="right"><strong>df</strong></th>
+<th align="right"><strong>logLik</strong> </th>
+<th align="right"><strong>AIC</strong></th>
+<th align="right"><span class="math inline">\(\BD\)</span><strong>AIC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\log(\text{count})_i=\beta_0 + \beta_1\cdot\log(\text{DBC})_i + \beta_2I_{\text{TJK},i} + \varepsilon_i\)</span></td>
+<td align="right">0.5809</td>
+<td align="right">0.5444</td>
+<td align="right">4</td>
+<td align="right">-12.652</td>
+<td align="right">33.3</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\log(\text{count})_i=\beta_0 + \beta_1\cdot\log(\text{DBF})_i + \beta_2I_{\text{TJK},i} + \varepsilon_i\)</span></td>
+<td align="right">0.5199</td>
+<td align="right">0.4781</td>
+<td align="right">4</td>
+<td align="right">-14.418</td>
+<td align="right">36.8</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\log(\text{count})_i=\beta_0 + \beta_1\cdot\log(\text{DBC})_i + \varepsilon_i\)</span></td>
+<td align="right">0.3691</td>
+<td align="right">0.3428</td>
+<td align="right">3</td>
+<td align="right">-17.969</td>
+<td align="right">41.9</td>
+<td align="right">8.6</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\log(\text{count})_i=\beta_0 + \beta_1\cdot\log(\text{DBF})_i + \varepsilon_i\)</span></td>
+<td align="right">0.2098</td>
+<td align="right">0.1769</td>
+<td align="right">3</td>
+<td align="right">-20.895</td>
+<td align="right">47.8</td>
+<td align="right">14.5</td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\log(\text{count})_i=\beta_0 + \varepsilon_i\)</span></td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">-23.956</td>
+<td align="right">51.9</td>
+<td align="right">18.6</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\log(\text{count})_i=\beta_0 + \beta_2I_{\text{TJK},i} + \varepsilon_i\)</span></td>
+<td align="right">0.0048</td>
+<td align="right">-0.0366</td>
+<td align="right">3</td>
+<td align="right">-23.893</td>
+<td align="right">53.8</td>
+<td align="right">20.5</td>
+</tr>
+</tbody>
+</table>
+<p>Table <a href="chapter9.html#tab:Table9-1">9.1</a> suggests some interesting results. By itself, <span class="math inline">\(TJK\)</span> leads to the worst performing model on the AIC measure, ranking below a model with nothing in it
+(mean-only) and 20.5 AIC units worse than the top model. But the two top models
+distinctly benefit from the inclusion of <em>TJK</em>. This suggests that after
+controlling for the sampling effort, either through <em>DBC</em> or <em>DBF</em>, the
+differences in the stages captured by <em>TJK</em> can be more clearly observed.</p>
+<p>So the top model in our (correct) results<a href="#fn152" class="footnote-ref" id="fnref152"><sup>152</sup></a> suggests that
+<em>log(DBC)</em> is important as well as different intercepts for the two periods. We can interrogate
+this model further but we should check the diagnostics (Figure
+<a href="chapter9.html#fig:Figure9-11">9.11</a>) and consider our model
+assumptions first as AICs are not valid if the model assumptions are clearly violated.</p>
+
+<div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb890-1"><a href="chapter9.html#cb890-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">oma=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
+<span id="cb890-2"><a href="chapter9.html#cb890-2"></a><span class="kw">plot</span>(bd1, <span class="dt">pch=</span><span class="dv">16</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-11"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-11-1.png" alt="Diagnostic plots for the top AIC model." width="960" />
+<p class="caption">
+Figure 9.11: Diagnostic plots for the top AIC model.
+</p>
+</div>
+<p>The constant variance, linearity, and assessment of influence do not suggest any problems with those assumptions. This is reinforced in the partial residuals in Figure <a href="chapter9.html#fig:Figure9-12">9.12</a>. The normality assumption is possibly violated but shows lighter
+tails than expected from a normal distribution and so should cause few
+problems with inferences (we would be looking for an answer of “yes, there is a
+violation of the normality assumption but that problem is
+minor because the pattern is not the problematic type of violation
+because both the upper and lower tails are shorter than expected from a normal distribution”). The other assumption that <strong>is violated for all our models</strong> is
+that the observations are independent. Between neighboring stages in time,
+there would likely be some sort of relationship in the biodiversity so
+we should not assume that the observations are independent (this is another
+<strong><em>time series</em></strong> of observations).  The authors acknowledged this issue but
+unskillfully attempted to deal with it. Because an interaction was not
+considered in any of the models, there also is an assumption that the results
+are parallel enough for the two groups. The scatterplot in Figure
+<a href="chapter9.html#fig:Figure9-10">9.10</a> suggests that using parallel lines for the two
+groups is probably reasonable but a full assessment really should also explore
+that fully to verify that there is no support for an interaction which would relate to different impacts of sampling efforts on the response across the levels of <em>TJK</em>.</p>
+<p>Ignoring the violation of the independence assumption, we are otherwise OK to
+explore the model more and see what it tells us about biodiversity of
+<em>Sauropodomorphs</em>. The top model is estimated to be
+<span class="math inline">\(\log{(\widehat{\text{count}})}_i=-1.089 + 0.724\cdot\log{(\text{DBC})}_i -0.75I_{\text{TJK},i}\)</span>.
+This suggests that for the early observations (<em>TJK</em>=<em>Trias_Juras</em>), the model is
+<span class="math inline">\(\log{(\widehat{\text{count}})}_i=-1.089 + 0.724\cdot\log{(\text{DBC})}_i\)</span>
+and for the Cretaceous period (<em>TJK</em>=<em>Cretaceous</em>), the model is
+<span class="math inline">\(\log{(\widehat{\text{count}})}_i=-1.089 + -0.75+0.724\cdot\log{(\text{DBC})}_i\)</span>
+which simplifies to <span class="math inline">\(\log{(\widehat{\text{count}})}_i=-1.84 + 0.724\cdot\log{(\text{DBC})}_i\)</span>. This suggests that the sampling efforts
+have the same impacts on all observations and having an increase in <em>logDBCs</em>
+is associated with increases in the mean <em>log-biodiversity</em>. Specifically, for
+a 1 log-count increase in the <em>log-DBCs</em>, we estimate, on average, to have a
+0.724 log-count change in the mean log-biodiversity, after accounting for
+different intercepts for the two periods considered. We could also translate
+this to the original count scale but will leave it as is, because their real
+question of interest involves the differences between the periods. The change
+in the y-intercepts of -0.76 suggests that the Cretaceous has a lower average
+log-biodiversity by 0.75 log-count, after controlling for the log-sampling
+effort. This suggests that the <em>Cretaceous</em> had a lower corrected mean
+log-Sauropodomorph biodiversity <span class="math inline">\(\require{enclose} (t_{23}=-3.41;\enclose{horizontalstrike}{\text{p-value}=0.0024})\)</span> than the combined
+results for the Triassic and Jurassic. On the original count scale, this
+suggests <span class="math inline">\(\exp(-0.76)=0.47\)</span> times (53% drop in) the median biodiversity count
+per stage for Cretaceous versus the prior time period, after correcting for
+log-sampling effort in each stage.</p>
+<!-- \newpage -->
+<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="chapter9.html#cb891-1"></a><span class="kw">summary</span>(bd1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = logSpecies ~ logDBCs + TJK, data = bm)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.6721 -0.3955  0.1149  0.2999  0.6158 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)    -1.0887     0.6533  -1.666   0.1092
+## logDBCs         0.7243     0.1288   5.622 1.01e-05
+## TJKCretaceous  -0.7598     0.2229  -3.409   0.0024
+## 
+## Residual standard error: 0.4185 on 23 degrees of freedom
+## Multiple R-squared:  0.5809, Adjusted R-squared:  0.5444 
+## F-statistic: 15.94 on 2 and 23 DF,  p-value: 4.54e-05</code></pre>
+
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="chapter9.html#cb893-1"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(bd1, <span class="dt">residuals=</span>T), <span class="dt">grid=</span>T)</span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-12"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-12-1.png" alt="Term-plots for the top AIC model with partial residuals." width="960" />
+<p class="caption">
+Figure 9.12: Term-plots for the top AIC model with partial residuals.
+</p>
+</div>
+<p>Their study shows some interesting contrasts between methods. They tried to use
+AIC-based model selection methods across all the models but then used p-values
+to really make their final conclusions. This presents a philosophical
+inconsistency that bothers some more than others but should bother everyone.
+One thought is whether they needed to use AICs at all since they wanted to use
+p-values? The one reason they might have preferred to use AICs is that it allows
+the direct comparison of</p>
+<p><span class="math display">\[\log{(\text{count})}_i=\beta_0 + \beta_1\log{(\text{DBC})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i\]</span></p>
+<p>to</p>
+<p><span class="math display">\[\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBF})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i,\]</span></p>
+<p>exploring whether <em>DBC</em> or <em>DBF</em> is “better” with <em>TJK</em> in the model. There
+is no hypothesis test to compare these two models because one is not <strong><em>nested</em></strong>
+in the other – <strong>it is not possible to get from one model to the other by
+setting one or more slope coefficients to 0 so we can’t hypothesis test our way from one
+model to the other one</strong>. The AICs suggest strong support for the model with <em>DBC</em> and <em>TJK</em> as compared to the model with <em>DBF</em> and <em>TJK</em>, so that helps us make that decision.
+After that step, we could rely on <span class="math inline">\(t\)</span>-tests or ANOVA <span class="math inline">\(F\)</span>-tests to decide whether
+further refinement is suggested/possible for the model with <em>DBC</em> and <em>TJK</em>. This
+would provide the direct inferences that they probably want and are trying to
+obtain from AICs along with p-values in their paper.</p>
+<p>Finally, their results would actually be more valid if they had used a set of
+statistical methods designed for modeling responses that are counts of events
+or things, especially those whose measurements change as a function of sampling
+effort; models called <strong><em>Poisson rate models</em></strong> would be ideal for their
+application which are also special cases of the generalized linear models noted in the extensions for modeling categorical responses. The other aspect of the biodiversity that they measured
+for each stage was the duration of the stage. They never incorporated that
+information and it makes sense given their interests in comparing biodiversity
+across stages, not understanding why more or less biodiversity might occur. But
+other researchers might want to estimate the biodiversity after also
+controlling for the length of time that the stage lasted and the sampling
+efforts involved in detecting the biodiversity of each stage, models that are
+only a few steps away from those considered here. In general, this paper
+presents some of the pitfalls of attempting to use advanced statistical methods
+as well as hinting at the benefits. The statistical models are the only way to
+access the results of interest; inaccurate usage of statistical models can
+provide inaccurate conclusions. They seemed to mostly get the right answers
+despite a suite of errors in their work.</p>
+
+</div>
+<div id="section9-5" class="section level2">
+<h2><span class="header-section-number">9.5</span> What do didgeridoos really do about sleepiness?</h2>
+
+<p>In the practice problems at the end of Chapter 4, a study (<span class="citation">Puhan et al. (<a href="#ref-Puhan2006" role="doc-biblioref">2006</a>)</span>) related
+to a pre-post, two group comparison of the sleepiness ratings of subjects was introduced. They
+obtained <span class="math inline">\(n=25\)</span> volunteers and they randomized the subjects to either get a
+lesson or be placed on a waiting list for lessons. They constrained the
+randomization based on the high/low apnoea and high/low on the Epworth scale
+of the subjects in their initial observations to make sure they balanced the
+types of subjects going into the treatment and control groups. They measured
+the subjects’ Epworth value (daytime sleepiness, higher is more sleepy)
+initially and after four months, where only the treated subjects (those who
+took lessons) had any intervention. We are interested in whether the mean Epworth
+scale values changed differently over the four months in the group that got
+didgeridoo lessons than it did in the control group (that got no lessons). Each
+subject was measured twice (so the total sample size in the data set is 50) in
+the data set provided that is available at
+<a href="http://www.math.montana.edu/courses/s217/documents/epworthdata.csv" class="uri">http://www.math.montana.edu/courses/s217/documents/epworthdata.csv</a>.</p>
+<p>The data set was not initially provided by the researchers, but they
+did provide a plot very similar to Figure <a href="chapter9.html#fig:Figure9-13">9.13</a>. Since this
+is the last section of the book, I am going to use a new package to make the plot,
+<code>qplot</code> from the <code>ggplot2</code> package <span class="citation">(Wickham et al. <a href="#ref-R-ggplot2" role="doc-biblioref">2019</a>)</span>, that violates one of
+the rules used for R functions to this point - it doesn’t have a formula interface.
+
+If you continue much further in learning to use R, you will see the benefits
+of some other functions and styles of functions. You will also likely run into
+the <code>ggplot2</code> package, which is part of the “tidyverse” and has been developed
+to implement sophisticated graphics. For more on this, you can visit
+<a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a> and the related book by Hadley Wickham, who works for RStudio. We could have used <code>ggplot2</code> to make every graph in the
+book, but elected to focus on functions that rely on formula interfaces. For now, I am going to use it to make Figure
+<a href="chapter9.html#fig:Figure9-13">9.13</a> with the <code>qplot</code> function that allows me to display a
+line for each subject over the two time points (pre and post) of observation
+and indicate which group the subjects were assigned to. This allows us to see
+the variation at a given time across subjects and changes over time, which is
+critical here as this shows clearly why we had a violation of the independence
+assumption in these data. In the plot, you can see that there are not clear differences in the two groups at the “Pre” time but that treated group seems
+to have most of the lines go down to lower sleepiness ratings and that this is
+not happening much for the subjects in the control group. The violation of the independence assumption is diagnosable from the study design (two observations on each subject). The plot allows us to go further and see that many subjects had similar Epworth scores from pre to post (high in pre, generally high in post) once we account for systematic changes in the treated subjects that seemed to drop a bit on average.</p>
+<div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="chapter9.html#cb894-1"></a>epworthdata &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/epworthdata.csv&quot;</span>)</span></code></pre></div>
+
+<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="chapter9.html#cb895-1"></a>epworthdata<span class="op">$</span>Time &lt;-<span class="st"> </span><span class="kw">factor</span>(epworthdata<span class="op">$</span>Time)</span>
+<span id="cb895-2"><a href="chapter9.html#cb895-2"></a><span class="kw">levels</span>(epworthdata<span class="op">$</span>Time) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Pre&quot;</span> , <span class="st">&quot;Post&quot;</span>)</span>
+<span id="cb895-3"><a href="chapter9.html#cb895-3"></a>epworthdata<span class="op">$</span>Group &lt;-<span class="st"> </span><span class="kw">factor</span>(epworthdata<span class="op">$</span>Group)</span>
+<span id="cb895-4"><a href="chapter9.html#cb895-4"></a><span class="kw">levels</span>(epworthdata<span class="op">$</span>Group) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Control&quot;</span> , <span class="st">&quot;Didgeridoo&quot;</span>)</span>
+<span id="cb895-5"><a href="chapter9.html#cb895-5"></a></span>
+<span id="cb895-6"><a href="chapter9.html#cb895-6"></a><span class="kw">library</span>(ggplot2); <span class="kw">library</span>(ggthemes)</span>
+<span id="cb895-7"><a href="chapter9.html#cb895-7"></a><span class="kw">qplot</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Epworth, <span class="dt">data =</span> epworthdata, </span>
+<span id="cb895-8"><a href="chapter9.html#cb895-8"></a>      <span class="dt">group =</span> Subject, <span class="dt">colour =</span> Group, <span class="dt">geom =</span> <span class="kw">c</span>(<span class="st">&quot;line&quot;</span>,</span>
+<span id="cb895-9"><a href="chapter9.html#cb895-9"></a>      <span class="st">&quot;point&quot;</span>))<span class="op">+</span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="kw">scale_color_viridis</span>(<span class="dt">discrete=</span><span class="ot">TRUE</span>) </span></code></pre></div>
+<div class="figure"><span id="fig:Figure9-13"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-13-1.png" alt="Plot of Epworth responses for each subject, initially and after four months, based on treatment groups with one line for each subject connecting observations made over time." width="960" />
+<p class="caption">
+Figure 9.13: Plot of Epworth responses for each subject, initially and after four months, based on treatment groups with one line for each subject connecting observations made over time.
+</p>
+</div>
+<p>This plot seems to contradict the result from the following Two-Way
+ANOVA (that is a repeat of what you would have seen had you done the practice
+problem earlier in the book and the related interaction plot) – there is
+little to no evidence against the null hypothesis of no interaction between
+Time and Treatment group on Epworth scale ratings (<span class="math inline">\(F(1,46)=1.37\)</span>, p-value<span class="math inline">\(=0.2484\)</span>
+as seen in Table <a href="chapter9.html#tab:Table9-2">9.2</a>). But this model assumes all the
+observations are independent and so does not account for the repeated measures
+on the same subjects. It ends up that if we account for systematic differences
+in subjects, we can (sometimes) find the differences we are interested in more
+clearly. We can see that this model does not really seem to capture the full structure of the real data by comparing simulated data to the original one, as in Figure <a href="chapter9.html#fig:Figure9-14">9.14</a>. The real data set had fairly strong relationships between the pre and post scores but this connection seems to disappear in responses simulated from the estimated Two-Way ANOVA model (that assumes all observations are independent).</p>
+<div class="sourceCode" id="cb896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb896-1"><a href="chapter9.html#cb896-1"></a><span class="kw">library</span>(car)</span>
+<span id="cb896-2"><a href="chapter9.html#cb896-2"></a>lm_int &lt;-<span class="st"> </span><span class="kw">lm</span>(Epworth <span class="op">~</span><span class="st"> </span>Time<span class="op">*</span>Group,<span class="dt">data=</span>epworthdata)</span>
+<span id="cb896-3"><a href="chapter9.html#cb896-3"></a><span class="kw">Anova</span>(lm_int)</span></code></pre></div>
+
+<div class="figure"><span id="fig:Figure9-14"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-14-1.png" alt="Plot of simulated data from the Two-Way ANOVA model that does not assume observations are on repeated measures on subjects to compare to the real data set. Even though the treatment levels seem to decrease on average, there is a much less clear relationship between the starting and ending values in the individuals." width="960" />
+<p class="caption">
+Figure 9.14: Plot of simulated data from the Two-Way ANOVA model that does not assume observations are on repeated measures on subjects to compare to the real data set. Even though the treatment levels seem to decrease on average, there is a much less clear relationship between the starting and ending values in the individuals.
+</p>
+</div>
+
+<table>
+<caption><span id="tab:Table9-2">Table 9.2: </span>ANOVA table from Two-Way ANOVA interaction model.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Sum Sq</th>
+<th align="right">Df</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Time</td>
+<td align="right">120.746</td>
+<td align="right">1</td>
+<td align="right">5.653</td>
+<td align="right">0.022</td>
+</tr>
+<tr class="even">
+<td>Group</td>
+<td align="right">8.651</td>
+<td align="right">1</td>
+<td align="right">0.405</td>
+<td align="right">0.528</td>
+</tr>
+<tr class="odd">
+<td>Time:Group</td>
+<td align="right">29.265</td>
+<td align="right">1</td>
+<td align="right">1.370</td>
+<td align="right">0.248</td>
+</tr>
+<tr class="even">
+<td>Residuals</td>
+<td align="right">982.540</td>
+<td align="right">46</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p>If the issue is failing to account for differences in subjects, then
+why not add “Subject” to the model? There are two things to consider. First,
+we would need to make sure that “Subject” is a factor variable as the “Subject”
+variable is initially numerical from 1 to 25. Second, we have to deal with
+having a factor variable with 25 levels (so 24 indicator variables!).  This is
+a big number and would make writing out the model and interpreting the
+term-plot for Subject extremely challenging. Fortunately, we are not too
+concerned about how much higher or lower an individual is than a baseline
+subject, but we do need to account for it in the model. This sort of “repeated
+measures” modeling is more often handled by a more complex set of extended
+regression models that are called linear mixed models and are designed to
+handle this sort of grouping variable with many levels. </p>
+<p>But if we put the Subject factor variable into the previous model, we
+can use Type II ANOVA tests to test for an interaction between Time and Group
+(our primary research question) after controlling for subject-to-subject
+variation. There is a warning message about <strong>aliasing</strong> that occurs when you
+do this which means that it is not possible to estimate all the <span class="math inline">\(\beta\)</span>s in
+this model (and why we more typically used mixed models to do this sort of
+thing). Despite this, the test for <code>Time:Group</code> in Table <a href="chapter9.html#tab:Table9-3">9.3</a>
+is correct and now accounts for the repeated measures on the subject. It
+provides <span class="math inline">\(F(1,23)=5.43\)</span> with a p-value of 0.029, suggesting that there is
+moderate evidence against the null hypothesis of no interaction of time and group once we account for subject. This is a
+notably different result from what we observed in the Two-Way ANOVA
+interaction model that didn’t account for repeated measures on the subjects and matches the results in the original paper closely.</p>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="chapter9.html#cb897-1"></a>epworthdata<span class="op">$</span>Subject &lt;-<span class="st"> </span><span class="kw">factor</span>(epworthdata<span class="op">$</span>Subject)</span>
+<span id="cb897-2"><a href="chapter9.html#cb897-2"></a>lm_int_wsub &lt;-<span class="st"> </span><span class="kw">lm</span>(Epworth <span class="op">~</span><span class="st"> </span>Time <span class="op">*</span><span class="st"> </span>Group <span class="op">+</span><span class="st"> </span>Subject,<span class="dt">data=</span>epworthdata)</span>
+<span id="cb897-3"><a href="chapter9.html#cb897-3"></a><span class="kw">Anova</span>(lm_int_wsub)</span></code></pre></div>
+
+<table>
+<caption><span id="tab:Table9-3">Table 9.3: </span>ANOVA table from Two-Way ANOVA interaction model.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Sum Sq</th>
+<th align="right">Df</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Time</td>
+<td align="right">120.746</td>
+<td align="right">1</td>
+<td align="right">22.410</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td>Group</td>
+<td align="right"></td>
+<td align="right">0</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td>Subject</td>
+<td align="right">858.615</td>
+<td align="right">23</td>
+<td align="right">6.929</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td>Time:Group</td>
+<td align="right">29.265</td>
+<td align="right">1</td>
+<td align="right">5.431</td>
+<td align="right">0.029</td>
+</tr>
+<tr class="odd">
+<td>Residuals</td>
+<td align="right">123.924</td>
+<td align="right">23</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p>With this result, we would usually explore the term-plots from this
+model to get a sense of the pattern of the changes over time in the treatment
+and control groups. That aliasing issue means that the “effects” function also
+has some issues. To see the effects plots, we need to use a linear mixed model
+from the <code>nlme</code> package. This model is beyond the scope of this material, but
+it provides the same <span class="math inline">\(F\)</span>-statistic for the interaction (<span class="math inline">\(F(1,23)=5.43\)</span>) and the
+term-plots can now be produced (Figure <a href="chapter9.html#fig:Figure9-15">9.15</a>). In that plot, we
+again see that the didgeridoo group mean for “Post” is noticeably lower than in
+the “Pre” and that the changes in the control group were minimal over the four
+months. This difference in the changes over time was present in the initial
+graphical exploration but we needed to account for variation in subjects to be
+able to detect this difference. While these results rely on more complex models
+than we have time to discuss here, hopefully the similarity of the results of
+interest should resonate with the methods we have been exploring while hinting
+at more possibilities if you learn more statistical methods.</p>
+<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="chapter9.html#cb898-1"></a><span class="kw">library</span>(nlme)</span>
+<span id="cb898-2"><a href="chapter9.html#cb898-2"></a>lme_int &lt;-<span class="st"> </span><span class="kw">lme</span>(Epworth <span class="op">~</span><span class="st"> </span>Time<span class="op">*</span>Group, <span class="dt">random=</span><span class="op">~</span><span class="dv">1</span><span class="op">|</span>Subject, <span class="dt">data=</span>epworthdata)</span>
+<span id="cb898-3"><a href="chapter9.html#cb898-3"></a><span class="kw">anova</span>(lme_int)</span></code></pre></div>
+<pre><code>##             numDF denDF   F-value p-value
+## (Intercept)     1    23 132.81354  &lt;.0001
+## Time            1    23  22.41014  0.0001
+## Group           1    23   0.23175  0.6348
+## Time:Group      1    23   5.43151  0.0289</code></pre>
+<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb900-1"><a href="chapter9.html#cb900-1"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(lme_int), <span class="dt">multiline=</span>T, <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ci.style=</span><span class="st">&quot;bars&quot;</span>, <span class="dt">grid=</span>T)</span></code></pre></div>
+<!-- \newpage -->
+
+<div class="figure"><span id="fig:Figure9-15"></span>
+<img src="09-caseStudies_files/figure-html/Figure9-15-1.png" alt="Term-plot of Time by Group interaction, results are from model that accounts for subject-to-subject variation in a mixed model." width="960" />
+<p class="caption">
+Figure 9.15: Term-plot of Time by Group interaction, results are from model that accounts for subject-to-subject variation in a mixed model.
+</p>
+</div>
+</div>
+<div id="section9-6" class="section level2">
+<h2><span class="header-section-number">9.6</span> General summary</h2>
+<p>As we wrap up, it is important to remember that these tools are limited by the
+quality of the data collected. If you are ever involved in applying these
+statistical models, whether in a research or industrial setting, make sure that
+the research questions are discussed before data collection. And before data
+collection is started, make sure that the methods will provide results that can
+address the research questions. And, finally, make sure someone involved in the
+project knows how to perform the appropriate graphical and statistical analysis. One way to
+make sure you know how to analyze a data set and, often, clarify the research
+questions and data collection needs, is to make a simulated data set that resembles the
+one you want to collect and analyze
+it. This can highlight the sorts of questions the research can address and potentially expose issues before the study starts. With this sort of preparation,
+many issues can be avoided. Remember to
+think about reasons why assumptions of your proposed method might be violated.</p>
+<p>You are now <strong>armed</strong> and a bit <strong>dangerous</strong> with statistical methods. If
+you go to use them, remember the fundamentals and find the story in the data.
+After deciding on any research questions of interest, graph the data and make
+sure that the statistical methods will give you results that make some sense
+based on the graphical results. In the MLR results, it is possible that graphs
+will not be able to completely tell you the story, but all the other methods
+should follow the pictures you see. Even when (or especially when) you use
+sophisticated statistical methods, graphical presentations are critical to
+helping others understand the results. We have discussed examples that involve
+displaying categorical and quantitative variables and even some displays that
+bridge both types of variables. We hope you have enjoyed this material and been
+able to continue to develop your interests in statistics. You will see it in
+many future situations both in courses in your area of study and outside of academia to try to address problems that need answers. You are also prepared to take more advanced
+statistics courses.</p>
+
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Benson2012">
+<p>Benson, Roger B. J., and Philip D. Mannion. 2012. “Multi-Variate Models Are Essential for Understanding Vertebrate Diversification in Deep Time.” <em>Biology Letters</em> 8: 127–30. <a href="https://doi.org/10.1098/rsbl.2011.0460">https://doi.org/10.1098/rsbl.2011.0460</a>.</p>
+</div>
+<div id="ref-Gundale2013">
+<p>Gundale, Michael J., Lisbet H. Bach, and Annika Nordin. 2013. “The Impact of Simulated Chronic Nitrogen Deposition on the Biomass and N2-Fixation Activity of Two Boreal Feather Moss–Cyanobacteria Associations.” <em>Biology Letters</em> 9 (6). <a href="https://doi.org/10.1098/rsbl.2013.0797">https://doi.org/10.1098/rsbl.2013.0797</a>.</p>
+</div>
+<div id="ref-Puhan2006">
+<p>Puhan, Milo A, Alex Suarez, Christian Lo Cascio, Alfred Zahn, Markus Heitz, and Otto Braendli. 2006. “Didgeridoo Playing as Alternative Treatment for Obstructive Sleep Apnoea Syndrome: Randomised Controlled Trial.” <em>BMJ</em> 332 (7536): 266–70. <a href="https://doi.org/10.1136/bmj.38705.470590.55">https://doi.org/10.1136/bmj.38705.470590.55</a>.</p>
+</div>
+<div id="ref-Sasaki2013">
+<p>Sasaki, Takao, and Stephen C. Pratt. 2013. “Ants Learn to Rely on More Informative Attributes During Decision-Making.” <em>Biology Letters</em> 9 (6). <a href="https://doi.org/10.1098/rsbl.2013.0667">https://doi.org/10.1098/rsbl.2013.0667</a>.</p>
+</div>
+<div id="ref-R-ggplot2">
+<p>Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, and Hiroaki Yutani. 2019. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chapter8.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Greenwood_Book.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

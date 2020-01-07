@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Preface | Intermediate Statistics with R</title>
+  <meta name="description" content="Chapter 1 Preface | Intermediate Statistics with R" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Preface | Intermediate Statistics with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="gpeterson406/Greenwood_Book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Preface | Intermediate Statistics with R" />
+  
+  
+  
+
+<meta name="author" content="Mark C Greenwood" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="acknowledgments.html"/>
+<link rel="next" href="chapter2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intermediate Statistics with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Cover</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#section1-1"><i class="fa fa-check"></i><b>1.1</b> Overview of methods</a></li>
+<li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#section1-2"><i class="fa fa-check"></i><b>1.2</b> Getting started in R</a></li>
+<li class="chapter" data-level="1.3" data-path="chapter1.html"><a href="chapter1.html#section1-3"><i class="fa fa-check"></i><b>1.3</b> Basic summary statistics, histograms, and boxplots using R</a></li>
+<li class="chapter" data-level="1.4" data-path="chapter1.html"><a href="chapter1.html#section1-4"><i class="fa fa-check"></i><b>1.4</b> Chapter summary</a></li>
+<li class="chapter" data-level="1.5" data-path="chapter1.html"><a href="chapter1.html#section1-5"><i class="fa fa-check"></i><b>1.5</b> Summary of important R code</a></li>
+<li class="chapter" data-level="1.6" data-path="chapter1.html"><a href="chapter1.html#section1-6"><i class="fa fa-check"></i><b>1.6</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> (R)e-Introduction to statistics</a><ul>
+<li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#section2-1"><i class="fa fa-check"></i><b>2.1</b> Histograms, boxplots, and density curves</a></li>
+<li class="chapter" data-level="2.2" data-path="chapter2.html"><a href="chapter2.html#section2-2"><i class="fa fa-check"></i><b>2.2</b> Pirate-plots</a></li>
+<li class="chapter" data-level="2.3" data-path="chapter2.html"><a href="chapter2.html#section2-3"><i class="fa fa-check"></i><b>2.3</b> Models, hypotheses, and permutations for the two sample mean situation</a></li>
+<li class="chapter" data-level="2.4" data-path="chapter2.html"><a href="chapter2.html#section2-4"><i class="fa fa-check"></i><b>2.4</b> Permutation testing for the two sample mean situation</a></li>
+<li class="chapter" data-level="2.5" data-path="chapter2.html"><a href="chapter2.html#section2-5"><i class="fa fa-check"></i><b>2.5</b> Hypothesis testing (general)</a></li>
+<li class="chapter" data-level="2.6" data-path="chapter2.html"><a href="chapter2.html#section2-6"><i class="fa fa-check"></i><b>2.6</b> Connecting randomization (nonparametric) and parametric tests</a></li>
+<li class="chapter" data-level="2.7" data-path="chapter2.html"><a href="chapter2.html#section2-7"><i class="fa fa-check"></i><b>2.7</b> Second example of permutation tests</a></li>
+<li class="chapter" data-level="2.8" data-path="chapter2.html"><a href="chapter2.html#section2-8"><i class="fa fa-check"></i><b>2.8</b> Reproducibility Crisis: Moving beyond p &lt; 0.05, publication bias, and multiple testing issues</a></li>
+<li class="chapter" data-level="2.9" data-path="chapter2.html"><a href="chapter2.html#section2-9"><i class="fa fa-check"></i><b>2.9</b> Confidence intervals and bootstrapping</a></li>
+<li class="chapter" data-level="2.10" data-path="chapter2.html"><a href="chapter2.html#section2-10"><i class="fa fa-check"></i><b>2.10</b> Bootstrap confidence intervals for difference in GPAs</a></li>
+<li class="chapter" data-level="2.11" data-path="chapter2.html"><a href="chapter2.html#section2-11"><i class="fa fa-check"></i><b>2.11</b> Chapter summary</a></li>
+<li class="chapter" data-level="2.12" data-path="chapter2.html"><a href="chapter2.html#section2-12"><i class="fa fa-check"></i><b>2.12</b> Summary of important R code</a></li>
+<li class="chapter" data-level="2.13" data-path="chapter2.html"><a href="chapter2.html#section2-13"><i class="fa fa-check"></i><b>2.13</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> One-Way ANOVA</a><ul>
+<li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#section3-1"><i class="fa fa-check"></i><b>3.1</b> Situation</a></li>
+<li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#section3-2"><i class="fa fa-check"></i><b>3.2</b> Linear model for One-Way ANOVA (cell means and reference-coding)</a></li>
+<li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#section3-3"><i class="fa fa-check"></i><b>3.3</b> One-Way ANOVA Sums of Squares, Mean Squares, and F-test</a></li>
+<li class="chapter" data-level="3.4" data-path="chapter3.html"><a href="chapter3.html#section3-4"><i class="fa fa-check"></i><b>3.4</b> ANOVA model diagnostics including QQ-plots</a></li>
+<li class="chapter" data-level="3.5" data-path="chapter3.html"><a href="chapter3.html#section3-5"><i class="fa fa-check"></i><b>3.5</b> Guinea pig tooth growth One-Way ANOVA example</a></li>
+<li class="chapter" data-level="3.6" data-path="chapter3.html"><a href="chapter3.html#section3-6"><i class="fa fa-check"></i><b>3.6</b> Multiple (pair-wise) comparisons using Tukey’s HSD and the compact letter display</a></li>
+<li class="chapter" data-level="3.7" data-path="chapter3.html"><a href="chapter3.html#section3-7"><i class="fa fa-check"></i><b>3.7</b> Pair-wise comparisons for the Overtake data</a></li>
+<li class="chapter" data-level="3.8" data-path="chapter3.html"><a href="chapter3.html#section3-8"><i class="fa fa-check"></i><b>3.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="3.9" data-path="chapter3.html"><a href="chapter3.html#section3-9"><i class="fa fa-check"></i><b>3.9</b> Summary of important R code</a></li>
+<li class="chapter" data-level="3.10" data-path="chapter3.html"><a href="chapter3.html#section3-10"><i class="fa fa-check"></i><b>3.10</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Two-Way ANOVA</a><ul>
+<li class="chapter" data-level="4.1" data-path="chapter4.html"><a href="chapter4.html#section4-1"><i class="fa fa-check"></i><b>4.1</b> Situation</a></li>
+<li class="chapter" data-level="4.2" data-path="chapter4.html"><a href="chapter4.html#section4-2"><i class="fa fa-check"></i><b>4.2</b> Designing a two-way experiment and visualizing results</a></li>
+<li class="chapter" data-level="4.3" data-path="chapter4.html"><a href="chapter4.html#section4-3"><i class="fa fa-check"></i><b>4.3</b> Two-Way ANOVA models and hypothesis tests</a></li>
+<li class="chapter" data-level="4.4" data-path="chapter4.html"><a href="chapter4.html#section4-4"><i class="fa fa-check"></i><b>4.4</b> Guinea pig tooth growth analysis with Two-Way ANOVA</a></li>
+<li class="chapter" data-level="4.5" data-path="chapter4.html"><a href="chapter4.html#section4-5"><i class="fa fa-check"></i><b>4.5</b> Observational study example: The Psychology of Debt</a></li>
+<li class="chapter" data-level="4.6" data-path="chapter4.html"><a href="chapter4.html#section4-6"><i class="fa fa-check"></i><b>4.6</b> Pushing Two-Way ANOVA to the limit: Un-replicated designs and Estimability</a></li>
+<li class="chapter" data-level="4.7" data-path="chapter4.html"><a href="chapter4.html#section4-7"><i class="fa fa-check"></i><b>4.7</b> Chapter summary</a></li>
+<li class="chapter" data-level="4.8" data-path="chapter4.html"><a href="chapter4.html#section4-8"><i class="fa fa-check"></i><b>4.8</b> Summary of important R code</a></li>
+<li class="chapter" data-level="4.9" data-path="chapter4.html"><a href="chapter4.html#section4-9"><i class="fa fa-check"></i><b>4.9</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> Chi-square tests</a><ul>
+<li class="chapter" data-level="5.1" data-path="chapter5.html"><a href="chapter5.html#section5-1"><i class="fa fa-check"></i><b>5.1</b> Situation, contingency tables, and tableplots</a></li>
+<li class="chapter" data-level="5.2" data-path="chapter5.html"><a href="chapter5.html#section5-2"><i class="fa fa-check"></i><b>5.2</b> Homogeneity test hypotheses</a></li>
+<li class="chapter" data-level="5.3" data-path="chapter5.html"><a href="chapter5.html#section5-3"><i class="fa fa-check"></i><b>5.3</b> Independence test hypotheses</a></li>
+<li class="chapter" data-level="5.4" data-path="chapter5.html"><a href="chapter5.html#section5-4"><i class="fa fa-check"></i><b>5.4</b> Models for R by C tables</a></li>
+<li class="chapter" data-level="5.5" data-path="chapter5.html"><a href="chapter5.html#section5-5"><i class="fa fa-check"></i><b>5.5</b> Permutation tests for the <span class="math inline">\(X^2\)</span> statistic</a></li>
+<li class="chapter" data-level="5.6" data-path="chapter5.html"><a href="chapter5.html#section5-6"><i class="fa fa-check"></i><b>5.6</b> Chi-square distribution for the <span class="math inline">\(X^2\)</span> statistic</a></li>
+<li class="chapter" data-level="5.7" data-path="chapter5.html"><a href="chapter5.html#section5-7"><i class="fa fa-check"></i><b>5.7</b> Examining residuals for the source of differences</a></li>
+<li class="chapter" data-level="5.8" data-path="chapter5.html"><a href="chapter5.html#section5-8"><i class="fa fa-check"></i><b>5.8</b> General protocol for <span class="math inline">\(X^2\)</span> tests</a></li>
+<li class="chapter" data-level="5.9" data-path="chapter5.html"><a href="chapter5.html#section5-9"><i class="fa fa-check"></i><b>5.9</b> Political party and voting results: Complete analysis</a></li>
+<li class="chapter" data-level="5.10" data-path="chapter5.html"><a href="chapter5.html#section5-10"><i class="fa fa-check"></i><b>5.10</b> Is cheating and lying related in students?</a></li>
+<li class="chapter" data-level="5.11" data-path="chapter5.html"><a href="chapter5.html#section5-11"><i class="fa fa-check"></i><b>5.11</b> Analyzing a stratified random sample of California schools</a></li>
+<li class="chapter" data-level="5.12" data-path="chapter5.html"><a href="chapter5.html#section5-12"><i class="fa fa-check"></i><b>5.12</b> Chapter summary</a></li>
+<li class="chapter" data-level="5.13" data-path="chapter5.html"><a href="chapter5.html#section5-13"><i class="fa fa-check"></i><b>5.13</b> Summary of important R commands</a></li>
+<li class="chapter" data-level="5.14" data-path="chapter5.html"><a href="chapter5.html#section5-14"><i class="fa fa-check"></i><b>5.14</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>6</b> Correlation and Simple Linear Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="chapter6.html"><a href="chapter6.html#section6-1"><i class="fa fa-check"></i><b>6.1</b> Relationships between two quantitative variables</a></li>
+<li class="chapter" data-level="6.2" data-path="chapter6.html"><a href="chapter6.html#section6-2"><i class="fa fa-check"></i><b>6.2</b> Estimating the correlation coefficient</a></li>
+<li class="chapter" data-level="6.3" data-path="chapter6.html"><a href="chapter6.html#section6-3"><i class="fa fa-check"></i><b>6.3</b> Relationships between variables by groups</a></li>
+<li class="chapter" data-level="6.4" data-path="chapter6.html"><a href="chapter6.html#section6-4"><i class="fa fa-check"></i><b>6.4</b> Inference for the correlation coefficient</a></li>
+<li class="chapter" data-level="6.5" data-path="chapter6.html"><a href="chapter6.html#section6-5"><i class="fa fa-check"></i><b>6.5</b> Are tree diameters related to tree heights?</a></li>
+<li class="chapter" data-level="6.6" data-path="chapter6.html"><a href="chapter6.html#section6-6"><i class="fa fa-check"></i><b>6.6</b> Describing relationships with a regression model</a></li>
+<li class="chapter" data-level="6.7" data-path="chapter6.html"><a href="chapter6.html#section6-7"><i class="fa fa-check"></i><b>6.7</b> Least Squares Estimation</a></li>
+<li class="chapter" data-level="6.8" data-path="chapter6.html"><a href="chapter6.html#section6-8"><i class="fa fa-check"></i><b>6.8</b> Measuring the strength of regressions: R<sup>2</sup></a></li>
+<li class="chapter" data-level="6.9" data-path="chapter6.html"><a href="chapter6.html#section6-9"><i class="fa fa-check"></i><b>6.9</b> Outliers: leverage and influence</a></li>
+<li class="chapter" data-level="6.10" data-path="chapter6.html"><a href="chapter6.html#section6-10"><i class="fa fa-check"></i><b>6.10</b> Residual diagnostics – setting the stage for inference</a></li>
+<li class="chapter" data-level="6.11" data-path="chapter6.html"><a href="chapter6.html#section6-11"><i class="fa fa-check"></i><b>6.11</b> Old Faithful discharge and waiting times</a></li>
+<li class="chapter" data-level="6.12" data-path="chapter6.html"><a href="chapter6.html#section6-12"><i class="fa fa-check"></i><b>6.12</b> Chapter summary</a></li>
+<li class="chapter" data-level="6.13" data-path="chapter6.html"><a href="chapter6.html#section6-13"><i class="fa fa-check"></i><b>6.13</b> Summary of important R code</a></li>
+<li class="chapter" data-level="6.14" data-path="chapter6.html"><a href="chapter6.html#section6-14"><i class="fa fa-check"></i><b>6.14</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>7</b> Simple linear regression inference</a><ul>
+<li class="chapter" data-level="7.1" data-path="chapter7.html"><a href="chapter7.html#section7-1"><i class="fa fa-check"></i><b>7.1</b> Model</a></li>
+<li class="chapter" data-level="7.2" data-path="chapter7.html"><a href="chapter7.html#section7-2"><i class="fa fa-check"></i><b>7.2</b> Confidence interval and hypothesis tests for the slope and intercept</a></li>
+<li class="chapter" data-level="7.3" data-path="chapter7.html"><a href="chapter7.html#section7-3"><i class="fa fa-check"></i><b>7.3</b> Bozeman temperature trend</a></li>
+<li class="chapter" data-level="7.4" data-path="chapter7.html"><a href="chapter7.html#section7-4"><i class="fa fa-check"></i><b>7.4</b> Randomization-based inferences for the slope coefficient</a></li>
+<li class="chapter" data-level="7.5" data-path="chapter7.html"><a href="chapter7.html#section7-5"><i class="fa fa-check"></i><b>7.5</b> Transformations part I: Linearizing relationships</a></li>
+<li class="chapter" data-level="7.6" data-path="chapter7.html"><a href="chapter7.html#section7-6"><i class="fa fa-check"></i><b>7.6</b> Transformations part II: Impacts on SLR interpretations: log(y), log(x), &amp; both log(y) &amp; log(x)</a></li>
+<li class="chapter" data-level="7.7" data-path="chapter7.html"><a href="chapter7.html#section7-7"><i class="fa fa-check"></i><b>7.7</b> Confidence interval for the mean and prediction intervals for a new observation</a></li>
+<li class="chapter" data-level="7.8" data-path="chapter7.html"><a href="chapter7.html#section7-8"><i class="fa fa-check"></i><b>7.8</b> Chapter summary</a></li>
+<li class="chapter" data-level="7.9" data-path="chapter7.html"><a href="chapter7.html#section7-9"><i class="fa fa-check"></i><b>7.9</b> Summary of important R code</a></li>
+<li class="chapter" data-level="7.10" data-path="chapter7.html"><a href="chapter7.html#section7-10"><i class="fa fa-check"></i><b>7.10</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chapter8.html"><a href="chapter8.html"><i class="fa fa-check"></i><b>8</b> Multiple linear regression</a><ul>
+<li class="chapter" data-level="8.1" data-path="chapter8.html"><a href="chapter8.html#section8-1"><i class="fa fa-check"></i><b>8.1</b> Going from SLR to MLR</a></li>
+<li class="chapter" data-level="8.2" data-path="chapter8.html"><a href="chapter8.html#section8-2"><i class="fa fa-check"></i><b>8.2</b> Validity conditions in MLR</a></li>
+<li class="chapter" data-level="8.3" data-path="chapter8.html"><a href="chapter8.html#section8-3"><i class="fa fa-check"></i><b>8.3</b> Interpretation of MLR terms</a></li>
+<li class="chapter" data-level="8.4" data-path="chapter8.html"><a href="chapter8.html#section8-4"><i class="fa fa-check"></i><b>8.4</b> Comparing multiple regression models</a></li>
+<li class="chapter" data-level="8.5" data-path="chapter8.html"><a href="chapter8.html#section8-5"><i class="fa fa-check"></i><b>8.5</b> General recommendations for MLR interpretations and VIFs</a></li>
+<li class="chapter" data-level="8.6" data-path="chapter8.html"><a href="chapter8.html#section8-6"><i class="fa fa-check"></i><b>8.6</b> MLR inference: Parameter inferences using the t-distribution</a></li>
+<li class="chapter" data-level="8.7" data-path="chapter8.html"><a href="chapter8.html#section8-7"><i class="fa fa-check"></i><b>8.7</b> Overall F-test in multiple linear regression</a></li>
+<li class="chapter" data-level="8.8" data-path="chapter8.html"><a href="chapter8.html#section8-8"><i class="fa fa-check"></i><b>8.8</b> Case study: First year college GPA and SATs</a></li>
+<li class="chapter" data-level="8.9" data-path="chapter8.html"><a href="chapter8.html#section8-9"><i class="fa fa-check"></i><b>8.9</b> Different intercepts for different groups: MLR with indicator variables</a></li>
+<li class="chapter" data-level="8.10" data-path="chapter8.html"><a href="chapter8.html#section8-10"><i class="fa fa-check"></i><b>8.10</b> Additive MLR with more than two groups: Headache example</a></li>
+<li class="chapter" data-level="8.11" data-path="chapter8.html"><a href="chapter8.html#section8-11"><i class="fa fa-check"></i><b>8.11</b> Different slopes and different intercepts</a></li>
+<li class="chapter" data-level="8.12" data-path="chapter8.html"><a href="chapter8.html#section8-12"><i class="fa fa-check"></i><b>8.12</b> F-tests for MLR models with quantitative and categorical variables and interactions</a></li>
+<li class="chapter" data-level="8.13" data-path="chapter8.html"><a href="chapter8.html#section8-13"><i class="fa fa-check"></i><b>8.13</b> AICs for model selection</a></li>
+<li class="chapter" data-level="8.14" data-path="chapter8.html"><a href="chapter8.html#section8-14"><i class="fa fa-check"></i><b>8.14</b> Case study: Forced expiratory volume model selection using AICs</a></li>
+<li class="chapter" data-level="8.15" data-path="chapter8.html"><a href="chapter8.html#section8-15"><i class="fa fa-check"></i><b>8.15</b> Chapter summary</a></li>
+<li class="chapter" data-level="8.16" data-path="chapter8.html"><a href="chapter8.html#section8-16"><i class="fa fa-check"></i><b>8.16</b> Summary of important R code</a></li>
+<li class="chapter" data-level="8.17" data-path="chapter8.html"><a href="chapter8.html#section8-17"><i class="fa fa-check"></i><b>8.17</b> Practice problems</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chapter9.html"><a href="chapter9.html"><i class="fa fa-check"></i><b>9</b> Case studies</a><ul>
+<li class="chapter" data-level="9.1" data-path="chapter9.html"><a href="chapter9.html#section9-1"><i class="fa fa-check"></i><b>9.1</b> Overview of material covered</a></li>
+<li class="chapter" data-level="9.2" data-path="chapter9.html"><a href="chapter9.html#section9-2"><i class="fa fa-check"></i><b>9.2</b> The impact of simulated chronic nitrogen deposition on the biomass and N2-fixation activity of two boreal feather moss–cyanobacteria associations</a></li>
+<li class="chapter" data-level="9.3" data-path="chapter9.html"><a href="chapter9.html#section9-3"><i class="fa fa-check"></i><b>9.3</b> Ants learn to rely on more informative attributes during decision-making</a></li>
+<li class="chapter" data-level="9.4" data-path="chapter9.html"><a href="chapter9.html#section9-4"><i class="fa fa-check"></i><b>9.4</b> Multi-variate models are essential for understanding vertebrate diversification in deep time</a></li>
+<li class="chapter" data-level="9.5" data-path="chapter9.html"><a href="chapter9.html#section9-5"><i class="fa fa-check"></i><b>9.5</b> What do didgeridoos really do about sleepiness?</a></li>
+<li class="chapter" data-level="9.6" data-path="chapter9.html"><a href="chapter9.html#section9-6"><i class="fa fa-check"></i><b>9.6</b> General summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intermediate Statistics with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chapter1" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Preface</h1>
+<p>This book is designed primarily for use in a second semester
+statistics course although it can also be
+useful for researchers needing a quick review or ideas for using R for the
+methods discussed in the text. As a text primarily designed for a second
+statistics course, it presumes that you have had an introductory statistics
+course. There are now many different varieties of introductory statistics from
+traditional, formula-based courses (called “consensus” curriculum courses) to
+more modern, computational-intensive courses that use randomization ideas to try to
+enhance learning of basic statistical methods. We are not going to presume that
+you have had a particular “flavor” of introductory statistics or that you had
+your introductory statistics out of a particular text, just that you have had a
+course that tried to introduce you to the basic terminology and ideas
+underpinning statistical reasoning. We would expect that you are familiar with
+the logic (or sometimes illogic) of hypothesis testing including null and
+alternative hypothesis  and confidence interval  construction and interpretation
+and that you have seen all of this in a couple of basic situations. We start
+with a review of these ideas in one and two group situations with a
+quantitative response, something that you should have seen before.</p>
+<p>This text covers a wide array of statistical tools that are connected through situation, methods used,
+or both. As we explore various techniques, look for the identifying characteristics
+of each method – what type of research questions are being addressed
+(relationships or group differences, for example) and what type of variables
+are being analyzed (quantitative or categorical). <strong><em>Quantitative variables</em></strong>  are made up of numerical measurements that have meaningful units attached to
+them. <strong><em>Categorical variables</em></strong>  take on values that are categories or labels.
+Additionally, you will need to carefully identify the <strong><em>response</em></strong>  and <strong><em>explanatory</em></strong>  variables, where
+the study and variable characteristics should suggest which variables should be used
+as the explanatory variables that may explain
+variation in the response variable. Because this is an intermediate statistics
+course, we will start to handle more complex situations (many explanatory
+variables) and will provide some tools for graphical explorations to complement
+the more sophisticated statistical models required to handle these situations.</p>
+<div id="section1-1" class="section level2">
+<h2><span class="header-section-number">1.1</span> Overview of methods</h2>
+<p>After you are introduced to basic statistical ideas, a wide array of statistical methods become
+available. The methods explored here focus on assessing (estimating and testing
+for) relationships between variables, sometimes when controlling for or
+modifying relationships based on levels of another variable – which is where statistics gets interesting and really useful. Early statistical analyses (approximately 100 years ago) were
+focused on describing a single variable. Your introductory statistics course
+should have heavily explored methods for summarizing and doing inference in
+situations with one group or where you were comparing results for two groups of
+observations. Now, we get to consider more complicated situations – culminating
+in a set of tools for working with multiple explanatory variables, some of
+which might be categorical and related to having different groups of subjects
+that are being compared. Throughout the methods we will cover, it will be
+important to retain a focus on how the appropriate statistical analysis depends
+on the research question and data collection process as well as the types of
+variables measured.</p>
+<p>Figure <a href="chapter1.html#fig:Figure1-1">1.1</a> frames the topics we will discuss. Taking a broad
+view of the methods we will consider,
+there are basically two scenarios – one when the response is quantitative and
+one when the response is categorical. Examples of quantitative responses we will
+see later involve <em>passing distance of cars for a bicycle rider</em> (in centimeters (cm)) and <em>body fat</em> (percentage).
+Examples of categorical variables include <em>improvement</em> (none, some, or marked)
+in a clinical trial related to arthritis symptoms or whether a student has turned in copied work
+(never, done this on an exam or paper, or both). There are going to be some more
+nuanced aspects to all these analyses as the complexity of both sides of Figure
+<a href="chapter1.html#fig:Figure1-1">1.1</a> suggest, but note that near the bottom, each tree converges
+on a single
+procedure, using a <strong><em>linear model</em></strong>  for a quantitative response variable or
+using a <strong><em>Chi-square test</em></strong> for a categorical response.  After selecting the
+appropriate procedure and completing the necessary technical steps to get results
+for a
+given data set, the final step involves assessing the scope of inference
+ and
+types of conclusions that are appropriate based on the design of the study.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:Figure1-1"></span>
+<img src="chapter1_files/image002.png" alt="Flow chart of methods." width="100%" />
+<p class="caption">
+Figure 1.1: Flow chart of methods.
+</p>
+</div>
+<p>We will be spending most of the semester working on methods for quantitative
+response variables (the
+left side of Figure <a href="chapter1.html#fig:Figure1-1">1.1</a> is covered in Chapters <a href="chapter2.html#chapter2">2</a>,
+<a href="chapter3.html#chapter3">3</a>, <a href="chapter4.html#chapter4">4</a>, <a href="chapter6.html#chapter6">6</a>, <a href="chapter7.html#chapter7">7</a>, and
+<a href="chapter8.html#chapter8">8</a>), stepping
+over to handle the situation with a categorical response variable in Chapter <a href="chapter5.html#chapter5">5</a> (right side
+of Figure <a href="chapter1.html#fig:Figure1-1">1.1</a>).
+Chapter <a href="chapter9.html#chapter9">9</a> contains case studies
+illustrating all the methods discussed previously, providing a final opportunity
+to explore additional examples that illustrate how finding a
+path through Figure <a href="chapter1.html#fig:Figure1-1">1.1</a> can lead to the appropriate analysis.</p>
+<p>The first topics (Chapters <a href="chapter1.html#chapter1">1</a>, and <a href="chapter2.html#chapter2">2</a>) will be more
+familiar as we start with single and two group situations
+with a quantitative response. In your previous statistics course, you should
+have seen methods for estimating and quantifying uncertainty for the mean of a
+single group and for differences in the means of two groups. Once we have briefly
+reviewed these methods and introduced the statistical software that we will use
+throughout the course, we will consider the first new statistical material in
+Chapter <a href="chapter3.html#chapter3">3</a>. It involves the situation with a quantitative response
+variable where
+there are more than 2 groups to compare – this is what we call the <strong><em>One-Way
+ANOVA</em></strong> situation. It generalizes the 2-independent sample hypothesis
+test to handle situations where more than 2 groups are being studied. When we
+learn this method, we will begin discussing model assumptions  and methods for
+assessing those assumptions that will be present in every analysis involving a
+quantitative response. The <strong><em>Two-Way ANOVA</em></strong> (Chapter <a href="chapter3.html#chapter3">3</a>)
+considers situations with two categorical explanatory variables and a
+quantitative response. To make
+this somewhat concrete, suppose we are interested in assessing differences in,
+say, the <em>yield</em> of wheat from a field based on the amount of <em>fertilizer</em> applied
+(none, low, or high) and <em>variety</em> of wheat (two types). Here, <em>yield</em> is a quantitative response variable that might be measured in bushels per acre and
+there are two categorical explanatory variables, <em>fertilizer</em>, with three levels, and <em>variety</em>, with two levels. In this material, we introduce the idea of an
+<strong><em>interaction</em></strong> between the two explanatory variables:  the relationship between one categorical
+variable and the mean of the response changes depending on the levels of the
+other categorical variable. For example, extra fertilizer might enhance the
+growth of one variety and hinder the growth of another so we would say that <em>fertilizer</em> has different impacts based on the level of <em>variety</em>. Given this interaction may or may not actually be present, we will consider two versions of the model in Two-Way ANOVAs,  what are called the <strong><em>additive</em></strong>  (no interaction) and the <strong><em>interaction</em></strong>  models.</p>
+<p>Following the methods for two categorical variables and a quantitative response, we explore a method for
+analyzing data where the response is categorical, called the <strong><em>Chi-square test</em></strong>
+in Chapter <a href="chapter5.html#chapter5">5</a>. This most closely matches the One-Way ANOVA
+situation with a single categorical explanatory variable, except now the
+response variable is categorical. For example, we will assess whether taking a
+drug (vs taking a <strong><em>placebo</em></strong><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>)
+has an <strong><em>effect</em></strong><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> on the type of improvement the subjects demonstrate. There
+are two different scenarios
+for study design that impact the analysis technique and hypotheses tested in
+Chapter <a href="chapter5.html#chapter5">5</a>. If the explanatory variable reflects the group that
+subjects were
+obtained from, either through randomization of the treatment level to the
+subjects or by taking samples from separate populations, this is called a
+<strong><em>Chi-square Homogeneity Test</em></strong>.  It is also possible to obtain a single sample
+from a population and then obtain information on the levels of the explanatory
+variable for each
+subject. We will analyze these results using what is called a <strong><em>Chi-square Independence Test</em></strong>.
+ They both use the same test statistic but we use slightly different graphics and are testing different hypotheses in these two related
+situations. Figure <a href="chapter1.html#fig:Figure1-1">1.1</a> also shows that if we had a quantitative explanatory
+variable and a categorical response that we would need to “bin” or create
+categories of responses from the quantitative variable to use the Chi-square
+testing methods.</p>
+<p>If the predictor and response variables are both quantitative, we start with
+scatterplots, correlation,
+and <strong><em>simple linear regression</em></strong> models (Chapters <a href="chapter6.html#chapter6">6</a> and
+<a href="chapter7.html#chapter7">7</a>) – things you should have seen, at least to some degree,
+previously. The biggest differences here will be
+the depth of exploration of diagnostics and inferences for this model and
+discussions of transformations of variables.  If there is more than one
+explanatory variable, then we say that we are doing <strong><em>multiple linear regression</em></strong>
+(Chapter <a href="chapter8.html#chapter8">8</a>) – the “multiple” part of the name reflects that there will
+be more
+than one explanatory variable. We use the same name if we have a mix of
+categorical and quantitative predictor variables but there are some new issues
+in setting up the models and interpreting the coefficients that we need to
+consider. In the situation with one categorical predictor and one quantitative
+predictor, we revisit the idea of an interaction.
+
+It allows us to consider situations
+where the estimated relationship between a quantitative predictor and the
+mean response
+varies among different levels of the categorical variable. In Chapter <a href="chapter9.html#chapter9">9</a>, connections among all the methods used for quantitative responses are discussed, showing that they are all just linear models . We also show how the methods discussed can be applied to a suite of new problems with a set of case studies and how that relates to further extensions of the methods.</p>
+<p>By the end of Chapter <a href="chapter9.html#chapter9">9</a> you should be able to identify, perform
+using the statistical software R <span class="citation">(R Core Team <a href="#ref-R-base" role="doc-biblioref">2019</a>)</span>, and interpret the results from each of these methods. There
+is a lot to learn, but many of the tools for using R and interpreting results
+of the analyses accumulate and repeat throughout the textbook. If you work hard to
+understand the initial methods, it will help you when the methods get more
+complicated. You will likely feel like you are just starting to learn how to
+use R at the end of the semester and for learning a new language that is
+actually an accomplishment. We will just be taking you on the first steps of a
+potentially long journey and it is up to you to decide how much further you
+want to go with learning the software.</p>
+<p>All the methods you will learn require you to carefully consider how the data were collected, how that
+pertains to the population of interest, and how that impacts the inferences
+that can be made. The <strong><em>scope of inference</em></strong> from the bottom of Figure
+<a href="chapter1.html#fig:Figure1-1">1.1</a> is our shorthand term for remembering to think about two aspects
+of the study – <strong><em>random assignment</em></strong> and <strong><em>random sampling</em></strong>.
+  In a given
+situation, you need to use the description of the study to decide if the
+explanatory variable was randomly assigned to study units (this allows for <strong><em>causal inferences</em></strong>  if differences are detected) or not (so no causal statements
+are possible). As an example, think about two studies, one where students are
+randomly assigned to either get tutoring with their statistics course or not
+and another where the students are asked at the end of the semester whether
+they sought out tutoring or not. Suppose we compare the final grades in the
+course for the two groups (tutoring/not) and find a big difference. In the
+first study with random assignment,  we can say the tutoring caused the
+differences we observed. In the second, we could only say that the tutoring was
+associated with differences but because students self-selected the group they
+ended up in, we can’t say that the tutoring caused the differences. The other
+aspect of scope of inference concerns random sampling:  If the data were obtained
+using a random sampling mechanism, then our inferences can be safely extended
+to the population that the sample was taken from. However, if we have a non-random
+sample, our inference can only apply to the sample collected. In the previous
+example, the difference would be studying a random sample of students from the
+population of, say, Introductory Statistics students at a university versus
+studying a sample of students that volunteered for the research project, maybe
+for extra credit in the class. We could still randomly assign them to
+tutoring/not but the non-random sample would only lead to conclusions about
+those students that volunteered. The most powerful scope of inference is when there
+are randomly assigned levels of explanatory variables with a random sample from
+a population – conclusions would be about causal impacts that would happen in the
+population.</p>
+<p>By the end of this material, you should have some basic R skills and abilities to create basic ANOVA and
+regression models, as well as to handle Chi-square testing situations.
+Together, this should prepare you for future statistics courses or for other
+situations where you are expected to be able to identify an appropriate
+analysis, do the calculations and required graphics using the data set, and then effectively
+communicate interpretations for the methods discussed here.</p>
+</div>
+<div id="section1-2" class="section level2">
+<h2><span class="header-section-number">1.2</span> Getting started in R</h2>
+<p>You will need to download the statistical software package called R and an enhanced interface to R called
+RStudio <span class="citation">(RStudio Team <a href="#ref-RStudio" role="doc-biblioref">2018</a>)</span>. They are open source and free to download and use
+(and will always be that way). This means that the skills you learn now can
+follow you the rest of your life. R is becoming the primary language of
+statistics and is being adopted across academia, government, and businesses to
+help manage and learn from the growing volume of data being obtained. Hopefully
+you will get a sense of some of the power of R in this book.</p>
+<p>The next pages will walk you through the process of getting the software downloaded and provide you with
+an initial experience using RStudio to do things that should look familiar
+even though the interface will be a new experience. Do not expect to master R
+quickly – it takes years (sorry!) even if you know the statistical methods
+being used. We will try to keep all your interactions with R code in a similar
+code format and that should help you in learning how to use R as we move
+through various methods. We will also often provide you with example code. Everyone
+that learns R starts with copying other people’s code and then making changes
+for specific applications – so expect to go back to examples from the text and focus
+on learning how to modify that code to work for your particular data set. Only
+really experienced R users “know” functions without having to check other
+resources. After we complete this basic introduction, Chapter <a href="chapter2.html#chapter2">2</a> begins doing
+more sophisticated things with R, allowing us to compare quantitative responses
+from two groups, make some graphical displays, do hypothesis testing  and create
+confidence intervals in a couple of different ways.</p>
+<p>You will have two<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> downloading activities to complete before you can do anything
+more than read this book<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. First, you need to download R. It is the engine that will do all the computing
+for us, but you will only interact with it once. Go to <a href="http://cran.rstudio.com" class="uri">http://cran.rstudio.com</a>
+and click on the “<strong>Download R for…</strong>” button that
+corresponds to your operating system. On the next page, click on “<strong>base</strong>” and then it will take you
+to a screen to download the most current version of R that is compiled for your
+operating system, something like “<strong>Download R 3.6.2 for Windows</strong>”. Click on that link and then open
+the file you downloaded. You will need to select your preferred language (choose English so your instructor can help you), then hit “<strong>Next</strong>”
+until it starts to unpack and install the program (all the base settings will be fine). After you hit “<strong>Finish</strong>” you will not do anything further with R directly.</p>
+<p>Second, you need to download RStudio. It is an enhanced interface that will make interacting with
+R less frustrating and allow you to directly create reports that include the code and output. To download RStudio, go near the bottom of <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a> and select the correct version under
+“Installers for Supported Platforms” for your operating system. Download and
+then install RStudio using the installer. From this point forward, you should only
+open RStudio; it provides your interface with R. Note that both R and RStudio
+are updated frequently (up to four times a year) and if you downloaded either
+more than a few months previously, you should download the up-to-date versions,
+especially if something you are trying to do is not working. Sometimes code
+will not work in older versions of R and sometimes old code won’t work in new
+versions of R.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+
+<div class="figure" style="text-align: center"><span id="fig:Figure1-2"></span>
+<img src="chapter1_files/Fig1-2.png" alt="Initial RStudio layout." width="100%" />
+<p class="caption">
+Figure 1.2: Initial RStudio layout.
+</p>
+</div>
+<p>To get started, we can complete some basic tasks in R using the RStudio
+interface. When you open RStudio, you will see a screen like Figure
+<a href="chapter1.html#fig:Figure1-2">1.2</a>. The
+added annotation in this and the following screen-grabs is there to help you
+get initially oriented to the software interface. R is command-line software –
+meaning that in some way or another you have to create code and get it evaluated, either by entering and execute
+it at a command prompt or by using the Rstudio interface to run the code that is stored in a file. RStudio makes the management and
+execution of that code more efficient than the basic version of R. In RStudio,
+the lower left panel is called the “console” window and is where you can type R
+code directly into R or where you will see the code you run and (most
+importantly!) where the results of your executed commands will show up. The
+most basic interaction with R is available once you get the cursor active at
+the command prompt “&gt;” by clicking in that panel (look for a blinking
+vertical line). The upper left panel is for writing, saving, and running your R
+code either in .R script files or .Rmd (markdown) files, discussed below. Once you have code available in this window, the “Run” button will
+execute the code for the line that your cursor is on or for any text that you
+have highlighted with your mouse. The “data management” or environment panel is
+in the upper right, providing information on what data sets have been loaded.
+It also contains the “Import Dataset” button that provides the easiest way for
+you to read a data set into R so you can analyze it. The lower right panel
+contains information on the “Packages” (additional code we will download and
+install to add functionality to R) that are available and is where you will see
+plots that you make and requests for “Help” on specific functions.</p>
+<p>As a first interaction with R we can use it as a calculator. To do this, click near the command prompt
+(<code>&gt;</code>) in the lower left “console” panel, type 3+4, and then hit enter. It
+should look like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chapter1.html#cb1-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="dv">3</span><span class="op">+</span><span class="dv">4</span></span>
+<span id="cb1-2"><a href="chapter1.html#cb1-2"></a>[<span class="dv">1</span>] <span class="dv">7</span></span></code></pre></div>
+<p>You can do more interesting calculations, like finding the mean of the
+numbers -3, 5, 7, and 8 by adding them up and dividing by 4:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="chapter1.html#cb2-1"></a><span class="op">&gt;</span><span class="st"> </span>(<span class="op">-</span><span class="dv">3</span><span class="op">+</span><span class="dv">5</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">8</span>)<span class="op">/</span><span class="dv">4</span></span>
+<span id="cb2-2"><a href="chapter1.html#cb2-2"></a>[<span class="dv">1</span>] <span class="fl">4.25</span></span></code></pre></div>
+<p>Note that the parentheses help R to figure out your desired order of operations. If you drop that grouping, you get
+a very different (and wrong!) result:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="chapter1.html#cb3-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="dv">-3</span><span class="op">+</span><span class="dv">5</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">8</span><span class="op">/</span><span class="dv">4</span></span>
+<span id="cb3-2"><a href="chapter1.html#cb3-2"></a>[<span class="dv">1</span>] <span class="dv">11</span></span></code></pre></div>
+<p>We could estimate the standard deviation similarly using the formula you might remember from introductory
+statistics, but that will only work in very limited situations. To use the real
+power of R this semester, we need to work with data sets that store the
+observations for our subjects in <em>variables</em>.
+Basically, we need to store observations in named vectors (one dimensional
+arrays) that contain a list of the observations. To create a vector containing
+the four numbers and assign it to a variable named <em>variable1</em>, we need to
+create a vector using the concatenate function
+<code>c</code> which means “combine the items” that follow, if they are inside
+parentheses and have commas separating the values,
+as follows:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="chapter1.html#cb4-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span>
+<span id="cb4-2"><a href="chapter1.html#cb4-2"></a>[<span class="dv">1</span>] <span class="dv">-3</span> <span class="dv">5</span> <span class="dv">7</span> <span class="dv">8</span></span></code></pre></div>
+<p>To get this vector stored in a variable called <em>variable1</em> we need to
+use the assignment operator, <code>&lt;-</code> (read as “is defined to contain”) that assigns
+the information on the right into the variable that you are creating on
+the left.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="chapter1.html#cb5-1"></a><span class="op">&gt;</span><span class="st"> </span>variable1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span></code></pre></div>
+<p>In R, the assignment operator, <code>&lt;-</code>, is created by typing a
+“less than” symbol <code>&lt;</code> followed by a “minus” sign (<code>-</code>)
+<strong>without a space between them</strong>. If you
+ever want to see what numbers are residing in an object in R, just type
+its name and hit <em>enter</em>. You can see how that variable contains the same
+information that was initially generated by
+<code>c(-3, 5, 7, 8)</code> but is easier to access since we just need the text
+for the variable name representing that vector.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="chapter1.html#cb6-1"></a><span class="op">&gt;</span><span class="st"> </span>variable1</span>
+<span id="cb6-2"><a href="chapter1.html#cb6-2"></a>[<span class="dv">1</span>] <span class="dv">-3</span> <span class="dv">5</span> <span class="dv">7</span> <span class="dv">8</span></span></code></pre></div>
+<p>With the data stored in a variable, we can use functions such as
+<code>mean</code> and
+<code>sd</code> to find the mean and standard deviation of the observations contained in
+<code>variable1</code>:
+
+</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chapter1.html#cb7-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">mean</span>(variable1)</span>
+<span id="cb7-2"><a href="chapter1.html#cb7-2"></a>[<span class="dv">1</span>] <span class="fl">4.25</span></span>
+<span id="cb7-3"><a href="chapter1.html#cb7-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">sd</span>(variable1)</span>
+<span id="cb7-4"><a href="chapter1.html#cb7-4"></a>[<span class="dv">1</span>] <span class="fl">4.99166</span></span></code></pre></div>
+<p>When dealing with real data, we will often have information about more than one
+variable. We could enter all observations by hand for each variable but this is
+prone to error and onerous for all but the smallest data sets. If you are to
+ever utilize the power of statistics in the evolving data-centered world, data
+management has to be accomplished in a more sophisticated way. While you can
+manage data sets quite effectively in R, it is often easiest to start with your
+data set in something like Microsoft Excel or OpenOffice’s Calc. You want to
+make sure that observations are in the rows and the names of variables are in
+first row of the columns and that there is no “extra stuff” in the spreadsheet. If you have
+missing observations, they should be represented with blank cells. The file should
+be saved as a “.csv” file (stands for comma-separated values although Excel
+calls it “CSV (Comma Delimited)”), which basically strips off some of the junk
+that Excel adds to the necessary information in the file. Excel will tell you that
+this is a bad idea, but it actually creates a more stable archival format and
+one that R can use directly.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+<p>The following code to read in the data set relies on an R package called
+<code>readr</code> <span class="citation">(Wickham, Hester, and Francois <a href="#ref-R-readr" role="doc-biblioref">2018</a>)</span>. Packages in R provide additional functions and data sets that
+are not available in the initial download of R or RStudio. To get access to the packages,
+first “install” (basically
+download) and then “load” the package. To install an R package, go to the <strong>Packages</strong>
+tab in the lower right panel of
+RStudio. Click on the <strong>Install</strong> button and then type in the name of the package in
+the box (here type in <code>readr</code>).
+
+RStudio will try to auto-complete the package name
+you are typing which should help you make sure you got it typed correctly. If you are working in a .Rmd file, a highlighted message may show up on the top of the file to suggest packages to install that are not present – look for this to help make sure you have the needed packages installed. This will
+be the first of <em>many</em> times that we will mention that R is case sensitive – in
+other words, <code>Readr</code> is different from <code>readr</code> in R syntax and this sort of
+thing applies to everything you do in R. You should only need to install each R
+package once on a given computer. If you ever see a message that R can’t find a
+package, make sure it appears in the list in the <strong>Packages</strong> tab. If it
+doesn’t, repeat the previous steps to install it.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Important</strong>: R is case sensitive! <code>Readr</code> is not the same as <code>readr</code>!</td>
+</tr>
+</tbody>
+</table>
+<p>After installing the package, we need to load it to make it active in a given work
+session. Go to the command prompt and type (or copy and paste) <code>library(readr)</code> or <code>require(readr)</code>:
+</p>
+<pre><code>&gt; library(readr)</code></pre>
+<p>With a data set converted to a CSV file and <code>readr</code> installed and loaded, we need to read the data set into the active workspace.
+
+There are two ways to do this, either using the point-and-click GUI in RStudio (click
+the “Import Dataset” button in the upper right “Environment” panel as
+indicated in Figure <a href="chapter1.html#fig:Figure1-2">1.2</a>) or modifying the <code>read_csv</code>
+function to find the file of interest. To practice this, you can
+download an Excel (.xls) file from
+<a href="http://www.math.montana.edu/courses/s217/documents/treadmill.xls" class="uri">http://www.math.montana.edu/courses/s217/documents/treadmill.xls</a>
+that contains observations on 31 males that volunteered for a study on methods
+for measuring fitness <span class="citation">(Westfall and Young <a href="#ref-Westfall1993" role="doc-biblioref">1993</a>)</span>.
+In the spreadsheet, you will find a data set that
+starts and ends with the following information (only results for Subjects 1, 2,
+30, and 31 shown here):</p>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="13%" />
+<col width="17%" />
+<col width="11%" />
+<col width="13%" />
+<col width="10%" />
+<col width="18%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Sub-
+ject</th>
+<th align="left">Tread-
+MillOx</th>
+<th align="left">TreadMill-
+MaxPulse</th>
+<th align="right">RunTime</th>
+<th align="right">RunPulse</th>
+<th align="left">Rest
+Pulse</th>
+<th align="right">BodyWeight</th>
+<th align="right">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">60.05</td>
+<td align="left">186</td>
+<td align="right">8.63</td>
+<td align="right">170</td>
+<td align="left">48</td>
+<td align="right">81.87</td>
+<td align="right">38</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">59.57</td>
+<td align="left">172</td>
+<td align="right">8.17</td>
+<td align="right">166</td>
+<td align="left">40</td>
+<td align="right">68.15</td>
+<td align="right">42</td>
+</tr>
+<tr class="odd">
+<td align="left">…</td>
+<td align="left">…</td>
+<td align="left">…</td>
+<td align="right">…</td>
+<td align="right">…</td>
+<td align="left">…</td>
+<td align="right">…</td>
+<td align="right">…</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="left">39.2</td>
+<td align="left">172</td>
+<td align="right">12.88</td>
+<td align="right">168</td>
+<td align="left">44</td>
+<td align="right">91.63</td>
+<td align="right">54</td>
+</tr>
+<tr class="odd">
+<td align="left">31</td>
+<td align="left">37.39</td>
+<td align="left">192</td>
+<td align="right">14.03</td>
+<td align="right">186</td>
+<td align="left">56</td>
+<td align="right">87.66</td>
+<td align="right">45</td>
+</tr>
+</tbody>
+</table>
+<p>The variables contain information on the subject number (<em>Subject</em>), subjects’
+maximum treadmill oxygen consumption (<em>TreadMillOx</em>, in ml per kg per minute, also called maximum VO2) and
+maximum pulse rate (<em>TreadMillMaxPulse</em>, in beats per minute), time to run 1.5
+miles (<em>Run Time</em>, in minutes), maximum pulse
+during 1.5 mile run (<em>RunPulse</em>, in beats per minute), resting pulse rate
+(<em>RestPulse</em>, beats per minute), Body Weight (<em>BodyWeight</em>, in kg), and <em>Age</em>
+(in years). Open the file in Excel or equivalent software and then save it as
+a .csv file in a location you can find on your computer. Then go to RStudio
+and click on <strong>File</strong>, then <strong>Import Dataset</strong>, then <strong>From Text (readr)…</strong><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>
+
+Click “<strong>Import</strong>” and find your file. R will store the data set as an object with the same name
+as the .csv file. You could use another name as well, but it is
+often easiest just to keep the data
+set name in R related to the original file name. You should see some text appear
+in the console (lower left panel) like in Figure <a href="chapter1.html#fig:Figure1-3">1.3</a>. The text
+that is created
+will look something like the following – if you had stored the file in a drive
+labeled D:, it would be:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="chapter1.html#cb9-1"></a>treadmill &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;D:/treadmill.csv&quot;</span>)</span></code></pre></div>
+<p>What is put inside the
+<code>" "</code> will depend on the location and name of your saved .csv file. A
+version of the data set in what looks like a
+spreadsheet will appear in the upper left window due to the second line of
+code (<code>View(treadmill</code>)).</p>
+
+<div class="figure" style="text-align: center"><span id="fig:Figure1-3"></span>
+<img src="chapter1_files/Fig1-3.png" alt="RStudio with initial data set loaded." width="100%" />
+<p class="caption">
+Figure 1.3: RStudio with initial data set loaded.
+</p>
+</div>
+<p>Just directly typing (or using) a line of code like this is actually the
+other way that we can read in
+files. If you choose to use the text-only interface, then you need to tell R
+where to look in your computer to find the data file. <code>read_csv</code> is a
+function that takes a path as an argument. To use it, specify the path to
+your data file, put quotes around it, and put it as the input to
+<code>read_csv(...)</code>. For some examples later in the book, you will be able to
+copy a command like this from the text and read data sets and other
+code directly from the website, assuming you are connected to the
+internet.</p>
+<p>To verify that you read the data set in correctly, it is always good to check
+its contents. We can view the first and last rows in the data set using the
+<code>head</code> and <code>tail</code> functions on the data set, which show the following
+results for the
+<code>treadmill</code> data. Note that you will sometimes need to resize the console
+window in RStudio to get all the columns to display
+in a single row which can be performed by dragging the gray bars that separate
+the panels.
+
+</p>
+
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="chapter1.html#cb10-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">head</span>(treadmill)</span>
+<span id="cb10-2"><a href="chapter1.html#cb10-2"></a><span class="co"># A tibble: 6 x 8</span></span>
+<span id="cb10-3"><a href="chapter1.html#cb10-3"></a>  Subject TreadMillOx TreadMillMaxPulse RunTime RunPulse RestPulse BodyWeight   Age</span>
+<span id="cb10-4"><a href="chapter1.html#cb10-4"></a>    <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st">       </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">             </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">    </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">     </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">      </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>int<span class="op">&gt;</span></span>
+<span id="cb10-5"><a href="chapter1.html#cb10-5"></a><span class="dv">1</span>       <span class="dv">1</span>       <span class="fl">60.05</span>               <span class="dv">186</span>    <span class="fl">8.63</span>      <span class="dv">170</span>        <span class="dv">48</span>      <span class="fl">81.87</span>    <span class="dv">38</span></span>
+<span id="cb10-6"><a href="chapter1.html#cb10-6"></a><span class="dv">2</span>       <span class="dv">2</span>       <span class="fl">59.57</span>               <span class="dv">172</span>    <span class="fl">8.17</span>      <span class="dv">166</span>        <span class="dv">40</span>      <span class="fl">68.15</span>    <span class="dv">42</span></span>
+<span id="cb10-7"><a href="chapter1.html#cb10-7"></a><span class="dv">3</span>       <span class="dv">3</span>       <span class="fl">54.62</span>               <span class="dv">155</span>    <span class="fl">8.92</span>      <span class="dv">146</span>        <span class="dv">48</span>      <span class="fl">70.87</span>    <span class="dv">50</span></span>
+<span id="cb10-8"><a href="chapter1.html#cb10-8"></a><span class="dv">4</span>       <span class="dv">4</span>       <span class="fl">54.30</span>               <span class="dv">168</span>    <span class="fl">8.65</span>      <span class="dv">156</span>        <span class="dv">45</span>      <span class="fl">85.84</span>    <span class="dv">44</span></span>
+<span id="cb10-9"><a href="chapter1.html#cb10-9"></a><span class="dv">5</span>       <span class="dv">5</span>       <span class="fl">51.85</span>               <span class="dv">170</span>   <span class="fl">10.33</span>      <span class="dv">166</span>        <span class="dv">50</span>      <span class="fl">83.12</span>    <span class="dv">54</span></span>
+<span id="cb10-10"><a href="chapter1.html#cb10-10"></a><span class="dv">6</span>       <span class="dv">6</span>       <span class="fl">50.55</span>               <span class="dv">155</span>    <span class="fl">9.93</span>      <span class="dv">148</span>        <span class="dv">49</span>      <span class="fl">59.08</span>    <span class="dv">57</span></span>
+<span id="cb10-11"><a href="chapter1.html#cb10-11"></a></span>
+<span id="cb10-12"><a href="chapter1.html#cb10-12"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tail</span>(treadmill)</span>
+<span id="cb10-13"><a href="chapter1.html#cb10-13"></a><span class="co"># A tibble: 6 x 8</span></span>
+<span id="cb10-14"><a href="chapter1.html#cb10-14"></a>  Subject TreadMillOx TreadMillMaxPulse RunTime RunPulse RestPulse BodyWeight   Age</span>
+<span id="cb10-15"><a href="chapter1.html#cb10-15"></a>    <span class="op">&lt;</span>int<span class="op">&gt;</span><span class="st">       </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">             </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st">    </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">     </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">      </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>int<span class="op">&gt;</span></span>
+<span id="cb10-16"><a href="chapter1.html#cb10-16"></a><span class="dv">1</span>      <span class="dv">26</span>       <span class="fl">44.61</span>               <span class="dv">182</span>   <span class="fl">11.37</span>      <span class="dv">178</span>        <span class="dv">62</span>      <span class="fl">89.47</span>    <span class="dv">44</span></span>
+<span id="cb10-17"><a href="chapter1.html#cb10-17"></a><span class="dv">2</span>      <span class="dv">27</span>       <span class="fl">40.84</span>               <span class="dv">172</span>   <span class="fl">10.95</span>      <span class="dv">168</span>        <span class="dv">57</span>      <span class="fl">69.63</span>    <span class="dv">51</span></span>
+<span id="cb10-18"><a href="chapter1.html#cb10-18"></a><span class="dv">3</span>      <span class="dv">28</span>       <span class="fl">39.44</span>               <span class="dv">176</span>   <span class="fl">13.08</span>      <span class="dv">174</span>        <span class="dv">63</span>      <span class="fl">81.42</span>    <span class="dv">44</span></span>
+<span id="cb10-19"><a href="chapter1.html#cb10-19"></a><span class="dv">4</span>      <span class="dv">29</span>       <span class="fl">39.41</span>               <span class="dv">176</span>   <span class="fl">12.63</span>      <span class="dv">174</span>        <span class="dv">58</span>      <span class="fl">73.37</span>    <span class="dv">57</span></span>
+<span id="cb10-20"><a href="chapter1.html#cb10-20"></a><span class="dv">5</span>      <span class="dv">30</span>       <span class="fl">39.20</span>               <span class="dv">172</span>   <span class="fl">12.88</span>      <span class="dv">168</span>        <span class="dv">44</span>      <span class="fl">91.63</span>    <span class="dv">54</span></span>
+<span id="cb10-21"><a href="chapter1.html#cb10-21"></a><span class="dv">6</span>      <span class="dv">31</span>       <span class="fl">37.39</span>               <span class="dv">192</span>   <span class="fl">14.03</span>      <span class="dv">186</span>        <span class="dv">56</span>      <span class="fl">87.66</span>    <span class="dv">45</span></span></code></pre></div>
+
+<p>When you load an installed package with <code>library</code>, you may see a warning message about versions of the package and versions of
+R – this is <em>usually</em> something you can ignore. Other warning messages could
+be more ominous for proceeding but before getting too concerned, there are
+couple of basic things to check.
+
+First, double check that the package is
+installed (see
+previous steps). Second, check for typographical errors in your code –
+especially for mis-spellings or unintended capitalization. If you are still
+having issues, try repeating the installation process. Then click on the “<strong>Update</strong>” button to check for potentially newer versions of packages. If all that fails, try the cloud version of RStudio discussed before and repeat the steps there.</p>
+<p>To help you go from basic to intermediate R usage and especially to help with more
+complicated problems, you will want to learn how to manage and save your R code.
+The best way to do this is using the upper left panel in RStudio. If you just want to manage code, then you can use what
+are called R Scripts, which are files that have a file extension of “.R”. To
+start a new “.R” file to store your code, click on <strong>File</strong>, then
+<strong>New File</strong>, then <strong>R Script</strong>. This will create a blank page to enter and
+edit code – then save the file as something like “MyFileName.R” in your preferred location.
+Saving your code will mean that you can return to where you
+were working last by simply re-running the saved script file. With code in the
+script window, you can place the cursor on a line of code or highlight a chunk
+of code and hit the “Run” button<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
+on the upper part of the panel. It will appear
+in the console with results just like what you would obtain if you typed it
+after the command prompt and hit enter for each line. Figure <a href="chapter1.html#fig:Figure1-4">1.4</a>
+shows the screen with the code used in this
+section in the upper left panel, saved in
+a file called “Ch1.R”, with the results of highlighting and executing the first
+section of code using the “Run” button.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:Figure1-4"></span>
+<img src="chapter1_files/Fig1-4.png" alt="RStudio with highlighted code run." width="100%" />
+<p class="caption">
+Figure 1.4: RStudio with highlighted code run.
+</p>
+</div>
+</div>
+<div id="section1-3" class="section level2">
+<h2><span class="header-section-number">1.3</span> Basic summary statistics, histograms, and boxplots using R</h2>
+<p>For the following material, you will need to install and load the <code>mosaic</code> package <span class="citation">(Pruim, Kaplan, and Horton <a href="#ref-R-mosaic" role="doc-biblioref">2019</a>)</span>.</p>
+<p></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="chapter1.html#cb11-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(mosaic)</span></code></pre></div>
+<p>It provides a suite of enhanced functions to aid our initial explorations. With RStudio running, the <code>mosaic</code> package loaded, a place to write and
+save code, and the <code>treadmill</code> data set loaded, we can (finally!) start to
+summarize the results of the study. The <code>treadmill</code> object is what R calls a
+<strong><em>tibble</em></strong><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> and contains columns corresponding to each variable in
+the spreadsheet. Every
+function in R will involve specifying the variable(s) of interest and how you
+want to use them. To access a particular variable (column) in a tibble, you
+can use a $ between the name of the tibble and the name of the variable of
+interest, generically as <code>tibblename$variablename</code>. You can think of this as <em>tibblename’s variablename</em> where the <em>’s</em> is replaced by the dollar sign. To identify the
+<code>RunTime</code> variable here it would be <code>treadmill$RunTime</code>. In the command line it would look like:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chapter1.html#cb12-1"></a><span class="op">&gt;</span><span class="st"> </span>treadmill<span class="op">$</span>RunTime</span>
+<span id="cb12-2"><a href="chapter1.html#cb12-2"></a>[<span class="dv">1</span>]  <span class="fl">8.63</span>  <span class="fl">8.17</span>  <span class="fl">8.92</span>  <span class="fl">8.65</span> <span class="fl">10.33</span>  <span class="fl">9.93</span> <span class="fl">10.13</span> <span class="fl">10.08</span>  <span class="fl">9.22</span>  <span class="fl">8.95</span> <span class="fl">10.85</span>  <span class="fl">9.40</span> <span class="fl">11.50</span> <span class="fl">10.50</span></span>
+<span id="cb12-3"><a href="chapter1.html#cb12-3"></a>[<span class="dv">15</span>] <span class="fl">10.60</span> <span class="fl">10.25</span> <span class="fl">10.00</span> <span class="fl">11.17</span> <span class="fl">10.47</span> <span class="fl">11.95</span>  <span class="fl">9.63</span> <span class="fl">10.07</span> <span class="fl">11.08</span> <span class="fl">11.63</span> <span class="fl">11.12</span> <span class="fl">11.37</span> <span class="fl">10.95</span> <span class="fl">13.08</span></span>
+<span id="cb12-4"><a href="chapter1.html#cb12-4"></a>[<span class="dv">29</span>] <span class="fl">12.63</span> <span class="fl">12.88</span> <span class="fl">14.03</span></span></code></pre></div>
+<p>Just as in the previous section, we can generate summary statistics using functions like <code>mean</code> and <code>sd</code> by running them on a specific variable:
+
+</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="chapter1.html#cb13-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">mean</span>(treadmill<span class="op">$</span>RunTime)</span>
+<span id="cb13-2"><a href="chapter1.html#cb13-2"></a>[<span class="dv">1</span>] <span class="fl">10.58613</span></span>
+<span id="cb13-3"><a href="chapter1.html#cb13-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">sd</span>(treadmill<span class="op">$</span>RunTime)</span>
+<span id="cb13-4"><a href="chapter1.html#cb13-4"></a>[<span class="dv">1</span>] <span class="fl">1.387414</span></span></code></pre></div>
+<p>And now we know that the average running time for 1.5 miles for the subjects in the study was 10.6 minutes with a standard deviation (SD) of 1.39 minutes. But you should remember that the
+mean and SD are only appropriate summaries if the distribution is roughly
+<strong><em>symmetric</em></strong> (both sides of the distribution are approximately the same shape and length). The
+<code>mosaic</code> package provides a useful function called <code>favstats</code> that provides
+the mean and SD as well as the <strong><em>5 number summary</em></strong>: 
+the minimum (<code>min</code>), the first quartile (<code>Q1</code>, the 25<sup>th</sup> percentile),
+the median (50<sup>th</sup> percentile), the third quartile (<code>Q3</code>, the 75<sup>th</sup>
+percentile), and the maximum (<code>max</code>). It also provides the number of
+observations (<code>n</code>) which was 31, as noted above, and a count of whether any
+missing values were encountered (<code>missing</code>), which was 0 here since all
+subjects had measurements available on this variable.
+</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="chapter1.html#cb14-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">favstats</span>(treadmill<span class="op">$</span>RunTime)</span>
+<span id="cb14-2"><a href="chapter1.html#cb14-2"></a>  min   Q1 median    Q3   max     mean       sd  n missing</span>
+<span id="cb14-3"><a href="chapter1.html#cb14-3"></a> <span class="fl">8.17</span> <span class="fl">9.78</span>  <span class="fl">10.47</span> <span class="fl">11.27</span> <span class="fl">14.03</span> <span class="fl">10.58613</span> <span class="fl">1.387414</span> <span class="dv">31</span>       <span class="dv">0</span></span></code></pre></div>
+<p>We are starting to get somewhere with understanding that the runners were
+somewhat fit with the worst runner covering 1.5 miles in 14 minutes
+(the equivalent of a 9.3 minute mile)
+and the best running at a 5.4 minute mile pace. The limited variation in the
+results suggests that the sample was obtained from a restricted group with
+somewhat common characteristics. When you explore the ages and weights of the
+subjects in the Practice Problems in Section <a href="chapter1.html#section1-6">1.6</a>, you will get even more
+information about how similar all the subjects in this study were. Researchers often publish numerical summaries of this sort of demographic information to help readers understand the subjects that they studied and that their results might apply to.</p>
+<p>A graphical display of these results will help us to assess the shape
+of the distribution of run times – including considering the potential for the presence of a <strong><em>skew</em></strong> (whether the right or left tail of the distribution
+is noticeably more spread out, with left skew meaning that the left tail
+is more spread out than the right tail)  and <strong><em>outliers</em></strong> 
+(unusual observations). A <strong><em>histogram</em></strong>  is a good place to start.
+Histograms display connected bars with counts of observations defining
+the height of bars based on a set of bins of values of the quantitative variable.
+We will apply the <code>hist</code> function to the <code>RunTime</code> variable, which produces
+Figure <a href="chapter1.html#fig:Figure1-5">1.5</a>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="chapter1.html#cb15-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">hist</span>(treadmill<span class="op">$</span>RunTime)</span></code></pre></div>
+
+<div class="figure"><span id="fig:Figure1-5"></span>
+<img src="01-preface_files/figure-html/Figure1-5-1.png" alt="Histogram of Run Times (minutes) of \(n\)=31 subjects in Treadmill study, bar heights are counts." width="480" />
+<p class="caption">
+Figure 1.5: Histogram of Run Times (minutes) of <span class="math inline">\(n\)</span>=31 subjects in Treadmill study, bar heights are counts.
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:Figure1-6"></span>
+<img src="chapter1_files/Fig1-6.png" alt="RStudio while in the process of copying the histogram." width="100%" />
+<p class="caption">
+Figure 1.6: RStudio while in the process of copying the histogram.
+</p>
+</div>
+<p>You can save this plot by clicking on the <strong>Export</strong> button found above
+the plot, followed by <strong>Copy to Clipboard</strong> and clicking on the
+<strong>Copy Plot</strong> button. Then if you open your
+favorite word-processing program, you should be able to paste it into a
+document for writing reports that include the figures. You can see the first
+parts of this process in the screen grab in Figure <a href="chapter1.html#fig:Figure1-6">1.6</a>. You can also directly save the figures as separate files using
+<strong>Save as Image</strong> or <strong>Save as PDF</strong> and then insert them into your word
+processing documents.</p>
+<p>The function <code>hist</code> defaults into providing a histogram on the <strong><em>frequency</em></strong>
+(count) scale. In most R functions, there are the default options that will
+occur if we don’t make any specific choices but we
+can override the default options if we desire. One option we can modify here is
+to add labels to the bars to be able to see exactly how many observations fell
+into each bar. Specifically, we can turn the <code>labels</code> option “on” by making it true (“T”) by adding <code>labels=T</code> to the previous call to the <code>hist</code> function, separated by a comma. Note that we will use the <code>=</code> sign only for changing options within functions.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chapter1.html#cb16-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">hist</span>(treadmill<span class="op">$</span>RunTime, <span class="dt">labels=</span>T)</span></code></pre></div>
+
+<div class="figure"><span id="fig:Figure1-7"></span>
+<img src="01-preface_files/figure-html/Figure1-7-1.png" alt="Histogram of Run Times with counts in bars labeled." width="480" />
+<p class="caption">
+Figure 1.7: Histogram of Run Times with counts in bars labeled.
+</p>
+</div>
+<p>Based on this histogram, it does not appear that there any outliers in the responses
+since there are no bars that are separated from the other observations. However,
+the distribution does not look symmetric and there might be a skew to the
+distribution. Specifically, it appears to be <strong><em>skewed right</em></strong> (the right tail is longer than the left). But histograms can sometimes mask features of
+the data set by binning observations and it is hard to find the percentiles
+accurately from the plot.</p>
+<p>When assessing outliers and skew, the <strong><em>boxplot</em></strong>
+(or <em>Box and Whiskers</em> plot) can also be helpful (Figure <a href="chapter1.html#fig:Figure1-8">1.8</a>) to describe the
+shape of the distribution as it displays the 5-number summary and will also indicate
+observations that are “far” above the middle of the observations.
+
+R’s <code>boxplot</code> function uses the standard rule to indicate an observation as a
+<strong><em>potential outlier</em></strong> if it falls more than 1.5 times the <strong><em>IQR</em></strong>
+(Inter-Quartile Range, calculated as Q3 – Q1) below Q1 or above Q3.
+
+The potential outliers
+are plotted with circles and the <em>Whiskers</em> (lines that extend from Q1 and Q3 typically to
+the minimum and maximum) are shortened to only go as far as
+observations that are within <span class="math inline">\(1.5*\)</span>IQR of the upper and lower quartiles. The <em>box</em>
+part of the boxplot is a box that goes from Q1 to Q3 and the median is displayed as a line
+somewhere inside the box.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> Looking back at the summary statistics above, Q1=9.78 and Q3=11.27, providing an IQR of:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="chapter1.html#cb17-1"></a><span class="op">&gt;</span><span class="st"> </span>IQR &lt;-<span class="st"> </span><span class="fl">11.27</span> <span class="op">-</span><span class="st"> </span><span class="fl">9.78</span></span>
+<span id="cb17-2"><a href="chapter1.html#cb17-2"></a><span class="op">&gt;</span><span class="st"> </span>IQR</span>
+<span id="cb17-3"><a href="chapter1.html#cb17-3"></a>[<span class="dv">1</span>] <span class="fl">1.49</span></span></code></pre></div>
+<p>One observation (the maximum value of 14.03) is indicated as a potential outlier
+based on this result by being larger than Q3 <span class="math inline">\(+1.5*\)</span>IQR, which was 13.505:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="chapter1.html#cb18-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="fl">11.27</span> <span class="op">+</span><span class="st"> </span><span class="fl">1.5</span><span class="op">*</span>IQR</span>
+<span id="cb18-2"><a href="chapter1.html#cb18-2"></a>[<span class="dv">1</span>] <span class="fl">13.505</span></span></code></pre></div>
+<p>The boxplot also shows a slight indication of a right skew (skew towards
+larger values) with the distance from the minimum to the median being smaller than the
+distance from the median to the maximum. Additionally, the distance from Q1 to
+the median is smaller than the distance from the median to Q3. It is modest skew,
+but worth noting.</p>
+
+<div class="figure"><span id="fig:Figure1-8"></span>
+<img src="01-preface_files/figure-html/Figure1-8-1.png" alt="Boxplot of 1.5 mile Run Times." width="480" />
+<p class="caption">
+Figure 1.8: Boxplot of 1.5 mile Run Times.
+</p>
+</div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chapter1.html#cb19-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">boxplot</span>(treadmill<span class="op">$</span>RunTime)</span></code></pre></div>
+<p>While the default boxplot is fine, it fails to provide good graphical labels,
+especially on the y-axis. Additionally, there is no title on the plot. The
+following code provides some enhancements to the plot by using the <code>ylab</code> and
+<code>main</code> options in the call to <code>boxplot</code>, with the results displayed in
+Figure <a href="chapter1.html#fig:Figure1-9">1.9</a>. When we add text to plots, it will be contained within quotes and
+be assigned into the options <code>ylab</code> (for y-axis) or <code>main</code>
+(for the title) here to put it into those locations.</p>
+
+<div class="figure"><span id="fig:Figure1-9"></span>
+<img src="01-preface_files/figure-html/Figure1-9-1.png" alt="Boxplot of Run Times with improved labels." width="480" />
+<p class="caption">
+Figure 1.9: Boxplot of Run Times with improved labels.
+</p>
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="chapter1.html#cb20-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">boxplot</span>(treadmill<span class="op">$</span>RunTime, <span class="dt">ylab=</span><span class="st">&quot;1.5 Mile Run Time (minutes)&quot;</span>, </span>
+<span id="cb20-2"><a href="chapter1.html#cb20-2"></a>          <span class="dt">main=</span><span class="st">&quot;Boxplot of the Run Times of n=31 participants&quot;</span>)</span></code></pre></div>
+<p>Throughout the book, we will often use extra options to make figures that
+are easier for you to understand. There
+are often simpler versions of the functions that will suffice but the extra
+work to get better labeled figures is often worth it. I guess the point is that
+“a picture is worth a thousand words” but in data visualization, that is only
+true if the reader can understand what is being displayed. It is also important
+to think about the quality of the information that is being displayed,
+regardless of how pretty the graphic might be. So maybe it is better to say
+“a picture can be worth a thousand words” if it is well-labeled?</p>
+<p>All the previous results were created by running the R code and then copying the
+results from either the console or by copying the figure and then pasting the results
+into the typesetting program. There is another way
+to use RStudio where you can have it compile the results (both output and
+figures) directly into a document together with other writing and the code that generated it,
+using what is called R Markdown (<a href="http://shiny.rstudio.com/articles/rmarkdown.html" class="uri">http://shiny.rstudio.com/articles/rmarkdown.html</a>).
+It is basically what we used to prepare this book and what you should learn to use to do your work.
+From here forward, you will see a
+change in formatting of the R code and output as you will no
+longer see the command prompt (“&gt;”) with the code. The output will be
+flagged by having two “##”’s before it. For example, the summary statistics for
+the <em>RunTime</em> variable from <code>favstats</code> function would look like when run using R Markdown:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chapter1.html#cb21-1"></a><span class="kw">favstats</span>(treadmill<span class="op">$</span>RunTime)</span></code></pre></div>
+<pre><code>##   min   Q1 median    Q3   max     mean       sd  n missing
+##  8.17 9.78  10.47 11.27 14.03 10.58613 1.387414 31       0</code></pre>
+<p>Statisticians (and other scientists) are starting to use R Markdown and similar methods
+because they provide what is called “Reproducible
+research” <span class="citation">(Gandrud <a href="#ref-Gandrud2015" role="doc-biblioref">2015</a>)</span> where all the code and output it produced are
+available in a single place. This allows different researchers to run and verify
+results (so “reproducible results”) or the original researchers to revisit their earlier work at a later
+date and recreate all their results exactly. Scientific publications are currently
+encouraging researchers to work in this way and may someday require it. The term <strong><em>reproducible</em></strong> can also be related to whether repeated studies get the same result (also called <strong><em>replication</em></strong>) – further discussion of these terms and the implications for scientific research are discussed in Chapter <a href="chapter2.html#chapter2">2</a>.</p>
+<p>In order to get some practice using R Markdown, create a sample document in this format using File -&gt; New File -&gt; R Markdown… Choose a title for your file and select the “Word” option. This will create a new file in the upper left window where we stored our .R script. Save that file to your computer. Then you can use the “Knit” button to have RStudio run the code and create a word document with the results. R Markdown documents contain basically two components, “code chunks” that contain your code and the rest of the document where you can write descriptions and interpretations of the results that code generates. The code chunks can be inserted using the “Insert” button by selecting the “R” option. Then write your code in between the <code>```{r}</code> and <code>```</code> lines (it should have grey highlights for those lines and white for the rest of the portions of the .Rmd document). Once you write some code inside a code chunk, you can test your code using the triangle on the upper right side of it to run all the code that resides in that chunk. Keep your write up outside of these code chunks to avoid code errors and failures to compile. Once you think your code and writing is done, you can use the “Knit” button to try to compile the file. As you are learning, you may find this challenging, so start with trying to review the sample document and knit each time you get a line of code written so you know when you broke the file. Also look around for posted examples of .Rmd files to learn how others have incorporated code with write-ups. You might even be given a template of homework or projects as .Rmd files from your instructor. After you do this a couple of times, you will find that the challenge of working with markdown files is more than matched by the simplicity of the final product and, at least to researchers, the reproducibility and documentation of work that this method provides.</p>
+<p>Finally, when you are done with your work and attempt to exit out of RStudio,
+it will
+ask you to save your workspace. <strong><em>DO NOT DO THIS!</em></strong> It will just create a cluttered
+workspace and could even cause you to get incorrect results. In fact, you should go into the Tools -&gt; Global Options and then make sure that “Save workspace to .RData on exit” option on the first screen you will see is set to <strong><em>Never</em></strong>. If you
+save your R code either as a .R or (better) an R-markdown file, you can re-create any results by simply
+re-running that code or re-knitting the file. If you find that you have lots of “stuff” in your
+workspace because you accidentally saved your workspace, just run <code>rm(list = ls())</code>.
+It will delete all the data sets from your workspace.</p>
+</div>
+<div id="section1-4" class="section level2">
+<h2><span class="header-section-number">1.4</span> Chapter summary</h2>
+<p>This chapter covered getting R and RStudio downloaded and some basics of working with
+R via RStudio. You should be able to read a data set into R and run some basic
+functions, all done using the RStudio interface. If you are struggling with
+this, you should seek additional help with these technical issues so that you
+are ready for more complicated statistical methods that are going to be
+encountered in the following chapters. The way everyone learns R is
+by starting with some example code that does most of what you want to do and
+then you modify it. If you can complete the Practice Problems that follow, you
+are well on your way to learning to use R.</p>
+<p>The statistical methods in this chapter were minimal and all should have been
+review. They involved a quick reminder of summarizing the center, spread, and
+shape of distributions using numerical summaries of the mean and SD and/or the
+min, Q1, median, Q3, and max and the histogram and boxplot as graphical
+summaries. We revisited the ideas of symmetry and skew. But the main point was
+really to get a start on using R via RStudio to provide results you should be familiar with
+from your previous statistics experience(s).</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="section1-5" class="section level2">
+<h2><span class="header-section-number">1.5</span> Summary of important R code</h2>
+<p>To help you learn and use R, there is a section highlighting the most important
+R code used near the end of each
+chapter. The bold text will never change but the
+lighter and/or ALL CAPS text (red in the online or digital version) will need
+to be customized to your particular application. The sub-bullet for each
+function will discuss the use of the function and pertinent options or packages
+required. You can use this as a guide to finding the function names and some
+hints about options that will help you to get the code to work. You can also
+revisit the worked examples using each of the functions.</p>
+<ul>
+<li><p><font color='red'>FILENAME</font> <code>&lt;-</code> <strong>read_csv(</strong><font color='red'>“path to csv file/FILENAME.csv”</font><strong>)</strong></p>
+<ul>
+<li><p>Can be generated using “Import Dataset” button or by modifying this text.</p></li>
+<li><p>Requires the <code>readr</code> package to be loaded (<code>library(readr)</code>) when using
+the code directly.</p></li>
+<li><p>Imports a text file saved in the CSV format.</p></li>
+</ul></li>
+<li><p><font color='red'>DATASETNAME</font><strong>$</strong><font color='red'>VARIABLENAME</font></p>
+<ul>
+<li>To access a particular variable in a tibble called DATASETNAME, use
+a $ and then the VARIABLENAME.</li>
+</ul></li>
+<li><p><strong>head(</strong><font color='red'>DATASETNAME</font><strong>)</strong></p>
+<ul>
+<li>Provides a list of the first few rows of the data set for all the
+variables in it. </li>
+</ul></li>
+<li><p><strong>tail(</strong><font color='red'>DATASETNAME</font><strong>)</strong></p>
+<ul>
+<li>Provides a list of the last few rows of the data set for all the
+variables in it. </li>
+</ul></li>
+<li><p><strong>mean(</strong><font color='red'>DATASETNAME</font><strong>$</strong><font color='red'>VARIABLENAME</font><strong>)</strong></p>
+<ul>
+<li>Calculates the mean of the observations in a variable.
+</li>
+</ul></li>
+<li><p><strong>sd(</strong><font color='red'>DATASETNAME</font><strong>$</strong><font color='red'>VARIABLENAME</font><strong>)</strong></p>
+<ul>
+<li>Calculates the standard deviation of the observations in a variable.
+</li>
+</ul></li>
+<li><p><strong>favstats(</strong><font color='red'>DATASETNAME</font>$<font color='red'>VARIABLENAME</font><strong>)</strong></p>
+<ul>
+<li><p>Requires the <code>mosaic</code> package to be loaded (<code>library(mosaic)</code>) after
+installing the package).</p></li>
+<li><p>Provides a suite of numerical summaries of the observations in a variable.
+</p></li>
+</ul></li>
+<li><p><strong>hist(</strong><font color='red'>DATASETNAME</font><strong>$</strong><font color='red'>VARIABLENAME</font><strong>)</strong></p>
+<ul>
+<li>Makes a histogram. </li>
+</ul></li>
+<li><p><strong>boxplot(</strong><font color='red'>DATASETNAME</font><strong>$</strong><font color='red'>VARIABLENAME</font><strong>)</strong></p>
+<ul>
+<li>Makes a boxplot. </li>
+</ul></li>
+</ul>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="section1-6" class="section level2">
+<h2><span class="header-section-number">1.6</span> Practice problems</h2>
+<p>In each chapter, the last section contains some questions for you to complete
+to make sure you understood the
+material. You can download the code to answer questions 1.1 to 1.5 below at
+<a href="http://www.math.montana.edu/courses/s217/documents/Ch1.Rmd" class="uri">http://www.math.montana.edu/courses/s217/documents/Ch1.Rmd</a>. But to practice
+learning R, it would be most useful for you to try to accomplish the requested tasks
+yourself and then only refer to the provided R code if/when you struggle.
+These questions provide a great venue to check your learning, often to see the
+methods applied to another data set, and for something to discuss in study groups,
+with your instructor, and at the Math Learning Center.</p>
+<p>1.1. Read in the treadmill data set
+discussed previously and find the mean and SD of the Ages (<code>Age</code> variable) and Body
+Weights (<code>BodyWeight</code> variable). In studies involving human subjects, it is
+common to report a
+summary of characteristics of the subjects. Why does this matter? Think about
+how your interpretation of any study of the fitness of subjects would change if
+the mean age (same spread) had been 20 years older or 35 years younger.</p>
+<p>1.2. How does knowing about the
+distribution of results for <em>Age</em> and <em>BodyWeight</em> help you understand the
+results for the Run Times discussed previously?</p>
+<p>1.3. The mean and SD are most useful
+as summary statistics only if the distribution is relatively symmetric. Make a
+histogram of <em>Age</em> responses and
+discuss the shape of the distribution (is it skewed right, skewed left,
+approximately symmetric?; are there outliers?). Approximately what range of
+ages does this study pertain to?</p>
+<p>1.4. The weight responses are in
+kilograms and you might prefer to see them in pounds. The conversion is
+<code>lbs=2.205*kgs</code>. Create a new variable in the <code>treadmill</code>
+tibble called <em>BWlb</em> using this code:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chapter1.html#cb23-1"></a>treadmill<span class="op">$</span>BWlb &lt;-<span class="st"> </span><span class="fl">2.205</span><span class="op">*</span>treadmill<span class="op">$</span>BodyWeight</span></code></pre></div>
+<p>and find the mean and SD of the new variable (<em>BWlb</em>).</p>
+<p>1.5. Make histograms and boxplots of
+the original <em>BodyWeight</em> and new <em>BWlb</em> variables. Discuss aspects of the
+distributions that changed and those that remained the same with the
+transformation from kilograms to pounds. What does this tell you about changing the units of a variable in terms of its distribution?</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Gandrud2015">
+<p>Gandrud, Christopher. 2015. <em>Reproducible Research with R and R Studio, Second Edition</em>. Chapman Hall, CRC.</p>
+</div>
+<div id="ref-R-mosaic">
+<p>Pruim, Randall, Daniel T. Kaplan, and Nicholas J. Horton. 2019. <em>Mosaic: Project Mosaic Statistics and Mathematics Teaching Utilities</em>. <a href="https://CRAN.R-project.org/package=mosaic">https://CRAN.R-project.org/package=mosaic</a>.</p>
+</div>
+<div id="ref-R-base">
+<p>R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+</div>
+<div id="ref-RStudio">
+<p>RStudio Team. 2018. <em>RStudio: Integrated Development Environment for R</em>. Boston, MA: RStudio, Inc. <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>.</p>
+</div>
+<div id="ref-Westfall1993">
+<p>Westfall, Peter H., and S. Stanley Young. 1993. <em>Resampling-Based Multiple Testing: Examples and Methods for P-Value Adjustment</em>. New York: Wiley.</p>
+</div>
+<div id="ref-R-readr">
+<p>Wickham, Hadley, Jim Hester, and Romain Francois. 2018. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>There is a cloud version of R Studio available at <a href="https://rstudio.cloud/" class="uri">https://rstudio.cloud/</a> if you want to avoid these steps. We still recommend following the steps to be able to work locally but try this option if you have issues with the installation process.<a href="chapter1.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>I recorded a video that walks through getting R and RStudio installed on a PC available <a href="https://montana.techsmithrelay.com/ojg6"><strong>in a recorded video</strong></a>. If you want to see them installed on a mac, you can try <a href="https://www.youtube.com/watch?v=GFImMj1lMRI"><strong>this video on youtube</strong></a>. Or for either version, try searching YouTube for “How to install R and RStudio”.<a href="chapter1.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>You can also use Ctrl+Enter if you like hot keys.<a href="chapter1.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="acknowledgments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chapter2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Greenwood_Book.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
