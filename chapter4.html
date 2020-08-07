@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Two-Way ANOVA | Intermediate Statistics with R</title>
   <meta name="description" content="Chapter 4 Two-Way ANOVA | Intermediate Statistics with R" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Two-Way ANOVA | Intermediate Statistics with R" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="chapter3.html"/>
 <link rel="next" href="chapter5.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,18 +53,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,7 +83,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -136,7 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Cover</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
-<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#section1-1"><i class="fa fa-check"></i><b>1.1</b> Overview of methods</a></li>
 <li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#section1-2"><i class="fa fa-check"></i><b>1.2</b> Getting started in R</a></li>
 <li class="chapter" data-level="1.3" data-path="chapter1.html"><a href="chapter1.html#section1-3"><i class="fa fa-check"></i><b>1.3</b> Basic summary statistics, histograms, and boxplots using R</a></li>
@@ -144,7 +145,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="chapter1.html"><a href="chapter1.html#section1-5"><i class="fa fa-check"></i><b>1.5</b> Summary of important R code</a></li>
 <li class="chapter" data-level="1.6" data-path="chapter1.html"><a href="chapter1.html#section1-6"><i class="fa fa-check"></i><b>1.6</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> (R)e-Introduction to statistics</a><ul>
+<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> (R)e-Introduction to statistics</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#section2-1"><i class="fa fa-check"></i><b>2.1</b> Histograms, boxplots, and density curves</a></li>
 <li class="chapter" data-level="2.2" data-path="chapter2.html"><a href="chapter2.html#section2-2"><i class="fa fa-check"></i><b>2.2</b> Pirate-plots</a></li>
 <li class="chapter" data-level="2.3" data-path="chapter2.html"><a href="chapter2.html#section2-3"><i class="fa fa-check"></i><b>2.3</b> Models, hypotheses, and permutations for the two sample mean situation</a></li>
@@ -159,7 +161,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.12" data-path="chapter2.html"><a href="chapter2.html#section2-12"><i class="fa fa-check"></i><b>2.12</b> Summary of important R code</a></li>
 <li class="chapter" data-level="2.13" data-path="chapter2.html"><a href="chapter2.html#section2-13"><i class="fa fa-check"></i><b>2.13</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> One-Way ANOVA</a><ul>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> One-Way ANOVA</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#section3-1"><i class="fa fa-check"></i><b>3.1</b> Situation</a></li>
 <li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#section3-2"><i class="fa fa-check"></i><b>3.2</b> Linear model for One-Way ANOVA (cell means and reference-coding)</a></li>
 <li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#section3-3"><i class="fa fa-check"></i><b>3.3</b> One-Way ANOVA Sums of Squares, Mean Squares, and F-test</a></li>
@@ -171,7 +174,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.9" data-path="chapter3.html"><a href="chapter3.html#section3-9"><i class="fa fa-check"></i><b>3.9</b> Summary of important R code</a></li>
 <li class="chapter" data-level="3.10" data-path="chapter3.html"><a href="chapter3.html#section3-10"><i class="fa fa-check"></i><b>3.10</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Two-Way ANOVA</a><ul>
+<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Two-Way ANOVA</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="chapter4.html"><a href="chapter4.html#section4-1"><i class="fa fa-check"></i><b>4.1</b> Situation</a></li>
 <li class="chapter" data-level="4.2" data-path="chapter4.html"><a href="chapter4.html#section4-2"><i class="fa fa-check"></i><b>4.2</b> Designing a two-way experiment and visualizing results</a></li>
 <li class="chapter" data-level="4.3" data-path="chapter4.html"><a href="chapter4.html#section4-3"><i class="fa fa-check"></i><b>4.3</b> Two-Way ANOVA models and hypothesis tests</a></li>
@@ -182,7 +186,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.8" data-path="chapter4.html"><a href="chapter4.html#section4-8"><i class="fa fa-check"></i><b>4.8</b> Summary of important R code</a></li>
 <li class="chapter" data-level="4.9" data-path="chapter4.html"><a href="chapter4.html#section4-9"><i class="fa fa-check"></i><b>4.9</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> Chi-square tests</a><ul>
+<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> Chi-square tests</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="chapter5.html"><a href="chapter5.html#section5-1"><i class="fa fa-check"></i><b>5.1</b> Situation, contingency tables, and tableplots</a></li>
 <li class="chapter" data-level="5.2" data-path="chapter5.html"><a href="chapter5.html#section5-2"><i class="fa fa-check"></i><b>5.2</b> Homogeneity test hypotheses</a></li>
 <li class="chapter" data-level="5.3" data-path="chapter5.html"><a href="chapter5.html#section5-3"><i class="fa fa-check"></i><b>5.3</b> Independence test hypotheses</a></li>
@@ -198,7 +203,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.13" data-path="chapter5.html"><a href="chapter5.html#section5-13"><i class="fa fa-check"></i><b>5.13</b> Summary of important R commands</a></li>
 <li class="chapter" data-level="5.14" data-path="chapter5.html"><a href="chapter5.html#section5-14"><i class="fa fa-check"></i><b>5.14</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>6</b> Correlation and Simple Linear Regression</a><ul>
+<li class="chapter" data-level="6" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>6</b> Correlation and Simple Linear Regression</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="chapter6.html"><a href="chapter6.html#section6-1"><i class="fa fa-check"></i><b>6.1</b> Relationships between two quantitative variables</a></li>
 <li class="chapter" data-level="6.2" data-path="chapter6.html"><a href="chapter6.html#section6-2"><i class="fa fa-check"></i><b>6.2</b> Estimating the correlation coefficient</a></li>
 <li class="chapter" data-level="6.3" data-path="chapter6.html"><a href="chapter6.html#section6-3"><i class="fa fa-check"></i><b>6.3</b> Relationships between variables by groups</a></li>
@@ -214,7 +220,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.13" data-path="chapter6.html"><a href="chapter6.html#section6-13"><i class="fa fa-check"></i><b>6.13</b> Summary of important R code</a></li>
 <li class="chapter" data-level="6.14" data-path="chapter6.html"><a href="chapter6.html#section6-14"><i class="fa fa-check"></i><b>6.14</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>7</b> Simple linear regression inference</a><ul>
+<li class="chapter" data-level="7" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>7</b> Simple linear regression inference</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="chapter7.html"><a href="chapter7.html#section7-1"><i class="fa fa-check"></i><b>7.1</b> Model</a></li>
 <li class="chapter" data-level="7.2" data-path="chapter7.html"><a href="chapter7.html#section7-2"><i class="fa fa-check"></i><b>7.2</b> Confidence interval and hypothesis tests for the slope and intercept</a></li>
 <li class="chapter" data-level="7.3" data-path="chapter7.html"><a href="chapter7.html#section7-3"><i class="fa fa-check"></i><b>7.3</b> Bozeman temperature trend</a></li>
@@ -226,7 +233,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.9" data-path="chapter7.html"><a href="chapter7.html#section7-9"><i class="fa fa-check"></i><b>7.9</b> Summary of important R code</a></li>
 <li class="chapter" data-level="7.10" data-path="chapter7.html"><a href="chapter7.html#section7-10"><i class="fa fa-check"></i><b>7.10</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="chapter8.html"><a href="chapter8.html"><i class="fa fa-check"></i><b>8</b> Multiple linear regression</a><ul>
+<li class="chapter" data-level="8" data-path="chapter8.html"><a href="chapter8.html"><i class="fa fa-check"></i><b>8</b> Multiple linear regression</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="chapter8.html"><a href="chapter8.html#section8-1"><i class="fa fa-check"></i><b>8.1</b> Going from SLR to MLR</a></li>
 <li class="chapter" data-level="8.2" data-path="chapter8.html"><a href="chapter8.html#section8-2"><i class="fa fa-check"></i><b>8.2</b> Validity conditions in MLR</a></li>
 <li class="chapter" data-level="8.3" data-path="chapter8.html"><a href="chapter8.html#section8-3"><i class="fa fa-check"></i><b>8.3</b> Interpretation of MLR terms</a></li>
@@ -245,7 +253,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.16" data-path="chapter8.html"><a href="chapter8.html#section8-16"><i class="fa fa-check"></i><b>8.16</b> Summary of important R code</a></li>
 <li class="chapter" data-level="8.17" data-path="chapter8.html"><a href="chapter8.html#section8-17"><i class="fa fa-check"></i><b>8.17</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="chapter9.html"><a href="chapter9.html"><i class="fa fa-check"></i><b>9</b> Case studies</a><ul>
+<li class="chapter" data-level="9" data-path="chapter9.html"><a href="chapter9.html"><i class="fa fa-check"></i><b>9</b> Case studies</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="chapter9.html"><a href="chapter9.html#section9-1"><i class="fa fa-check"></i><b>9.1</b> Overview of material covered</a></li>
 <li class="chapter" data-level="9.2" data-path="chapter9.html"><a href="chapter9.html#section9-2"><i class="fa fa-check"></i><b>9.2</b> The impact of simulated chronic nitrogen deposition on the biomass and N2-fixation activity of two boreal feather moss–cyanobacteria associations</a></li>
 <li class="chapter" data-level="9.3" data-path="chapter9.html"><a href="chapter9.html#section9-3"><i class="fa fa-check"></i><b>9.3</b> Ants learn to rely on more informative attributes during decision-making</a></li>
@@ -274,9 +283,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chapter4" class="section level1">
+<div id="chapter4" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Two-Way ANOVA</h1>
-<div id="section4-1" class="section level2">
+<div id="section4-1" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Situation</h2>
 <p>In this chapter, we extend the One-Way ANOVA to situations with two factors or categorical explanatory
 variables in a method that is generally called the <strong><em>Two-Way ANOVA</em></strong>.
@@ -321,7 +330,7 @@ named <em>B1</em> and <em>B2</em>) and <strong>B</strong>: Number of <code>Drops
 sitting in the middle of the towel.</p></li>
 </ul>
 </div>
-<div id="section4-2" class="section level2">
+<div id="section4-2" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Designing a two-way experiment and visualizing results</h2>
 <p>Ideally, we want to randomly assign the levels of each factor so that we can
 attribute causality to any detected effects and to reduce the chances of
@@ -395,7 +404,7 @@ which are called <strong><em>replicates</em></strong>.  Having replicate measure
 estimation of the mean for each combination of the treatment levels as well
 as estimation and testing for an interaction.
 
-And we always prefer<a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a> having
+And we always prefer<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a> having
 balanced designs because they provide resistance to violation of some
 assumptions as was discussed in Chapter <a href="chapter3.html#chapter3">3</a>. A <strong><em>balanced design</em></strong>
 in a Two-Way ANOVA setting involves having the same sample size for every
@@ -426,16 +435,16 @@ the paper towel example. It ended up being really messy and complicated to
 actually perform the experiment as described so these data were simulated. The hope is to use this simple example to illustrate some of the Two-Way ANOVA possibilities. The first step is to understand what has been observed (number
 observations at each combination of factors) and look at some summary
 statistics across all the “groups”. The data set is available via the following link:</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="chapter4.html#cb322-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb322-2"><a href="chapter4.html#cb322-2"></a>pt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/pt.csv&quot;</span>)</span>
-<span id="cb322-3"><a href="chapter4.html#cb322-3"></a>pt<span class="op">$</span>drops &lt;-<span class="st"> </span><span class="kw">factor</span>(pt<span class="op">$</span>drops)</span>
-<span id="cb322-4"><a href="chapter4.html#cb322-4"></a>pt<span class="op">$</span>brand &lt;-<span class="st"> </span><span class="kw">factor</span>(pt<span class="op">$</span>brand)</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="chapter4.html#cb322-1" aria-hidden="true"></a><span class="kw">library</span>(readr)</span>
+<span id="cb322-2"><a href="chapter4.html#cb322-2" aria-hidden="true"></a>pt &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/pt.csv&quot;</span>)</span>
+<span id="cb322-3"><a href="chapter4.html#cb322-3" aria-hidden="true"></a>pt<span class="op">$</span>drops &lt;-<span class="st"> </span><span class="kw">factor</span>(pt<span class="op">$</span>drops)</span>
+<span id="cb322-4"><a href="chapter4.html#cb322-4" aria-hidden="true"></a>pt<span class="op">$</span>brand &lt;-<span class="st"> </span><span class="kw">factor</span>(pt<span class="op">$</span>brand)</span></code></pre></div>
 <p>The data set contains five observations per combination of treatment levels as
 provided by the <code>tally</code> function. To get counts for combinations of the
 variables, use the general formula of <code>tally(x1~x2, data=...)</code> – noting that the order of <code>x1</code> and <code>x2</code> doesn’t matter here:
 </p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="chapter4.html#cb323-1"></a><span class="kw">library</span>(mosaic)</span>
-<span id="cb323-2"><a href="chapter4.html#cb323-2"></a><span class="kw">tally</span>(brand<span class="op">~</span>drops, <span class="dt">data=</span>pt)</span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="chapter4.html#cb323-1" aria-hidden="true"></a><span class="kw">library</span>(mosaic)</span>
+<span id="cb323-2"><a href="chapter4.html#cb323-2" aria-hidden="true"></a><span class="kw">tally</span>(brand<span class="op">~</span>drops, <span class="dt">data=</span>pt)</span></code></pre></div>
 <pre><code>##      drops
 ## brand 10 20 30
 ##    B1  5  5  5
@@ -457,7 +466,7 @@ In the output, the first row contains summary information for the
 sample size in the <code>n</code> column, although here it rolled into a new set of
 rows with the standard deviations of each combination.</p>
 <!-- \newpage -->
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="chapter4.html#cb325-1"></a><span class="kw">favstats</span>(responses<span class="op">~</span>brand<span class="op">+</span>drops, <span class="dt">data=</span>pt)</span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="chapter4.html#cb325-1" aria-hidden="true"></a><span class="kw">favstats</span>(responses<span class="op">~</span>brand<span class="op">+</span>drops, <span class="dt">data=</span>pt)</span></code></pre></div>
 <pre><code>##   brand.drops       min        Q1   median       Q3      max     mean        sd
 ## 1       B1.10 0.3892621 1.3158737 1.906436 2.050363 2.333138 1.599015 0.7714970
 ## 2       B2.10 2.3078095 2.8556961 3.001147 3.043846 3.050417 2.851783 0.3140764
@@ -488,10 +497,10 @@ combination. These data were simulated using a normal distribution with
 constant variance if that gives you some extra confidence in assessing these
 model assumptions.</p>
 
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="chapter4.html#cb327-1"></a><span class="kw">library</span>(yarrr)</span>
-<span id="cb327-2"><a href="chapter4.html#cb327-2"></a><span class="kw">set.seed</span>(<span class="dv">12</span>)</span>
-<span id="cb327-3"><a href="chapter4.html#cb327-3"></a><span class="kw">pirateplot</span>(responses<span class="op">~</span>brand<span class="op">*</span>drops, <span class="dt">data=</span>pt, <span class="dt">xlab=</span><span class="st">&quot;Drops&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">inf.method=</span><span class="st">&quot;ci&quot;</span>,</span>
-<span id="cb327-4"><a href="chapter4.html#cb327-4"></a>           <span class="dt">inf.disp=</span><span class="st">&quot;line&quot;</span>, <span class="dt">theme=</span><span class="dv">2</span>, <span class="dt">point.o=</span><span class="dv">1</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="chapter4.html#cb327-1" aria-hidden="true"></a><span class="kw">library</span>(yarrr)</span>
+<span id="cb327-2"><a href="chapter4.html#cb327-2" aria-hidden="true"></a><span class="kw">set.seed</span>(<span class="dv">12</span>)</span>
+<span id="cb327-3"><a href="chapter4.html#cb327-3" aria-hidden="true"></a><span class="kw">pirateplot</span>(responses<span class="op">~</span>brand<span class="op">*</span>drops, <span class="dt">data=</span>pt, <span class="dt">xlab=</span><span class="st">&quot;Drops&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">inf.method=</span><span class="st">&quot;ci&quot;</span>,</span>
+<span id="cb327-4"><a href="chapter4.html#cb327-4" aria-hidden="true"></a>           <span class="dt">inf.disp=</span><span class="st">&quot;line&quot;</span>, <span class="dt">theme=</span><span class="dv">2</span>, <span class="dt">point.o=</span><span class="dv">1</span>) </span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-1"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-1-1.png" alt="Pirate-plot of paper towel data by Brand (first row of \(x\)-axis) and Drops (second row of \(x\)-axis)." width="480" />
 <p class="caption">
@@ -507,14 +516,14 @@ Interaction plots display the mean
 responses (y-axis) versus levels of one predictor variable on the x-axis,
 adding points and separate lines for each level of the other predictor variable. Because
 we don’t like any of the available functions in R, we wrote our own function,
-called <code>intplot</code> that you can download<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a> using:
+called <code>intplot</code> that you can download<a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a> using:
 </p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="chapter4.html#cb328-1"></a><span class="kw">source</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v2.R&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="chapter4.html#cb328-1" aria-hidden="true"></a><span class="kw">source</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v3.R&quot;</span>)</span></code></pre></div>
 <p>The function allows a formula interface like <code>Y~X1*X2</code> and provides the
 means <span class="math inline">\(\pm\)</span> 1 SE (vertical bars) and adds a legend to help make
 everything clear.</p>
 
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="chapter4.html#cb329-1"></a><span class="kw">intplot</span>(responses<span class="op">~</span>brand<span class="op">*</span>drops, <span class="dt">data=</span>pt)</span></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="chapter4.html#cb329-1" aria-hidden="true"></a><span class="kw">intplot</span>(responses<span class="op">~</span>brand<span class="op">*</span>drops, <span class="dt">data=</span>pt)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-2"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-2-1.png" alt="Interaction plot of the paper towel data with Drops on the x-axis and different lines based on Brand." width="960" />
 <p class="caption">
@@ -528,7 +537,7 @@ the variable with more levels on the x-axis will make interpretation easier,
 but not always. Try both and decide on the one that you like best.
 </p>
 
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="chapter4.html#cb330-1"></a><span class="kw">intplot</span>(responses<span class="op">~</span>drops<span class="op">*</span>brand, <span class="dt">data=</span>pt)</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="chapter4.html#cb330-1" aria-hidden="true"></a><span class="kw">intplot</span>(responses<span class="op">~</span>drops<span class="op">*</span>brand, <span class="dt">data=</span>pt)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-3"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-3-1.png" alt="Interaction plot of paper towel data with Brand on the x-axis and lines based on Drops." width="960" />
 <p class="caption">
@@ -558,7 +567,7 @@ there probably isn’t an interaction between
 the variables. Without an interaction present, that means that the differences
 in the response across levels of one variable doesn’t change based on the levels of the other
 variable and vice-versa. This means that we can consider the <strong><em>main effects</em></strong>
-of each variable on their own<a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a>.
+of each variable on their own<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a>.
 
 
 Main effects are much like the results we found in
@@ -585,13 +594,12 @@ same story appears in Figure <a href="chapter4.html#fig:Figure4-2">4.2</a>. As t
 water levels increase (left to right, 10 to 20 to 30 drops), the differences
 between the two brands decrease. Of the two versions, Figure <a href="chapter4.html#fig:Figure4-2">4.2</a>
 is probably easier to read here. Sometimes it is nice to see the interaction plot made both ways simultaneously, so you can also use the <code>intplotarray</code> function, which provides Figure <a href="chapter4.html#fig:Figure4-4">4.4</a>. This plot also adds pirate-plots to the off-diagonals so you can explore the main effects of each variable, if that is reasonable.
-
- The interaction plots can be used to
+  The interaction plots can be used to
 identify the best and worst mean responses for combinations of the treatment
 levels. For example, 10 <code>Drops</code> and <code>Brand</code> <em>B2</em> lasts longest, on average, and 30 <code>Drops</code> with <code>Brand</code> <em>B1</em> fails fastest, on average. In any version of the plot here, the lines do not appear to be parallel suggesting that further exploration of the
 interaction appears to be warranted.</p>
 
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="chapter4.html#cb331-1"></a><span class="kw">intplotarray</span>(responses<span class="op">~</span>drops<span class="op">*</span>brand, <span class="dt">data=</span>pt)</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="chapter4.html#cb331-1" aria-hidden="true"></a><span class="kw">intplotarray</span>(responses<span class="op">~</span>drops<span class="op">*</span>brand, <span class="dt">data=</span>pt)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-4"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-4-1.png" alt="Interaction plot array of paper towel data with two different versions of interaction plots and pirate-plots of the responses versus each explanatory variable." width="960" />
 <p class="caption">
@@ -665,7 +673,7 @@ ANOVA situation, the amount of variation around the lines impacts the ability
 of the model to detect differences, in this case of an interaction.
 </p>
 </div>
-<div id="section4-3" class="section level2">
+<div id="section4-3" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Two-Way ANOVA models and hypothesis tests</h2>
 <p>To assess interactions with two
 variables, we need to fully describe models for the additive and interaction
@@ -776,7 +784,7 @@ Chapter <a href="chapter3.html#chapter3">3</a>.
 
 We
 won’t worry about the details of the sums of squares formulas but you should
-remember the sums of squares decomposition, which still applies<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a>. 
+remember the sums of squares decomposition, which still applies<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a>. 
 
 Table <a href="chapter4.html#tab:Table4-1">4.1</a>
 summarizes the ANOVA results you will obtain for the interaction
@@ -937,12 +945,12 @@ Specifically, the test that
 test statistic of <span class="math inline">\(F(2,24)=1.92\)</span> (in the output from the row with
 brands:drops) and a p-value of 0.17. So there is weak evidence against the null hypothesis of no interaction, with a 17% chance we would
 observe a difference in the <span class="math inline">\(\omega_{jk}\text{&#39;s}\)</span> like we did or more
-extreme if the <span class="math inline">\(\omega_{jk}\text{&#39;s}\)</span> really were all 0. So we would conclude that the interaction is probably not needed<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a>. Note that for the interaction
+extreme if the <span class="math inline">\(\omega_{jk}\text{&#39;s}\)</span> really were all 0. So we would conclude that the interaction is probably not needed<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a>. Note that for the interaction
 model components, R presents them with a colon, <code>:</code>, between the variable
 names.
 </p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="chapter4.html#cb332-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(responses<span class="op">~</span>brand<span class="op">*</span>drops, <span class="dt">data=</span>pt)</span>
-<span id="cb332-2"><a href="chapter4.html#cb332-2"></a><span class="kw">anova</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="chapter4.html#cb332-1" aria-hidden="true"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(responses<span class="op">~</span>brand<span class="op">*</span>drops, <span class="dt">data=</span>pt)</span>
+<span id="cb332-2"><a href="chapter4.html#cb332-2" aria-hidden="true"></a><span class="kw">anova</span>(m1)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: responses
@@ -963,8 +971,8 @@ that assumes equal variance and these plots show 95% confidence intervals
 for the means instead of the <span class="math inline">\(\pm\)</span> 1 SE used in the <code>intplot</code> where each SE is calculated using the variance of the observations at each combination of levels. Note that other than the lines connecting the means, this plot also is similar to the pirate-plot in Figure <a href="chapter4.html#fig:Figure4-1">4.1</a> that also displayed the original responses for each of the six combinations of the two explanatory variables. That plot then provides a place to assess assumptions of the equal variance and distributions for each group as well as explore differences in the group means.
 </p>
 
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="chapter4.html#cb334-1"></a><span class="kw">library</span>(effects)</span>
-<span id="cb334-2"><a href="chapter4.html#cb334-2"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(m1), <span class="dt">grid=</span>T, <span class="dt">multiline=</span>T, <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ci.style=</span><span class="st">&quot;bars&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="chapter4.html#cb334-1" aria-hidden="true"></a><span class="kw">library</span>(effects)</span>
+<span id="cb334-2"><a href="chapter4.html#cb334-2" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(m1), <span class="dt">grid=</span>T, <span class="dt">multiline=</span>T, <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ci.style=</span><span class="st">&quot;bars&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-7"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-7-1.png" alt="Plot of estimated results of interaction model for the paper towel performance data." width="960" />
 <p class="caption">
@@ -976,8 +984,9 @@ interaction, the model should be simplified to the additive model and the interp
 focused on each main effect, conditional on having the other variable in the
 model. To fit an additive model and not include an interaction, the model
 formula involves a “+” instead of a “<code>*</code>” between the explanatory variables. </p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="chapter4.html#cb335-1"></a>m2 &lt;-<span class="st"> </span><span class="kw">lm</span>(responses<span class="op">~</span>brand<span class="op">+</span>drops, <span class="dt">data=</span>pt)</span>
-<span id="cb335-2"><a href="chapter4.html#cb335-2"></a><span class="kw">anova</span>(m2)</span></code></pre></div>
+<div style="page-break-after: always;"></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="chapter4.html#cb335-1" aria-hidden="true"></a>m2 &lt;-<span class="st"> </span><span class="kw">lm</span>(responses<span class="op">~</span>brand<span class="op">+</span>drops, <span class="dt">data=</span>pt)</span>
+<span id="cb335-2"><a href="chapter4.html#cb335-2" aria-hidden="true"></a><span class="kw">anova</span>(m2)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: responses
@@ -1027,9 +1036,9 @@ follow the rules of the sums of squares decomposition but they
 will test the desired hypotheses. Specifically, they provide each test
 conditional on any other terms at the same level of the model and match the
 hypotheses written out earlier in this section. To get the “correct” ANOVA
-results, the <code>car</code> package (<span class="citation">Fox, Weisberg, and Price (<a href="#ref-R-car" role="doc-biblioref">2019</a><a href="#ref-R-car" role="doc-biblioref">a</a>)</span>, <span class="citation">Fox and Weisberg (<a href="#ref-Fox2011" role="doc-biblioref">2011</a>)</span>) is required. We use the
+results, the <code>car</code> package (<span class="citation">Fox, Weisberg, and Price (<a href="#ref-R-car" role="doc-biblioref">2020</a><a href="#ref-R-car" role="doc-biblioref">a</a>)</span>, <span class="citation">Fox and Weisberg (<a href="#ref-Fox2011" role="doc-biblioref">2011</a>)</span>) is required. We use the
 <code>Anova</code> function on our linear models from here forward to get the “right”
-tests in our ANOVA tables<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a>.
+tests in our ANOVA tables<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a>.
 
 Note how the case-sensitive nature of R code shows
 up in the use of the capital “A” <code>Anova</code> function instead of the lower-case “a” <code>anova</code>
@@ -1043,10 +1052,10 @@ which are called Type I sums of squares.
 
 The sums of squares decomposition no
 longer applies, but it is a small sacrifice to get each test after
-adjusting for all other variables<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a>.
+adjusting for all other variables<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a>.
 </p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="chapter4.html#cb337-1"></a><span class="kw">library</span>(car)</span>
-<span id="cb337-2"><a href="chapter4.html#cb337-2"></a><span class="kw">Anova</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="chapter4.html#cb337-1" aria-hidden="true"></a><span class="kw">library</span>(car)</span>
+<span id="cb337-2"><a href="chapter4.html#cb337-2" aria-hidden="true"></a><span class="kw">Anova</span>(m2)</span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: responses
@@ -1073,7 +1082,7 @@ added to any of the discussion. Second, the term-plots now show each main
 effect and how the groups differ with one panel for each of the two explanatory
 variables in the model. These term-plots are created by holding the other
 variable constant at one of its levels (the most frequently occurring or first if the there are multiple groups tied for being most frequent) and presenting the estimated means across the levels of the variable in the plot.</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="chapter4.html#cb339-1"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="chapter4.html#cb339-1" aria-hidden="true"></a><span class="kw">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = responses ~ brand + drops, data = pt)
@@ -1090,7 +1099,7 @@ variable constant at one of its levels (the most frequently occurring or first i
 ## drops30      -0.9853     0.2970  -3.318  0.00269
 ## 
 ## Residual standard error: 0.664 on 26 degrees of freedom
-## Multiple R-squared:  0.445,  Adjusted R-squared:  0.3809 
+## Multiple R-squared:  0.445,	Adjusted R-squared:  0.3809 
 ## F-statistic: 6.948 on 3 and 26 DF,  p-value: 0.001381</code></pre>
 <p>In the model summary, the baseline combination estimated in the <code>(Intercept)</code>
 row is for <code>Brand</code> <em>B1</em> and <code>Drops</code> 10 and estimates the mean failure
@@ -1106,15 +1115,15 @@ from 10 to 30 drops results in a drop of almost 1 second in the average time to
 failure, both estimated changes are the same regardless of the brand of paper
 towel being considered. Sometimes, especially in observational studies, we use
 the terminology “controlled for” to remind the reader that the other variable
-was present in the model<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a> and also explained some of the variability in the
+was present in the model<a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a> and also explained some of the variability in the
 responses. The term-plots for
 the additive model (Figure <a href="chapter4.html#fig:Figure4-8">4.8</a>) help us visualize the
 impacts of changes brand and changing water levels, holding the other
 variable constant. The differences in heights in each panel correspond
 to the coefficients just discussed.</p>
 
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="chapter4.html#cb341-1"></a><span class="kw">library</span>(effects)</span>
-<span id="cb341-2"><a href="chapter4.html#cb341-2"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(m2))</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="chapter4.html#cb341-1" aria-hidden="true"></a><span class="kw">library</span>(effects)</span>
+<span id="cb341-2"><a href="chapter4.html#cb341-2" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(m2))</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-8"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-8-1.png" alt="Term-plots of additive model for paper towel data. Left panel displays results for two brands and right panel for number of drops of water, each after controlling for the other." width="480" />
 <p class="caption">
@@ -1123,18 +1132,18 @@ Figure 4.8: Term-plots of additive model for paper towel data. Left panel displa
 </div>
 <p>With the first additive model we have considered, it is now the first time where we are working with a model where we can’t display the observations together with the means that the model is producing because the results for each predictor are averaged across the levels of the other predictor. To visualize some aspects of the original observations with the estimates from each group, we can turn on an option in the term-plots (<code>residuals=T</code>) to obtain the <strong><em>partial residuals</em></strong>  that show the residuals as a function of one variable after adjusting for the effects/impacts of other variables. We will avoid the specifics of the calculations for now, but you can use these to explore the residuals at different levels of each predictor. They will be most useful in the Chapters <a href="chapter7.html#chapter7">7</a> and <a href="chapter8.html#chapter8">8</a> but give us some insights in unexplained variation in each level of the predictors once we remove the impacts of other predictors in the model. Use plots like Figure <a href="chapter4.html#fig:Figure4-9">4.9</a> to look for different variability at different levels of the predictors and locations of possible outliers in these models. Note that the points (open circles) are jittered to aid in seeing all of them, the means of each group of residuals are indicated by a filled large circle, and the smaller circles in the center of the bars for the 95% confidence intervals are the means from the model. Term-plots with partial residuals accompany our regular diagnostic plots for assessing equal variance assumptions in these models – in some cases adding the residuals will clutter the term-plots so much that reporting them is not useful since one of the main purposes of the term-plots is to visualize the model estimates. So use the <code>residuals=T</code> option judiciously.</p>
 
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="chapter4.html#cb342-1"></a><span class="kw">library</span>(effects)</span>
-<span id="cb342-2"><a href="chapter4.html#cb342-2"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(m2, <span class="dt">residuals =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="chapter4.html#cb342-1" aria-hidden="true"></a><span class="kw">library</span>(effects)</span>
+<span id="cb342-2"><a href="chapter4.html#cb342-2" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(m2, <span class="dt">residuals =</span> T))</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-9"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-9-1.png" alt="Term-plots of additive model for paper towel data with partial residuals added. Relatively similar variability seems to be present in each of the groups of residuals after adjusting for the other variable except for the residuals for the 10 drops where the variability is smaller, especially if one small outlier is ignored." width="480" />
 <p class="caption">
 Figure 4.9: Term-plots of additive model for paper towel data with partial residuals added. Relatively similar variability seems to be present in each of the groups of residuals after adjusting for the other variable except for the residuals for the 10 drops where the variability is smaller, especially if one small outlier is ignored.
 </p>
 </div>
-<p>For the One-Way and Two-Way interaction models, the partial residuals are just the original observations so present similar information as the pirate-plots but do show the model estimated 95% confidence intervals. With interaction models, you can use the default the settings in <code>effects</code> when adding in the partial residuals as seen below in Figure <a href="chapter4.html#fig:Figure4-12">4.12</a>.</p>
-<div style="page-break-after: always;"></div>
+<p>For the One-Way and Two-Way interaction models, the partial residuals are just the original observations so present similar information as the pirate-plots but do show the model estimated 95% confidence intervals. With interaction models, you can use the default settings in <code>effects</code> when adding in the partial residuals as seen below in Figure <a href="chapter4.html#fig:Figure4-12">4.12</a>.</p>
+<!-- \newpage -->
 </div>
-<div id="section4-4" class="section level2">
+<div id="section4-4" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Guinea pig tooth growth analysis with Two-Way ANOVA</h2>
 <p>The effects of dosage and delivery method of ascorbic acid on Guinea Pig
 odontoblast growth was analyzed as a One-Way ANOVA in Section <a href="chapter3.html#section3-5">3.5</a>
@@ -1151,15 +1160,15 @@ Figure <a href="chapter4.html#fig:Figure4-10">4.10</a>.</p>
 Figure 4.10: Pirate-plot and interaction plot of the odontoblast growth data set.
 </p>
 </div>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="chapter4.html#cb343-1"></a><span class="kw">data</span>(ToothGrowth)</span>
-<span id="cb343-2"><a href="chapter4.html#cb343-2"></a><span class="kw">library</span>(tibble)</span>
-<span id="cb343-3"><a href="chapter4.html#cb343-3"></a>ToothGrowth &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ToothGrowth)</span>
-<span id="cb343-4"><a href="chapter4.html#cb343-4"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb343-5"><a href="chapter4.html#cb343-5"></a><span class="kw">pirateplot</span>(len <span class="op">~</span><span class="st"> </span>supp<span class="op">*</span>dose, <span class="dt">data=</span>ToothGrowth, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">35</span>),</span>
-<span id="cb343-6"><a href="chapter4.html#cb343-6"></a>         <span class="dt">main=</span><span class="st">&quot;Pirate-plot&quot;</span>,  <span class="dt">xlab=</span><span class="st">&quot;Dosage&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Odontoblast Growth&quot;</span>,</span>
-<span id="cb343-7"><a href="chapter4.html#cb343-7"></a>         <span class="dt">inf.method=</span><span class="st">&quot;ci&quot;</span>, <span class="dt">inf.disp=</span><span class="st">&quot;line&quot;</span>, <span class="dt">theme=</span><span class="dv">2</span>)</span>
-<span id="cb343-8"><a href="chapter4.html#cb343-8"></a><span class="kw">intplot</span>(len<span class="op">~</span>supp<span class="op">*</span>dose, <span class="dt">data=</span>ToothGrowth, <span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), </span>
-<span id="cb343-9"><a href="chapter4.html#cb343-9"></a>        <span class="dt">main=</span><span class="st">&quot;Interaction Plot&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">35</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="chapter4.html#cb343-1" aria-hidden="true"></a><span class="kw">data</span>(ToothGrowth)</span>
+<span id="cb343-2"><a href="chapter4.html#cb343-2" aria-hidden="true"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb343-3"><a href="chapter4.html#cb343-3" aria-hidden="true"></a>ToothGrowth &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(ToothGrowth)</span>
+<span id="cb343-4"><a href="chapter4.html#cb343-4" aria-hidden="true"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb343-5"><a href="chapter4.html#cb343-5" aria-hidden="true"></a><span class="kw">pirateplot</span>(len <span class="op">~</span><span class="st"> </span>supp<span class="op">*</span>dose, <span class="dt">data=</span>ToothGrowth, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">35</span>),</span>
+<span id="cb343-6"><a href="chapter4.html#cb343-6" aria-hidden="true"></a>         <span class="dt">main=</span><span class="st">&quot;Pirate-plot&quot;</span>,  <span class="dt">xlab=</span><span class="st">&quot;Dosage&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Odontoblast Growth&quot;</span>,</span>
+<span id="cb343-7"><a href="chapter4.html#cb343-7" aria-hidden="true"></a>         <span class="dt">inf.method=</span><span class="st">&quot;ci&quot;</span>, <span class="dt">inf.disp=</span><span class="st">&quot;line&quot;</span>, <span class="dt">theme=</span><span class="dv">2</span>)</span>
+<span id="cb343-8"><a href="chapter4.html#cb343-8" aria-hidden="true"></a><span class="kw">intplot</span>(len<span class="op">~</span>supp<span class="op">*</span>dose, <span class="dt">data=</span>ToothGrowth, <span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), </span>
+<span id="cb343-9"><a href="chapter4.html#cb343-9" aria-hidden="true"></a>        <span class="dt">main=</span><span class="st">&quot;Interaction Plot&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">35</span>))</span></code></pre></div>
 <p>It appears that the effect of method changes based on the dosage as the
 interaction plot seems to show some evidence of non-parallel lines.
 
@@ -1172,8 +1181,8 @@ interaction is “real” relative to the variability in the responses.
 That is, is it larger than we would expect due to natural variation in the
 data? If yes, then we think it is a real effect and we should account for it. The
 following code fits the interaction model and provides an ANOVA table.</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="chapter4.html#cb344-1"></a>TG1 &lt;-<span class="st"> </span><span class="kw">lm</span>(len<span class="op">~</span>supp<span class="op">*</span>dose, <span class="dt">data=</span>ToothGrowth)</span>
-<span id="cb344-2"><a href="chapter4.html#cb344-2"></a><span class="kw">Anova</span>(TG1)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="chapter4.html#cb344-1" aria-hidden="true"></a>TG1 &lt;-<span class="st"> </span><span class="kw">lm</span>(len<span class="op">~</span>supp<span class="op">*</span>dose, <span class="dt">data=</span>ToothGrowth)</span>
+<span id="cb344-2"><a href="chapter4.html#cb344-2" aria-hidden="true"></a><span class="kw">Anova</span>(TG1)</span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: len
@@ -1198,9 +1207,9 @@ model.
 
 The re-run of the ANOVA table provides the correct analysis and the
 expected <span class="math inline">\(df\)</span> for the two rows of output involving <code>dosef</code>:</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="chapter4.html#cb346-1"></a>ToothGrowth<span class="op">$</span>dosef &lt;-<span class="st"> </span><span class="kw">factor</span>(ToothGrowth<span class="op">$</span>dose)</span>
-<span id="cb346-2"><a href="chapter4.html#cb346-2"></a>TG2 &lt;-<span class="st"> </span><span class="kw">lm</span>(len<span class="op">~</span>supp<span class="op">*</span>dosef, <span class="dt">data=</span>ToothGrowth)</span>
-<span id="cb346-3"><a href="chapter4.html#cb346-3"></a><span class="kw">Anova</span>(TG2)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="chapter4.html#cb346-1" aria-hidden="true"></a>ToothGrowth<span class="op">$</span>dosef &lt;-<span class="st"> </span><span class="kw">factor</span>(ToothGrowth<span class="op">$</span>dose)</span>
+<span id="cb346-2"><a href="chapter4.html#cb346-2" aria-hidden="true"></a>TG2 &lt;-<span class="st"> </span><span class="kw">lm</span>(len<span class="op">~</span>supp<span class="op">*</span>dosef, <span class="dt">data=</span>ToothGrowth)</span>
+<span id="cb346-3"><a href="chapter4.html#cb346-3" aria-hidden="true"></a><span class="kw">Anova</span>(TG2)</span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: len
@@ -1226,7 +1235,7 @@ So be careful to check the ANOVA results (<span class="math inline">\(df\)</span
 and for the right number of expected model coefficients) to make
 sure they match your expectations. This is one reason why you will be learning
 to fill in ANOVA tables based on information about the study so that you can be
-prepared to detect when your code has let you down<a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a>. It
+prepared to detect when your code has let you down<a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a>. It
 is also a great reason to explore term-plots and coefficient interpretations as
 that can also help diagnose errors in model construction.</p>
 <p>Getting back to the previous results, we now have enough background information
@@ -1243,8 +1252,8 @@ the interaction had been dropped, we would have reported the test results for th
 interaction, then re-fit the additive model and used it to explore the main effect
 tests and estimates for <em>Dose</em> and <em>Delivery method</em>. But since we are inclined to retain the interaction component in the model, the steps focus on the interaction.</p>
 <!-- \newpage -->
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="chapter4.html#cb348-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb348-2"><a href="chapter4.html#cb348-2"></a><span class="kw">plot</span>(TG2, <span class="dt">pch=</span><span class="dv">16</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="chapter4.html#cb348-1" aria-hidden="true"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb348-2"><a href="chapter4.html#cb348-2" aria-hidden="true"></a><span class="kw">plot</span>(TG2, <span class="dt">pch=</span><span class="dv">16</span>) </span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-11"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-11-1.png" alt="Diagnostic plots for the interaction model for odontoblast growth interaction model." width="960" />
 <p class="caption">
@@ -1274,7 +1283,7 @@ across the guinea pigs as studied might be violated.</li>
 <li><p>Constant variance:</p>
 <ul>
 <li><p>To assess this assumption, we can use the pirate-plot in Figure <a href="chapter4.html#fig:Figure4-10">4.10</a>, the diagnostic plots in
-Figure <a href="chapter4.html#fig:Figure4-11">4.11</a>, and by adding the partial residuals to the term-plot<a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a> as shown in <a href="chapter4.html#fig:Figure4-12">4.12</a>.</p></li>
+Figure <a href="chapter4.html#fig:Figure4-11">4.11</a>, and by adding the partial residuals to the term-plot<a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a> as shown in <a href="chapter4.html#fig:Figure4-12">4.12</a>.</p></li>
 <li><p>In the Residuals vs Fitted and the Scale-Location plots, the
 differences in variability among the groups (see the different
 x-axis positions for each group’s fitted values) is minor, so
@@ -1282,7 +1291,7 @@ there is not strong evidence of a problem with the equal variance
 assumption. Similarly, the original pirate-plots and adding the partial residuals to the term-plot do not highlight big differences in variability at any of the combinations of the predictors, so do not suggest clear issues with this assumption.
  </p></li>
 </ul>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="chapter4.html#cb349-1"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(TG2, <span class="dt">residuals =</span> T, <span class="dt">x.var=</span><span class="st">&quot;dosef&quot;</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="chapter4.html#cb349-1" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(TG2, <span class="dt">residuals =</span> T, <span class="dt">x.var=</span><span class="st">&quot;dosef&quot;</span>)) </span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-12"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-12-1.png" alt="Term-plot for odontoblast growth interaction model with partial residuals added." width="960" />
 <p class="caption">
@@ -1300,8 +1309,8 @@ problem with this assumption. </li>
 <ol start="3" style="list-style-type: decimal">
 <li><p><strong>Calculate the test statistic and p-value for the interaction test.</strong></p>
 <p></p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="chapter4.html#cb350-1"></a>TG2 &lt;-<span class="st"> </span><span class="kw">lm</span>(len<span class="op">~</span>supp<span class="op">*</span>dosef, <span class="dt">data=</span>ToothGrowth)</span>
-<span id="cb350-2"><a href="chapter4.html#cb350-2"></a><span class="kw">Anova</span>(TG2) </span></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="chapter4.html#cb350-1" aria-hidden="true"></a>TG2 &lt;-<span class="st"> </span><span class="kw">lm</span>(len<span class="op">~</span>supp<span class="op">*</span>dosef, <span class="dt">data=</span>ToothGrowth)</span>
+<span id="cb350-2"><a href="chapter4.html#cb350-2" aria-hidden="true"></a><span class="kw">Anova</span>(TG2) </span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: len
@@ -1315,7 +1324,7 @@ problem with this assumption. </li>
 <li><p>To find this p-value directly in R from the test statistic value and <span class="math inline">\(F\)</span>-distribution, we can use the <code>pf</code> function.
 </p></li>
 </ul>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="chapter4.html#cb352-1"></a><span class="kw">pf</span>(<span class="fl">4.107</span>, <span class="dt">df1=</span><span class="dv">2</span>, <span class="dt">df2=</span><span class="dv">54</span>, <span class="dt">lower.tail=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="chapter4.html#cb352-1" aria-hidden="true"></a><span class="kw">pf</span>(<span class="fl">4.107</span>, <span class="dt">df1=</span><span class="dv">2</span>, <span class="dt">df2=</span><span class="dv">54</span>, <span class="dt">lower.tail=</span>F)</span></code></pre></div>
 <pre><code>## [1] 0.0218601</code></pre></li>
 <li><p><strong>Conclusion based on p-value:</strong></p>
 <ul>
@@ -1343,7 +1352,7 @@ results should focus on the additive model results, especially the estimated
 model coefficients. To see why we don’t usually discuss all the estimated
 model coefficients in an interaction model, the six coefficients for this model are
 provided:</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="chapter4.html#cb354-1"></a><span class="kw">summary</span>(TG2)<span class="op">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="chapter4.html#cb354-1" aria-hidden="true"></a><span class="kw">summary</span>(TG2)<span class="op">$</span>coefficients</span></code></pre></div>
 <pre><code>##               Estimate Std. Error    t value     Pr(&gt;|t|)
 ## (Intercept)      13.23   1.148353 11.5208468 3.602548e-16
 ## suppVC           -5.25   1.624017 -3.2327258 2.092470e-03
@@ -1391,7 +1400,7 @@ Figure 4.13: Term-plot for the estimated interaction for the Odontoblast Growth 
 Figure 4.14: Interaction plot for Odontoblast data with added CLD from Tukey’s HSD.
 </p>
 </div>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="chapter4.html#cb356-1"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(TG2), <span class="dt">grid=</span>T, <span class="dt">multiline=</span>T, <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ci.style=</span><span class="st">&quot;bars&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="chapter4.html#cb356-1" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(TG2), <span class="dt">grid=</span>T, <span class="dt">multiline=</span>T, <span class="dt">lty=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">ci.style=</span><span class="st">&quot;bars&quot;</span>)</span></code></pre></div>
 <p>Given the presence of an important
 interaction, then the final step in the interpretation here is to interpret the
 results in the interaction plot or term-plot of the interaction model,
@@ -1405,15 +1414,15 @@ there is also a <code>cldshift=...</code> option to move the letters up or down;
 value of 1 seemed to work.  
 
 </p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="chapter4.html#cb357-1"></a><span class="kw">intplot</span>(len<span class="op">~</span>supp<span class="op">*</span>dose, <span class="dt">data=</span>ToothGrowth, <span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">cldshift=</span><span class="dv">1</span>,</span>
-<span id="cb357-2"><a href="chapter4.html#cb357-2"></a>        <span class="dt">cld=</span>T, <span class="dt">main=</span><span class="st">&quot;Interaction Plot with CLD&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="chapter4.html#cb357-1" aria-hidden="true"></a><span class="kw">intplot</span>(len<span class="op">~</span>supp<span class="op">*</span>dose, <span class="dt">data=</span>ToothGrowth, <span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">cldshift=</span><span class="dv">1</span>,</span>
+<span id="cb357-2"><a href="chapter4.html#cb357-2" aria-hidden="true"></a>        <span class="dt">cld=</span>T, <span class="dt">main=</span><span class="st">&quot;Interaction Plot with CLD&quot;</span>)</span></code></pre></div>
 <p>The “size” interpretation of the previous hypothesis test result could be something like the following: Generally increasing the dosage increases the mean growth except for
 the 2 mg/day dosage level where the increase levels off in the OJ group (OJ 1
 and 2 mg/day are not detectably different) and the differences between the two
 delivery methods disappear at the highest dosage level. But for 0.5 and 1 mg/day
 dosages, OJ is clearly better than VC by about 10 microns of growth on average.</p>
 </div>
-<div id="section4-5" class="section level2">
+<div id="section4-5" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Observational study example: The Psychology of Debt</h2>
 <p>In this section, the analysis of a survey of <span class="math inline">\(N=464\)</span> randomly sampled
 adults will be analyzed from a survey conducted by <span class="citation">Lea, Webley, and Walker (<a href="#ref-Lea1995" role="doc-biblioref">1995</a>)</span>
@@ -1447,22 +1456,22 @@ missing responses. We could clean out any individuals that failed to respond to
 all questions (called “complete cases”) using the <code>na.omit</code> function,  which will return responses only for subjects
 that responded to every question in
 the data set, <code>debt</code>. The change in sample size is available by running the <code>dim</code>  function on the two data sets – there were <span class="math inline">\(464\)</span> observations (rows) initially along with <span class="math inline">\(13\)</span> variables (columns) and once observations with any missing values were dropped there are <span class="math inline">\(N=304\)</span> for us to analyze. Losing 35% of the observations is a pretty noticeable loss.</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="chapter4.html#cb358-1"></a><span class="kw">library</span>(faraway)</span>
-<span id="cb358-2"><a href="chapter4.html#cb358-2"></a><span class="kw">data</span>(debt)</span>
-<span id="cb358-3"><a href="chapter4.html#cb358-3"></a><span class="kw">library</span>(tibble)</span>
-<span id="cb358-4"><a href="chapter4.html#cb358-4"></a>debt &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(debt)</span>
-<span id="cb358-5"><a href="chapter4.html#cb358-5"></a>debt<span class="op">$</span>incomegp &lt;-<span class="st"> </span><span class="kw">factor</span>(debt<span class="op">$</span>incomegp)</span>
-<span id="cb358-6"><a href="chapter4.html#cb358-6"></a>debt<span class="op">$</span>cigbuy &lt;-<span class="st"> </span><span class="kw">factor</span>(debt<span class="op">$</span>cigbuy)</span>
-<span id="cb358-7"><a href="chapter4.html#cb358-7"></a>debtc &lt;-<span class="st"> </span><span class="kw">na.omit</span>(debt)</span>
-<span id="cb358-8"><a href="chapter4.html#cb358-8"></a><span class="kw">dim</span>(debt)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="chapter4.html#cb358-1" aria-hidden="true"></a><span class="kw">library</span>(faraway)</span>
+<span id="cb358-2"><a href="chapter4.html#cb358-2" aria-hidden="true"></a><span class="kw">data</span>(debt)</span>
+<span id="cb358-3"><a href="chapter4.html#cb358-3" aria-hidden="true"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb358-4"><a href="chapter4.html#cb358-4" aria-hidden="true"></a>debt &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(debt)</span>
+<span id="cb358-5"><a href="chapter4.html#cb358-5" aria-hidden="true"></a>debt<span class="op">$</span>incomegp &lt;-<span class="st"> </span><span class="kw">factor</span>(debt<span class="op">$</span>incomegp)</span>
+<span id="cb358-6"><a href="chapter4.html#cb358-6" aria-hidden="true"></a>debt<span class="op">$</span>cigbuy &lt;-<span class="st"> </span><span class="kw">factor</span>(debt<span class="op">$</span>cigbuy)</span>
+<span id="cb358-7"><a href="chapter4.html#cb358-7" aria-hidden="true"></a>debtc &lt;-<span class="st"> </span><span class="kw">na.omit</span>(debt)</span>
+<span id="cb358-8"><a href="chapter4.html#cb358-8" aria-hidden="true"></a><span class="kw">dim</span>(debt)</span></code></pre></div>
 <pre><code>## [1] 464  13</code></pre>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="chapter4.html#cb360-1"></a><span class="kw">dim</span>(debtc)</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="chapter4.html#cb360-1" aria-hidden="true"></a><span class="kw">dim</span>(debtc)</span></code></pre></div>
 <pre><code>## [1] 304  13</code></pre>
 <p>If we just focus on the three variables we are using in this model (<code>debtR</code>), the missingness is less dramatic, retaining <span class="math inline">\(N=388\)</span> observations in <code>debtRc</code>.</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="chapter4.html#cb362-1"></a><span class="co"># Select only variables of interest for model with the line below</span></span>
-<span id="cb362-2"><a href="chapter4.html#cb362-2"></a>debtR &lt;-<span class="st"> </span>debt[,<span class="kw">c</span>(<span class="st">&quot;incomegp&quot;</span>, <span class="st">&quot;cigbuy&quot;</span>,<span class="st">&quot;prodebt&quot;</span>)] </span>
-<span id="cb362-3"><a href="chapter4.html#cb362-3"></a>debtRc &lt;-<span class="st"> </span><span class="kw">na.omit</span>(debtR)</span>
-<span id="cb362-4"><a href="chapter4.html#cb362-4"></a><span class="kw">dim</span>(debtRc)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="chapter4.html#cb362-1" aria-hidden="true"></a><span class="co"># Select only variables of interest for model with the line below</span></span>
+<span id="cb362-2"><a href="chapter4.html#cb362-2" aria-hidden="true"></a>debtR &lt;-<span class="st"> </span>debt[,<span class="kw">c</span>(<span class="st">&quot;incomegp&quot;</span>, <span class="st">&quot;cigbuy&quot;</span>,<span class="st">&quot;prodebt&quot;</span>)] </span>
+<span id="cb362-3"><a href="chapter4.html#cb362-3" aria-hidden="true"></a>debtRc &lt;-<span class="st"> </span><span class="kw">na.omit</span>(debtR)</span>
+<span id="cb362-4"><a href="chapter4.html#cb362-4" aria-hidden="true"></a><span class="kw">dim</span>(debtRc)</span></code></pre></div>
 <pre><code>## [1] 388   3</code></pre>
 <p>The second approach seems better as it drops fewer observations so we will use that below. But suppose that people did not want to
 provide their income levels if they were in the lowest or highest
@@ -1484,7 +1493,7 @@ differences between the income groups if we drop the interaction from the model.
 this suggests that we might be in Scenario 2 or 3 where a single main effect of
 interest is present.</p>
 
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="chapter4.html#cb364-1"></a><span class="kw">intplotarray</span>(prodebt<span class="op">~</span>cigbuy<span class="op">*</span>incomegp, <span class="dt">data=</span>debtRc, <span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="dt">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="chapter4.html#cb364-1" aria-hidden="true"></a><span class="kw">intplotarray</span>(prodebt<span class="op">~</span>cigbuy<span class="op">*</span>incomegp, <span class="dt">data=</span>debtRc, <span class="dt">col=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="dt">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-15"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-15-1.png" alt="Interaction plot array of prodebt by income group (1 to 5) and whether they buy cigarettes (0=no, 1=yes)." width="960" />
 <p class="caption">
@@ -1506,7 +1515,7 @@ combinations, you can’t work with the interaction model. In this situation, we
 barely have enough information to proceed (the smallest <span class="math inline">\(n_{jk}\)</span> is 13 for
 income group 4 that buys cigarettes). We have a very unbalanced design
 with counts between 13 and 60 in the different combinations, so lose some resistance to violation of assumptions but can proceed to explore the model with a critical eye on how the diagnostic plots look.</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="chapter4.html#cb365-1"></a><span class="kw">tally</span>(cigbuy<span class="op">~</span>incomegp, <span class="dt">data=</span>debtRc)</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="chapter4.html#cb365-1" aria-hidden="true"></a><span class="kw">tally</span>(cigbuy<span class="op">~</span>incomegp, <span class="dt">data=</span>debtRc)</span></code></pre></div>
 <pre><code>##       incomegp
 ## cigbuy  1  2  3  4  5
 ##      0 36 49 54 53 60
@@ -1520,9 +1529,9 @@ that the interaction wasn’t too prominent
 was correct. We should move to the additive model here but first need to check
 the assumptions to make sure we can trust this initial test.
 </p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="chapter4.html#cb367-1"></a><span class="kw">library</span>(car)</span>
-<span id="cb367-2"><a href="chapter4.html#cb367-2"></a>debt1 &lt;-<span class="st"> </span><span class="kw">lm</span>(prodebt<span class="op">~</span>incomegp<span class="op">*</span>cigbuy, <span class="dt">data=</span>debtRc)</span>
-<span id="cb367-3"><a href="chapter4.html#cb367-3"></a><span class="kw">Anova</span>(debt1)</span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="chapter4.html#cb367-1" aria-hidden="true"></a><span class="kw">library</span>(car)</span>
+<span id="cb367-2"><a href="chapter4.html#cb367-2" aria-hidden="true"></a>debt1 &lt;-<span class="st"> </span><span class="kw">lm</span>(prodebt<span class="op">~</span>incomegp<span class="op">*</span>cigbuy, <span class="dt">data=</span>debtRc)</span>
+<span id="cb367-3"><a href="chapter4.html#cb367-3" aria-hidden="true"></a><span class="kw">Anova</span>(debt1)</span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: prodebt
@@ -1532,8 +1541,8 @@ the assumptions to make sure we can trust this initial test.
 ## incomegp:cigbuy   1.333   4  0.6857 0.6022065
 ## Residuals       183.746 378</code></pre>
 
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="chapter4.html#cb369-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb369-2"><a href="chapter4.html#cb369-2"></a><span class="kw">plot</span>(debt1, <span class="dt">pch=</span><span class="dv">16</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="chapter4.html#cb369-1" aria-hidden="true"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb369-2"><a href="chapter4.html#cb369-2" aria-hidden="true"></a><span class="kw">plot</span>(debt1, <span class="dt">pch=</span><span class="dv">16</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-16"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-16-1.png" alt="Diagnostic plot for prodebt by income group and buy cigarettes/not interaction model." width="960" />
 <p class="caption">
@@ -1578,16 +1587,15 @@ buying/not in population, given income group in model</p>
 </ul></li>
 <li><p><strong>Validity conditions – discussed above but with new plots for the additive model:</strong>
 </p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="chapter4.html#cb370-1"></a>debt1r &lt;-<span class="st"> </span><span class="kw">lm</span>(prodebt<span class="op">~</span>incomegp<span class="op">+</span>cigbuy, <span class="dt">data=</span>debtRc)</span>
-<span id="cb370-2"><a href="chapter4.html#cb370-2"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb370-3"><a href="chapter4.html#cb370-3"></a><span class="kw">plot</span>(debt1r, <span class="dt">pch=</span><span class="dv">16</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="chapter4.html#cb370-1" aria-hidden="true"></a>debt1r &lt;-<span class="st"> </span><span class="kw">lm</span>(prodebt<span class="op">~</span>incomegp<span class="op">+</span>cigbuy, <span class="dt">data=</span>debtRc)</span>
+<span id="cb370-2"><a href="chapter4.html#cb370-2" aria-hidden="true"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb370-3"><a href="chapter4.html#cb370-3" aria-hidden="true"></a><span class="kw">plot</span>(debt1r, <span class="dt">pch=</span><span class="dv">16</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-17"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-17-1.png" alt="Diagnostic plot of additive model for ``prodebt`` by income group and whether they buy cigarettes/not" width="960" />
 <p class="caption">
 Figure 4.17: Diagnostic plot of additive model for <code>prodebt</code> by income group and whether they buy cigarettes/not
 </p>
 </div>
-<p></p>
 <ul>
 <li><p>Constant Variance:</p>
 <ul>
@@ -1598,7 +1606,7 @@ models, you should always revisit the diagnostic plots to make sure you
 didn’t create problems that were not present in more complicated models.</strong>  </p></li>
 <li><p>We can also explore the partial residuals here as provided in Figure <a href="chapter4.html#fig:Figure4-18">4.18</a>. The variability in the partial residuals appears to be similar across the different levels of each predictor, controlled for the other variable, and so does suggest any issues that were missed by just looking at the overall residuals versus fitted values in our regular diagnostic plots. Note how hard it is to see differences in the mean for levels of <code>cigbuy</code> in this plot relative to the variability in the partial residuals but that the differences in the means in <code>incomegp</code> are at least somewhat obvious.</p></li>
 </ul>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="chapter4.html#cb371-1"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(debt1r, <span class="dt">residuals=</span>T))</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="chapter4.html#cb371-1" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(debt1r, <span class="dt">residuals=</span>T))</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-18"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-18-1.png" alt="Term-plot for additive model for ``prodebt`` by income group and whether they buy cigarettes/not with partial residuals" width="960" />
 <p class="caption">
@@ -1610,9 +1618,10 @@ Figure 4.18: Term-plot for additive model for <code>prodebt</code> by income gro
 <li>The QQ-Plot in Figure <a href="chapter4.html#fig:Figure4-17">4.17</a> does not suggest
 a problem with this assumption. </li>
 </ul></li>
-</ul></li>
+</ul>
+<p></p></li>
 <li><p><strong>Calculate the test statistics and p-values for the two main effect tests.</strong></p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="chapter4.html#cb372-1"></a><span class="kw">Anova</span>(debt1r)</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="chapter4.html#cb372-1" aria-hidden="true"></a><span class="kw">Anova</span>(debt1r)</span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: prodebt
@@ -1647,7 +1656,7 @@ increasing average
 comfort with being in debt as the income groups go up except between groups 1 and 2 where 1 is a little higher than two. Being a cigarette buyer
 was related to a lower comfort level with debt but is really no different from those that did not report buying cigarettes. It would be possible to consider follow-up tests akin to the Tukey’s HSD comparisons for the levels of <code>incomegp</code> here but that is a bit beyond the scope of this course – focus on the estimated mean for the 5<sup>th</sup> income group being over 3.5 and none of the others over 3.2. That seems like an interesting although modest difference in mean responses across income groups after controlling for cigarette purchasing or not.</p>
 
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="chapter4.html#cb374-1"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(debt1r))</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="chapter4.html#cb374-1" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(debt1r))</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-19"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-19-1.png" alt="Term-plots for the prodebt response additive model with left panel for income group and the right panel for buying cigarettes or not (0 for no, 1 for yes)." width="960" />
 <p class="caption">
@@ -1660,9 +1669,10 @@ Figure 4.19: Term-plots for the <code>prodebt</code> response additive model wit
 <li>Because the income group and cigarette purchasing were not (and really could not) be randomly assigned, causal inference is not possible here. The data set came from a random sample but from an unspecified population and then there were missing observations. At best we can make inferences to those in that population that would answer these questions and it would be nice to know more about the population to really understand who this actually applies to. There would certainly be concerns about non-response bias in doing inference to the entire population that these data were sampled from.</li>
 </ul></li>
 </ol>
+<div style="page-break-after: always;"></div>
 <p>The estimated coefficients can also be
 interesting to interpret for the additive model. Here are the model summary coefficients:</p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="chapter4.html#cb375-1"></a><span class="kw">summary</span>(debt1r)<span class="op">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="chapter4.html#cb375-1" aria-hidden="true"></a><span class="kw">summary</span>(debt1r)<span class="op">$</span>coefficients</span></code></pre></div>
 <pre><code>##                Estimate Std. Error    t value      Pr(&gt;|t|)
 ## (Intercept)  3.13127172 0.09027437 34.6861672 4.283917e-120
 ## incomegp2   -0.05371924 0.10860898 -0.4946114  6.211588e-01
@@ -1680,7 +1690,7 @@ between cigarette buyers and non-buyers was estimated as
 <span class="math inline">\(\widehat{\gamma}_2=-0.011\)</span> points for any income group, remember that this
 variable had a large p-value in this model. The additive model-based estimates for all
 six combinations can be found in Table <a href="chapter4.html#tab:Table4-3">4.3</a>.</p>
-
+<div style="page-break-after: always;"></div>
 
 <table>
 <caption><span id="tab:Table4-3">Table 4.3: </span> Calculations to construct the estimates for all combinations of variables for the <code>prodebt</code> additive model.</caption>
@@ -1751,7 +1761,6 @@ six combinations can be found in Table <a href="chapter4.html#tab:Table4-3">4.3<
 </tr>
 </tbody>
 </table>
-
 <p>One final plot of the fitted values
 from this additive model in Figure <a href="chapter4.html#fig:Figure4-20">4.20</a> hopefully crystallizes
 the implications
@@ -1764,12 +1773,12 @@ have the same differences regardless of cigarette buying or not, with income
 group 5 much higher than the other four groups. The minor differences in cigarette purchasing and large p-value for it controlled for income group suggest that we could also refine the model further and drop the <code>cigbuy</code> additive term and just focus on the income groups as a predictor – and this takes us right back to a One-Way ANOVA model so is not repeated here.</p>
 
 <div class="figure"><span id="fig:Figure4-20"></span>
-<img src="04-twoWayAnova_files/figure-html/Figure4-20-1.png" alt="Illustration of the results from Table 4.2 showing the combined impacts of the components of the additive model for prodebt. Panel (a) uses income groups on the x-axis and different lines for cigarette buyers (1) or not (0). Panel (b) displays the different income groups as lines with the cigarette buying status on the x-axis." width="960" />
+<img src="04-twoWayAnova_files/figure-html/Figure4-20-1.png" alt="Illustration of the results from Table 4.3 showing the combined impacts of the components of the additive model for prodebt. Panel (a) uses income groups on the x-axis and different lines for cigarette buyers (1) or not (0). Panel (b) displays the different income groups as lines with the cigarette buying status on the x-axis." width="960" />
 <p class="caption">
-Figure 4.20: Illustration of the results from Table <a href="chapter4.html#tab:Table4-2">4.2</a> showing the combined impacts of the components of the additive model for <code>prodebt</code>. Panel (a) uses income groups on the x-axis and different lines for cigarette buyers (1) or not (0). Panel (b) displays the different income groups as lines with the cigarette buying status on the x-axis.
+Figure 4.20: Illustration of the results from Table <a href="chapter4.html#tab:Table4-3">4.3</a> showing the combined impacts of the components of the additive model for <code>prodebt</code>. Panel (a) uses income groups on the x-axis and different lines for cigarette buyers (1) or not (0). Panel (b) displays the different income groups as lines with the cigarette buying status on the x-axis.
 </p>
 </div>
-<!-- \newpage -->
+<div style="page-break-after: always;"></div>
 <p><strong>In general, we proceed through the following steps in any 2-WAY ANOVA situation:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Make a pirate-plot and an interaction plot.</p></li>
@@ -1803,11 +1812,9 @@ too great.</p></li>
 </ol>
 <p>Whether you end up favoring an additive or interaction model or do further model refinement, all steps of the
 hypothesis testing protocol should be engaged and a story based on the final results should be compiled, supported by the graphical displays such as the term-plots and interaction plots.</p>
-
 </div>
-<div id="section4-6" class="section level2">
+<div id="section4-6" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Pushing Two-Way ANOVA to the limit: Un-replicated designs and Estimability</h2>
-
 <p>In some situations, it is too expensive
 or impossible to replicate combinations of treatments and only one observation at each
 combination of the two explanatory variables, A and B, is possible. In these
@@ -1824,10 +1831,10 @@ responses and estimate all the coefficients in the interaction model but an issu
 illustrate these methods, the paper towel example
 is revisited except that only one response for each combination is used. Now
 the entire data set can be easily printed out:</p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="chapter4.html#cb377-1"></a>ptR &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/ptR.csv&quot;</span>)</span>
-<span id="cb377-2"><a href="chapter4.html#cb377-2"></a>ptR<span class="op">$</span>dropsf &lt;-<span class="st"> </span><span class="kw">factor</span>(ptR<span class="op">$</span>drops)</span>
-<span id="cb377-3"><a href="chapter4.html#cb377-3"></a>ptR<span class="op">$</span>brand &lt;-<span class="st"> </span><span class="kw">factor</span>(ptR<span class="op">$</span>brand)</span>
-<span id="cb377-4"><a href="chapter4.html#cb377-4"></a>ptR</span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="chapter4.html#cb377-1" aria-hidden="true"></a>ptR &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/ptR.csv&quot;</span>)</span>
+<span id="cb377-2"><a href="chapter4.html#cb377-2" aria-hidden="true"></a>ptR<span class="op">$</span>dropsf &lt;-<span class="st"> </span><span class="kw">factor</span>(ptR<span class="op">$</span>drops)</span>
+<span id="cb377-3"><a href="chapter4.html#cb377-3" aria-hidden="true"></a>ptR<span class="op">$</span>brand &lt;-<span class="st"> </span><span class="kw">factor</span>(ptR<span class="op">$</span>brand)</span>
+<span id="cb377-4"><a href="chapter4.html#cb377-4" aria-hidden="true"></a>ptR</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##   brand drops responses dropsf
 ##   &lt;fct&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt; 
@@ -1852,12 +1859,11 @@ plot.
 Figure 4.21: Interaction plot in paper towel data set with no replication.
 </p>
 </div>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="chapter4.html#cb379-1"></a><span class="kw">intplot</span>(responses<span class="op">~</span>brand<span class="op">*</span>dropsf, <span class="dt">data=</span>ptR, <span class="dt">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="chapter4.html#cb379-1" aria-hidden="true"></a><span class="kw">intplot</span>(responses<span class="op">~</span>brand<span class="op">*</span>dropsf, <span class="dt">data=</span>ptR, <span class="dt">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
 <p>The next step would be to assess evidence related to the null hypothesis of no interaction between <code>Brand</code> and
 <code>Drops</code>. A problem will arise in trying to form the ANOVA table as you
-would see this when you run the <code>anova</code><a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a> function on the interaction model:
+would see this when you run the <code>anova</code><a href="#fn84" class="footnote-ref" id="fnref84"><sup>84</sup></a> function on the interaction model:
 </p>
-
 <pre><code>&gt; anova(lm(responses~dropsf*brand,data=ptR))
 Analysis of Variance Table
 Response: responses
@@ -1869,7 +1875,6 @@ Residuals     0 0.00000
 Warning message:
 In anova.lm(lm(responses ~ dropsf * brand, data = ptR)) :
   ANOVA F-tests on an essentially perfect fit are unreliable</code></pre>
-
 <p>Warning messages in R output show up after you run functions that contain
 problems and are generally not a good thing, but can sometimes be ignored. In
 this case, the warning message is not needed – there are no <span class="math inline">\(F\)</span>-statistics or
@@ -1897,8 +1902,8 @@ So in this
 case, assuming no interaction is present is hard to justify. But if we proceed
 under this dangerous and untestable assumption, tests for the main effects can be developed.
 </p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="chapter4.html#cb381-1"></a>norep1 &lt;-<span class="st"> </span><span class="kw">lm</span>(responses<span class="op">~</span>dropsf<span class="op">+</span>brand, <span class="dt">data=</span>ptR)</span>
-<span id="cb381-2"><a href="chapter4.html#cb381-2"></a><span class="kw">Anova</span>(norep1)</span></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="chapter4.html#cb381-1" aria-hidden="true"></a>norep1 &lt;-<span class="st"> </span><span class="kw">lm</span>(responses<span class="op">~</span>dropsf<span class="op">+</span>brand, <span class="dt">data=</span>ptR)</span>
+<span id="cb381-2"><a href="chapter4.html#cb381-2" aria-hidden="true"></a><span class="kw">Anova</span>(norep1)</span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: responses
@@ -1918,7 +1923,7 @@ The term-plots in Figure <a href="chapter4.html#fig:Figure4-22">4.22</a> show th
 differences among the levels are small relative to the residual variability as
 seen in the error bars around each point estimate.</p>
 
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="chapter4.html#cb383-1"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(norep1))</span></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="chapter4.html#cb383-1" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">allEffects</span>(norep1))</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-22"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-22-1.png" alt="Term-plots for the additive model in paper towel data set with no replication." width="480" />
 <p class="caption">
@@ -1926,30 +1931,37 @@ Figure 4.22: Term-plots for the additive model in paper towel data set with no r
 </p>
 </div>
 <p>In the extreme unreplicated situation it is possible to estimate all model coefficients in the interaction model but we can’t do inferences for those estimates since there is no residual variability. Another issue in really any model with categorical predictors but especially noticeable in the Two-Way ANOVA situation is <strong><em>estimability</em></strong> issues.  Instead of having issues with running out of degrees of freedom for tests we can run into situations where we do not have information to estimate some of the model coefficients. This happens any time you fail to have observations at either a level of a main effect or at a combination of levels in an interaction model.</p>
-<p>To illustrate estimability issues, we will revisit the overtake data. Each of the seven levels of outfits was made up of a combination of different characteristics of the outfits, such as which helmet and pants were chosen, whether reflective leg clips were worn or not, etc. To see all these additional variables, we will introduce a new plot that will feature more prominently in Chapter <a href="chapter5.html#chapter5">5</a> that allows us to explore relationships among a suite of categorical variables – the tableplot from the <code>tabplot</code> package <span class="citation">(Tennekes and de Jonge <a href="#ref-R-tabplot" role="doc-biblioref">2019</a>)</span>. It allows us to sort the variables based on a single variable (think about how you might sort a spreadsheet based on one column and look at the results in other columns). The <code>tableplot</code> function displays bars for each response in a row<a href="#fn84" class="footnote-ref" id="fnref84"><sup>84</sup></a> based on the
+<p>To illustrate estimability issues, we will revisit the overtake data. Each of the seven levels of outfits was made up of a combination of different characteristics of the outfits, such as which helmet and pants were chosen, whether reflective leg clips were worn or not, etc. To see all these additional variables, we will introduce a new plot that will feature more prominently in Chapter <a href="chapter5.html#chapter5">5</a> that allows us to explore relationships among a suite of categorical variables – the <code>tableplot</code> from the <code>tabplot</code><a href="#fn85" class="footnote-ref" id="fnref85"><sup>85</sup></a> package <span class="citation">(Tennekes and de Jonge <a href="#ref-R-tabplot" role="doc-biblioref">2019</a>)</span>. It allows us to sort the variables based on a single variable (think about how you might sort a spreadsheet based on one column and look at the results in other columns). The <code>tableplot</code> function displays bars for each response in a row<a href="#fn86" class="footnote-ref" id="fnref86"><sup>86</sup></a> based on the
 category of responses or as a bar with the height corresponding
-the value of quantitative variables<a href="#fn85" class="footnote-ref" id="fnref85"><sup>85</sup></a>.
+the value of quantitative variables<a href="#fn87" class="footnote-ref" id="fnref87"><sup>87</sup></a>.
 
 
 It also plots a red cell if the
 observations were missing for a categorical variable and in grey for missing values on quantitative variables. The plot can be obtained
-simply as <code>tableplot(DATASETNAME)</code> which will sort the data set based on the first variable. To use our previous work with the sorted levels of <code>Condition2</code>, the code <code>dd[,-1]</code> is used to specify the data set without <code>Condition</code> and then <code>sort=Condition2</code> is used to sort based on the <code>Condition2</code> variable. The <code>pals=list("BrBG")</code> option specifies a color palette for the plot that is color-blind friendly.
+simply as <code>tableplot(DATASETNAME)</code> which will sort the data set based on the first variable. To use our previous work with the sorted levels of <code>Condition2</code>, the code <code>dd[,-1]</code> is used to specify the data set without <code>Condition</code> and then <code>sort=Condition2</code> is used to sort based on the <code>Condition2</code> variable. The <code>pals=list("BrBG")</code> option specifies a color palette for the plot that is color-blind friendly from the <code>RColorBrewer</code> package <span class="citation">(Neuwirth <a href="#ref-R-RColorBrewer" role="doc-biblioref">2014</a>)</span>.
 </p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="chapter4.html#cb384-1"></a>dd &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/Walker2014_mod.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="chapter4.html#cb385-1"></a>dd<span class="op">$</span>Condition &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Condition)</span>
-<span id="cb385-2"><a href="chapter4.html#cb385-2"></a>dd<span class="op">$</span>Condition2 &lt;-<span class="st"> </span><span class="kw">with</span>(dd, <span class="kw">reorder</span>(Condition, Distance, mean))</span>
-<span id="cb385-3"><a href="chapter4.html#cb385-3"></a>dd<span class="op">$</span>Shirt &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Shirt) </span>
-<span id="cb385-4"><a href="chapter4.html#cb385-4"></a>dd<span class="op">$</span>Helmet &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Helmet)</span>
-<span id="cb385-5"><a href="chapter4.html#cb385-5"></a>dd<span class="op">$</span>Pants &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Pants)</span>
-<span id="cb385-6"><a href="chapter4.html#cb385-6"></a>dd<span class="op">$</span>Gloves &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Gloves)</span>
-<span id="cb385-7"><a href="chapter4.html#cb385-7"></a>dd<span class="op">$</span>ReflectClips &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>ReflectClips)</span>
-<span id="cb385-8"><a href="chapter4.html#cb385-8"></a>dd<span class="op">$</span>Backpack &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Backpack) </span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="chapter4.html#cb384-1" aria-hidden="true"></a>dd &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/Walker2014_mod.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="chapter4.html#cb385-1" aria-hidden="true"></a>dd<span class="op">$</span>Condition &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Condition)</span>
+<span id="cb385-2"><a href="chapter4.html#cb385-2" aria-hidden="true"></a>dd<span class="op">$</span>Condition2 &lt;-<span class="st"> </span><span class="kw">with</span>(dd, <span class="kw">reorder</span>(Condition, Distance, mean))</span>
+<span id="cb385-3"><a href="chapter4.html#cb385-3" aria-hidden="true"></a>dd<span class="op">$</span>Shirt &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Shirt) </span>
+<span id="cb385-4"><a href="chapter4.html#cb385-4" aria-hidden="true"></a>dd<span class="op">$</span>Helmet &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Helmet)</span>
+<span id="cb385-5"><a href="chapter4.html#cb385-5" aria-hidden="true"></a>dd<span class="op">$</span>Pants &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Pants)</span>
+<span id="cb385-6"><a href="chapter4.html#cb385-6" aria-hidden="true"></a>dd<span class="op">$</span>Gloves &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Gloves)</span>
+<span id="cb385-7"><a href="chapter4.html#cb385-7" aria-hidden="true"></a>dd<span class="op">$</span>ReflectClips &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>ReflectClips)</span>
+<span id="cb385-8"><a href="chapter4.html#cb385-8" aria-hidden="true"></a>dd<span class="op">$</span>Backpack &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Backpack) </span></code></pre></div>
 
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="chapter4.html#cb386-1"></a><span class="kw">library</span>(tabplot)</span>
-<span id="cb386-2"><a href="chapter4.html#cb386-2"></a><span class="kw">library</span>(RColorBrewer)</span>
-<span id="cb386-3"><a href="chapter4.html#cb386-3"></a><span class="co"># Options needed to prevent errors on PC</span></span>
-<span id="cb386-4"><a href="chapter4.html#cb386-4"></a><span class="kw">options</span>(<span class="dt">ffbatchbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span>); <span class="kw">options</span>(<span class="dt">ffmaxbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span> <span class="op">*</span><span class="st"> </span><span class="dv">32</span>) </span>
-<span id="cb386-5"><a href="chapter4.html#cb386-5"></a><span class="kw">tableplot</span>(dd[,<span class="op">-</span><span class="dv">1</span>],<span class="dt">sort=</span>Condition2, <span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="chapter4.html#cb386-1" aria-hidden="true"></a><span class="kw">library</span>(remotes); </span>
+<span id="cb386-2"><a href="chapter4.html#cb386-2" aria-hidden="true"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;mtennekes/tabplot&quot;</span>) <span class="co"># Only do this once on your computer</span></span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="chapter4.html#cb387-1" aria-hidden="true"></a><span class="kw">library</span>(remotes); </span>
+<span id="cb387-2"><a href="chapter4.html#cb387-2" aria-hidden="true"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;tabplot&quot;</span>, <span class="dt">character.only =</span> <span class="ot">TRUE</span>)) {</span>
+<span id="cb387-3"><a href="chapter4.html#cb387-3" aria-hidden="true"></a>        remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;mtennekes/tabplot&quot;</span>)</span>
+<span id="cb387-4"><a href="chapter4.html#cb387-4" aria-hidden="true"></a>        }</span>
+<span id="cb387-5"><a href="chapter4.html#cb387-5" aria-hidden="true"></a><span class="kw">library</span>(tabplot)</span>
+<span id="cb387-6"><a href="chapter4.html#cb387-6" aria-hidden="true"></a><span class="kw">library</span>(RColorBrewer)</span>
+<span id="cb387-7"><a href="chapter4.html#cb387-7" aria-hidden="true"></a><span class="co"># Options needed to prevent errors on PC</span></span>
+<span id="cb387-8"><a href="chapter4.html#cb387-8" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">ffbatchbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span>); <span class="kw">options</span>(<span class="dt">ffmaxbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span> <span class="op">*</span><span class="st"> </span><span class="dv">32</span>) </span>
+<span id="cb387-9"><a href="chapter4.html#cb387-9" aria-hidden="true"></a><span class="kw">tableplot</span>(dd[,<span class="op">-</span><span class="dv">1</span>],<span class="dt">sort=</span>Condition2, <span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>), <span class="dt">sample=</span>F, </span>
+<span id="cb387-10"><a href="chapter4.html#cb387-10" aria-hidden="true"></a>          <span class="dt">colorNA_num =</span> <span class="st">&quot;pink&quot;</span>, <span class="dt">numMode =</span> <span class="st">&quot;MB-ML&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure4-23"></span>
 <img src="04-twoWayAnova_files/figure-html/Figure4-23-1.png" alt="Tableplot of the full overtake data set sorted by outfit worn (Condition2)." width="960" />
 <p class="caption">
@@ -1957,9 +1969,9 @@ Figure 4.23: Tableplot of the full overtake data set sorted by outfit worn (<cod
 </p>
 </div>
 <p>In the tableplot in Figure <a href="chapter4.html#fig:Figure4-23">4.23</a>, we can now explore the six variables created related to aspects of each outfit. For example, the <em>commuter</em> helmet (darkest shade in <code>Helmet</code> column) was worn with all outfits except for the <em>racer</em> and <em>casual</em>. So maybe we would like to explore differences in overtake distances based on the type of helmet worn. Similarly, it might be nice to explore whether wearing reflective pant clips is useful and maybe there is an interaction between helmet type and leg clips on impacts on overtake distance (should we wear both or just one, for example). So instead of using the seven level <code>Condition2</code> in the model to assess differences based on all combinations of these outfits delineated in the other variables, we can try to fit a model with <code>Helmet</code> and <code>ReflectClips</code> and their interaction for overtake distances:</p>
-<div style="page-break-after: always;"></div>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="chapter4.html#cb387-1"></a>overtake_int &lt;-<span class="st"> </span><span class="kw">lm</span>(Distance <span class="op">~</span><span class="st"> </span>Helmet<span class="op">*</span>ReflectClips, <span class="dt">data =</span> dd)</span>
-<span id="cb387-2"><a href="chapter4.html#cb387-2"></a><span class="kw">summary</span>(overtake_int)</span></code></pre></div>
+<!-- \newpage -->
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="chapter4.html#cb388-1" aria-hidden="true"></a>overtake_int &lt;-<span class="st"> </span><span class="kw">lm</span>(Distance <span class="op">~</span><span class="st"> </span>Helmet<span class="op">*</span>ReflectClips, <span class="dt">data =</span> dd)</span>
+<span id="cb388-2"><a href="chapter4.html#cb388-2" aria-hidden="true"></a><span class="kw">summary</span>(overtake_int)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Distance ~ Helmet * ReflectClips, data = dd)
@@ -1978,10 +1990,10 @@ Figure 4.23: Tableplot of the full overtake data set sorted by outfit worn (<cod
 ## Helmetrace:ReflectClipsyes       NA         NA      NA       NA
 ## 
 ## Residual standard error: 30.01 on 5687 degrees of freedom
-## Multiple R-squared:  5.877e-05,  Adjusted R-squared:  -0.0002929 
+## Multiple R-squared:  5.877e-05,	Adjusted R-squared:  -0.0002929 
 ## F-statistic: 0.1671 on 2 and 5687 DF,  p-value: 0.8461</code></pre>
 <p>The full model summary shows some odd things. First there is a warning after <code>Coefficients</code> of <code>(3 not defined because of singularities)</code>. And then in the coefficient table, there are <code>NA</code>s for everything in the rows for <code>ReflectClipsyes</code> and the two interaction components. When <code>lm</code> encounters models where the data measured are not sufficient to estimate the model, it essentially drops parts of the model that you were hoping to estimate and only estimates what it can. In this case, it just estimates coefficients for the intercept and two deviation coefficients for <code>Helmet</code> types; the other three coefficients (<span class="math inline">\(\gamma_2\)</span> and the two <span class="math inline">\(\omega\)</span>s) are <em>not estimable</em>. This reinforces the need to check coefficients in any model you are fitting. A tally of the counts of observations across the two explanatory variables helps to understand the situation and problem:</p>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="chapter4.html#cb389-1"></a><span class="kw">tally</span>(Helmet<span class="op">~</span>ReflectClips, <span class="dt">data=</span>dd)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="chapter4.html#cb390-1" aria-hidden="true"></a><span class="kw">tally</span>(Helmet<span class="op">~</span>ReflectClips, <span class="dt">data=</span>dd)</span></code></pre></div>
 <pre><code>##           ReflectClips
 ## Helmet       no  yes
 ##   commuter    0 4059
@@ -1995,8 +2007,9 @@ enough power to detect differences for the main effects. Second, when dropping
 from the interaction model to additive model, the variability explained by the
 interaction term is pushed into the error term, whether replication is
 available or not. Third, we need to make sure we have observations at all combinations of variables if we want to be able to estimate models using them and their interaction.</p>
+<div style="page-break-after: always;"></div>
 </div>
-<div id="section4-7" class="section level2">
+<div id="section4-7" class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> Chapter summary</h2>
 <p>In this chapter, methods for handling two different categorical predictors
 in the same model with a
@@ -2061,7 +2074,7 @@ then eventually incorporating both categorical and quantitative predictor
 variables. The methods in Chapter <a href="chapter8.html#chapter8">8</a> are actually quite similar
 to those considered here, so the better you understand these models, the easier that material will be master.</p>
 </div>
-<div id="section4-8" class="section level2">
+<div id="section4-8" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> Summary of important R code</h2>
 <p>The main components of R code used in this chapter follow with components to
 modify in lighter and/or ALL CAPS text, remembering that any R
@@ -2087,14 +2100,14 @@ categorical variable. </li>
 data=<font color='red'>DATASETNAME</font>)</strong></p>
 <ul>
 <li><p>Download and install using:</p>
-<p><code>source("http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v2.R")</code></p></li>
+<p><code>source("http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v3.R")</code></p></li>
 <li><p>Provides interaction plot. </p></li>
 </ul></li>
 <li><p><strong>intplotarray(<font color='red'>Y</font>~<font color='red'>A</font><code>*</code><font color='red'>B</font>,
 data=<font color='red'>DATASETNAME</font>)</strong></p>
 <ul>
 <li><p>Download and install using:</p>
-<p><code>source("http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v2.R")</code></p></li>
+<p><code>source("http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v3.R")</code></p></li>
 <li><p>Provides interaction plot array that makes interaction plots switching explanatory variable roles and makes pirate-plots of the main effects.
 </p></li>
 </ul></li>
@@ -2145,9 +2158,9 @@ Normal Q-Q plot.</li>
 <li>Plots the results from the estimated model with partial residuals.</li>
 </ul></li>
 </ul>
-<div style="page-break-after: always;"></div>
+<!-- \newpage -->
 </div>
-<div id="section4-9" class="section level2">
+<div id="section4-9" class="section level2" number="4.9">
 <h2><span class="header-section-number">4.9</span> Practice problems</h2>
 <p>4.1. <strong>Mathematics Usage Test Scores Analysis</strong> To practice the Two-Way ANOVA, consider a data set on <span class="math inline">\(N=861\)</span> ACT
 Mathematics Usage Test scores from 1987. The test was given to a
@@ -2157,8 +2170,8 @@ work: (a) Algebra I only; (b) two Algebra courses and Geometry; and (c) two
 Algebra courses, Geometry, Trigonometry, Advanced Mathematics, and Beginning
 Calculus. These data were generated from summary statistics for one particular
 form of the test as reported by <span class="citation">Doolittle and Welch (<a href="#ref-Doolittle1989" role="doc-biblioref">1989</a>)</span>. The source of this version of
-the data set is <span class="citation">Ramsey and Schafer (<a href="#ref-Ramsey2012" role="doc-biblioref">2012</a>)</span> and the <code>Sleuth2</code> package
-<span class="citation">(F. L. Ramsey et al. <a href="#ref-R-Sleuth2" role="doc-biblioref">2019</a>)</span>. 
+the data set is <span class="citation">Ramsey and Schafer (<a href="#ref-Ramsey2012" role="doc-biblioref">2012</a>)</span> and the <code>Sleuth3</code> package
+<span class="citation">(F. L. Ramsey et al. <a href="#ref-R-Sleuth3" role="doc-biblioref">2019</a>)</span>. 
 First install and then load that package.</p>
 <pre><code>library(Sleuth3)
 library(mosaic)
@@ -2194,7 +2207,6 @@ these plots? Discuss this assumption in this situation.</p>
 <p>4.1.8. Use the term-plot and the estimated model
 coefficients to determine which of the combinations of levels provides the
 highest estimated average score.</p>
-
 <p>4.2. <strong>Sleep Quality Analysis</strong> As a second example, consider data based on Figure 3 from <span class="citation">Puhan et al. (<a href="#ref-Puhan2006" role="doc-biblioref">2006</a>)</span>, which is
 available at <a href="http://www.bmj.com/content/332/7536/266" class="uri">http://www.bmj.com/content/332/7536/266</a>. In this study, the
 researchers were interested in whether didgeridoo playing might impact sleep
@@ -2210,12 +2222,12 @@ whether the mean Epworth scale values changed differently over the four months
 in the group that got didgeridoo lessons than it did in the control group (that
 got no lessons). Each subject was measured twice in the data set provided that
 is available at <a href="http://www.math.montana.edu/courses/s217/documents/epworthdata.csv" class="uri">http://www.math.montana.edu/courses/s217/documents/epworthdata.csv</a>.</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="chapter4.html#cb392-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb392-2"><a href="chapter4.html#cb392-2"></a>epworthdata &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/epworthdata.csv&quot;</span>)</span>
-<span id="cb392-3"><a href="chapter4.html#cb392-3"></a>epworthdata<span class="op">$</span>Time &lt;-<span class="st"> </span><span class="kw">factor</span>(epworthdata<span class="op">$</span>Time)</span>
-<span id="cb392-4"><a href="chapter4.html#cb392-4"></a><span class="kw">levels</span>(epworthdata<span class="op">$</span>Time) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Pre&quot;</span> , <span class="st">&quot;Post&quot;</span>)</span>
-<span id="cb392-5"><a href="chapter4.html#cb392-5"></a>epworthdata<span class="op">$</span>Group &lt;-<span class="st"> </span><span class="kw">factor</span>(epworthdata<span class="op">$</span>Group)</span>
-<span id="cb392-6"><a href="chapter4.html#cb392-6"></a><span class="kw">levels</span>(epworthdata<span class="op">$</span>Group) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Control&quot;</span> , <span class="st">&quot;Didgeridoo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="chapter4.html#cb393-1" aria-hidden="true"></a><span class="kw">library</span>(readr)</span>
+<span id="cb393-2"><a href="chapter4.html#cb393-2" aria-hidden="true"></a>epworthdata &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/epworthdata.csv&quot;</span>)</span>
+<span id="cb393-3"><a href="chapter4.html#cb393-3" aria-hidden="true"></a>epworthdata<span class="op">$</span>Time &lt;-<span class="st"> </span><span class="kw">factor</span>(epworthdata<span class="op">$</span>Time)</span>
+<span id="cb393-4"><a href="chapter4.html#cb393-4" aria-hidden="true"></a><span class="kw">levels</span>(epworthdata<span class="op">$</span>Time) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Pre&quot;</span> , <span class="st">&quot;Post&quot;</span>)</span>
+<span id="cb393-5"><a href="chapter4.html#cb393-5" aria-hidden="true"></a>epworthdata<span class="op">$</span>Group &lt;-<span class="st"> </span><span class="kw">factor</span>(epworthdata<span class="op">$</span>Group)</span>
+<span id="cb393-6"><a href="chapter4.html#cb393-6" aria-hidden="true"></a><span class="kw">levels</span>(epworthdata<span class="op">$</span>Group) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Control&quot;</span> , <span class="st">&quot;Didgeridoo&quot;</span>)</span></code></pre></div>
 <p>4.2.1. Make a pirate-plot and an interaction plot array to graphically explore the potential interaction of Time and Group on the Epworth responses.</p>
 <p>4.2.2. Fit the interaction model and find
 the ANOVA table. For the test you should consider first (the interaction),
@@ -2236,14 +2248,14 @@ results of this test.</p>
 <div id="ref-R-faraway">
 <p>Faraway, Julian. 2016. <em>Faraway: Functions and Datasets for Books by Julian Faraway</em>. <a href="https://CRAN.R-project.org/package=faraway">https://CRAN.R-project.org/package=faraway</a>.</p>
 </div>
-<div id="ref-R-Sleuth2">
-<p>F. L. Ramsey, Original by, D. W. Schafer; modifications by Daniel W. Schafer, Jeannie Sifneos, Berwin A. Turlach; vignettes contributed by Nicholas Horton, Kate Aloisio, Ruobing Zhang, and with corrections by Randall Pruim. 2019. <em>Sleuth2: Data Sets from Ramsey and Schafer’s "Statistical Sleuth (2nd Ed)"</em>. <a href="https://CRAN.R-project.org/package=Sleuth2">https://CRAN.R-project.org/package=Sleuth2</a>.</p>
+<div id="ref-R-Sleuth3">
+<p>F. L. Ramsey, Original by, D. W. Schafer; modifications by Daniel W. Schafer, Jeannie Sifneos, Berwin A. Turlach; vignettes contributed by Nicholas Horton, Linda Loi, Kate Aloisio, Ruobing Zhang, and with corrections by Randall Pruim. 2019. <em>Sleuth3: Data Sets from Ramsey and Schafer’s "Statistical Sleuth (3rd Ed)"</em>. <a href="https://CRAN.R-project.org/package=Sleuth3">https://CRAN.R-project.org/package=Sleuth3</a>.</p>
 </div>
 <div id="ref-Fox2011">
 <p>Fox, John, and Sanford Weisberg. 2011. <em>An R-Companion to Applied Regression, Second Edition</em>. Thousand Oaks, CA: SAGE Publications. <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a>.</p>
 </div>
 <div id="ref-R-car">
-<p>Fox, John, Sanford Weisberg, and Brad Price. 2019a. <em>Car: Companion to Applied Regression</em>. <a href="https://CRAN.R-project.org/package=car">https://CRAN.R-project.org/package=car</a>.</p>
+<p>Fox, John, Sanford Weisberg, and Brad Price. 2020a. <em>Car: Companion to Applied Regression</em>. <a href="https://CRAN.R-project.org/package=car">https://CRAN.R-project.org/package=car</a>.</p>
 </div>
 <div id="ref-Hurlbert1984">
 <p>Hurlbert, Stuart H. 1984. “Pseudoreplication and the Design of Ecological Field Experiments.” <em>Ecological Monographs</em> 54 (2): 187–211. <a href="http://www.jstor.org/stable/1942661">http://www.jstor.org/stable/1942661</a>.</p>
@@ -2254,6 +2266,9 @@ results of this test.</p>
 <div id="ref-Likert1932">
 <p>Likert, Rensis. 1932. “A Technique for the Measurement of Attitudes.” <em>Archives of Psychology</em> 140: 1–55.</p>
 </div>
+<div id="ref-R-RColorBrewer">
+<p>Neuwirth, Erich. 2014. <em>RColorBrewer: ColorBrewer Palettes</em>. <a href="https://CRAN.R-project.org/package=RColorBrewer">https://CRAN.R-project.org/package=RColorBrewer</a>.</p>
+</div>
 <div id="ref-Puhan2006">
 <p>Puhan, Milo A, Alex Suarez, Christian Lo Cascio, Alfred Zahn, Markus Heitz, and Otto Braendli. 2006. “Didgeridoo Playing as Alternative Treatment for Obstructive Sleep Apnoea Syndrome: Randomised Controlled Trial.” <em>BMJ</em> 332 (7536): 266–70. <a href="https://doi.org/10.1136/bmj.38705.470590.55">https://doi.org/10.1136/bmj.38705.470590.55</a>.</p>
 </div>
@@ -2261,18 +2276,46 @@ results of this test.</p>
 <p>Ramsey, Fred, and Daniel Schafer. 2012. <em>The Statistical Sleuth: A Course in Methods of Data Analysis</em>. Cengage Learning. <a href="https://books.google.com/books?id=eSlLjA9TwkUC">https://books.google.com/books?id=eSlLjA9TwkUC</a>.</p>
 </div>
 <div id="ref-R-tabplot">
-<p>Tennekes, Martijn, and Edwin de Jonge. 2019. <em>Tabplot: Tableplot, a Visualization of Large Datasets</em>. <a href="https://CRAN.R-project.org/package=tabplot">https://CRAN.R-project.org/package=tabplot</a>.</p>
-</div>
+<p>Tennekes, Martijn, and Edwin de Jonge. 2019. <em>Tabplot: Tableplot, a Visualization of Large Datasets</em>. <a href="https://github.com/mtennekes/tabplot%20http://www.jds-%0D%0A%20%20%20%20online.com/file_download/379/JDS-1108.pdf">https://github.com/mtennekes/tabplot http://www.jds-
+    online.com/file_download/379/JDS-1108.pdf</a>.</p>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="73">
-<li id="fn73"><p>We would not suggest throwing away observations to get balanced designs. Plan in advance to try to have a balanced design but analyze the responses you get.<a href="chapter4.html#fnref73" class="footnote-back">↩︎</a></p></li>
-<li id="fn74"><p>Copy and include this code in a codechunk any time you want to use the <code>intplot</code> or <code>inplotarray</code> functions.<a href="chapter4.html#fnref74" class="footnote-back">↩︎</a></p></li>
-<li id="fn77"><p>This does not mean that there is truly no interaction in the population but does mean that we are going to proceed assuming it is not present since we couldn’t prove the null was wrong.<a href="chapter4.html#fnref77" class="footnote-back">↩︎</a></p></li>
-<li id="fn78"><p>The <code>anova</code> results are not wrong, just not what we want in all situations.<a href="chapter4.html#fnref78" class="footnote-back">↩︎</a></p></li>
-<li id="fn82"><p>To get <code>dosef</code> on the x-axis in the plot, the <code>x.var="dosef"</code> option was employed to force the <em>Dose</em> to be the variable on the x-axis.<a href="chapter4.html#fnref82" class="footnote-back">↩︎</a></p></li>
-<li id="fn83"><p>We switched back to the <code>anova</code> function here as the <code>Anova</code> function only reports <code>Error in Anova.lm(lm(responses ~ dropsf * brand, data = ptR)) :    residual df = 0</code>, which is fine but not as useful for understanding this issue as what <code>anova</code> provides.<a href="chapter4.html#fnref83" class="footnote-back">↩︎</a></p></li>
+<ol start="74">
+<li id="fn74"><p>We would not suggest throwing away observations to get balanced designs. Plan in advance to try to have a balanced design but analyze the responses you get.<a href="chapter4.html#fnref74" class="footnote-back">↩︎</a></p></li>
+<li id="fn75"><p>Copy and include this code in a code chunk any time you want to use the <code>intplot</code> or <code>inplotarray</code> functions.<a href="chapter4.html#fnref75" class="footnote-back">↩︎</a></p></li>
+<li id="fn76"><p>We will use “main effects” to refer to the two
+explanatory variables in the additive model even if they are not randomly
+assigned to contrast with having those variables interacting in the model.
+It is the one place in the book where we use “effects” without worrying about the causal connotation of that word.<a href="chapter4.html#fnref76" class="footnote-back">↩︎</a></p></li>
+<li id="fn77"><p>In the standard
+ANOVA table,
+<span class="math inline">\(\text{SS}_A + \text{SS}_B + \text{SS}_{AB} + \text{SS}_E = \text{SS}_{\text{Total}}\)</span>.
+However, to get the tests we really desire when our designs are not balanced, a
+slight modification of the SS is used, using what are called Type II sums of
+squares and this result doesn’t hold in the output you will see for additive
+models. This is discussed further below.<a href="chapter4.html#fnref77" class="footnote-back">↩︎</a></p></li>
+<li id="fn78"><p>This does not mean that there is truly no interaction in the population but does mean that we are going to proceed assuming it is not present since we couldn’t prove the null was wrong.<a href="chapter4.html#fnref78" class="footnote-back">↩︎</a></p></li>
+<li id="fn79"><p>The <code>anova</code> results are not wrong, just not what we want in all situations.<a href="chapter4.html#fnref79" class="footnote-back">↩︎</a></p></li>
+<li id="fn80"><p>Actually, the tests are only conditional
+on other main effects if Type II Sums of Squares are used for an interaction
+model, but we rarely focus on the main effect tests when the interaction is present.<a href="chapter4.html#fnref80" class="footnote-back">↩︎</a></p></li>
+<li id="fn81"><p>In Multiple Linear Regression models in
+Chapter <a href="chapter8.html#chapter8">8</a>, the reasons for this wording will (hopefully)
+become clearer.<a href="chapter4.html#fnref81" class="footnote-back">↩︎</a></p></li>
+<li id="fn82"><p>Just so you don’t think
+that perfect R code should occur on the first try, I
+have made similarly serious coding mistakes even after accumulating more
+than decade of experience with R. It is finding those mistakes (in time) that matters.<a href="chapter4.html#fnref82" class="footnote-back">↩︎</a></p></li>
+<li id="fn83"><p>To get <code>dosef</code> on the x-axis in the plot, the <code>x.var="dosef"</code> option was employed to force the <em>Dose</em> to be the variable on the x-axis.<a href="chapter4.html#fnref83" class="footnote-back">↩︎</a></p></li>
+<li id="fn84"><p>We switched back to the <code>anova</code> function here as the <code>Anova</code> function only reports <code>Error in Anova.lm(lm(responses ~ dropsf * brand, data = ptR)) :    residual df = 0</code>, which is fine but not as useful for understanding this issue as what <code>anova</code> provides.<a href="chapter4.html#fnref84" class="footnote-back">↩︎</a></p></li>
+<li id="fn85"><p>This is the first package we have encountered that is not on the “CRAN” repository and we will need to install it from its “github” repository. This happens for packages in early development and for other packages where researchers decide to avoid the ongoing challenges involved maintaining the package status on CRAN. In order to install this package, we can use the following code after installing the <code>remotes</code> <span class="citation">(Hester et al. <a href="#ref-R-remotes" role="doc-biblioref">2020</a>)</span> package in the regular way: <code>library(remotes); remotes::install_github("mtennekes/tabplot")</code><a href="chapter4.html#fnref85" class="footnote-back">↩︎</a></p></li>
+<li id="fn86"><p>In larger data sets,
+multiple subjects are displayed in each row as proportions of
+the rows in each category.<a href="chapter4.html#fnref86" class="footnote-back">↩︎</a></p></li>
+<li id="fn87"><p>Quantitative variables are displayed with
+boxplot-like bounds to describe the variability in the variable for that row of
+responses for larger data sets.<a href="chapter4.html#fnref87" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

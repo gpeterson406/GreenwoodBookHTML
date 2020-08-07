@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Chi-square tests | Intermediate Statistics with R</title>
   <meta name="description" content="Chapter 5 Chi-square tests | Intermediate Statistics with R" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Chi-square tests | Intermediate Statistics with R" />
   <meta property="og:type" content="book" />
@@ -32,6 +32,7 @@
   
 <link rel="prev" href="chapter4.html"/>
 <link rel="next" href="chapter6.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,18 +53,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,7 +83,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -136,7 +136,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Cover</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
-<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1" data-path="chapter1.html"><a href="chapter1.html"><i class="fa fa-check"></i><b>1</b> Preface</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="chapter1.html"><a href="chapter1.html#section1-1"><i class="fa fa-check"></i><b>1.1</b> Overview of methods</a></li>
 <li class="chapter" data-level="1.2" data-path="chapter1.html"><a href="chapter1.html#section1-2"><i class="fa fa-check"></i><b>1.2</b> Getting started in R</a></li>
 <li class="chapter" data-level="1.3" data-path="chapter1.html"><a href="chapter1.html#section1-3"><i class="fa fa-check"></i><b>1.3</b> Basic summary statistics, histograms, and boxplots using R</a></li>
@@ -144,7 +145,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="chapter1.html"><a href="chapter1.html#section1-5"><i class="fa fa-check"></i><b>1.5</b> Summary of important R code</a></li>
 <li class="chapter" data-level="1.6" data-path="chapter1.html"><a href="chapter1.html#section1-6"><i class="fa fa-check"></i><b>1.6</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> (R)e-Introduction to statistics</a><ul>
+<li class="chapter" data-level="2" data-path="chapter2.html"><a href="chapter2.html"><i class="fa fa-check"></i><b>2</b> (R)e-Introduction to statistics</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="chapter2.html"><a href="chapter2.html#section2-1"><i class="fa fa-check"></i><b>2.1</b> Histograms, boxplots, and density curves</a></li>
 <li class="chapter" data-level="2.2" data-path="chapter2.html"><a href="chapter2.html#section2-2"><i class="fa fa-check"></i><b>2.2</b> Pirate-plots</a></li>
 <li class="chapter" data-level="2.3" data-path="chapter2.html"><a href="chapter2.html#section2-3"><i class="fa fa-check"></i><b>2.3</b> Models, hypotheses, and permutations for the two sample mean situation</a></li>
@@ -159,7 +161,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.12" data-path="chapter2.html"><a href="chapter2.html#section2-12"><i class="fa fa-check"></i><b>2.12</b> Summary of important R code</a></li>
 <li class="chapter" data-level="2.13" data-path="chapter2.html"><a href="chapter2.html#section2-13"><i class="fa fa-check"></i><b>2.13</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> One-Way ANOVA</a><ul>
+<li class="chapter" data-level="3" data-path="chapter3.html"><a href="chapter3.html"><i class="fa fa-check"></i><b>3</b> One-Way ANOVA</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="chapter3.html"><a href="chapter3.html#section3-1"><i class="fa fa-check"></i><b>3.1</b> Situation</a></li>
 <li class="chapter" data-level="3.2" data-path="chapter3.html"><a href="chapter3.html#section3-2"><i class="fa fa-check"></i><b>3.2</b> Linear model for One-Way ANOVA (cell means and reference-coding)</a></li>
 <li class="chapter" data-level="3.3" data-path="chapter3.html"><a href="chapter3.html#section3-3"><i class="fa fa-check"></i><b>3.3</b> One-Way ANOVA Sums of Squares, Mean Squares, and F-test</a></li>
@@ -171,7 +174,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.9" data-path="chapter3.html"><a href="chapter3.html#section3-9"><i class="fa fa-check"></i><b>3.9</b> Summary of important R code</a></li>
 <li class="chapter" data-level="3.10" data-path="chapter3.html"><a href="chapter3.html#section3-10"><i class="fa fa-check"></i><b>3.10</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Two-Way ANOVA</a><ul>
+<li class="chapter" data-level="4" data-path="chapter4.html"><a href="chapter4.html"><i class="fa fa-check"></i><b>4</b> Two-Way ANOVA</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="chapter4.html"><a href="chapter4.html#section4-1"><i class="fa fa-check"></i><b>4.1</b> Situation</a></li>
 <li class="chapter" data-level="4.2" data-path="chapter4.html"><a href="chapter4.html#section4-2"><i class="fa fa-check"></i><b>4.2</b> Designing a two-way experiment and visualizing results</a></li>
 <li class="chapter" data-level="4.3" data-path="chapter4.html"><a href="chapter4.html#section4-3"><i class="fa fa-check"></i><b>4.3</b> Two-Way ANOVA models and hypothesis tests</a></li>
@@ -182,7 +186,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.8" data-path="chapter4.html"><a href="chapter4.html#section4-8"><i class="fa fa-check"></i><b>4.8</b> Summary of important R code</a></li>
 <li class="chapter" data-level="4.9" data-path="chapter4.html"><a href="chapter4.html#section4-9"><i class="fa fa-check"></i><b>4.9</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> Chi-square tests</a><ul>
+<li class="chapter" data-level="5" data-path="chapter5.html"><a href="chapter5.html"><i class="fa fa-check"></i><b>5</b> Chi-square tests</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="chapter5.html"><a href="chapter5.html#section5-1"><i class="fa fa-check"></i><b>5.1</b> Situation, contingency tables, and tableplots</a></li>
 <li class="chapter" data-level="5.2" data-path="chapter5.html"><a href="chapter5.html#section5-2"><i class="fa fa-check"></i><b>5.2</b> Homogeneity test hypotheses</a></li>
 <li class="chapter" data-level="5.3" data-path="chapter5.html"><a href="chapter5.html#section5-3"><i class="fa fa-check"></i><b>5.3</b> Independence test hypotheses</a></li>
@@ -198,7 +203,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.13" data-path="chapter5.html"><a href="chapter5.html#section5-13"><i class="fa fa-check"></i><b>5.13</b> Summary of important R commands</a></li>
 <li class="chapter" data-level="5.14" data-path="chapter5.html"><a href="chapter5.html#section5-14"><i class="fa fa-check"></i><b>5.14</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>6</b> Correlation and Simple Linear Regression</a><ul>
+<li class="chapter" data-level="6" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>6</b> Correlation and Simple Linear Regression</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="chapter6.html"><a href="chapter6.html#section6-1"><i class="fa fa-check"></i><b>6.1</b> Relationships between two quantitative variables</a></li>
 <li class="chapter" data-level="6.2" data-path="chapter6.html"><a href="chapter6.html#section6-2"><i class="fa fa-check"></i><b>6.2</b> Estimating the correlation coefficient</a></li>
 <li class="chapter" data-level="6.3" data-path="chapter6.html"><a href="chapter6.html#section6-3"><i class="fa fa-check"></i><b>6.3</b> Relationships between variables by groups</a></li>
@@ -214,7 +220,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.13" data-path="chapter6.html"><a href="chapter6.html#section6-13"><i class="fa fa-check"></i><b>6.13</b> Summary of important R code</a></li>
 <li class="chapter" data-level="6.14" data-path="chapter6.html"><a href="chapter6.html#section6-14"><i class="fa fa-check"></i><b>6.14</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>7</b> Simple linear regression inference</a><ul>
+<li class="chapter" data-level="7" data-path="chapter7.html"><a href="chapter7.html"><i class="fa fa-check"></i><b>7</b> Simple linear regression inference</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="chapter7.html"><a href="chapter7.html#section7-1"><i class="fa fa-check"></i><b>7.1</b> Model</a></li>
 <li class="chapter" data-level="7.2" data-path="chapter7.html"><a href="chapter7.html#section7-2"><i class="fa fa-check"></i><b>7.2</b> Confidence interval and hypothesis tests for the slope and intercept</a></li>
 <li class="chapter" data-level="7.3" data-path="chapter7.html"><a href="chapter7.html#section7-3"><i class="fa fa-check"></i><b>7.3</b> Bozeman temperature trend</a></li>
@@ -226,7 +233,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.9" data-path="chapter7.html"><a href="chapter7.html#section7-9"><i class="fa fa-check"></i><b>7.9</b> Summary of important R code</a></li>
 <li class="chapter" data-level="7.10" data-path="chapter7.html"><a href="chapter7.html#section7-10"><i class="fa fa-check"></i><b>7.10</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="chapter8.html"><a href="chapter8.html"><i class="fa fa-check"></i><b>8</b> Multiple linear regression</a><ul>
+<li class="chapter" data-level="8" data-path="chapter8.html"><a href="chapter8.html"><i class="fa fa-check"></i><b>8</b> Multiple linear regression</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="chapter8.html"><a href="chapter8.html#section8-1"><i class="fa fa-check"></i><b>8.1</b> Going from SLR to MLR</a></li>
 <li class="chapter" data-level="8.2" data-path="chapter8.html"><a href="chapter8.html#section8-2"><i class="fa fa-check"></i><b>8.2</b> Validity conditions in MLR</a></li>
 <li class="chapter" data-level="8.3" data-path="chapter8.html"><a href="chapter8.html#section8-3"><i class="fa fa-check"></i><b>8.3</b> Interpretation of MLR terms</a></li>
@@ -245,7 +253,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.16" data-path="chapter8.html"><a href="chapter8.html#section8-16"><i class="fa fa-check"></i><b>8.16</b> Summary of important R code</a></li>
 <li class="chapter" data-level="8.17" data-path="chapter8.html"><a href="chapter8.html#section8-17"><i class="fa fa-check"></i><b>8.17</b> Practice problems</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="chapter9.html"><a href="chapter9.html"><i class="fa fa-check"></i><b>9</b> Case studies</a><ul>
+<li class="chapter" data-level="9" data-path="chapter9.html"><a href="chapter9.html"><i class="fa fa-check"></i><b>9</b> Case studies</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="chapter9.html"><a href="chapter9.html#section9-1"><i class="fa fa-check"></i><b>9.1</b> Overview of material covered</a></li>
 <li class="chapter" data-level="9.2" data-path="chapter9.html"><a href="chapter9.html#section9-2"><i class="fa fa-check"></i><b>9.2</b> The impact of simulated chronic nitrogen deposition on the biomass and N2-fixation activity of two boreal feather moss–cyanobacteria associations</a></li>
 <li class="chapter" data-level="9.3" data-path="chapter9.html"><a href="chapter9.html#section9-3"><i class="fa fa-check"></i><b>9.3</b> Ants learn to rely on more informative attributes during decision-making</a></li>
@@ -274,9 +283,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chapter5" class="section level1">
+<div id="chapter5" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Chi-square tests</h1>
-<div id="section5-1" class="section level2">
+<div id="section5-1" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Situation, contingency tables, and tableplots</h2>
 <p>In this chapter, the focus shifts briefly from analyzing quantitative
 response variables to methods
@@ -311,12 +320,12 @@ studies these methods can be used to analyze. Graphical techniques provide
 opportunities for assessing specific patterns in variables, relationships
 between variables, and for generally understanding the responses obtained.
 There are many different types of plots and each can elucidate certain features
-of data. The <em>tableplot</em>, briefly introduced in Chapter <a href="chapter4.html#chapter4">4</a>, is a great and often fun starting point for working with data sets that contain categorical variables. We will start here with using it to help us
+of data. The <em>tableplot</em>, briefly introduced<a href="#fn88" class="footnote-ref" id="fnref88"><sup>88</sup></a> in Chapter <a href="chapter4.html#chapter4">4</a>, is a great and often fun starting point for working with data sets that contain categorical variables. We will start here with using it to help us
 understand some aspects of the results from a double-blind randomized clinical
 trial investigating a treatment for rheumatoid arthritis.
 
 These data are available
-in the <code>Arthritis</code> data set available in the <code>vcd</code> package <span class="citation">(Meyer, Zeileis, and Hornik <a href="#ref-R-vcd" role="doc-biblioref">2017</a>)</span>.
+in the <code>Arthritis</code> data set available in the <code>vcd</code> package <span class="citation">(Meyer, Zeileis, and Hornik <a href="#ref-R-vcd" role="doc-biblioref">2020</a>)</span>.
 
 There were <span class="math inline">\(n=84\)</span> subjects, with some demographic
 information recorded
@@ -329,16 +338,17 @@ in the <code>select=...</code> option with a <code>c()</code> and commas between
 the variables we want to display as shown below. The first one in the list is also the one that
 the data are sorted on and is what we want here – to start with sorting observations based on <code>Treatment</code> status.</p>
 
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="chapter5.html#cb393-1"></a><span class="kw">library</span>(vcd)</span>
-<span id="cb393-2"><a href="chapter5.html#cb393-2"></a><span class="kw">data</span>(Arthritis) <span class="co">#Double-blind clinical trial with treatment and control groups</span></span>
-<span id="cb393-3"><a href="chapter5.html#cb393-3"></a><span class="kw">library</span>(tibble)</span>
-<span id="cb393-4"><a href="chapter5.html#cb393-4"></a>Arthritis &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(Arthritis)</span>
-<span id="cb393-5"><a href="chapter5.html#cb393-5"></a><span class="co">#Homogeneity example</span></span>
-<span id="cb393-6"><a href="chapter5.html#cb393-6"></a><span class="kw">library</span>(tabplot)</span>
-<span id="cb393-7"><a href="chapter5.html#cb393-7"></a><span class="kw">library</span>(RColorBrewer)</span>
-<span id="cb393-8"><a href="chapter5.html#cb393-8"></a><span class="co"># Options needed to prevent errors on PC</span></span>
-<span id="cb393-9"><a href="chapter5.html#cb393-9"></a><span class="kw">options</span>(<span class="dt">ffbatchbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span>); <span class="kw">options</span>(<span class="dt">ffmaxbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span> <span class="op">*</span><span class="st"> </span><span class="dv">32</span>) </span>
-<span id="cb393-10"><a href="chapter5.html#cb393-10"></a><span class="kw">tableplot</span>(Arthritis,<span class="dt">select=</span><span class="kw">c</span>(Treatment,Improved,Sex,Age),<span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="chapter5.html#cb394-1" aria-hidden="true"></a><span class="kw">library</span>(vcd)</span>
+<span id="cb394-2"><a href="chapter5.html#cb394-2" aria-hidden="true"></a><span class="kw">data</span>(Arthritis) <span class="co">#Double-blind clinical trial with treatment and control groups</span></span>
+<span id="cb394-3"><a href="chapter5.html#cb394-3" aria-hidden="true"></a><span class="kw">library</span>(tibble)</span>
+<span id="cb394-4"><a href="chapter5.html#cb394-4" aria-hidden="true"></a>Arthritis &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(Arthritis)</span>
+<span id="cb394-5"><a href="chapter5.html#cb394-5" aria-hidden="true"></a><span class="co">#Homogeneity example</span></span>
+<span id="cb394-6"><a href="chapter5.html#cb394-6" aria-hidden="true"></a><span class="kw">library</span>(tabplot)</span>
+<span id="cb394-7"><a href="chapter5.html#cb394-7" aria-hidden="true"></a><span class="kw">library</span>(RColorBrewer)</span>
+<span id="cb394-8"><a href="chapter5.html#cb394-8" aria-hidden="true"></a><span class="co"># Options needed to prevent errors on PC</span></span>
+<span id="cb394-9"><a href="chapter5.html#cb394-9" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">ffbatchbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span>); <span class="kw">options</span>(<span class="dt">ffmaxbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span> <span class="op">*</span><span class="st"> </span><span class="dv">32</span>) </span>
+<span id="cb394-10"><a href="chapter5.html#cb394-10" aria-hidden="true"></a><span class="kw">tableplot</span>(Arthritis,<span class="dt">select=</span><span class="kw">c</span>(Treatment,Improved,Sex,Age), <span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>), <span class="dt">sample=</span>F,</span>
+<span id="cb394-11"><a href="chapter5.html#cb394-11" aria-hidden="true"></a>          <span class="dt">colorNA_num =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">numMode =</span> <span class="st">&quot;MB-ML&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-1"></span>
 <img src="05-chiSquaredTests_files/figure-html/Figure5-1-1.png" alt="Tableplot of the arthritis data set." width="960" />
 <p class="caption">
@@ -368,7 +378,7 @@ have worried about whether sex and treatment were confounded and whether any
 differences in the responses might be due to sex instead of the treatment. The
 random assignment of treatment/placebo to the subjects appears to have been
 successful here in generating a mix of ages and sexes among the
-two treatment groups<a href="#fn86" class="footnote-ref" id="fnref86"><sup>86</sup></a>. The main benefit of this sort of plot is the ability to
+two treatment groups<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a>. The main benefit of this sort of plot is the ability to
 visualize more than two categorical variables simultaneously. But now we want
 to focus more directly on the researchers’ main question – does the treatment
 lead to different improvement outcomes than the placebo?</p>
@@ -396,8 +406,8 @@ and column for the “Totals” in defining the size of the table. In the table,
 there seems to be many more <em>Marked</em> improvement responses (21 vs 7) and
 fewer <em>None</em> responses (13 vs 29) in the treated group compared to the
 placebo group.</p>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="chapter5.html#cb394-1"></a><span class="kw">library</span>(mosaic)</span>
-<span id="cb394-2"><a href="chapter5.html#cb394-2"></a><span class="kw">tally</span>(<span class="op">~</span>Treatment<span class="op">+</span>Improved, <span class="dt">data=</span>Arthritis, <span class="dt">margins=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="chapter5.html#cb395-1" aria-hidden="true"></a><span class="kw">library</span>(mosaic)</span>
+<span id="cb395-2"><a href="chapter5.html#cb395-2" aria-hidden="true"></a><span class="kw">tally</span>(<span class="op">~</span>Treatment<span class="op">+</span>Improved, <span class="dt">data=</span>Arthritis, <span class="dt">margins=</span>T)</span></code></pre></div>
 <pre><code>##          Improved
 ## Treatment None Some Marked Total
 ##   Placebo   29    7      7    43
@@ -508,10 +518,10 @@ function formula to <code>~ y|x</code> and adding the <code>format="proportion"<
 option provides the proportions in the response categories conditional on the
 category of the predictor (these are
 called <strong><em>conditional proportions</em></strong> or the <strong><em>conditional distribution</em></strong> of,
-here, <em>Improved</em> on <em>Treatment</em>)<a href="#fn87" class="footnote-ref" id="fnref87"><sup>87</sup></a>.
+here, <em>Improved</em> on <em>Treatment</em>)<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a>.
 
 Note that they sum to 1.0 in each level of x, <em>placebo</em> or <em>treated</em>:</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="chapter5.html#cb396-1"></a><span class="kw">tally</span>(<span class="op">~</span>Improved<span class="op">|</span>Treatment, <span class="dt">data=</span>Arthritis, <span class="dt">format=</span><span class="st">&quot;proportion&quot;</span>, <span class="dt">margins=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="chapter5.html#cb397-1" aria-hidden="true"></a><span class="kw">tally</span>(<span class="op">~</span>Improved<span class="op">|</span>Treatment, <span class="dt">data=</span>Arthritis, <span class="dt">format=</span><span class="st">&quot;proportion&quot;</span>, <span class="dt">margins=</span>T)</span></code></pre></div>
 <pre><code>##         Treatment
 ## Improved   Placebo   Treated
 ##   None   0.6744186 0.3170732
@@ -526,15 +536,16 @@ version of the table.
 In this application, it shows how the proportions seem to be different among categories of <em>Improvement</em> between the placebo and treatment groups. This matches the previous thoughts on
 these data, but now a difference of marked improvement of 16% vs 51% is more
 clearly a big difference. We can also display this result using a
-<strong><em>stacked bar chart</em></strong>  that displays the same information using the <code>plot</code>
+<strong><em>stacked bar chart</em></strong><a href="#fn91" class="footnote-ref" id="fnref91"><sup>91</sup></a>  that displays the same information using the <code>plot</code>
 function with a <code>y~x</code> formula:</p>
 
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="chapter5.html#cb398-1"></a><span class="kw">plot</span>(Improved<span class="op">~</span>Treatment, <span class="dt">data=</span>Arthritis,</span>
-<span id="cb398-2"><a href="chapter5.html#cb398-2"></a>     <span class="dt">main=</span><span class="st">&quot;Stacked Bar Chart of Arthritis Data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="chapter5.html#cb399-1" aria-hidden="true"></a><span class="kw">par</span>(<span class="dt">las=</span><span class="dv">2</span>) <span class="co">#Rotates text labels, optional code</span></span>
+<span id="cb399-2"><a href="chapter5.html#cb399-2" aria-hidden="true"></a><span class="kw">plot</span>(Improved<span class="op">~</span>Treatment, <span class="dt">data=</span>Arthritis,</span>
+<span id="cb399-3"><a href="chapter5.html#cb399-3" aria-hidden="true"></a>     <span class="dt">main=</span><span class="st">&quot;Stacked Bar Chart of Arthritis Data&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-2"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-2-1.png" alt="Stacked bar chart of Arthritis data. The left bar is for the Placebo group and the right bar is for the Treated group. The width of the bars is based on relative size of each group and the portion of the total height of each shaded area is the proportion of that group in each category. The darkest shading is for “none”, medium shading for “some”, and the lightest shading for “marked”, as labeled on the y-axis." width="480" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-2-1.png" alt="Stacked bar chart of Arthritis data. The left bar is for the Placebo group and the right bar is for the Treated group. The width of the bars is based on relative size of each group and the portion of the total height of each shaded area is the proportion of that group in each category. The lightest shading is for “none”, medium shading for “some”, and the darkest shading for “marked”, as labeled on the y-axis." width="1056" />
 <p class="caption">
-Figure 5.2: Stacked bar chart of Arthritis data. The left bar is for the Placebo group and the right bar is for the Treated group. The width of the bars is based on relative size of each group and the portion of the total height of each shaded area is the proportion of that group in each category. The darkest shading is for “none”, medium shading for “some”, and the lightest shading for “marked”, as labeled on the y-axis.
+Figure 5.2: Stacked bar chart of Arthritis data. The left bar is for the Placebo group and the right bar is for the Treated group. The width of the bars is based on relative size of each group and the portion of the total height of each shaded area is the proportion of that group in each category. The lightest shading is for “none”, medium shading for “some”, and the darkest shading for “marked”, as labeled on the y-axis.
 </p>
 </div>
 <p>The stacked bar chart in Figure <a href="chapter5.html#fig:Figure5-2">5.2</a> displays the previous
@@ -612,7 +623,7 @@ the test statistics and p-values are calculated the same way – so we only
 need to learn one test statistic to handle the two situations, but we need
 to make sure we know which we’re doing!</p>
 </div>
-<div id="section5-2" class="section level2">
+<div id="section5-2" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Homogeneity test hypotheses</h2>
 <p>If we define some additional notation, we can then define hypotheses that allow us
 to assess evidence related to whether the treatment “matters” in Homogeneity
@@ -709,12 +720,12 @@ Level C</strong></th>
 the <span class="math inline">\(R\)</span> populations.
 
 This means that the null hypothesis is:</p>
-<!-- \newpage -->
+<div style="page-break-after: always;"></div>
 <p><span class="math display">\[\begin{array}{rl}
 \mathbf{H_0:}\  &amp; \mathbf{p_{11}=p_{21}=\ldots=p_{R1}} \textbf{ and } \mathbf{p_{12}=p_{22}=\ldots=p_{R2}}  \textbf{ and } \mathbf{p_{13}=p_{23}=\ldots=p_{R3}} \\ 
 &amp; \textbf{ and } \mathbf{\ldots} \textbf{ and }\mathbf{p_{1C}=p_{2C}=\ldots=p_{RC}}. \\
 \end{array}\]</span></p>
-<div style="page-break-after: always;"></div>
+<!-- \newpage -->
 <p>If all the groups are the same, then they all have the same conditional proportions and we can
 more simply write the null hypothesis as:</p>
 <p><span class="math display">\[\mathbf{H_0:(p_{r1},p_{r2},\ldots,p_{rC})=(p_1,p_2,\ldots,p_C)} \textbf{ for all } \mathbf{r}.\]</span></p>
@@ -736,7 +747,7 @@ reproduce words, equivalently, we can say:</p>
 the null hypothesis for the <em>Arthritis</em> example, as displayed in Figure <a href="chapter5.html#fig:Figure5-4">5.4</a>.</p>
 
 <div class="figure"><span id="fig:Figure5-4"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-4-1.png" alt="Plot of one way that the Arthritis proportions could have been if the null hypothesis had been true." width="480" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-4-1.png" alt="Plot of one way that the Arthritis proportions could have been if the null hypothesis had been true." width="1056" />
 <p class="caption">
 Figure 5.4: Plot of one way that the Arthritis proportions could have been if the null hypothesis had been true.
 </p>
@@ -760,7 +771,7 @@ the responses between the treated and placebo groups as that plot looks much
 different from this one, but we will need a test statistic and a p-value to
 fully address the evidence relative to the previous null hypothesis.</p>
 </div>
-<div id="section5-3" class="section level2">
+<div id="section5-3" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Independence test hypotheses</h2>
 <p>When we take a single random sample of size <span class="math inline">\(N\)</span> and make a contingency
 table, our inferences relate to whether there is a relationship or
@@ -811,18 +822,18 @@ say that they voted for Gore, informs the types of responses that you would
 expect for that person, here that they are likely affiliated with the Democratic
 Party. When there is no relationship (the null hypothesis here), knowing the
 level of one variable is not informative about the level of the other variable.</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="chapter5.html#cb399-1"></a><span class="kw">library</span>(poLCA)</span>
-<span id="cb399-2"><a href="chapter5.html#cb399-2"></a><span class="co"># 2000 Survey - use package=&quot;&quot; because other data sets in R have same name</span></span>
-<span id="cb399-3"><a href="chapter5.html#cb399-3"></a><span class="kw">data</span>(election, <span class="dt">package=</span><span class="st">&quot;poLCA&quot;</span>) </span>
-<span id="cb399-4"><a href="chapter5.html#cb399-4"></a>election &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(election)</span>
-<span id="cb399-5"><a href="chapter5.html#cb399-5"></a><span class="co"># Subset variables and remove missing values</span></span>
-<span id="cb399-6"><a href="chapter5.html#cb399-6"></a>election2 &lt;-<span class="st"> </span><span class="kw">na.omit</span>(election[,<span class="kw">c</span>(<span class="st">&quot;PARTY&quot;</span>,<span class="st">&quot;VOTE3&quot;</span>)])</span>
-<span id="cb399-7"><a href="chapter5.html#cb399-7"></a>election2<span class="op">$</span>VOTEF &lt;-<span class="st"> </span><span class="kw">factor</span>(election2<span class="op">$</span>VOTE3)</span>
-<span id="cb399-8"><a href="chapter5.html#cb399-8"></a><span class="kw">levels</span>(election2<span class="op">$</span>VOTEF) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Gore&quot;</span>,<span class="st">&quot;Bush&quot;</span>,<span class="st">&quot;Other&quot;</span>) <span class="co">#Replace 1,2,3 with meaningful names</span></span>
-<span id="cb399-9"><a href="chapter5.html#cb399-9"></a><span class="kw">levels</span>(election2<span class="op">$</span>VOTEF) <span class="co">#Check new names of levels in VOTEF</span></span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="chapter5.html#cb400-1" aria-hidden="true"></a><span class="kw">library</span>(poLCA)</span>
+<span id="cb400-2"><a href="chapter5.html#cb400-2" aria-hidden="true"></a><span class="co"># 2000 Survey - use package=&quot;&quot; because other data sets in R have same name</span></span>
+<span id="cb400-3"><a href="chapter5.html#cb400-3" aria-hidden="true"></a><span class="kw">data</span>(election, <span class="dt">package=</span><span class="st">&quot;poLCA&quot;</span>) </span>
+<span id="cb400-4"><a href="chapter5.html#cb400-4" aria-hidden="true"></a>election &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(election)</span>
+<span id="cb400-5"><a href="chapter5.html#cb400-5" aria-hidden="true"></a><span class="co"># Subset variables and remove missing values</span></span>
+<span id="cb400-6"><a href="chapter5.html#cb400-6" aria-hidden="true"></a>election2 &lt;-<span class="st"> </span><span class="kw">na.omit</span>(election[,<span class="kw">c</span>(<span class="st">&quot;PARTY&quot;</span>,<span class="st">&quot;VOTE3&quot;</span>)])</span>
+<span id="cb400-7"><a href="chapter5.html#cb400-7" aria-hidden="true"></a>election2<span class="op">$</span>VOTEF &lt;-<span class="st"> </span><span class="kw">factor</span>(election2<span class="op">$</span>VOTE3)</span>
+<span id="cb400-8"><a href="chapter5.html#cb400-8" aria-hidden="true"></a><span class="kw">levels</span>(election2<span class="op">$</span>VOTEF) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Gore&quot;</span>,<span class="st">&quot;Bush&quot;</span>,<span class="st">&quot;Other&quot;</span>) <span class="co">#Replace 1,2,3 with meaningful names</span></span>
+<span id="cb400-9"><a href="chapter5.html#cb400-9" aria-hidden="true"></a><span class="kw">levels</span>(election2<span class="op">$</span>VOTEF) <span class="co">#Check new names of levels in VOTEF</span></span></code></pre></div>
 <pre><code>## [1] &quot;Gore&quot;  &quot;Bush&quot;  &quot;Other&quot;</code></pre>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="chapter5.html#cb401-1"></a>electable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>PARTY<span class="op">+</span>VOTEF, <span class="dt">data=</span>election2) <span class="co">#Contingency table</span></span>
-<span id="cb401-2"><a href="chapter5.html#cb401-2"></a>electable</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="chapter5.html#cb402-1" aria-hidden="true"></a>electable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>PARTY<span class="op">+</span>VOTEF, <span class="dt">data=</span>election2) <span class="co">#Contingency table</span></span>
+<span id="cb402-2"><a href="chapter5.html#cb402-2" aria-hidden="true"></a>electable</span></code></pre></div>
 <pre><code>##      VOTEF
 ## PARTY Gore Bush Other
 ##     1  238    6     2
@@ -899,11 +910,11 @@ natural ordering.</p>
 function from a table that just contains the counts (<strong>no totals</strong>):
 </p>
 
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="chapter5.html#cb403-1"></a><span class="co"># Makes a mosaic plot where areas are related to the proportion of</span></span>
-<span id="cb403-2"><a href="chapter5.html#cb403-2"></a><span class="co"># the total in the table</span></span>
-<span id="cb403-3"><a href="chapter5.html#cb403-3"></a><span class="kw">mosaicplot</span>(electable) </span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="chapter5.html#cb404-1" aria-hidden="true"></a><span class="co"># Makes a mosaic plot where areas are related to the proportion of</span></span>
+<span id="cb404-2"><a href="chapter5.html#cb404-2" aria-hidden="true"></a><span class="co"># the total in the table</span></span>
+<span id="cb404-3"><a href="chapter5.html#cb404-3" aria-hidden="true"></a><span class="kw">mosaicplot</span>(electable, <span class="dt">main=</span><span class="st">&quot;Mosaic plot of observed results&quot;</span>) </span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-5"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-5-1.png" alt="Mosaic plot of the 2000 election data comparing party affiliation and voting results." width="480" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-5-1.png" alt="Mosaic plot of the 2000 election data comparing party affiliation and voting results." width="1056" />
 <p class="caption">
 Figure 5.5: Mosaic plot of the 2000 election data comparing party affiliation and voting results.
 </p>
@@ -928,13 +939,13 @@ Figure <a href="chapter5.html#fig:Figure5-6">5.6</a> but was in certain places i
 Figure <a href="chapter5.html#fig:Figure5-5">5.5</a>.</p>
 
 <div class="figure"><span id="fig:Figure5-6"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-6-1.png" alt="Mosaic plot of what the 2000 election data would look like if the null hypothesis of no relationship were true." width="480" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-6-1.png" alt="Mosaic plot of what the 2000 election data would look like if the null hypothesis of no relationship were true." width="1056" />
 <p class="caption">
 Figure 5.6: Mosaic plot of what the 2000 election data would look like if the null hypothesis of no relationship were true.
 </p>
 </div>
 </div>
-<div id="section5-4" class="section level2">
+<div id="section5-4" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Models for R by C tables</h2>
 <p>This section is very short in this chapter because we really do not use any
 “models” in this Chapter. There are some complicated
@@ -945,7 +956,7 @@ like those seen above, a hypothesis test and p-value (presented below), and
 some post-test plots that we can use to understand the “source” of any evidence
 we found in the test.</p>
 </div>
-<div id="section5-5" class="section level2">
+<div id="section5-5" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Permutation tests for the <span class="math inline">\(X^2\)</span> statistic</h2>
 <p>In order to assess the evidence against our null hypotheses of
 no difference in distributions or no
@@ -961,7 +972,7 @@ under the null hypothesis, with large differences between what
 we observed and what we
 expect under the null leading to evidence against the null hypothesis. To help
 this statistic to follow a named parametric distribution and provide some
-insights into sources of interesting differences from the null hypothesis, we <strong><em>standardize</em></strong><a href="#fn88" class="footnote-ref" id="fnref88"><sup>88</sup></a>
+insights into sources of interesting differences from the null hypothesis, we <strong><em>standardize</em></strong><a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a>
 the difference between the observed and expected counts by the square-root of
 the expected count.
  
@@ -1007,11 +1018,12 @@ expected cell counts using this formula for all 6 cells in the <span class="math
 table.</p>
 
 <div class="figure"><span id="fig:Figure5-7"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-7-1.png" alt="Stacked bar chart that could occur if the null hypothesis were true for the Arthritis study." width="480" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-7-1.png" alt="Stacked bar chart that could occur if the null hypothesis were true for the Arthritis study." width="1056" />
 <p class="caption">
 Figure 5.7: Stacked bar chart that could occur if the null hypothesis were true for the Arthritis study.
 </p>
 </div>
+<!-- \newpage -->
 
 <table>
 <caption><span id="tab:Table5-3">Table 5.3: </span> Demonstration of calculation of expected cell counts for Arthritis data.</caption>
@@ -1069,27 +1081,26 @@ Figure 5.7: Stacked bar chart that could occur if the null hypothesis were true 
 </tr>
 </tbody>
 </table>
-
 <p>Of course, using R can help us avoid tedium like this… The main
 engine for results in this chapter is the <code>chisq.test</code>
 function.  It operates on a table of
 counts that has been produced <strong>without row or column totals</strong>.</p>
 <!-- \newpage -->
 <p>For example, <code>Arthtable</code> below contains just the observed cell
-counts. Applying the <code>chisq.test</code> function<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a> to <code>Arthtable</code>
+counts. Applying the <code>chisq.test</code> function<a href="#fn93" class="footnote-ref" id="fnref93"><sup>93</sup></a> to <code>Arthtable</code>
 provides a variety of useful output. For the moment, we are just
 going to extract the information in the “<code>expected</code>” attribute of
 the results from running this function (using <code>chisq.test(TABLENAME)$expected)</code>.
 These are the expected cell counts which match the previous calculations
 except for some rounding in the hand-calculations.</p>
-<div style="page-break-after: always;"></div>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="chapter5.html#cb404-1"></a>Arthtable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>Treatment<span class="op">+</span>Improved, <span class="dt">data=</span>Arthritis)</span>
-<span id="cb404-2"><a href="chapter5.html#cb404-2"></a>Arthtable</span></code></pre></div>
+<!-- \newpage -->
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="chapter5.html#cb405-1" aria-hidden="true"></a>Arthtable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>Treatment<span class="op">+</span>Improved, <span class="dt">data=</span>Arthritis)</span>
+<span id="cb405-2"><a href="chapter5.html#cb405-2" aria-hidden="true"></a>Arthtable</span></code></pre></div>
 <pre><code>##          Improved
 ## Treatment None Some Marked
 ##   Placebo   29    7      7
 ##   Treated   13    7     21</code></pre>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="chapter5.html#cb406-1"></a><span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>expected</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="chapter5.html#cb407-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>expected</span></code></pre></div>
 <pre><code>##          Improved
 ## Treatment None     Some   Marked
 ##   Placebo 21.5 7.166667 14.33333
@@ -1147,7 +1158,7 @@ quantity called the </p>
 is the contribution of that particular cell to the <span class="math inline">\(X^2\)</span>
 statistic that is displayed in Table <a href="chapter5.html#tab:Table5-4">5.4</a>.</p>
 <!-- \newpage -->
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="chapter5.html#cb408-1"></a>(<span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>residuals)<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="chapter5.html#cb409-1" aria-hidden="true"></a>(<span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>residuals)<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>##          Improved
 ## Treatment        None        Some      Marked
 ##   Placebo 2.616279070 0.003875969 3.751937984
@@ -1158,13 +1169,13 @@ and then failing to make the <span class="math inline">\(X^2\)</span> contributi
 (remember you are <strong>squaring the entire quantity</strong> in the parentheses
 and so the sign has to go positive!). In R, we can add up the cells using
 the <code>sum</code> function over the entire table of numbers:</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="chapter5.html#cb410-1"></a><span class="kw">sum</span>((<span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>residuals)<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="chapter5.html#cb411-1" aria-hidden="true"></a><span class="kw">sum</span>((<span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>residuals)<span class="op">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 13.05502</code></pre>
 <p>Or we can let R do all this hard work for us and get straight to the
 good stuff:</p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="chapter5.html#cb412-1"></a><span class="kw">chisq.test</span>(Arthtable)</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="chapter5.html#cb413-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(Arthtable)</span></code></pre></div>
 <pre><code>## 
-##  Pearson&#39;s Chi-squared test
+## 	Pearson&#39;s Chi-squared test
 ## 
 ## data:  Arthtable
 ## X-squared = 13.055, df = 2, p-value = 0.001463</code></pre>
@@ -1173,7 +1184,7 @@ default. Before we discover how it got that result, we can rely on our
 permutation methods to obtain a distribution for the <span class="math inline">\(X^2\)</span> statistic
 under the null hypothesis. As in Chapters <a href="chapter2.html#chapter2">2</a> and <a href="chapter3.html#chapter3">3</a>,
 this will allow us to find a
-p-value while relaxing one of our assumptions<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a>.
+p-value while relaxing one of our assumptions<a href="#fn94" class="footnote-ref" id="fnref94"><sup>94</sup></a>.
 In the One-WAY ANOVA in Chapter <a href="chapter3.html#chapter3">3</a>, we permuted the
 grouping variable relative
 to the responses, mimicking the null hypothesis that the groups are the same
@@ -1197,6 +1208,13 @@ not be used to find evidence against the null. When the observed and expected
 values are “far apart”, then we should find evidence against the null. It is
 helpful to work through some examples to be able to understand how the <span class="math inline">\(X^2\)</span>
 statistic “measures” differences between observed and expected.</p>
+
+<div class="figure"><span id="fig:Figure5-8"></span>
+<img src="05-chiSquaredTests_files/figure-html/Figure5-8-1.png" alt="Stacked bar charts of four permuted Arthritis data sets that produced \(X^2\) between 0.62 and 2.38." width="1056" />
+<p class="caption">
+Figure 5.8: Stacked bar charts of four permuted Arthritis data sets that produced <span class="math inline">\(X^2\)</span> between 0.62 and 2.38.
+</p>
+</div>
 <p>To start, compare the previous observed <span class="math inline">\(X^2\)</span> of 13.055 to the sort of
 results we obtain in a single permutation of the treated/placebo labels
 – Figure <a href="chapter5.html#fig:Figure5-8">5.8</a> (top left panel) shows
@@ -1206,29 +1224,22 @@ the stacked bar chart. Three other permuted data sets are displayed in
 Figure <a href="chapter5.html#fig:Figure5-8">5.8</a> showing the variability in results in
 permutations but that none get close
 to showing the differences in the bars observed in the real data set in Figure <a href="chapter5.html#fig:Figure5-2">5.2</a>.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="chapter5.html#cb414-1"></a>Arthperm &lt;-<span class="st"> </span>Arthritis</span>
-<span id="cb414-2"><a href="chapter5.html#cb414-2"></a>Arthperm<span class="op">$</span>PermTreatment &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">shuffle</span>(Arthperm<span class="op">$</span>Treatment))</span></code></pre></div>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="chapter5.html#cb415-1"></a><span class="kw">plot</span>(Improved<span class="op">~</span>PermTreatment, <span class="dt">data=</span>Arthperm,</span>
-<span id="cb415-2"><a href="chapter5.html#cb415-2"></a>     <span class="dt">main=</span><span class="st">&quot;Stacked Bar Chart of Permuted Arthritis Data&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="chapter5.html#cb416-1"></a>Arthpermtable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>PermTreatment<span class="op">+</span>Improved, <span class="dt">data=</span>Arthperm)</span>
-<span id="cb416-2"><a href="chapter5.html#cb416-2"></a>Arthpermtable</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="chapter5.html#cb415-1" aria-hidden="true"></a>Arthperm &lt;-<span class="st"> </span>Arthritis</span>
+<span id="cb415-2"><a href="chapter5.html#cb415-2" aria-hidden="true"></a>Arthperm<span class="op">$</span>PermTreatment &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">shuffle</span>(Arthperm<span class="op">$</span>Treatment))</span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="chapter5.html#cb416-1" aria-hidden="true"></a><span class="kw">plot</span>(Improved<span class="op">~</span>PermTreatment, <span class="dt">data=</span>Arthperm,</span>
+<span id="cb416-2"><a href="chapter5.html#cb416-2" aria-hidden="true"></a>     <span class="dt">main=</span><span class="st">&quot;Stacked Bar Chart of Permuted Arthritis Data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="chapter5.html#cb417-1" aria-hidden="true"></a>Arthpermtable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>PermTreatment<span class="op">+</span>Improved, <span class="dt">data=</span>Arthperm)</span>
+<span id="cb417-2"><a href="chapter5.html#cb417-2" aria-hidden="true"></a>Arthpermtable</span></code></pre></div>
 <pre><code>##              Improved
 ## PermTreatment None Some Marked
 ##       Placebo   22    6     15
 ##       Treated   20    8     13</code></pre>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="chapter5.html#cb418-1"></a><span class="kw">chisq.test</span>(Arthpermtable)</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="chapter5.html#cb419-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(Arthpermtable)</span></code></pre></div>
 <pre><code>## 
-##  Pearson&#39;s Chi-squared test
+## 	Pearson&#39;s Chi-squared test
 ## 
 ## data:  Arthpermtable
 ## X-squared = 0.47646, df = 2, p-value = 0.788</code></pre>
-
-<div class="figure"><span id="fig:Figure5-8"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-8-1.png" alt="Stacked bar charts of four permuted Arthritis data sets that produced \(X^2\) between 0.62 and 2.38." width="672" />
-<p class="caption">
-Figure 5.8: Stacked bar charts of four permuted Arthritis data sets that produced <span class="math inline">\(X^2\)</span> between 0.62 and 2.38.
-</p>
-</div>
 <p>To build the permutation-based null distribution for the <span class="math inline">\(X^2\)</span> statistic,
 we need to collect up the test statistics (<span class="math inline">\(X^{2*}\)</span>) in many of these permuted
 results. The code is similar to permutation tests in Chapters
@@ -1238,23 +1249,23 @@ provided to <code>chisq.test</code> to analyze. We extract the
 <code>$statistic</code> attribute of the results from running <code>chisq.test</code>.
 </p>
 
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="chapter5.html#cb420-1"></a>Tobs &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>statistic; Tobs</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="chapter5.html#cb421-1" aria-hidden="true"></a>Tobs &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>statistic; Tobs</span></code></pre></div>
 <pre><code>## X-squared 
 ##  13.05502</code></pre>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="chapter5.html#cb422-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb422-2"><a href="chapter5.html#cb422-2"></a>B &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb422-3"><a href="chapter5.html#cb422-3"></a>Tstar &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow=</span>B)</span>
-<span id="cb422-4"><a href="chapter5.html#cb422-4"></a><span class="cf">for</span> (b <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>B)){</span>
-<span id="cb422-5"><a href="chapter5.html#cb422-5"></a>  Tstar[b] &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(<span class="kw">tally</span>(<span class="op">~</span><span class="kw">shuffle</span>(Treatment)<span class="op">+</span>Improved,</span>
-<span id="cb422-6"><a href="chapter5.html#cb422-6"></a>                               <span class="dt">data=</span>Arthritis))<span class="op">$</span>statistic</span>
-<span id="cb422-7"><a href="chapter5.html#cb422-7"></a>}</span>
-<span id="cb422-8"><a href="chapter5.html#cb422-8"></a><span class="kw">pdata</span>(Tstar, Tobs, <span class="dt">lower.tail=</span>F)[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="chapter5.html#cb423-1" aria-hidden="true"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb423-2"><a href="chapter5.html#cb423-2" aria-hidden="true"></a>B &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb423-3"><a href="chapter5.html#cb423-3" aria-hidden="true"></a>Tstar &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow=</span>B)</span>
+<span id="cb423-4"><a href="chapter5.html#cb423-4" aria-hidden="true"></a><span class="cf">for</span> (b <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>B)){</span>
+<span id="cb423-5"><a href="chapter5.html#cb423-5" aria-hidden="true"></a>  Tstar[b] &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(<span class="kw">tally</span>(<span class="op">~</span><span class="kw">shuffle</span>(Treatment)<span class="op">+</span>Improved,</span>
+<span id="cb423-6"><a href="chapter5.html#cb423-6" aria-hidden="true"></a>                               <span class="dt">data=</span>Arthritis))<span class="op">$</span>statistic</span>
+<span id="cb423-7"><a href="chapter5.html#cb423-7" aria-hidden="true"></a>}</span>
+<span id="cb423-8"><a href="chapter5.html#cb423-8" aria-hidden="true"></a><span class="kw">pdata</span>(Tstar, Tobs, <span class="dt">lower.tail=</span>F)[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] 0.002</code></pre>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="chapter5.html#cb424-1"></a><span class="kw">hist</span>(Tstar, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,Tobs<span class="op">+</span><span class="dv">1</span>))</span>
-<span id="cb424-2"><a href="chapter5.html#cb424-2"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">3</span>)</span>
-<span id="cb424-3"><a href="chapter5.html#cb424-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(Tstar), <span class="dt">main=</span><span class="st">&quot;Density curve of Tstar&quot;</span>,</span>
-<span id="cb424-4"><a href="chapter5.html#cb424-4"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,Tobs<span class="op">+</span><span class="dv">1</span>), <span class="dt">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb424-5"><a href="chapter5.html#cb424-5"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="chapter5.html#cb425-1" aria-hidden="true"></a><span class="kw">hist</span>(Tstar, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,Tobs<span class="op">+</span><span class="dv">1</span>))</span>
+<span id="cb425-2"><a href="chapter5.html#cb425-2" aria-hidden="true"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">lwd=</span><span class="dv">3</span>)</span>
+<span id="cb425-3"><a href="chapter5.html#cb425-3" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">density</span>(Tstar), <span class="dt">main=</span><span class="st">&quot;Density curve of Tstar&quot;</span>,</span>
+<span id="cb425-4"><a href="chapter5.html#cb425-4" aria-hidden="true"></a>     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,Tobs<span class="op">+</span><span class="dv">1</span>), <span class="dt">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb425-5"><a href="chapter5.html#cb425-5" aria-hidden="true"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-9"></span>
 <img src="05-chiSquaredTests_files/figure-html/Figure5-9-1.png" alt="Permutation distribution for the \(X^2\) statistic for the Arthritis data with an observed \(X^2\) of 13.1 (bold, vertical line)." width="480" />
 <p class="caption">
@@ -1290,7 +1301,7 @@ or non-independent observations and then consider them for these analyses. Poor
 data still lead to poor conclusions even if you have fancy new statistical
 tools to use!</p>
 </div>
-<div id="section5-6" class="section level2">
+<div id="section5-6" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Chi-square distribution for the <span class="math inline">\(X^2\)</span> statistic</h2>
 <p>When one additional assumption beyond the previous assumptions for
 the permutation
@@ -1322,7 +1333,7 @@ this condition is violated, it is better to use the permutation approach.
 The <code>chisq.test</code> function will provide a warning message
 to help you notice this. But it is good practice to always explore
 the expected cell counts using <code>chisq.test(...)$expected</code>.</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="chapter5.html#cb425-1"></a><span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>expected</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="chapter5.html#cb426-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>expected</span></code></pre></div>
 <pre><code>##          Improved
 ## Treatment None     Some   Marked
 ##   Placebo 21.5 7.166667 14.33333
@@ -1330,6 +1341,13 @@ the expected cell counts using <code>chisq.test(...)$expected</code>.</p>
 <p>In the Arthritis data set, the sample size was sufficiently large for
 the <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-distribution to provide an accurate p-value
 since the smallest expected cell count is 6.833 (so all expected counts are larger than 5).</p>
+
+<div class="figure"><span id="fig:Figure5-10"></span>
+<img src="05-chiSquaredTests_files/figure-html/Figure5-10-1.png" alt="\(\boldsymbol{\chi^2}\)-distribution with two degrees of freedom with the observed statistic of 13.1 indicated with a vertical line." width="480" />
+<p class="caption">
+Figure 5.10: <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-distribution with two degrees of freedom with the observed statistic of 13.1 indicated with a vertical line.
+</p>
+</div>
 <p>The <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-distribution is a right-skewed distribution
 that starts at 0 as shown in Figure <a href="chapter5.html#fig:Figure5-10">5.10</a>. Its shape
 changes as a function of its degrees of freedom. In the contingency
@@ -1348,17 +1366,10 @@ hypothesis. The p-value is based on the area to the right of the observed
 
 Note that this is very similar to the permutation result found
 previously for these data.</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="chapter5.html#cb427-1"></a><span class="kw">pchisq</span>(<span class="fl">13.055</span>, <span class="dt">df=</span><span class="dv">2</span>, <span class="dt">lower.tail=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="chapter5.html#cb428-1" aria-hidden="true"></a><span class="kw">pchisq</span>(<span class="fl">13.055</span>, <span class="dt">df=</span><span class="dv">2</span>, <span class="dt">lower.tail=</span>F)</span></code></pre></div>
 <pre><code>## [1] 0.001462658</code></pre>
 <p>We’ll see more examples of the <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-distributions
 in each of the examples that follow.</p>
-
-<div class="figure"><span id="fig:Figure5-10"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-10-1.png" alt="\(\boldsymbol{\chi^2}\)-distribution with two degrees of freedom with the observed statistic of 13.1 indicated with a vertical line." width="480" />
-<p class="caption">
-Figure 5.10: <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-distribution with two degrees of freedom with the observed statistic of 13.1 indicated with a vertical line.
-</p>
-</div>
 <p>A small side note about sample sizes is warranted here. In
 contingency tables, especially those based
 on survey data, it is common to have large overall sample sizes (<span class="math inline">\(N\)</span>).
@@ -1375,21 +1386,20 @@ studying and by providing a good summary of our results to allow experts to
 assess the size and importance of the result. Unfortunately, many
 researchers are so happy to see small p-values that this is their last step. We encountered a similar situation in the car overtake distance data set where a large sample size provided a data set that had a small p-value and possibly minor differences in the means driving it.</p>
 <p>If we revisit our observed results, re-plotted in Figure <a href="chapter5.html#fig:Figure5-11">5.11</a>
-since Figure <a href="chapter5.html#fig:Figure5-2">5.2</a> is many pages
-earlier, knowing that we have strong evidence against the null hypothesis
+since it was quite a ways back that we saw the original data in Figure <a href="chapter5.html#fig:Figure5-2">5.2</a>, knowing that we have strong evidence against the null hypothesis
 of no difference between <em>Placebo</em> and <em>Treated</em> groups, what can we
 say about the effectiveness of the arthritis medication? It seems that there is a real and important increase in the proportion
 of patients getting improvement (<em>Some</em> or <em>Marked</em>). If the differences
-“looked” smaller, even with a small p-value you<a href="#fn91" class="footnote-ref" id="fnref91"><sup>91</sup></a> might not recommend someone take the drug…</p>
+“looked” smaller, even with a small p-value you<a href="#fn95" class="footnote-ref" id="fnref95"><sup>95</sup></a> might not recommend someone take the drug…</p>
 
 <div class="figure"><span id="fig:Figure5-11"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-11-1.png" alt="Stacked bar chart of the Arthritis data comparing Treated and Placebo." width="960" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-11-1.png" alt="Stacked bar chart of the Arthritis data comparing Treated and Placebo." width="1056" />
 <p class="caption">
 Figure 5.11: Stacked bar chart of the Arthritis data comparing <em>Treated</em> and <em>Placebo</em>.
 </p>
 </div>
 </div>
-<div id="section5-7" class="section level2">
+<div id="section5-7" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Examining residuals for the source of differences</h2>
 <p>Small p-values are generated by large <span class="math inline">\(X^2\)</span> values. If we want to understand
 the source of a small p-value, we need to understand what made the test
@@ -1436,8 +1446,8 @@ of results are shown for the Arthritis data table:</p>
 Figure 5.12: Mosaic plot of the Arthritis data with large standardized residuals indicated (actually, there were none that were indicated because all were less than 2). Note that dashed borders correspond to negative standardized residuals (observed less than expected) and solid borders are positive standardized residuals (observed more than expected).
 </p>
 </div>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="chapter5.html#cb430-1"></a><span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>residuals</span>
-<span id="cb430-2"><a href="chapter5.html#cb430-2"></a><span class="kw">mosaicplot</span>(Arthtable, <span class="dt">shade=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="chapter5.html#cb431-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(Arthtable)<span class="op">$</span>residuals</span>
+<span id="cb431-2"><a href="chapter5.html#cb431-2" aria-hidden="true"></a><span class="kw">mosaicplot</span>(Arthtable, <span class="dt">shade=</span>T)</span></code></pre></div>
 <p>In these data, the standardized residuals are all less than 2 in
 magnitude so Figure <a href="chapter5.html#fig:Figure5-12">5.12</a> isn’t
 too helpful but this type of plot is in other examples. The largest
@@ -1455,7 +1465,7 @@ that the results
 were about what would be expected if the null hypothesis of no difference
 were true.</p>
 </div>
-<div id="section5-8" class="section level2">
+<div id="section5-8" class="section level2" number="5.8">
 <h2><span class="header-section-number">5.8</span> General protocol for <span class="math inline">\(X^2\)</span> tests</h2>
 <p>In any contingency table situation, there is a general protocol to
 completing an analysis.</p>
@@ -1484,7 +1494,8 @@ variables were measured to check for confounding and other interesting multi-var
 <li><p>Use permutations if any expected cell counts are below 5.</p></li>
 <li><p>If all expected cell counts greater than 5, either permutation or parametric
 approaches are acceptable.</p></li>
-</ol></li>
+</ol>
+<p></p></li>
 <li><p>Explore the standardized residuals for the “source” of any evidence
 against the null – this can be the start of your “size” discussion.</p>
 <ol style="list-style-type: lower-alpha">
@@ -1495,7 +1506,7 @@ for the pattern of responses. If little evidence is found against the null, ther
 </ol></li>
 </ol>
 </div>
-<div id="section5-9" class="section level2">
+<div id="section5-9" class="section level2" number="5.9">
 <h2><span class="header-section-number">5.9</span> Political party and voting results: Complete analysis</h2>
 <p>As introduced in Section <a href="chapter5.html#section5-3">5.3</a>, a national random sample
 of voters was obtained
@@ -1510,15 +1521,15 @@ are just for making
 sure that R is treating the categorical variables that were coded numerically
 as categorical variables.</p>
 
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="chapter5.html#cb431-1"></a>election<span class="op">$</span>VOTEF &lt;-<span class="st"> </span><span class="kw">factor</span>(election<span class="op">$</span>VOTE3)</span>
-<span id="cb431-2"><a href="chapter5.html#cb431-2"></a>election<span class="op">$</span>PARTY &lt;-<span class="st"> </span><span class="kw">factor</span>(election<span class="op">$</span>PARTY)</span>
-<span id="cb431-3"><a href="chapter5.html#cb431-3"></a>election<span class="op">$</span>EDUC &lt;-<span class="st"> </span><span class="kw">factor</span>(election<span class="op">$</span>EDUC)</span>
-<span id="cb431-4"><a href="chapter5.html#cb431-4"></a>election<span class="op">$</span>GENDER &lt;-<span class="st"> </span><span class="kw">factor</span>(election<span class="op">$</span>GENDER)</span>
-<span id="cb431-5"><a href="chapter5.html#cb431-5"></a><span class="kw">levels</span>(election<span class="op">$</span>VOTEF) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Gore&quot;</span>,<span class="st">&quot;Bush&quot;</span>,<span class="st">&quot;Other&quot;</span>)</span>
-<span id="cb431-6"><a href="chapter5.html#cb431-6"></a><span class="co"># Required options to avoid error when running on a PC, </span></span>
-<span id="cb431-7"><a href="chapter5.html#cb431-7"></a><span class="co"># should have no impact on other platforms</span></span>
-<span id="cb431-8"><a href="chapter5.html#cb431-8"></a><span class="kw">options</span>(<span class="dt">ffbatchbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span>); <span class="kw">options</span>(<span class="dt">ffmaxbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span> <span class="op">*</span><span class="st"> </span><span class="dv">32</span>) </span>
-<span id="cb431-9"><a href="chapter5.html#cb431-9"></a><span class="kw">tableplot</span>(election, <span class="dt">select=</span><span class="kw">c</span>(VOTEF,PARTY,EDUC,GENDER),<span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="chapter5.html#cb432-1" aria-hidden="true"></a>election<span class="op">$</span>VOTEF &lt;-<span class="st"> </span><span class="kw">factor</span>(election<span class="op">$</span>VOTE3)</span>
+<span id="cb432-2"><a href="chapter5.html#cb432-2" aria-hidden="true"></a>election<span class="op">$</span>PARTY &lt;-<span class="st"> </span><span class="kw">factor</span>(election<span class="op">$</span>PARTY)</span>
+<span id="cb432-3"><a href="chapter5.html#cb432-3" aria-hidden="true"></a>election<span class="op">$</span>EDUC &lt;-<span class="st"> </span><span class="kw">factor</span>(election<span class="op">$</span>EDUC)</span>
+<span id="cb432-4"><a href="chapter5.html#cb432-4" aria-hidden="true"></a>election<span class="op">$</span>GENDER &lt;-<span class="st"> </span><span class="kw">factor</span>(election<span class="op">$</span>GENDER)</span>
+<span id="cb432-5"><a href="chapter5.html#cb432-5" aria-hidden="true"></a><span class="kw">levels</span>(election<span class="op">$</span>VOTEF) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Gore&quot;</span>,<span class="st">&quot;Bush&quot;</span>,<span class="st">&quot;Other&quot;</span>)</span>
+<span id="cb432-6"><a href="chapter5.html#cb432-6" aria-hidden="true"></a><span class="co"># Required options to avoid error when running on a PC, </span></span>
+<span id="cb432-7"><a href="chapter5.html#cb432-7" aria-hidden="true"></a><span class="co"># should have no impact on other platforms</span></span>
+<span id="cb432-8"><a href="chapter5.html#cb432-8" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">ffbatchbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span>); <span class="kw">options</span>(<span class="dt">ffmaxbytes =</span> <span class="dv">1024</span><span class="op">^</span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">128</span> <span class="op">*</span><span class="st"> </span><span class="dv">32</span>) </span>
+<span id="cb432-9"><a href="chapter5.html#cb432-9" aria-hidden="true"></a><span class="kw">tableplot</span>(election, <span class="dt">select=</span><span class="kw">c</span>(VOTEF,PARTY,EDUC,GENDER),<span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>), <span class="dt">sample=</span>F)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-13"></span>
 <img src="05-chiSquaredTests_files/figure-html/Figure5-13-1.png" alt="Tableplot of vote, party affiliation, education, and gender from election survey data. Note that missing observations are present in all variables except for Gender. Education is coded from 1 to 7 with higher values related to higher educational attainment. Gender code 1 is for male and 2 is for female." width="960" />
 <p class="caption">
@@ -1550,8 +1561,9 @@ based on the voting status in this plot, but, as noted above, sorting on these
 other variables can sometimes help to see other relationships between
 variables.</p>
 
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="chapter5.html#cb432-1"></a>election2 &lt;-<span class="st"> </span><span class="kw">na.omit</span>(election[,<span class="kw">c</span>(<span class="st">&quot;VOTEF&quot;</span>,<span class="st">&quot;PARTY&quot;</span>,<span class="st">&quot;EDUC&quot;</span>,<span class="st">&quot;GENDER&quot;</span>)])</span>
-<span id="cb432-2"><a href="chapter5.html#cb432-2"></a><span class="kw">tableplot</span>(election2, <span class="dt">select=</span><span class="kw">c</span>(VOTEF,PARTY,EDUC,GENDER), <span class="dt">sort=</span><span class="dv">1</span>, <span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="chapter5.html#cb433-1" aria-hidden="true"></a>election2 &lt;-<span class="st"> </span><span class="kw">na.omit</span>(election[,<span class="kw">c</span>(<span class="st">&quot;VOTEF&quot;</span>,<span class="st">&quot;PARTY&quot;</span>,<span class="st">&quot;EDUC&quot;</span>,<span class="st">&quot;GENDER&quot;</span>)])</span>
+<span id="cb433-2"><a href="chapter5.html#cb433-2" aria-hidden="true"></a><span class="kw">tableplot</span>(election2, <span class="dt">select=</span><span class="kw">c</span>(VOTEF,PARTY,EDUC,GENDER), <span class="dt">sort=</span><span class="dv">1</span>, <span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>), </span>
+<span id="cb433-3"><a href="chapter5.html#cb433-3" aria-hidden="true"></a>          <span class="dt">sample=</span>F)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-14"></span>
 <img src="05-chiSquaredTests_files/figure-html/Figure5-14-1.png" alt="Tableplot of election data with subjects without any missing responses (complete cases)." width="960" />
 <p class="caption">
@@ -1565,8 +1577,9 @@ The total sample size for the complete responses was <span class="math inline">\
 (out of the original 1,785 subjects). Because this is an Independence test,
 the mosaic plot is the appropriate display of the results,
 which was provided in Figure <a href="chapter5.html#fig:Figure5-5">5.5</a>.</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="chapter5.html#cb433-1"></a>electable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>PARTY<span class="op">+</span>VOTEF, <span class="dt">data=</span>election2)</span>
-<span id="cb433-2"><a href="chapter5.html#cb433-2"></a>electable</span></code></pre></div>
+<div style="page-break-after: always;"></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="chapter5.html#cb434-1" aria-hidden="true"></a>electable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>PARTY<span class="op">+</span>VOTEF, <span class="dt">data=</span>election2)</span>
+<span id="cb434-2"><a href="chapter5.html#cb434-2" aria-hidden="true"></a>electable</span></code></pre></div>
 <pre><code>##      VOTEF
 ## PARTY Gore Bush Other
 ##     1  238    6     2
@@ -1592,7 +1605,8 @@ the request to answer the survey but should be cautious in extending it to all
 Americans or even voters in the year 2000. When we say “population” below, this
 nuanced discussion is what we mean. Because the political party is not randomly
 assigned to the subjects, we cannot make causal inferences for political
-affiliation causing different voting patterns<a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a>.</p>
+affiliation causing different voting patterns<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a>.</p>
+<!-- \newpage -->
 <p>Here are our 6+ steps applied to this example:</p>
 <ol start="0" style="list-style-type: decimal">
 <li><p>The desired RQ is about assessing the relationship between part affiliation and vote choice, but this is constrained by the large rate of non-response in this data set. This is an Independence test and so the tableplot and mosaic plot are good visualizations to consider and the <span class="math inline">\(X^2\)</span>-statistic will be used.</p></li>
@@ -1604,8 +1618,7 @@ population.</p></li>
 <li><p><span class="math inline">\(H_A\)</span>: There is a relationship between the party affiliation
 (7 levels) and voting results (<em>Bush</em>, <em>Gore</em>, <em>Other</em>) in the
 population.</p></li>
-</ul>
-<p></p></li>
+</ul></li>
 <li><p><strong>Plot the data and assess validity conditions:</strong>
 </p>
 <ul>
@@ -1622,7 +1635,7 @@ a large national population and we have no information that could suggest depend
 <li>We need to generate a table of expected cell counts to be
 able to check this condition:</li>
 </ul>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="chapter5.html#cb435-1"></a><span class="kw">chisq.test</span>(electable)<span class="op">$</span>expected</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="chapter5.html#cb436-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(electable)<span class="op">$</span>expected</span></code></pre></div>
 <pre><code>## Warning in chisq.test(electable): Chi-squared approximation may be incorrect</code></pre>
 <pre><code>##      VOTEF
 ## PARTY      Gore      Bush    Other
@@ -1643,16 +1656,17 @@ the condition is violated and the permutation approach
 should be used to obtain more trustworthy p-values. The
 conditions are met for performing a permutation test.</p></li>
 </ul></li>
-</ul></li>
+</ul>
+<p><!-- \newpage --></p></li>
 <li><p><strong>Calculate the test statistic and p-value:</strong></p>
 <ul>
 <li>The test statistic is best calculated by the <code>chisq.test</code> function since there
 are 21 cells and many potential places for a calculation error if
 performed by hand.</li>
 </ul>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="chapter5.html#cb438-1"></a><span class="kw">chisq.test</span>(electable)</span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="chapter5.html#cb439-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(electable)</span></code></pre></div>
 <pre><code>## 
-##  Pearson&#39;s Chi-squared test
+## 	Pearson&#39;s Chi-squared test
 ## 
 ## data:  electable
 ## X-squared = 762.81, df = 12, p-value &lt; 2.2e-16</code></pre>
@@ -1667,7 +1681,7 @@ to the right which reflects how little area is to the right of
 that value in the distribution.</p></li>
 </ul>
 <div class="figure"><span id="fig:Figure5-15"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-15-1.png" alt="Plot of $\boldsymbol{\chi^2}$-distribution with 12 degrees of freedom." width="288" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-15-1.png" alt="Plot of $\boldsymbol{\chi^2}$-distribution with 12 degrees of freedom." width="355.2" />
 <p class="caption">
 Figure 5.15: Plot of <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-distribution with 12 degrees of freedom.
 </p>
@@ -1677,29 +1691,28 @@ Figure 5.15: Plot of <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-di
 tiny value that R reports as 1.5e-155. Again, reporting less than
 0.0001 is just fine.</li>
 </ul>
-<p></p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="chapter5.html#cb440-1"></a><span class="kw">pchisq</span>(<span class="fl">762.81</span>, <span class="dt">df=</span><span class="dv">12</span>, <span class="dt">lower.tail=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="chapter5.html#cb441-1" aria-hidden="true"></a><span class="kw">pchisq</span>(<span class="fl">762.81</span>, <span class="dt">df=</span><span class="dv">12</span>, <span class="dt">lower.tail=</span>F)</span></code></pre></div>
 <pre><code>## [1] 1.553744e-155</code></pre>
 <ul>
 <li>But since the expected cell count condition is violated, we should
 use permutations as implemented in the following code to provide a more trustworthy p-value:</li>
 </ul>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="chapter5.html#cb442-1"></a>Tobs &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(electable)<span class="op">$</span>statistic; Tobs</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="chapter5.html#cb443-1" aria-hidden="true"></a>Tobs &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(electable)<span class="op">$</span>statistic; Tobs</span></code></pre></div>
 <pre><code>## X-squared 
 ##  762.8095</code></pre>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="chapter5.html#cb444-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb444-2"><a href="chapter5.html#cb444-2"></a>B &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb444-3"><a href="chapter5.html#cb444-3"></a>Tstar &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow=</span>B)</span>
-<span id="cb444-4"><a href="chapter5.html#cb444-4"></a><span class="cf">for</span> (b <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>B)){</span>
-<span id="cb444-5"><a href="chapter5.html#cb444-5"></a>  Tstar[b] &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(<span class="kw">tally</span>(<span class="op">~</span><span class="kw">shuffle</span>(PARTY)<span class="op">+</span>VOTEF, <span class="dt">data=</span>election2,</span>
-<span id="cb444-6"><a href="chapter5.html#cb444-6"></a>                               <span class="dt">margins=</span>F))<span class="op">$</span>statistic</span>
-<span id="cb444-7"><a href="chapter5.html#cb444-7"></a>}</span>
-<span id="cb444-8"><a href="chapter5.html#cb444-8"></a><span class="kw">pdata</span>(Tstar, Tobs, <span class="dt">lower.tail=</span>F)[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="chapter5.html#cb445-1" aria-hidden="true"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb445-2"><a href="chapter5.html#cb445-2" aria-hidden="true"></a>B &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb445-3"><a href="chapter5.html#cb445-3" aria-hidden="true"></a>Tstar &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>, <span class="dt">nrow=</span>B)</span>
+<span id="cb445-4"><a href="chapter5.html#cb445-4" aria-hidden="true"></a><span class="cf">for</span> (b <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>B)){</span>
+<span id="cb445-5"><a href="chapter5.html#cb445-5" aria-hidden="true"></a>  Tstar[b] &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(<span class="kw">tally</span>(<span class="op">~</span><span class="kw">shuffle</span>(PARTY)<span class="op">+</span>VOTEF, <span class="dt">data=</span>election2,</span>
+<span id="cb445-6"><a href="chapter5.html#cb445-6" aria-hidden="true"></a>                               <span class="dt">margins=</span>F))<span class="op">$</span>statistic</span>
+<span id="cb445-7"><a href="chapter5.html#cb445-7" aria-hidden="true"></a>}</span>
+<span id="cb445-8"><a href="chapter5.html#cb445-8" aria-hidden="true"></a><span class="kw">pdata</span>(Tstar, Tobs, <span class="dt">lower.tail=</span>F)[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="chapter5.html#cb446-1"></a><span class="kw">hist</span>(Tstar)</span>
-<span id="cb446-2"><a href="chapter5.html#cb446-2"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span>
-<span id="cb446-3"><a href="chapter5.html#cb446-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(Tstar), <span class="dt">main=</span><span class="st">&quot;Density curve of Tstar&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb446-4"><a href="chapter5.html#cb446-4"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="chapter5.html#cb447-1" aria-hidden="true"></a><span class="kw">hist</span>(Tstar)</span>
+<span id="cb447-2"><a href="chapter5.html#cb447-2" aria-hidden="true"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span>
+<span id="cb447-3"><a href="chapter5.html#cb447-3" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">density</span>(Tstar), <span class="dt">main=</span><span class="st">&quot;Density curve of Tstar&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb447-4"><a href="chapter5.html#cb447-4" aria-hidden="true"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-16"></span>
 <img src="05-chiSquaredTests_files/figure-html/Figure5-16-1.png" alt="Permutation distribution of $X^2$ for the election data. Observed value of 763 not displayed." width="576" />
 <p class="caption">
@@ -1716,7 +1729,7 @@ observed configuration was really far from the null
 hypothesis of no relationship between party status and voting.</li>
 </ul></li>
 </ol>
-<div style="page-break-after: always;"></div>
+<!-- \newpage -->
 <ol start="4" style="list-style-type: decimal">
 <li><p><strong>Conclusion:</strong></p>
 <ul>
@@ -1747,8 +1760,8 @@ obtain from the same voters on the other side of the middle? Exploring the relat
 scientist would easily obtain many more (useful) theories based on this combination of results.</li>
 </ul></li>
 </ol>
-<div style="page-break-after: always;"></div>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="chapter5.html#cb447-1"></a><span class="kw">chisq.test</span>(electable)<span class="op">$</span>residuals <span class="co">#(Obs - expected)/sqrt(expected)</span></span></code></pre></div>
+<!-- \newpage -->
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="chapter5.html#cb448-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(electable)<span class="op">$</span>residuals <span class="co">#(Obs - expected)/sqrt(expected)</span></span></code></pre></div>
 <pre><code>##      VOTEF
 ## PARTY        Gore        Bush       Other
 ##     1  10.1304439 -10.0254117  -2.3317373
@@ -1765,8 +1778,8 @@ scientist would easily obtain many more (useful) theories based on this combinat
 Figure 5.17: Mosaic plot with shading based on standardized residuals for the election data.
 </p>
 </div>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="chapter5.html#cb449-1"></a><span class="co">#Adds information on the size of the residuals</span></span>
-<span id="cb449-2"><a href="chapter5.html#cb449-2"></a><span class="kw">mosaicplot</span>(electable, <span class="dt">shade=</span>T) </span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="chapter5.html#cb450-1" aria-hidden="true"></a><span class="co">#Adds information on the size of the residuals</span></span>
+<span id="cb450-2"><a href="chapter5.html#cb450-2" aria-hidden="true"></a><span class="kw">mosaicplot</span>(electable, <span class="dt">shade=</span>T) </span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li><p><strong>Scope of inference:</strong></p>
 <ul>
@@ -1776,7 +1789,7 @@ running the poll and who would be willing to answer all the questions and actual
 </ul></li>
 </ol>
 </div>
-<div id="section5-10" class="section level2">
+<div id="section5-10" class="section level2" number="5.10">
 <h2><span class="header-section-number">5.10</span> Is cheating and lying related in students?</h2>
 <p>A study of student behavior was performed at a university with a survey of
 <span class="math inline">\(N=319\)</span> undergraduate students (<code>cheating</code> data set from the <code>poLCA</code>
@@ -1797,17 +1810,17 @@ from 1 to 5, respectively. Again, the code starts with making sure the
 variables are treated categorically by applying the <code>factor</code> function.
 </p>
 
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="chapter5.html#cb450-1"></a><span class="kw">library</span>(poLCA)</span>
-<span id="cb450-2"><a href="chapter5.html#cb450-2"></a><span class="kw">data</span>(cheating) <span class="co">#Survey of students</span></span>
-<span id="cb450-3"><a href="chapter5.html#cb450-3"></a>cheating &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(cheating)</span>
-<span id="cb450-4"><a href="chapter5.html#cb450-4"></a>cheating<span class="op">$</span>LIEEXAM &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>LIEEXAM)</span>
-<span id="cb450-5"><a href="chapter5.html#cb450-5"></a>cheating<span class="op">$</span>LIEPAPER &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>LIEPAPER)</span>
-<span id="cb450-6"><a href="chapter5.html#cb450-6"></a>cheating<span class="op">$</span>FRAUD &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>FRAUD)</span>
-<span id="cb450-7"><a href="chapter5.html#cb450-7"></a>cheating<span class="op">$</span>COPYEXAM &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>COPYEXAM)</span>
-<span id="cb450-8"><a href="chapter5.html#cb450-8"></a>cheating<span class="op">$</span>GPA &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>GPA)</span>
-<span id="cb450-9"><a href="chapter5.html#cb450-9"></a><span class="kw">tableplot</span>(cheating, <span class="dt">sort=</span>GPA,<span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="chapter5.html#cb451-1" aria-hidden="true"></a><span class="kw">library</span>(poLCA)</span>
+<span id="cb451-2"><a href="chapter5.html#cb451-2" aria-hidden="true"></a><span class="kw">data</span>(cheating) <span class="co">#Survey of students</span></span>
+<span id="cb451-3"><a href="chapter5.html#cb451-3" aria-hidden="true"></a>cheating &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(cheating)</span>
+<span id="cb451-4"><a href="chapter5.html#cb451-4" aria-hidden="true"></a>cheating<span class="op">$</span>LIEEXAM &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>LIEEXAM)</span>
+<span id="cb451-5"><a href="chapter5.html#cb451-5" aria-hidden="true"></a>cheating<span class="op">$</span>LIEPAPER &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>LIEPAPER)</span>
+<span id="cb451-6"><a href="chapter5.html#cb451-6" aria-hidden="true"></a>cheating<span class="op">$</span>FRAUD &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>FRAUD)</span>
+<span id="cb451-7"><a href="chapter5.html#cb451-7" aria-hidden="true"></a>cheating<span class="op">$</span>COPYEXAM &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>COPYEXAM)</span>
+<span id="cb451-8"><a href="chapter5.html#cb451-8" aria-hidden="true"></a>cheating<span class="op">$</span>GPA &lt;-<span class="st"> </span><span class="kw">factor</span>(cheating<span class="op">$</span>GPA)</span>
+<span id="cb451-9"><a href="chapter5.html#cb451-9" aria-hidden="true"></a><span class="kw">tableplot</span>(cheating, <span class="dt">sort=</span>GPA,<span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-18"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-18-1.png" alt="Tableplot of initial cheating and lying data set. Note that a few GPAs were missing in the data set." width="480" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-18-1.png" alt="Tableplot of initial cheating and lying data set. Note that a few GPAs were missing in the data set." width="960" />
 <p class="caption">
 Figure 5.18: Tableplot of initial cheating and lying data set. Note that a few GPAs were missing in the data set.
 </p>
@@ -1837,9 +1850,9 @@ hard story to elicit from the previous plot because there are so many variables
 involved.</p>
 
 <div class="figure"><span id="fig:Figure5-19"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-19-1.png" alt="Tableplot of new variables liar` andcopier`` that allow exploration of relationships between different types of lying and cheating behaviors." width="960" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-19-1.png" alt="Tableplot of new variables liar and copier that allow exploration of relationships between different types of lying and cheating behaviors." width="960" />
 <p class="caption">
-Figure 5.19: Tableplot of new variables <code>liar` and</code>copier`` that allow exploration of relationships between different types of lying and cheating behaviors.
+Figure 5.19: Tableplot of new variables <code>liar</code> and <code>copier</code> that allow exploration of relationships between different types of lying and cheating behaviors.
 </p>
 </div>
 <p>To simplify the results, combining the two groups of variables
@@ -1860,15 +1873,15 @@ On the other hand, for the students who have never lied, quite a few had
 cheated on exams. The contingency table can help us dig further into the
 hypotheses related to the Chi-square test of Independence that is appropriate
 in this situation. </p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="chapter5.html#cb451-1"></a>cheating<span class="op">$</span>liar &lt;-<span class="st"> </span><span class="kw">interaction</span>(cheating<span class="op">$</span>LIEEXAM, cheating<span class="op">$</span>LIEPAPER)</span>
-<span id="cb451-2"><a href="chapter5.html#cb451-2"></a><span class="kw">levels</span>(cheating<span class="op">$</span>liar) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>,<span class="st">&quot;ExamLie&quot;</span>,<span class="st">&quot;PaperLie&quot;</span>,<span class="st">&quot;LieBoth&quot;</span>)</span>
-<span id="cb451-3"><a href="chapter5.html#cb451-3"></a></span>
-<span id="cb451-4"><a href="chapter5.html#cb451-4"></a>cheating<span class="op">$</span>copier &lt;-<span class="st"> </span><span class="kw">interaction</span>(cheating<span class="op">$</span>FRAUD, cheating<span class="op">$</span>COPYEXAM)</span>
-<span id="cb451-5"><a href="chapter5.html#cb451-5"></a><span class="kw">levels</span>(cheating<span class="op">$</span>copier) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>,<span class="st">&quot;PaperCheat&quot;</span>,<span class="st">&quot;ExamCheat&quot;</span>,<span class="st">&quot;PaperExamCheat&quot;</span>)</span>
-<span id="cb451-6"><a href="chapter5.html#cb451-6"></a><span class="kw">tableplot</span>(cheating, <span class="dt">sort=</span>liar, <span class="dt">select=</span><span class="kw">c</span>(liar,copier),<span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
-<div style="page-break-after: always;"></div>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="chapter5.html#cb452-1"></a>cheatlietable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>liar<span class="op">+</span>copier, <span class="dt">data=</span>cheating)</span>
-<span id="cb452-2"><a href="chapter5.html#cb452-2"></a>cheatlietable</span></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="chapter5.html#cb452-1" aria-hidden="true"></a>cheating<span class="op">$</span>liar &lt;-<span class="st"> </span><span class="kw">interaction</span>(cheating<span class="op">$</span>LIEEXAM, cheating<span class="op">$</span>LIEPAPER)</span>
+<span id="cb452-2"><a href="chapter5.html#cb452-2" aria-hidden="true"></a><span class="kw">levels</span>(cheating<span class="op">$</span>liar) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>,<span class="st">&quot;ExamLie&quot;</span>,<span class="st">&quot;PaperLie&quot;</span>,<span class="st">&quot;LieBoth&quot;</span>)</span>
+<span id="cb452-3"><a href="chapter5.html#cb452-3" aria-hidden="true"></a></span>
+<span id="cb452-4"><a href="chapter5.html#cb452-4" aria-hidden="true"></a>cheating<span class="op">$</span>copier &lt;-<span class="st"> </span><span class="kw">interaction</span>(cheating<span class="op">$</span>FRAUD, cheating<span class="op">$</span>COPYEXAM)</span>
+<span id="cb452-5"><a href="chapter5.html#cb452-5" aria-hidden="true"></a><span class="kw">levels</span>(cheating<span class="op">$</span>copier) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>,<span class="st">&quot;PaperCheat&quot;</span>,<span class="st">&quot;ExamCheat&quot;</span>,<span class="st">&quot;PaperExamCheat&quot;</span>)</span>
+<span id="cb452-6"><a href="chapter5.html#cb452-6" aria-hidden="true"></a><span class="kw">tableplot</span>(cheating, <span class="dt">sort=</span>liar, <span class="dt">select=</span><span class="kw">c</span>(liar,copier),<span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
+<!-- \newpage -->
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="chapter5.html#cb453-1" aria-hidden="true"></a>cheatlietable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>liar<span class="op">+</span>copier, <span class="dt">data=</span>cheating)</span>
+<span id="cb453-2"><a href="chapter5.html#cb453-2" aria-hidden="true"></a>cheatlietable</span></code></pre></div>
 <pre><code>##           copier
 ## liar       None PaperCheat ExamCheat PaperExamCheat
 ##   None      207          7        46              5
@@ -1885,20 +1898,21 @@ into “<em>either</em>” categories and left the <em>none</em> and <em>both</e
 variable. This creates two new variables called <code>liar2</code> and <code>copier2</code>
 (tableplot in Figure <a href="chapter5.html#fig:Figure5-20">5.20</a>). The code to create these
 variables and make the plot is below which employs the <code>levels</code> function to assign the same label to two different levels from the original list. </p>
-
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="chapter5.html#cb454-1"></a><span class="co">#Collapse the middle categories of each variable</span></span>
-<span id="cb454-2"><a href="chapter5.html#cb454-2"></a>cheating<span class="op">$</span>liar2 &lt;-<span class="st"> </span>cheating<span class="op">$</span>liar</span>
-<span id="cb454-3"><a href="chapter5.html#cb454-3"></a><span class="kw">levels</span>(cheating<span class="op">$</span>liar2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>,<span class="st">&quot;ExamorPaper&quot;</span>,<span class="st">&quot;ExamorPaper&quot;</span>,<span class="st">&quot;LieBoth&quot;</span>)</span>
-<span id="cb454-4"><a href="chapter5.html#cb454-4"></a>cheating<span class="op">$</span>copier2 &lt;-<span class="st"> </span>cheating<span class="op">$</span>copier</span>
-<span id="cb454-5"><a href="chapter5.html#cb454-5"></a><span class="kw">levels</span>(cheating<span class="op">$</span>copier2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>,<span class="st">&quot;ExamorPaper&quot;</span>,<span class="st">&quot;ExamorPaper&quot;</span>,<span class="st">&quot;CopyBoth&quot;</span>)</span>
-<span id="cb454-6"><a href="chapter5.html#cb454-6"></a>cheatlietable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>liar2<span class="op">+</span>copier2, <span class="dt">data=</span>cheating)</span>
-<span id="cb454-7"><a href="chapter5.html#cb454-7"></a>cheatlietable</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="chapter5.html#cb455-1" aria-hidden="true"></a><span class="co">#Collapse the middle categories of each variable</span></span>
+<span id="cb455-2"><a href="chapter5.html#cb455-2" aria-hidden="true"></a>cheating<span class="op">$</span>liar2 &lt;-<span class="st"> </span>cheating<span class="op">$</span>liar</span>
+<span id="cb455-3"><a href="chapter5.html#cb455-3" aria-hidden="true"></a><span class="kw">levels</span>(cheating<span class="op">$</span>liar2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>,<span class="st">&quot;ExamorPaper&quot;</span>,<span class="st">&quot;ExamorPaper&quot;</span>,<span class="st">&quot;LieBoth&quot;</span>)</span>
+<span id="cb455-4"><a href="chapter5.html#cb455-4" aria-hidden="true"></a>cheating<span class="op">$</span>copier2 &lt;-<span class="st"> </span>cheating<span class="op">$</span>copier</span>
+<span id="cb455-5"><a href="chapter5.html#cb455-5" aria-hidden="true"></a><span class="kw">levels</span>(cheating<span class="op">$</span>copier2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>,<span class="st">&quot;ExamorPaper&quot;</span>,<span class="st">&quot;ExamorPaper&quot;</span>,<span class="st">&quot;CopyBoth&quot;</span>)</span>
+<span id="cb455-6"><a href="chapter5.html#cb455-6" aria-hidden="true"></a>cheatlietable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>liar2<span class="op">+</span>copier2, <span class="dt">data=</span>cheating)</span>
+<span id="cb455-7"><a href="chapter5.html#cb455-7" aria-hidden="true"></a>cheatlietable</span></code></pre></div>
 <pre><code>##              copier2
 ## liar2         None ExamorPaper CopyBoth
 ##   None         207          53        5
 ##   ExamorPaper   23           9        4
 ##   LieBoth       11           5        2</code></pre>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="chapter5.html#cb456-1"></a><span class="kw">tableplot</span>(cheating, <span class="dt">sort=</span>liar2, <span class="dt">select=</span><span class="kw">c</span>(liar2,copier2),<span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
+<!-- \newpage -->
+
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="chapter5.html#cb457-1" aria-hidden="true"></a><span class="kw">tableplot</span>(cheating, <span class="dt">sort=</span>liar2, <span class="dt">select=</span><span class="kw">c</span>(liar2,copier2),<span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-20"></span>
 <img src="05-chiSquaredTests_files/figure-html/Figure5-20-1.png" alt="Tableplot of lying and copying variables after combining categories." width="960" />
 <p class="caption">
@@ -1933,7 +1947,7 @@ information on how these subjects were obtained. What happens if we had sampled 
 <li>We need to generate a table of expected cell counts to
 check this condition:</li>
 </ul>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="chapter5.html#cb457-1"></a><span class="kw">chisq.test</span>(cheatlietable)<span class="op">$</span>expected</span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="chapter5.html#cb458-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(cheatlietable)<span class="op">$</span>expected</span></code></pre></div>
 <pre><code>##              copier2
 ## liar2              None ExamorPaper  CopyBoth
 ##   None        200.20376   55.658307 9.1379310
@@ -1953,9 +1967,9 @@ should be used to obtain more trustworthy p-values.</p></li>
 by hand if you want the practice – see if you can find a similar answer
 to what the function provides:</li>
 </ul>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="chapter5.html#cb459-1"></a><span class="kw">chisq.test</span>(cheatlietable)</span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="chapter5.html#cb460-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(cheatlietable)</span></code></pre></div>
 <pre><code>## 
-##  Pearson&#39;s Chi-squared test
+## 	Pearson&#39;s Chi-squared test
 ## 
 ## data:  cheatlietable
 ## X-squared = 13.238, df = 4, p-value = 0.01017</code></pre>
@@ -1976,7 +1990,7 @@ Figure 5.21: Plot of <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-di
 <ul>
 <li>If you want to repeat the p-value calculation directly:</li>
 </ul>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="chapter5.html#cb461-1"></a><span class="kw">pchisq</span>(<span class="fl">13.2384</span>, <span class="dt">df=</span><span class="dv">4</span>, <span class="dt">lower.tail=</span>F)</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="chapter5.html#cb462-1" aria-hidden="true"></a><span class="kw">pchisq</span>(<span class="fl">13.2384</span>, <span class="dt">df=</span><span class="dv">4</span>, <span class="dt">lower.tail=</span>F)</span></code></pre></div>
 <pre><code>## [1] 0.01016781</code></pre>
 <ul>
 <li>But since the expected cell condition is violated, we
@@ -1985,23 +1999,23 @@ code with the number of permutations increased to 10,000 to help
 get a better estimate of the p-value since it is
 possibly close to 0.05:</li>
 </ul>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="chapter5.html#cb463-1"></a>Tobs &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(<span class="kw">tally</span>(<span class="op">~</span>liar2<span class="op">+</span>copier2, <span class="dt">data=</span>cheating))<span class="op">$</span>statistic</span>
-<span id="cb463-2"><a href="chapter5.html#cb463-2"></a>Tobs</span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="chapter5.html#cb464-1" aria-hidden="true"></a>Tobs &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(<span class="kw">tally</span>(<span class="op">~</span>liar2<span class="op">+</span>copier2, <span class="dt">data=</span>cheating))<span class="op">$</span>statistic</span>
+<span id="cb464-2"><a href="chapter5.html#cb464-2" aria-hidden="true"></a>Tobs</span></code></pre></div>
 <pre><code>## X-squared 
 ##  13.23844</code></pre>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="chapter5.html#cb465-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb465-2"><a href="chapter5.html#cb465-2"></a>B &lt;-<span class="st"> </span><span class="dv">10000</span> <span class="co"># Now performing 10,000 permutations</span></span>
-<span id="cb465-3"><a href="chapter5.html#cb465-3"></a>Tstar &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dt">nrow=</span>B)</span>
-<span id="cb465-4"><a href="chapter5.html#cb465-4"></a><span class="cf">for</span> (b <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>B)){</span>
-<span id="cb465-5"><a href="chapter5.html#cb465-5"></a>  Tstar[b] &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(<span class="kw">tally</span>(<span class="op">~</span><span class="kw">shuffle</span>(liar2)<span class="op">+</span>copier2,</span>
-<span id="cb465-6"><a href="chapter5.html#cb465-6"></a>                               <span class="dt">data=</span>cheating))<span class="op">$</span>statistic</span>
-<span id="cb465-7"><a href="chapter5.html#cb465-7"></a>}</span>
-<span id="cb465-8"><a href="chapter5.html#cb465-8"></a><span class="kw">pdata</span>(Tstar, Tobs, <span class="dt">lower.tail=</span>F)[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="chapter5.html#cb466-1" aria-hidden="true"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb466-2"><a href="chapter5.html#cb466-2" aria-hidden="true"></a>B &lt;-<span class="st"> </span><span class="dv">10000</span> <span class="co"># Now performing 10,000 permutations</span></span>
+<span id="cb466-3"><a href="chapter5.html#cb466-3" aria-hidden="true"></a>Tstar &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dt">nrow=</span>B)</span>
+<span id="cb466-4"><a href="chapter5.html#cb466-4" aria-hidden="true"></a><span class="cf">for</span> (b <span class="cf">in</span> (<span class="dv">1</span><span class="op">:</span>B)){</span>
+<span id="cb466-5"><a href="chapter5.html#cb466-5" aria-hidden="true"></a>  Tstar[b] &lt;-<span class="st"> </span><span class="kw">chisq.test</span>(<span class="kw">tally</span>(<span class="op">~</span><span class="kw">shuffle</span>(liar2)<span class="op">+</span>copier2,</span>
+<span id="cb466-6"><a href="chapter5.html#cb466-6" aria-hidden="true"></a>                               <span class="dt">data=</span>cheating))<span class="op">$</span>statistic</span>
+<span id="cb466-7"><a href="chapter5.html#cb466-7" aria-hidden="true"></a>}</span>
+<span id="cb466-8"><a href="chapter5.html#cb466-8" aria-hidden="true"></a><span class="kw">pdata</span>(Tstar, Tobs, <span class="dt">lower.tail=</span>F)[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] 0.0174</code></pre>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="chapter5.html#cb467-1"></a><span class="kw">hist</span>(Tstar)</span>
-<span id="cb467-2"><a href="chapter5.html#cb467-2"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span>
-<span id="cb467-3"><a href="chapter5.html#cb467-3"></a><span class="kw">plot</span>(<span class="kw">density</span>(Tstar), <span class="dt">main=</span><span class="st">&quot;Density curve of Tstar&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb467-4"><a href="chapter5.html#cb467-4"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="chapter5.html#cb468-1" aria-hidden="true"></a><span class="kw">hist</span>(Tstar)</span>
+<span id="cb468-2"><a href="chapter5.html#cb468-2" aria-hidden="true"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span>
+<span id="cb468-3"><a href="chapter5.html#cb468-3" aria-hidden="true"></a><span class="kw">plot</span>(<span class="kw">density</span>(Tstar), <span class="dt">main=</span><span class="st">&quot;Density curve of Tstar&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb468-4"><a href="chapter5.html#cb468-4" aria-hidden="true"></a><span class="kw">abline</span>(<span class="dt">v=</span>Tobs, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-22"></span>
 <img src="05-chiSquaredTests_files/figure-html/Figure5-22-1.png" alt="Plot of permutation distributions for cheat/lie results with observed value of 13.24 (bold, vertical line)." width="480" />
 <p class="caption">
@@ -2025,7 +2039,7 @@ of students (<span class="math inline">\(X^2\)</span>-statistic=13.24, permutati
 <ul>
 <li>The standardized residuals can help us more fully understand this result – the mosaic plot only had one cell shaded and so wasn’t needed here.</li>
 </ul>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="chapter5.html#cb468-1"></a><span class="kw">chisq.test</span>(cheatlietable)<span class="op">$</span>residuals</span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="chapter5.html#cb469-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(cheatlietable)<span class="op">$</span>residuals</span></code></pre></div>
 <pre><code>##              copier2
 ## liar2               None ExamorPaper   CopyBoth
 ##   None         0.4803220  -0.3563200 -1.3688609
@@ -2046,7 +2060,7 @@ answer that question).</li>
 </ul></li>
 </ol>
 </div>
-<div id="section5-11" class="section level2">
+<div id="section5-11" class="section level2" number="5.11">
 <h2><span class="header-section-number">5.11</span> Analyzing a stratified random sample of California schools</h2>
 
 <div class="figure"><span id="fig:Figure5-23"></span>
@@ -2066,11 +2080,11 @@ metric might differ between different levels of schools. Maybe it is easier or
 harder for elementary, middle, or high schools to attain growth? The researcher
 has a list of most of the schools in the state of each level that are using a
 database that the researcher has access to. In order to assess this question,
-the researcher takes a <strong><em>stratified random sample</em></strong><a href="#fn93" class="footnote-ref" id="fnref93"><sup>93</sup></a>, selecting
+the researcher takes a <strong><em>stratified random sample</em></strong><a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a>, selecting
 <span class="math inline">\(n_{\text{elementary}}=100\)</span> schools from the population of 4421 elementary
 schools, <span class="math inline">\(n_{\text{middle}}=50\)</span> from the population of 1018 middle schools,
 and <span class="math inline">\(n_{\text{high}}=50\)</span> from the population of 755 high
-schools. These data are available in the <code>survey</code> package <span class="citation">(Lumley <a href="#ref-R-survey" role="doc-biblioref">2019</a>)</span>
+schools. These data are available in the <code>survey</code> package <span class="citation">(Lumley <a href="#ref-R-survey" role="doc-biblioref">2020</a>)</span>
 and the <code>api</code> data object that loads both <code>apipop</code> (population) and <code>apistrat</code> (stratified random sample) data sets.
 
 The <code>growth</code> (change!) in
@@ -2079,19 +2093,20 @@ API scores for the schools between 1999 and
 variable. The pirate-plot of the growth scores are displayed in Figure
 <a href="chapter5.html#fig:Figure5-23">5.23</a>. They suggest some differences in the growth
 rates among the different levels. There are also a few schools flagged as being possible outliers.</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="chapter5.html#cb470-1"></a><span class="kw">library</span>(survey)</span>
-<span id="cb470-2"><a href="chapter5.html#cb470-2"></a><span class="kw">data</span>(api)</span>
-<span id="cb470-3"><a href="chapter5.html#cb470-3"></a>apistrat &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(apistrat)</span>
-<span id="cb470-4"><a href="chapter5.html#cb470-4"></a>apipop &lt;-<span class="st"> </span><span class="kw">as.tibble</span>(apipop)</span>
-<span id="cb470-5"><a href="chapter5.html#cb470-5"></a><span class="kw">tally</span>(<span class="op">~</span>stype, <span class="dt">data=</span>apipop) <span class="co">#Population counts</span></span></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="chapter5.html#cb471-1" aria-hidden="true"></a><span class="kw">library</span>(survey)</span>
+<span id="cb471-2"><a href="chapter5.html#cb471-2" aria-hidden="true"></a><span class="kw">data</span>(api)</span>
+<span id="cb471-3"><a href="chapter5.html#cb471-3" aria-hidden="true"></a>apistrat &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(apistrat)</span>
+<span id="cb471-4"><a href="chapter5.html#cb471-4" aria-hidden="true"></a>apipop &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(apipop)</span>
+<span id="cb471-5"><a href="chapter5.html#cb471-5" aria-hidden="true"></a><span class="kw">tally</span>(<span class="op">~</span>stype, <span class="dt">data=</span>apipop) <span class="co">#Population counts</span></span></code></pre></div>
 <pre><code>## stype
 ##    E    H    M 
 ## 4421  755 1018</code></pre>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="chapter5.html#cb472-1"></a><span class="kw">tally</span>(<span class="op">~</span>stype, <span class="dt">data=</span>apistrat) <span class="co">#Sample counts</span></span></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="chapter5.html#cb473-1" aria-hidden="true"></a><span class="kw">tally</span>(<span class="op">~</span>stype, <span class="dt">data=</span>apistrat) <span class="co">#Sample counts</span></span></code></pre></div>
 <pre><code>## stype
 ##   E   H   M 
 ## 100  50  50</code></pre>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="chapter5.html#cb474-1"></a><span class="kw">pirateplot</span>(growth<span class="op">~</span>stype, <span class="dt">data=</span>apistrat, <span class="dt">inf.method=</span><span class="st">&quot;ci&quot;</span>, <span class="dt">inf.disp=</span><span class="st">&quot;line&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="chapter5.html#cb475-1" aria-hidden="true"></a><span class="kw">pirateplot</span>(growth<span class="op">~</span>stype, <span class="dt">data=</span>apistrat, <span class="dt">inf.method=</span><span class="st">&quot;ci&quot;</span>, <span class="dt">inf.disp=</span><span class="st">&quot;line&quot;</span>)</span></code></pre></div>
+<div style="page-break-after: always;"></div>
 <p>The One-Way ANOVA <span class="math inline">\(F\)</span>-test, provided below, suggests
 strong evidence against the null hypothesis of no difference in the true mean growth scores among the different
 types of schools (<span class="math inline">\(F(2,197)=23.56,\text{ p-value}&lt;0.0001\)</span>). But the
@@ -2104,16 +2119,16 @@ desirable, so another approach is needed. The permutation methods would be
 justified here but there is another “simpler” option available using our new
 Chi-square analysis methods.</p>
 
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="chapter5.html#cb475-1"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(growth<span class="op">~</span>stype, <span class="dt">data=</span>apistrat)</span>
-<span id="cb475-2"><a href="chapter5.html#cb475-2"></a><span class="kw">library</span>(car)</span>
-<span id="cb475-3"><a href="chapter5.html#cb475-3"></a><span class="kw">Anova</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="chapter5.html#cb476-1" aria-hidden="true"></a>m1 &lt;-<span class="st"> </span><span class="kw">lm</span>(growth<span class="op">~</span>stype, <span class="dt">data=</span>apistrat)</span>
+<span id="cb476-2"><a href="chapter5.html#cb476-2" aria-hidden="true"></a><span class="kw">library</span>(car)</span>
+<span id="cb476-3"><a href="chapter5.html#cb476-3" aria-hidden="true"></a><span class="kw">Anova</span>(m1)</span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: growth
 ##           Sum Sq  Df F value    Pr(&gt;F)
 ## stype      30370   2  23.563 6.685e-10
 ## Residuals 126957 197</code></pre>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="chapter5.html#cb477-1"></a><span class="kw">plot</span>(m1, <span class="dt">which=</span><span class="dv">2</span>, <span class="dt">pch=</span><span class="dv">16</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="chapter5.html#cb478-1" aria-hidden="true"></a><span class="kw">plot</span>(m1, <span class="dt">which=</span><span class="dv">2</span>, <span class="dt">pch=</span><span class="dv">16</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:Figure5-24"></span>
 <img src="05-chiSquaredTests_files/figure-html/Figure5-24-1.png" alt="QQ-plot of standardized residuals from the One-Way ANOVA linear model." width="528" />
 <p class="caption">
@@ -2135,17 +2150,17 @@ responses into groups for the lowest 25%, second 25%, third 25%, and highest
 <code>cut</code> function is available to turn a
 quantitative variable into a categorical variable. First, we can use the
 information from <code>favstats</code> to find the cut-points:</p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="chapter5.html#cb478-1"></a><span class="kw">favstats</span>(<span class="op">~</span>growth, <span class="dt">data=</span>apistrat)</span></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="chapter5.html#cb479-1" aria-hidden="true"></a><span class="kw">favstats</span>(<span class="op">~</span>growth, <span class="dt">data=</span>apistrat)</span></code></pre></div>
 <pre><code>##  min   Q1 median Q3 max   mean      sd   n missing
 ##  -47 6.75     25 48 133 27.995 28.1174 200       0</code></pre>
 <p>The <code>cut</code> function can provide the binned variable if it is provided
 with the end-points of the desired intervals to
 create new categories with those names in a new variable called
 <code>growthcut</code>. </p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="chapter5.html#cb480-1"></a>apistrat<span class="op">$</span>growthcut &lt;-<span class="st"> </span><span class="kw">cut</span>(apistrat<span class="op">$</span>growth, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">47</span>,<span class="fl">6.75</span>,<span class="dv">25</span>,<span class="dv">48</span>,<span class="dv">133</span>),</span>
-<span id="cb480-2"><a href="chapter5.html#cb480-2"></a>                          <span class="dt">include.lowest=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="chapter5.html#cb481-1" aria-hidden="true"></a>apistrat<span class="op">$</span>growthcut &lt;-<span class="st"> </span><span class="kw">cut</span>(apistrat<span class="op">$</span>growth, <span class="dt">breaks=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">47</span>,<span class="fl">6.75</span>,<span class="dv">25</span>,<span class="dv">48</span>,<span class="dv">133</span>),</span>
+<span id="cb481-2"><a href="chapter5.html#cb481-2" aria-hidden="true"></a>                          <span class="dt">include.lowest=</span>T)</span></code></pre></div>
 <!-- \newpage -->
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="chapter5.html#cb481-1"></a><span class="kw">tally</span>(<span class="op">~</span>growthcut, <span class="dt">data=</span>apistrat)</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="chapter5.html#cb482-1" aria-hidden="true"></a><span class="kw">tally</span>(<span class="op">~</span>growthcut, <span class="dt">data=</span>apistrat)</span></code></pre></div>
 <pre><code>## growthcut
 ## [-47,6.75]  (6.75,25]    (25,48]   (48,133] 
 ##         50         52         49         49</code></pre>
@@ -2159,12 +2174,12 @@ data. It also shows us the labels of the categories that the <code>cut</code> fu
 created in the new <code>growthcut</code> variable:</p>
 
 <div class="figure"><span id="fig:Figure5-25"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-25-1.png" alt="Stacked bar chart of the growth category responses by level of school." width="480" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-25-1.png" alt="Stacked bar chart of the growth category responses by level of school." width="1056" />
 <p class="caption">
 Figure 5.25: Stacked bar chart of the growth category responses by level of school.
 </p>
 </div>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="chapter5.html#cb483-1"></a><span class="kw">plot</span>(growthcut<span class="op">~</span>stype, <span class="dt">data=</span>apistrat)</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="chapter5.html#cb484-1" aria-hidden="true"></a><span class="kw">plot</span>(growthcut<span class="op">~</span>stype, <span class="dt">data=</span>apistra, <span class="dt">main=</span><span class="st">&quot;Plot of Growth Categories by School levels&quot;</span>t)</span></code></pre></div>
 <p>Figure <a href="chapter5.html#fig:Figure5-25">5.25</a> suggests that the distributions of growth
 scores may not be the same across the levels of the
 schools with many more high growth <em>Elementary</em> schools than in either
@@ -2197,15 +2212,15 @@ finding district-level average growth rates and exploring whether those vary
 systematically but this is beyond the scope of the current exploration.</p>
 <p>Checking the expected cell counts gives insight into the assumption for
 using the <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-distribution to find the p-value:</p>
-<div style="page-break-after: always;"></div>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="chapter5.html#cb484-1"></a>growthtable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>stype<span class="op">+</span>growthcut, <span class="dt">data=</span>apistrat)</span>
-<span id="cb484-2"><a href="chapter5.html#cb484-2"></a>growthtable</span></code></pre></div>
+<!-- \newpage -->
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="chapter5.html#cb485-1" aria-hidden="true"></a>growthtable &lt;-<span class="st"> </span><span class="kw">tally</span>(<span class="op">~</span>stype<span class="op">+</span>growthcut, <span class="dt">data=</span>apistrat)</span>
+<span id="cb485-2"><a href="chapter5.html#cb485-2" aria-hidden="true"></a>growthtable</span></code></pre></div>
 <pre><code>##      growthcut
 ## stype [-47,6.75] (6.75,25] (25,48] (48,133]
 ##     E         14        22      27       37
 ##     H         24        18       5        3
 ##     M         12        12      17        9</code></pre>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="chapter5.html#cb486-1"></a><span class="kw">chisq.test</span>(growthtable)<span class="op">$</span>expected </span></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="chapter5.html#cb487-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(growthtable)<span class="op">$</span>expected </span></code></pre></div>
 <pre><code>##      growthcut
 ## stype [-47,6.75] (6.75,25] (25,48] (48,133]
 ##     E       25.0        26   24.50    24.50
@@ -2213,9 +2228,9 @@ using the <span class="math inline">\(\boldsymbol{\chi^2}\)</span>-distribution 
 ##     M       12.5        13   12.25    12.25</code></pre>
 <p>The smallest expected count is 12.25, occurring in four different cells,
 so we can use the parametric approach.</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="chapter5.html#cb488-1"></a><span class="kw">chisq.test</span>(growthtable) </span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="chapter5.html#cb489-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(growthtable) </span></code></pre></div>
 <pre><code>## 
-##  Pearson&#39;s Chi-squared test
+## 	Pearson&#39;s Chi-squared test
 ## 
 ## data:  growthtable
 ## X-squared = 38.668, df = 6, p-value = 8.315e-07</code></pre>
@@ -2234,7 +2249,7 @@ schools have more low growth and fewer higher growth (growth over 25 points) sch
 than expected if there were no difference in patterns of response across
 the school levels. The <em>Middle</em> school results were closer to the results
 expected if there were no differences across the school levels.</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="chapter5.html#cb490-1"></a><span class="kw">chisq.test</span>(growthtable)<span class="op">$</span>residuals</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="chapter5.html#cb491-1" aria-hidden="true"></a><span class="kw">chisq.test</span>(growthtable)<span class="op">$</span>residuals</span></code></pre></div>
 <pre><code>##      growthcut
 ## stype [-47,6.75]  (6.75,25]    (25,48]   (48,133]
 ##     E -2.2000000 -0.7844645  0.5050763  2.5253814
@@ -2247,7 +2262,7 @@ expected if there were no differences across the school levels.</p>
 Figure 5.26: Mosaic plot of the API Growth rate categories versus level of the school with shading for size of standardized residuals.
 </p>
 </div>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="chapter5.html#cb492-1"></a><span class="kw">mosaicplot</span>(growthcut<span class="op">~</span>stype,<span class="dt">data=</span>apistrat,<span class="dt">shade=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="chapter5.html#cb493-1" aria-hidden="true"></a><span class="kw">mosaicplot</span>(growthcut<span class="op">~</span>stype,<span class="dt">data=</span>apistrat,<span class="dt">shade=</span>T)</span></code></pre></div>
 <p>The binning of quantitative variables is not a first step in analyses –
 the quantitative
 version is almost always preferable. However, this analysis avoided the
@@ -2268,7 +2283,7 @@ could be an acceptable method for handing situations where an assumption is
 violated.</p>
 <!-- \newpage -->
 </div>
-<div id="section5-12" class="section level2">
+<div id="section5-12" class="section level2" number="5.12">
 <h2><span class="header-section-number">5.12</span> Chapter summary</h2>
 <p>Chi-square tests can be generally used to perform two types of tests,
 the Independence and Homogeneity
@@ -2294,7 +2309,7 @@ understand the results. This should tie back into the original data display (tab
 contingency table where you identified initial patterns and help to tell the story of the results.</p>
 <!-- \newpage -->
 </div>
-<div id="section5-13" class="section level2">
+<div id="section5-13" class="section level2" number="5.13">
 <h2><span class="header-section-number">5.13</span> Summary of important R commands</h2>
 <p>The main components of R code used in this chapter follow with components
 to modify in lighter and/or ALL CAPS text where <code>y</code> is a response variable and <code>x</code> is a predictor
@@ -2358,9 +2373,9 @@ permutation-based p-value. </p></li>
 <li>Provides a mosaic plot with shading based on standardized residuals.</li>
 </ul></li>
 </ul>
-<div style="page-break-after: always;"></div>
+<!-- \newpage -->
 </div>
-<div id="section5-14" class="section level2">
+<div id="section5-14" class="section level2" number="5.14">
 <h2><span class="header-section-number">5.14</span> Practice problems</h2>
 <p>5.1. <strong>Determine type of Chi-Square test</strong> Determine which type of test is appropriate in each situation –
 <strong><em>Independence</em></strong> or <strong><em>Homogeneity</em></strong>?</p>
@@ -2450,24 +2465,24 @@ code loads their data set after missing responses were removed, does a
 little re-ordering of factor levels to help make the results easier to
 understand, and makes a tableplot (Figure <a href="chapter5.html#fig:Figure5-27">5.27</a>) to get a general sense of the results
 including information on the respondents’ gender, age, income, and education.</p>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="chapter5.html#cb493-1"></a><span class="kw">library</span>(readr)</span>
-<span id="cb493-2"><a href="chapter5.html#cb493-2"></a>csd &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/csd.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="chapter5.html#cb494-1"></a><span class="kw">library</span>(tabplot)</span>
-<span id="cb494-2"><a href="chapter5.html#cb494-2"></a><span class="co">#Need to make it explicit that these are factor variables</span></span>
-<span id="cb494-3"><a href="chapter5.html#cb494-3"></a>csd<span class="op">$</span>careabout &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>careabout) </span>
-<span id="cb494-4"><a href="chapter5.html#cb494-4"></a><span class="co">#Reorders factor levels to be in &quot;correct&quot; order</span></span>
-<span id="cb494-5"><a href="chapter5.html#cb494-5"></a>csd<span class="op">$</span>careabout &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>careabout,</span>
-<span id="cb494-6"><a href="chapter5.html#cb494-6"></a>                    <span class="dt">levels=</span><span class="kw">levels</span>(csd<span class="op">$</span>careabout)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>)]) </span>
-<span id="cb494-7"><a href="chapter5.html#cb494-7"></a>csd<span class="op">$</span>Education &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>Education)</span>
-<span id="cb494-8"><a href="chapter5.html#cb494-8"></a>csd<span class="op">$</span>Education &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>Education,</span>
-<span id="cb494-9"><a href="chapter5.html#cb494-9"></a>                    <span class="dt">levels=</span><span class="kw">levels</span>(csd<span class="op">$</span>Education)[<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">2</span>)])</span>
-<span id="cb494-10"><a href="chapter5.html#cb494-10"></a>csd<span class="op">$</span>Household.Income &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>Household.Income)</span>
-<span id="cb494-11"><a href="chapter5.html#cb494-11"></a>csd<span class="op">$</span>Household.Income &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>Household.Income,</span>
-<span id="cb494-12"><a href="chapter5.html#cb494-12"></a>                    <span class="dt">levels=</span><span class="kw">levels</span>(csd<span class="op">$</span>Household.Income)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)])</span>
-<span id="cb494-13"><a href="chapter5.html#cb494-13"></a><span class="co">#Sorts plot by careabout responses</span></span>
-<span id="cb494-14"><a href="chapter5.html#cb494-14"></a><span class="kw">tableplot</span>(csd[,<span class="kw">c</span>(<span class="st">&quot;isare&quot;</span>,<span class="st">&quot;careabout&quot;</span>,<span class="st">&quot;thoughtabout&quot;</span>,<span class="st">&quot;Gender&quot;</span>,</span>
-<span id="cb494-15"><a href="chapter5.html#cb494-15"></a>                 <span class="st">&quot;Age&quot;</span>,<span class="st">&quot;Household.Income&quot;</span>,<span class="st">&quot;Education&quot;</span>)], <span class="dt">sortCol=</span>careabout,</span>
-<span id="cb494-16"><a href="chapter5.html#cb494-16"></a>          <span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="chapter5.html#cb494-1" aria-hidden="true"></a><span class="kw">library</span>(readr)</span>
+<span id="cb494-2"><a href="chapter5.html#cb494-2" aria-hidden="true"></a>csd &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/csd.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="chapter5.html#cb495-1" aria-hidden="true"></a><span class="kw">library</span>(tabplot)</span>
+<span id="cb495-2"><a href="chapter5.html#cb495-2" aria-hidden="true"></a><span class="co">#Need to make it explicit that these are factor variables</span></span>
+<span id="cb495-3"><a href="chapter5.html#cb495-3" aria-hidden="true"></a>csd<span class="op">$</span>careabout &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>careabout) </span>
+<span id="cb495-4"><a href="chapter5.html#cb495-4" aria-hidden="true"></a><span class="co">#Reorders factor levels to be in &quot;correct&quot; order</span></span>
+<span id="cb495-5"><a href="chapter5.html#cb495-5" aria-hidden="true"></a>csd<span class="op">$</span>careabout &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>careabout,</span>
+<span id="cb495-6"><a href="chapter5.html#cb495-6" aria-hidden="true"></a>                    <span class="dt">levels=</span><span class="kw">levels</span>(csd<span class="op">$</span>careabout)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>)]) </span>
+<span id="cb495-7"><a href="chapter5.html#cb495-7" aria-hidden="true"></a>csd<span class="op">$</span>Education &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>Education)</span>
+<span id="cb495-8"><a href="chapter5.html#cb495-8" aria-hidden="true"></a>csd<span class="op">$</span>Education &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>Education,</span>
+<span id="cb495-9"><a href="chapter5.html#cb495-9" aria-hidden="true"></a>                    <span class="dt">levels=</span><span class="kw">levels</span>(csd<span class="op">$</span>Education)[<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">2</span>)])</span>
+<span id="cb495-10"><a href="chapter5.html#cb495-10" aria-hidden="true"></a>csd<span class="op">$</span>Household.Income &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>Household.Income)</span>
+<span id="cb495-11"><a href="chapter5.html#cb495-11" aria-hidden="true"></a>csd<span class="op">$</span>Household.Income &lt;-<span class="st"> </span><span class="kw">factor</span>(csd<span class="op">$</span>Household.Income,</span>
+<span id="cb495-12"><a href="chapter5.html#cb495-12" aria-hidden="true"></a>                    <span class="dt">levels=</span><span class="kw">levels</span>(csd<span class="op">$</span>Household.Income)[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)])</span>
+<span id="cb495-13"><a href="chapter5.html#cb495-13" aria-hidden="true"></a><span class="co">#Sorts plot by careabout responses</span></span>
+<span id="cb495-14"><a href="chapter5.html#cb495-14" aria-hidden="true"></a><span class="kw">tableplot</span>(csd[,<span class="kw">c</span>(<span class="st">&quot;isare&quot;</span>,<span class="st">&quot;careabout&quot;</span>,<span class="st">&quot;thoughtabout&quot;</span>,<span class="st">&quot;Gender&quot;</span>,</span>
+<span id="cb495-15"><a href="chapter5.html#cb495-15" aria-hidden="true"></a>                 <span class="st">&quot;Age&quot;</span>,<span class="st">&quot;Household.Income&quot;</span>,<span class="st">&quot;Education&quot;</span>)], <span class="dt">sortCol=</span>careabout,</span>
+<span id="cb495-16"><a href="chapter5.html#cb495-16" aria-hidden="true"></a>          <span class="dt">pals=</span><span class="kw">list</span>(<span class="st">&quot;BrBG&quot;</span>), <span class="dt">sample=</span>F) </span></code></pre></div>
 <p>5.2.1. If we are interested in the variables <code>isare</code> and <code>careabout</code>,
 what sort of test should we perform?</p>
 <p>5.2.2. Make the appropriate plot of the results for the table relating
@@ -2497,23 +2512,23 @@ more about this?</p>
 </table>
 
 <div class="figure"><span id="fig:Figure5-28"></span>
-<img src="05-chiSquaredTests_files/figure-html/Figure5-28-1.png" alt="Stacked bar chart of the close calls/not (overtakes less than or equal to 100 cm or not) by outfit." width="480" />
+<img src="05-chiSquaredTests_files/figure-html/Figure5-28-1.png" alt="Stacked bar chart of the close calls/not (overtakes less than or equal to 100 cm or not) by outfit." width="768" />
 <p class="caption">
 Figure 5.28: Stacked bar chart of the close calls/not (overtakes less than or equal to 100 cm or not) by outfit.
 </p>
 </div>
 <p>5.3. <strong>Overtake close calls by outfit analysis</strong> We can revisit the car overtake passing distance data from Chapter <a href="chapter3.html#chapter3">3</a> and to focus in on the “close calls”. The following code uses the <code>ifelse</code> function to create the close call/not response variable. It works to create a two-category variable where the first category (<em>close</em>) is encountered when the condition is true (<code>dd$Distance&lt;=100</code>, so the passing distance was less than or equal to 100 cm) from the “if” part of the function (<em>if Distance is less than or equal to 100 cm, then “close”</em>) and the “else” is the second category (when the <code>Distance</code> was over 100 cm) and gets the category of <em>notclose</em>. The <code>factor</code> function is applied to the results from <code>ifelse</code> to make this a categorical variable for later use. Some useful code and a stacked bar chart in Figure <a href="chapter5.html#fig:Figure5-28">5.28</a> is provided.</p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="chapter5.html#cb495-1"></a>dd &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/Walker2014_mod.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="chapter5.html#cb496-1"></a>dd<span class="op">$</span>Condition &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Condition)</span>
-<span id="cb496-2"><a href="chapter5.html#cb496-2"></a>dd<span class="op">$</span>Condition2 &lt;-<span class="st"> </span><span class="kw">with</span>(dd, <span class="kw">reorder</span>(Condition, Distance, mean))</span>
-<span id="cb496-3"><a href="chapter5.html#cb496-3"></a>dd<span class="op">$</span>Close &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">ifelse</span>(dd<span class="op">$</span>Distance<span class="op">&lt;=</span><span class="dv">100</span>, <span class="st">&quot;close&quot;</span>, <span class="st">&quot;notclose&quot;</span>))</span>
-<span id="cb496-4"><a href="chapter5.html#cb496-4"></a></span>
-<span id="cb496-5"><a href="chapter5.html#cb496-5"></a><span class="kw">plot</span>(Close <span class="op">~</span><span class="st"> </span>Condition2, <span class="dt">data=</span>dd)</span></code></pre></div>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="chapter5.html#cb497-1"></a>table1 &lt;-<span class="st"> </span><span class="kw">tally</span>(Close <span class="op">~</span><span class="st"> </span>Condition2, <span class="dt">data=</span>dd)</span>
-<span id="cb497-2"><a href="chapter5.html#cb497-2"></a></span>
-<span id="cb497-3"><a href="chapter5.html#cb497-3"></a><span class="kw">chisq.test</span>(table1)</span></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="chapter5.html#cb496-1" aria-hidden="true"></a>dd &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/Walker2014_mod.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="chapter5.html#cb497-1" aria-hidden="true"></a>dd<span class="op">$</span>Condition &lt;-<span class="st"> </span><span class="kw">factor</span>(dd<span class="op">$</span>Condition)</span>
+<span id="cb497-2"><a href="chapter5.html#cb497-2" aria-hidden="true"></a>dd<span class="op">$</span>Condition2 &lt;-<span class="st"> </span><span class="kw">with</span>(dd, <span class="kw">reorder</span>(Condition, Distance, mean))</span>
+<span id="cb497-3"><a href="chapter5.html#cb497-3" aria-hidden="true"></a>dd<span class="op">$</span>Close &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">ifelse</span>(dd<span class="op">$</span>Distance<span class="op">&lt;=</span><span class="dv">100</span>, <span class="st">&quot;close&quot;</span>, <span class="st">&quot;notclose&quot;</span>))</span>
+<span id="cb497-4"><a href="chapter5.html#cb497-4" aria-hidden="true"></a></span>
+<span id="cb497-5"><a href="chapter5.html#cb497-5" aria-hidden="true"></a><span class="kw">plot</span>(Close <span class="op">~</span><span class="st"> </span>Condition2, <span class="dt">data=</span>dd)</span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="chapter5.html#cb498-1" aria-hidden="true"></a>table1 &lt;-<span class="st"> </span><span class="kw">tally</span>(Close <span class="op">~</span><span class="st"> </span>Condition2, <span class="dt">data=</span>dd)</span>
+<span id="cb498-2"><a href="chapter5.html#cb498-2" aria-hidden="true"></a></span>
+<span id="cb498-3"><a href="chapter5.html#cb498-3" aria-hidden="true"></a><span class="kw">chisq.test</span>(table1)</span></code></pre></div>
 <pre><code>## 
-##  Pearson&#39;s Chi-squared test
+## 	Pearson&#39;s Chi-squared test
 ## 
 ## data:  table1
 ## X-squared = 30.861, df = 6, p-value = 2.695e-05</code></pre>
@@ -2535,18 +2550,41 @@ Figure 5.28: Stacked bar chart of the close calls/not (overtakes less than or eq
 <p>Linzer, Drew, and Jeffrey Lewis. 2011. “PoLCA: An R Package for Polytomous Variable Latent Class Analysis.” <em>Journal of Statistical Software</em> 42 (10): 1–29.</p>
 </div>
 <div id="ref-R-survey">
-<p>Lumley, Thomas. 2019. <em>Survey: Analysis of Complex Survey Samples</em>. <a href="https://CRAN.R-project.org/package=survey">https://CRAN.R-project.org/package=survey</a>.</p>
+<p>Lumley, Thomas. 2020. <em>Survey: Analysis of Complex Survey Samples</em>. <a href="https://CRAN.R-project.org/package=survey">https://CRAN.R-project.org/package=survey</a>.</p>
 </div>
 <div id="ref-R-vcd">
-<p>Meyer, David, Achim Zeileis, and Kurt Hornik. 2017. <em>Vcd: Visualizing Categorical Data</em>. <a href="https://CRAN.R-project.org/package=vcd">https://CRAN.R-project.org/package=vcd</a>.</p>
+<p>Meyer, David, Achim Zeileis, and Kurt Hornik. 2020. <em>Vcd: Visualizing Categorical Data</em>. <a href="https://CRAN.R-project.org/package=vcd">https://CRAN.R-project.org/package=vcd</a>.</p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="86">
-<li id="fn86"><p>While randomization is typically useful in trying to “equalize” the composition of groups, a possible randomization of subjects to the groups is to put all the males into the treatment group. Sometimes we add additional constraints to randomization of subjects to treatments to guarantee that we don’t get stuck with an unusual and highly unlikely assignment like that. It is important at least to check the demographics of different treatment groups to see if anything odd occurred.<a href="chapter5.html#fnref86" class="footnote-back">↩︎</a></p></li>
-<li id="fn89"><p>Note that in smaller data sets to get results as discussed here, use the <code>correct=F</code> option. If you get output that contains “<code>...with Yate's continuity correction</code>”, a slightly modified version of this test is being used.<a href="chapter5.html#fnref89" class="footnote-back">↩︎</a></p></li>
-<li id="fn91"><p>Doctors are faced with this exact dilemma – with little more training than you have now in statistics, they read a result like this in a paper and used to be encouraged to focus on the p-value to decide about treatment recommendations. Would you recommend the treatment here just based on the small p-value? Would having Figure <a href="chapter5.html#fig:Figure5-11">5.11</a> to go with the small p-value help you make a more educated decision? Now the recommendations are starting to move past just focusing on the p-values and thinking about the practical importance and size of the differences. The potential benefits of a treatment need to be balanced with risks of complications too, but that takes us back into discussing having multiple analyses in the same study (treatment improvement, complications/not, etc.).<a href="chapter5.html#fnref91" class="footnote-back">↩︎</a></p></li>
+<ol start="88">
+<li id="fn88"><p>Install the <code>tabplot</code> package from the authors’ github repository using <code>library(remotes);  remotes::install_github("mtennekes/tabplot")</code> if you haven’t already done so.<a href="chapter5.html#fnref88" class="footnote-back">↩︎</a></p></li>
+<li id="fn89"><p>While randomization is typically useful in trying to “equalize” the composition of groups, a possible randomization of subjects to the groups is to put all the males into the treatment group. Sometimes we add additional constraints to randomization of subjects to treatments to guarantee that we don’t get stuck with an unusual and highly unlikely assignment like that. It is important at least to check the demographics of different treatment groups to see if anything odd occurred.<a href="chapter5.html#fnref89" class="footnote-back">↩︎</a></p></li>
+<li id="fn90"><p>The vertical line, “<code>|</code>”, in <code>~ y|x</code>
+is available on most keyboards on the same key as “<code>\</code>”. It is the mathematical
+symbol that means “conditional on” whatever follows.<a href="chapter5.html#fnref90" class="footnote-back">↩︎</a></p></li>
+<li id="fn91"><p>Technically this is a <code>spineplot</code> as it generalizes the stacked bar chart based on the proportion of the total in each vertical bar.<a href="chapter5.html#fnref91" class="footnote-back">↩︎</a></p></li>
+<li id="fn92"><p>Standardizing involves dividing by the standard deviation
+of a quantity so it has a standard deviation 1 regardless of its original
+variability and that is what is happening here even though it doesn’t
+look like the standardization you are used to with continuous variables.<a href="chapter5.html#fnref92" class="footnote-back">↩︎</a></p></li>
+<li id="fn93"><p>Note that in smaller data sets to get results as discussed here, use the <code>correct=F</code> option. If you get output that contains “<code>...with Yate's continuity correction</code>”, a slightly modified version of this test is being used.<a href="chapter5.html#fnref93" class="footnote-back">↩︎</a></p></li>
+<li id="fn94"><p>Here it allows us to relax
+a requirement that all the expected cell counts are larger than 5 for the
+parametric test (Section <a href="chapter5.html#section5-6">5.6</a>).<a href="chapter5.html#fnref94" class="footnote-back">↩︎</a></p></li>
+<li id="fn95"><p>Doctors are faced with this exact dilemma – with little more training than you have now in statistics, they read a result like this in a paper and used to be encouraged to focus on the p-value to decide about treatment recommendations. Would you recommend the treatment here just based on the small p-value? Would having Figure <a href="chapter5.html#fig:Figure5-11">5.11</a> to go with the small p-value help you make a more educated decision? Recommendations for users of statistical results are starting to move past just focusing on the p-values and thinking about the practical importance and size of the differences. The potential benefits of a treatment need to be balanced with risks of complications too, but that takes us back into discussing having multiple analyses in the same study (treatment improvement, complications/not, etc.).<a href="chapter5.html#fnref95" class="footnote-back">↩︎</a></p></li>
+<li id="fn96"><p>Independence tests can’t
+be causal by their construction. Homogeneity tests could be causal or just
+associational, depending on how the subjects ended up in the groups.<a href="chapter5.html#fnref96" class="footnote-back">↩︎</a></p></li>
+<li id="fn97"><p>A stratified random sample
+involves taking a simple random sample from each group or strata of the
+population.
+
+It is useful to make sure that each group is represented at a
+chosen level (for example the sample proportion of the total
+size). If a simple random sample of all schools had been taken, it is possible
+that a level could have no schools selected.<a href="chapter5.html#fnref97" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
