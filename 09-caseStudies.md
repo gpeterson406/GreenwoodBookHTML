@@ -29,7 +29,7 @@ response variables.
 (ref:fig9-1) Schematic of methods covered. 
 
 <div class="figure" style="text-align: center">
-<img src="chapter9_files/image002.png" alt="(ref:fig9-1)" width="100%" />
+<img src="chapter9_files/decisiontree.jpg" alt="(ref:fig9-1)" width="75%" />
 <p class="caption">(\#fig:Figure9-1)(ref:fig9-1)</p>
 </div>
 
@@ -44,7 +44,7 @@ of the different versions of the general linear model that we considered.
 \indent If we start with the One-Way ANOVA, the referenced-coded model was written out
 as:
 
-$$y_{ij}=\alpha + \tau_j + \varepsilon_{ij}.$$
+$$y_{ij} = \alpha + \tau_j + \varepsilon_{ij}.$$
 
 We didn't want to introduce indicator variables at that early stage of the 
 material, but we can now write out the same model using our indicator variable
@@ -81,11 +81,11 @@ specific One-Way ANOVA (Chapter \@ref(chapter3)) notation as follows:
     
     $$\begin{array}{rl}
     &\beta_0 + \beta_1I_{\text{Level }2,i} + \beta_2I_{\text{Level }3,i} + \cdots + \beta_JI_{\text{Level }J,i} \\
-    &=  \beta_0 + \beta_{j-1}\cdot1\\ 
-    &= \beta_0 + \beta_{j-1}
+    & =  \beta_0 + \beta_{j-1}\cdot1\\ 
+    & = \beta_0 + \beta_{j-1}
     \end{array}$$
         
-    * So with intercepts being equal, $\beta_{j-1}=\tau_j$.
+    * So with intercepts being equal, $\beta_{j-1} = \tau_j$.
 
 The ANOVA reference-coding notation was used to focus on the coefficients that
 were "turned on" and their interpretation without getting bogged down in the
@@ -102,7 +102,7 @@ with the regression notation from the MLR model with an interaction:
 \index{model!MLR!interaction}
 
 $$\begin{array}{rc}
-y_i=&\beta_0 + \beta_1x_i +\beta_2I_{\text{Level }2,i}+\beta_3I_{\text{Level }3,i}
+y_i = &\beta_0 + \beta_1x_i +\beta_2I_{\text{Level }2,i}+\beta_3I_{\text{Level }3,i}
 +\cdots+\beta_JI_{\text{Level }J,i} +\beta_{J+1}I_{\text{Level }2,i}\:x_i \\
 &+\beta_{J+2}I_{\text{Level }3,i}\:x_i
 +\cdots+\beta_{2J-1}I_{\text{Level }J,i}\:x_i +\varepsilon_i
@@ -136,16 +136,11 @@ from earlier in the book and to see some hints about possible extensions of the 
 \sectionmark{The impact of simulated chronic nitrogen deposition}
 
 
-```r
-gdn <- read_csv("http://www.math.montana.edu/courses/s217/documents/gundalebachnordin_2.csv")
-```
-
-
 
 (ref:fig9-2) Pirate-plot of biomass responses by treatment and species. 
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-2-1.png" alt="(ref:fig9-2)" width="576" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-2-1.png" alt="(ref:fig9-2)" width="75%" />
 <p class="caption">(\#fig:Figure9-2)(ref:fig9-2)</p>
 </div>
 
@@ -183,14 +178,24 @@ combinations of groups and some differences in variability in the different
 groups, especially with much more variability in the *control* treatment level
 and more variability in the *PS* responses than for the *HS* responses. 
 
+\small
+
 
 ```r
 gdn <- read_csv("http://www.math.montana.edu/courses/s217/documents/gundalebachnordin_2.csv")
-gdn$Species <- factor(gdn$Species)
-gdn$Treatment <- factor(gdn$Treatment)
+```
+
+\normalsize
+
+
+```r
+gdn <- gdn %>% mutate(Species = factor(Species),
+                      Treatment = factor(Treatment)
+                      )
 library(yarrr)
-pirateplot(Massperha~Species+Treatment, data=gdn, inf.method="ci", inf.disp="line", 
-           theme=2, ylab="Biomass",point.o=1, pal="southpark")
+pirateplot(Massperha ~ Species + Treatment, data = gdn, inf.method = "ci", 
+           inf.disp = "line", theme = 2, ylab = "Biomass", point.o = 1, 
+           pal = "southpark")
 ```
 
 \indent The Two-WAY ANOVA model that contains a *species* by *treatment* interaction is
@@ -206,29 +211,30 @@ quite different based on this plot as well.
 
 (ref:fig9-3) Interaction plot of biomass responses by treatment and species. 
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-3-1.png" alt="(ref:fig9-3)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-3-1.png" alt="(ref:fig9-3)" width="75%" />
 <p class="caption">(\#fig:Figure9-3)(ref:fig9-3)</p>
 </div>
 
-\newpage
+<!-- \newpage -->
 
 
 ```r
-source("http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v2.R")
-intplotarray(Massperha~Species*Treatment, data=gdn, col=viridis(4)[1:3],
-             lwd=2, cex.main=1)
+library(catstats) #Or directly using:
+#source("http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v3.R")
+intplotarray(Massperha ~ Species * Treatment, data = gdn, col = viridis(4)[1:3],
+             lwd = 2, cex.main = 1)
 ```
 
-Based on the initial plots, we are going to be concerned about the equal
-variance assumption initially. We can fit the interaction model and explore
+Based on the initial plots, we are going to be most concerned about the equal
+variance assumption. We can fit the interaction model and explore
 the diagnostic plots to verify that we have a problem. 
 
 (ref:fig9-4) Diagnostic plots of treatment by species interaction model for Biomass.
 
 
 ```r
-m1 <- lm(Massperha~Species*Treatment, data=gdn)
+m1 <- lm(Massperha ~ Species * Treatment, data = gdn)
 summary(m1)
 ```
 
@@ -256,12 +262,12 @@ summary(m1)
 ```
 
 ```r
-par(mfrow=c(2,2), oma=c(0,0,2,0))
-plot(m1, sub.caption="Initial Massperha 2-WAY model", pch=16)
+par(mfrow = c(2,2), oma = c(0,0,2,0))
+plot(m1, sub.caption = "Initial Massperha 2-WAY model", pch = 16)
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-4-1.png" alt="(ref:fig9-4)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-4-1.png" alt="(ref:fig9-4)" width="75%" />
 <p class="caption">(\#fig:Figure9-4)(ref:fig9-4)</p>
 </div>
 
@@ -288,6 +294,8 @@ models provide similar results here and include the *treatment* by *species*
 interaction we are going to explore, they just add to this basic model to
 account for these other issues. 
 
+\newpage
+
 \indent Remember that **before using a *log*-transformation, you always must check
 that the responses are strictly greater than 0**:
 
@@ -308,15 +316,17 @@ the response variable (*Biomass*) and repeat the previous plots:
 
 
 ```r
-gdn$logMassperha <- log(gdn$Massperha)
-par(mfrow=c(2,1))
-pirateplot(logMassperha~Species+Treatment, data=gdn, inf.method="ci", inf.disp="line", 
-           theme=2, ylab="Biomass",point.o=1, pal="southpark", main="(a)")
-intplot(logMassperha~Species*Treatment, data=gdn, col=viridis(4)[1:3], lwd=2, main="(b)")
+gdn <- gdn %>% mutate(logMassperha = log(Massperha))
+par(mfrow = c(2,1))
+pirateplot(logMassperha ~ Species + Treatment, data = gdn, inf.method = "ci", 
+           inf.disp = "line", theme = 2, ylab = "log-Biomass", point.o = 1,
+           pal = "southpark", main = "(a)")
+intplot(logMassperha ~ Species * Treatment, data = gdn, col = viridis(4)[1:3], 
+        lwd = 2, main = "(b)")
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-5-1.png" alt="(ref:fig9-5)" width="576" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-5-1.png" alt="(ref:fig9-5)" width="75%" />
 <p class="caption">(\#fig:Figure9-5)(ref:fig9-5)</p>
 </div>
 
@@ -336,7 +346,7 @@ variability in the right tail and so maybe a little bit of a left skew. This
 is only a minor issue and fixes the other big issue (clear non-constant 
 variance), so this model is at least closer to giving us trustworthy 
 inferences than the original model. The model presents moderate evidence against the null hypothesis of no 
-*Species* by *Treatment* interaction on the log-biomass ($F(2,30)=4.2$, p-value$=0.026$). This
+*Species* by *Treatment* interaction on the log-biomass ($F(2,30) = 4.2$, p-value $= 0.026$). This
 suggests that the effects on the log-biomass of the treatments differ between
 the two species. The mean log-biomass is lower for *HS* than *PS* with the impacts of increased nitrogen causing *HS* mean log-biomass to decrease more rapidly than for *PS*. In other words, increasing
 nitrogen has more of an impact on the resulting log-biomass for *HS* than for 
@@ -344,11 +354,13 @@ nitrogen has more of an impact on the resulting log-biomass for *HS* than for
 conditions for both species making nitrogen appear to inhibit growth of these
 species. 
 
+<!-- \newpage -->
+
 (ref:fig9-6) Diagnostic plots of treatment by species interaction model for log-Biomass. 
 
 
 ```r
-m2 <- lm(logMassperha~Species*Treatment, data=gdn)
+m2 <- lm(logMassperha ~ Species * Treatment, data = gdn)
 summary(m2)
 ```
 
@@ -392,12 +404,12 @@ Anova(m2)
 ```
 
 ```r
-par(mfrow=c(2,2), oma=c(0,0,2,0))
-plot(m2, sub.caption="log-Massperha 2-WAY model", pch=16)
+par(mfrow = c(2,2), oma = c(0,0,2,0))
+plot(m2, sub.caption = "log-Massperha 2-WAY model", pch = 16)
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-6-1.png" alt="(ref:fig9-6)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-6-1.png" alt="(ref:fig9-6)" width="75%" />
 <p class="caption">(\#fig:Figure9-6)(ref:fig9-6)</p>
 </div>
 
@@ -432,11 +444,11 @@ important interactions.
 
 ```r
 library(effects)
-plot(allEffects(m2), multiline=T, lty=c(1,2), ci.style="bars", grid=T)
+plot(allEffects(m2), multiline = T, lty = c(1,2), ci.style = "bars", grid = T)
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-7-1.png" alt="(ref:fig9-7)" width="576" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-7-1.png" alt="(ref:fig9-7)" width="75%" />
 <p class="caption">(\#fig:Figure9-7)(ref:fig9-7)</p>
 </div>
 
@@ -453,7 +465,7 @@ groups corresponding to all combinations of *Species* (*HS*, *PS*) and
 treatment levels (*Control*, *N12.5*, and *N50*) provided in the new 
 variable ``SpTrt`` by the ``interaction`` function with new levels of 
 *HS.Control*, *PS.Control*, *HS.N12.5*, *PS.N12.5*, *HS.N50*, and *PS.N50*. \index{\texttt{interaction()}} The
-One-Way ANOVA $F$-test ($F(5,30)=23.96$, p-value $<0.0001$) suggests that there
+One-Way ANOVA $F$-test ($F(5,30) = 23.96$, p-value $< 0.0001$) suggests that there
 is strong evidence against the null hypothesis of no difference in the true mean log-biomass among the six
 treatment/species combinations and so we would conclude that at least one differs from the others. Note that the One-Way ANOVA table contains the test for
 at least one of those means being different from the others; the interaction
@@ -461,12 +473,12 @@ test above was testing a more refined hypothesis -- does the effect of
 treatment differ between the two species? As in any situation with a small p-value from the overall
 One-Way ANOVA test, the pair-wise comparisons should be of interest. 
 
-\newpage
+<!-- \newpage -->
 
 
 ```r
 # Create new variable:
-gdn$SpTrt <- interaction(gdn$Species, gdn$Treatment)
+gdn <- gdn %>% mutate(SpTrt = interaction(Species, Treatment))
 levels(gdn$SpTrt)
 ```
 
@@ -476,7 +488,7 @@ levels(gdn$SpTrt)
 ```
 
 ```r
-newm2 <- lm(logMassperha~SpTrt, data=gdn)
+newm2 <- lm(logMassperha ~ SpTrt, data = gdn)
 Anova(newm2)
 ```
 
@@ -489,9 +501,12 @@ Anova(newm2)
 ## Residuals 2.4208 30
 ```
 
+\vspace{22pt}
+
+
 ```r
 library(multcomp)
-PWnewm2 <- glht(newm2, linfct=mcp(SpTrt="Tukey"))
+PWnewm2 <- glht(newm2, linfct = mcp(SpTrt = "Tukey"))
 confint(PWnewm2)
 ```
 
@@ -512,18 +527,18 @@ confint(PWnewm2)
 ##                              Estimate lwr      upr     
 ## PS.Control - HS.Control == 0  0.39210 -0.10682  0.89102
 ## HS.N12.5 - HS.Control == 0   -0.42277 -0.92169  0.07615
-## PS.N12.5 - HS.Control == 0    0.21064 -0.28828  0.70957
+## PS.N12.5 - HS.Control == 0    0.21064 -0.28827  0.70956
 ## HS.N50 - HS.Control == 0     -1.19994 -1.69886 -0.70102
 ## PS.N50 - HS.Control == 0     -0.14620 -0.64512  0.35272
-## HS.N12.5 - PS.Control == 0   -0.81487 -1.31379 -0.31595
-## PS.N12.5 - PS.Control == 0   -0.18146 -0.68038  0.31746
+## HS.N12.5 - PS.Control == 0   -0.81487 -1.31379 -0.31596
+## PS.N12.5 - PS.Control == 0   -0.18146 -0.68037  0.31746
 ## HS.N50 - PS.Control == 0     -1.59204 -2.09096 -1.09312
 ## PS.N50 - PS.Control == 0     -0.53830 -1.03722 -0.03938
 ## PS.N12.5 - HS.N12.5 == 0      0.63342  0.13450  1.13234
-## HS.N50 - HS.N12.5 == 0       -0.77717 -1.27609 -0.27824
+## HS.N50 - HS.N12.5 == 0       -0.77717 -1.27608 -0.27825
 ## PS.N50 - HS.N12.5 == 0        0.27657 -0.22235  0.77549
 ## HS.N50 - PS.N12.5 == 0       -1.41058 -1.90950 -0.91166
-## PS.N50 - PS.N12.5 == 0       -0.35685 -0.85577  0.14208
+## PS.N50 - PS.N12.5 == 0       -0.35685 -0.85576  0.14207
 ## PS.N50 - HS.N50 == 0          1.05374  0.55482  1.55266
 ```
 
@@ -545,18 +560,18 @@ And we can add the CLD to an interaction plot to create Figure
 presentation of pair-wise comparisons. Sometimes researchers add bars or stars
 to provide the same information about pairs that are or are not detectably
 different. The following code creates the plot of these results using our 
-``intplot`` function and the ``cld=T`` option. \index{\texttt{intplot()}}
+``intplot`` function and the ``cld = T`` option. \index{\texttt{intplot()}}
 
 (ref:fig9-8) Interaction plot for log-biomass with CLD from Tukey's HSD for all pairwise comparisons.
 
 
 ```r
-intplot(logMassperha~Species*Treatment, cld=T, cldshift=0.15, data=gdn, lwd=2, 
-        main="Interaction with CLD from Tukey's HSD on One-Way ANOVA")
+intplot(logMassperha ~ Species * Treatment, cld = T, cldshift = 0.15, data = gdn, lwd = 2, 
+        main = "Interaction with CLD from Tukey's HSD on One-Way ANOVA")
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-8-1.png" alt="(ref:fig9-8)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-8-1.png" alt="(ref:fig9-8)" width="75%" />
 <p class="caption">(\#fig:Figure9-8)(ref:fig9-8)</p>
 </div>
 
@@ -573,6 +588,8 @@ impact on the two species, remembering that in the control treatments, the
 results for the two species were not detectably different. Further explorations
 of the sizes of the differences that can be extracted from selected confidence
 intervals in the Tukey's HSD results printed above. Because these results are for the log-scale responses, we could exponentiate coefficients for groups that are deviations from the baseline category and interpret those as multiplicative changes in the median relative to the baseline group, but at the end of this amount of material, I thought that might stop you from reading on any further...
+
+<!-- \newpage -->
 
 \sectionmark{Ants learn to rely on more informative attributes}
 
@@ -599,10 +616,14 @@ Chi-square testing framework. The random assignment of colonies (the subjects
 here) to treatment levels tells us that the ***Chi-square Homogeneity test***
 is appropriate here and that we can make causal statements about the effects of the *Treatment* groups. 
 
+\small
+
 
 ```r
 sasakipratt <- read_csv("http://www.math.montana.edu/courses/s217/documents/sasakipratt.csv")
 ```
+
+\normalsize
 
 
 
@@ -610,24 +631,25 @@ sasakipratt <- read_csv("http://www.math.montana.edu/courses/s217/documents/sasa
 
 
 ```r
-sasakipratt$group <- factor(sasakipratt$group)
-levels(sasakipratt$group) <- c("Light","Entrance")
-sasakipratt$after <- factor(sasakipratt$after)
-levels(sasakipratt$after) <- c("SmallBright","LargeDark")
-sasakipratt$before <- factor(sasakipratt$before)
-levels(sasakipratt$before) <- c("SmallBright","LargeDark")
-plot(after~group, data=sasakipratt)
+sasakipratt <- sasakipratt %>% mutate(group = factor(group),
+                                      after = factor(after),
+                                      before = factor(before)
+                                      )
+levels(sasakipratt$group) <- c("Light", "Entrance")
+levels(sasakipratt$after) <- c("SmallBright", "LargeDark")
+levels(sasakipratt$before) <- c("SmallBright", "LargeDark")
+plot(after ~ group, data = sasakipratt, col = cividis(2))
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-9-1.png" alt="(ref:fig9-9)" width="576" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-9-1.png" alt="(ref:fig9-9)" width="75%" />
 <p class="caption">(\#fig:Figure9-9)(ref:fig9-9)</p>
 </div>
 
 
 ```r
 library(mosaic)
-tally(~group+after, data=sasakipratt)
+tally(~ group + after, data = sasakipratt)
 ```
 
 ```
@@ -638,7 +660,7 @@ tally(~group+after, data=sasakipratt)
 ```
 
 ```r
-table1 <- tally(~group+after, data=sasakipratt, margins=F)
+table1 <- tally(~ group + after, data = sasakipratt, margins = F)
 ```
 
 The null hypothesis of interest here is that there is no difference in the
@@ -649,13 +671,13 @@ distributions of *After* between the *groups* in the population.
 
 \indent To use the Chi-square distribution to find a p-value for the $X^2$ statistic,
 we need all the expected cell counts to be larger than 5, so we should check 
-that. Note that in the following, the ``correct=F`` option is used to keep the
+that. Note that in the following, the ``correct = F`` option is used to keep the
 function from slightly modifying the statistic used that occurs when overall 
 sample sizes are small. 
 
 
 ```r
-chisq.test(table1, correct=F)$expected
+chisq.test(table1, correct = F)$expected
 ```
 
 ```
@@ -670,7 +692,7 @@ results of the parametric test:
 
 
 ```r
-chisq.test(table1, correct=F)
+chisq.test(table1, correct = F)
 ```
 
 ```
@@ -682,7 +704,7 @@ chisq.test(table1, correct=F)
 ```
 
 The $X^2$ statistic is 5.97 which, if our assumptions hold, should 
-approximately follow a Chi-square distribution with $(R-1)*(C-1)=1$ degrees of
+approximately follow a Chi-square distribution with $(R-1)*(C-1) = 1$ degrees of
 freedom under the null hypothesis. The p-value is 0.015, suggesting that there
 is moderate to strong evidence against the null hypothesis and we can conclude that there is a
 difference in the distribution of the responses between the two treated groups
@@ -696,7 +718,7 @@ some situations, although here they are similar for all the cells:
 
 
 ```r
-chisq.test(table1, correct=F)$residuals
+chisq.test(table1, correct = F)$residuals
 ```
 
 ```
@@ -729,6 +751,8 @@ found with our simpler analysis. Logistic regression models are a special case
 of what are called *generalized linear models* and are a topic for the next level
 of statistics if you continue exploring.
 
+<!-- \newpage -->
+
 \sectionmark{understanding vertebrate diversification in deep time}
 
 ## Multi-variate models are essential for understanding vertebrate diversification in deep time	{#section9-4}
@@ -736,7 +760,7 @@ of statistics if you continue exploring.
 \sectionmark{understanding vertebrate diversification in deep time}
 
 @Benson2012 published a paleontology study that considered
-modeling the diversity of *Sauropodomorphs* across $n=26$ "stage-level" time
+modeling the diversity of *Sauropodomorphs* across $n = 26$ "stage-level" time
 bins. Diversity is measured by the count of the number of different species
 that have been found in a particular level of fossils. Specifically, the counts
 in the *Sauropodomorphs* group were obtained for stages between *Carnian* and
@@ -760,7 +784,7 @@ of sampling efforts and allow them to perform inferences for whether the
 diversity was different between the *Triassic/Jurassic* (grouped together) and
 considered models that included two different versions of sampling effort
 variables and one for the comparisons of periods (an indicator variable 
-*TJK*=0 if the observation is in *Triassic* or *Jurassic* or 1 if in 
+*TJK* = 0 if the observation is in *Triassic* or *Jurassic* or 1 if in 
 *Cretaceous*), which are more explicitly coded below. \index{indicator} They *log-e* transformed all their quantitative variables
 because the untransformed variables created diagnostic issues including
 influential points. \index{influential} They explored a model just based on the *DBC*
@@ -809,46 +833,48 @@ bm <- read_csv("http://www.math.montana.edu/courses/s217/documents/bensonmanion.
 
 
 ```r
-bm2 <- bm[,-c(9:10)]
-bm$logSpecies <- log(bm$Species)
-bm$logDBCs <- log(bm$DBCs)
-bm$logDBFs <- log(bm$DBFs)
-bm$TJK <- factor(bm$TJK)
+bm <- bm %>% mutate(logSpecies = log(Species),
+                    logDBCs = log(DBCs),
+                    logDBFs = log(DBFs),
+                    TJK = factor(TJK)
+                    )
 levels(bm$TJK) <- c("Trias_Juras","Cretaceous")
-library(car); library(viridis)
-scatterplot(logSpecies~logDBCs|TJK, data=bm, smooth=T,
-            main="Scatterplot of log-diversity vs log-DBCs by period",
-            legend=list(coords="topleft",columns=1), lwd=2, col=viridis(7)[c(5,1)])
+bm %>% ggplot(mapping = aes(x = logDBCs, y = logSpecies, color = TJK, shape = TJK)) +
+  geom_smooth(method = "lm") +
+  geom_smooth(se = F, lty = 2) +
+  geom_point(size = 2) +
+  theme_bw() +
+  scale_color_colorblind()
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-10-1.png" alt="(ref:fig9-10)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-10-1.png" alt="(ref:fig9-10)" width="75%" />
 <p class="caption">(\#fig:Figure9-10)(ref:fig9-10)</p>
 </div>
 
-\newpage
+<!-- \newpage -->
 
 \indent The following results will allow us to explore models similar to theirs. One
 "full" model they considered is:
 
-$$\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBC})}_i 
+$$\log{(\text{count})}_i = \beta_0 + \beta_1\cdot\log{(\text{DBC})}_i 
 + \beta_2I_{\text{TJK},i} + \varepsilon_i$$
 
 which was compared to 
 
-$$\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBF})}_i 
+$$\log{(\text{count})}_i = \beta_0 + \beta_1\cdot\log{(\text{DBF})}_i 
 + \beta_2I_{\text{TJK},i} + \varepsilon_i$$
 
 as well as the simpler models that each suggests:
 
 $$\begin{array}{rl}
-\log{(\text{count})}_i &=\beta_0 + \beta_1\cdot\log{(\text{DBC})}_i 
+\log{(\text{count})}_i & = \beta_0 + \beta_1\cdot\log{(\text{DBC})}_i 
 + \varepsilon_i, \\
-\log{(\text{count})}_i &=\beta_0 + \beta_1\cdot\log{(\text{DBF})}_i
+\log{(\text{count})}_i & = \beta_0 + \beta_1\cdot\log{(\text{DBF})}_i
 + \varepsilon_i, \\
-\log{(\text{count})}_i &=\beta_0 + \beta_2I_{\text{TJK},i} 
+\log{(\text{count})}_i & = \beta_0 + \beta_2I_{\text{TJK},i} 
 + \varepsilon_i, \text{ and} \\
-\log{(\text{count})}_i &=\beta_0 + \varepsilon_i.  \\
+\log{(\text{count})}_i & = \beta_0 + \varepsilon_i.\\
 \end{array}$$
 
 Both versions of the models (based on *DBF* or *DBC*) start with an MLR model
@@ -860,11 +886,11 @@ model selection results from the first full model using:
 
 
 ```r
-bd1 <- lm(logSpecies~logDBCs+TJK, data=bm)
+bd1 <- lm(logSpecies ~ logDBCs + TJK, data = bm)
 library(MuMIn)
 options(na.action = "na.fail")
-dredge(bd1, rank="AIC", 
-       extra=c("R^2", adjRsq=function(x) summary(x)$adj.r.squared))
+dredge(bd1, rank = "AIC", 
+       extra = c("R^2", adjRsq = function(x) summary(x)$adj.r.squared))
 ```
 
 ```
@@ -883,9 +909,9 @@ And from the second model:
 
 
 ```r
-bd2 <- lm(logSpecies~logDBFs+TJK, data=bm)
-dredge(bd2, rank="AIC",
-       extra=c("R^2", adjRsq=function(x) summary(x)$adj.r.squared))
+bd2 <- lm(logSpecies ~ logDBFs + TJK, data = bm)
+dredge(bd2, rank = "AIC",
+       extra = c("R^2", adjRsq = function(x) summary(x)$adj.r.squared))
 ```
 
 ```
@@ -903,8 +929,8 @@ dredge(bd2, rank="AIC",
 
 
 The top AIC model is 
-$\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBC})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i$ 
-with an AIC of 33.3. The next best ranked model on AICs was $\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBF})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i$ 
+$\log{(\text{count})}_i = \beta_0 + \beta_1\cdot\log{(\text{DBC})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i$ 
+with an AIC of 33.3. The next best ranked model on AICs was $\log{(\text{count})}_i = \beta_0 + \beta_1\cdot\log{(\text{DBF})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i$ 
 with an AIC of 36.8, so 3.5 AIC units worse than the top model and so there is clear evidence to support the ``DBC+TJK`` model over the best version with ``DBF`` and all others. We put these
 two runs of results together in Table \@ref(tab:Table9-1), re-computing all the
 AICs based on the top model from the first full model considered to make it easier to see this. 
@@ -912,47 +938,49 @@ AICs based on the top model from the first full model considered to make it easi
 (ref:tab9-1) Model comparison table.
 
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Model**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     **R^2^**   **adj R^2^**&nbsp;   **df**   **logLik**&nbsp;   **AIC**   $\BD$**AIC**
------------------------------------------------------------------------------------------------------------ ---------- -------------------- -------- ------------------ --------- --------------
-$\log(\text{count})_i=\beta_0                                                                                   0.5809               0.5444        4            -12.652      33.3              0
-+                                                                                                                                                                                               
-\beta_1\cdot\log(\text{DBC})_i                                                                                                                                                                  
-+ \beta_2I_{\text{TJK},i} +                                                                                                                                                                     
-\varepsilon_i$                                                                                                                                                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Model**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     **R^2^**   **adj R^2^**&nbsp;   **df**   **logLik**&nbsp;   **AIC**   Delta AIC
+----------------------------------------------------------------------------------------------------------- ---------- -------------------- -------- ------------------ --------- -----------
+$\log(\text{count})_i =                                                                                         0.5809               0.5444        4            -12.652      33.3           0
+\beta_0 +                                                                                                                                                                                    
+\beta_1\cdot\log(\text{DBC})_i                                                                                                                                                               
++ \beta_2I_{\text{TJK},i} +                                                                                                                                                                  
+\varepsilon_i$                                                                                                                                                                               
 
-$\log(\text{count})_i=\beta_0                                                                                   0.5199               0.4781        4            -14.418      36.8            3.5
-+                                                                                                                                                                                               
-\beta_1\cdot\log(\text{DBF})_i                                                                                                                                                                  
-+ \beta_2I_{\text{TJK},i} +                                                                                                                                                                     
-\varepsilon_i$                                                                                                                                                                                  
+$\log(\text{count})_i =                                                                                         0.5199               0.4781        4            -14.418      36.8         3.5
+\beta_0 +                                                                                                                                                                                    
+\beta_1\cdot\log(\text{DBF})_i                                                                                                                                                               
++ \beta_2I_{\text{TJK},i} +                                                                                                                                                                  
+\varepsilon_i$                                                                                                                                                                               
 
-$\log(\text{count})_i=\beta_0                                                                                   0.3691               0.3428        3            -17.969      41.9            8.6
-+                                                                                                                                                                                               
-\beta_1\cdot\log(\text{DBC})_i                                                                                                                                                                  
-+ \varepsilon_i$                                                                                                                                                                                
+$\log(\text{count})_i =                                                                                         0.3691               0.3428        3            -17.969      41.9         8.6
+\beta_0 +                                                                                                                                                                                    
+\beta_1\cdot\log(\text{DBC})_i                                                                                                                                                               
++ \varepsilon_i$                                                                                                                                                                             
 
-$\log(\text{count})_i=\beta_0                                                                                   0.2098               0.1769        3            -20.895      47.8           14.5
-+                                                                                                                                                                                               
-\beta_1\cdot\log(\text{DBF})_i                                                                                                                                                                  
-+ \varepsilon_i$                                                                                                                                                                                
+$\log(\text{count})_i =                                                                                         0.2098               0.1769        3            -20.895      47.8        14.5
+\beta_0 +                                                                                                                                                                                    
+\beta_1\cdot\log(\text{DBF})_i                                                                                                                                                               
++ \varepsilon_i$                                                                                                                                                                             
 
-$\log(\text{count})_i=\beta_0                                                                                        0                    0        2            -23.956      51.9           18.6
-+ \varepsilon_i$                                                                                                                                                                                
+$\log(\text{count})_i =                                                                                              0                    0        2            -23.956      51.9        18.6
+\beta_0 + \varepsilon_i$                                                                                                                                                                     
 
-$\log(\text{count})_i=\beta_0                                                                                   0.0048              -0.0366        3            -23.893      53.8           20.5
-+ \beta_2I_{\text{TJK},i} +                                                                                                                                                                     
-\varepsilon_i$                                                                                                                                                                                  
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+$\log(\text{count})_i =                                                                                         0.0048              -0.0366        3            -23.893      53.8        20.5
+\beta_0 +                                                                                                                                                                                    
+\beta_2I_{\text{TJK},i} +                                                                                                                                                                    
+\varepsilon_i$                                                                                                                                                                               
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Table: (\#tab:Table9-1) (ref:tab9-1)
 
 
-Table \@ref(tab:Table9-1) suggests some interesting results. By itself, $TJK$ leads to the worst performing model on the AIC measure, ranking below a model with nothing in it
-(mean-only) and 20.5 AIC units worse than the top model. But the two top models
-distinctly benefit from the inclusion of *TJK*. This suggests that after
-controlling for the sampling effort, either through *DBC* or *DBF*, the
-differences in the stages captured by *TJK* can be more clearly observed. 
+Table \@ref(tab:Table9-1) suggests some interesting results. By itself, $TJK$
+leads to the worst performing model on the AIC measure, ranking below a model
+with nothing in it (mean-only) and 20.5 AIC units worse than the top model.
+But the two top models distinctly benefit from the inclusion of *TJK*. This
+suggests that after controlling for the sampling effort, either through *DBC* or
+*DBF*, the differences in the stages captured by *TJK* can be more clearly observed. 
 
 \indent So the top model in our (correct) results^[They also had an error in their AIC
 results that is difficult to explain here but was due to an un-careful usage of
@@ -968,44 +996,50 @@ assumptions first as AICs are not valid if the model assumptions are clearly vio
 
 
 ```r
-par(mfrow=c(2,2), oma=c(0,0,2,0))
-plot(bd1, pch=16)
+par(mfrow = c(2,2), oma = c(0,0,2,0))
+plot(bd1, pch = 16)
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-11-1.png" alt="(ref:fig9-11)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-11-1.png" alt="(ref:fig9-11)" width="75%" />
 <p class="caption">(\#fig:Figure9-11)(ref:fig9-11)</p>
 </div>
 
-\indent The constant variance, linearity, and assessment of influence do not suggest any problems with those assumptions. This is reinforced in the partial residuals in Figure \@ref(fig:Figure9-12). The normality assumption is possibly violated but shows lighter
-tails than expected from a normal distribution and so should cause few
-problems with inferences (we would be looking for an answer of "yes, there is a
-violation of the normality assumption but that problem is 
+\indent The constant variance, linearity, and assessment of influence do not
+suggest any problems with those assumptions. This is reinforced in the partial
+residuals in Figure \@ref(fig:Figure9-12). The normality assumption is possibly
+violated but shows lighter tails than expected from a normal distribution and so
+should cause few problems with inferences (we would be looking for an answer of
+"yes, there is a violation of the normality assumption but that problem is 
 minor because the pattern is not the problematic type of violation 
-because both the upper and lower tails are shorter than expected from a normal distribution"). The other assumption that **is violated for all our models** is
+because both the upper and lower tails are shorter than expected from a normal
+distribution"). The other assumption that **is violated for all our models** is
 that the observations are independent. Between neighboring stages in time,
 there would likely be some sort of relationship in the biodiversity so
 we should not assume that the observations are independent (this is another
-***time series*** of observations). \index{time series} The authors acknowledged this issue but
-unskillfully attempted to deal with it. Because an interaction was not 
-considered in any of the models, there also is an assumption that the results
-are parallel enough for the two groups. The scatterplot in Figure 
+***time series*** of observations). \index{time series} The authors acknowledged
+this issue but unskillfully attempted to deal with it. Because an interaction
+was not considered in any of the models, there also is an assumption that the
+results are parallel enough for the two groups. The scatterplot in Figure 
 \@ref(fig:Figure9-10) suggests that using parallel lines for the two
 groups is probably reasonable but a full assessment really should also explore
-that fully to verify that there is no support for an interaction which would relate to different impacts of sampling efforts on the response across the levels of *TJK*. 
+that fully to verify that there is no support for an interaction which would
+relate to different impacts of sampling efforts on the response across the
+levels of *TJK*. 
 
 
 
-\indent Ignoring the violation of the independence assumption, we are otherwise OK to
-explore the model more and see what it tells us about biodiversity of
+\indent Ignoring the violation of the independence assumption, we are otherwise
+OK to explore the model more and see what it tells us about biodiversity of
 *Sauropodomorphs*. The top model is estimated to be
-$\log{(\widehat{\text{count}})}_i=-1.089 + 0.724\cdot\log{(\text{DBC})}_i -0.75I_{\text{TJK},i}$. 
-This suggests that for the early observations (*TJK*=*Trias_Juras*), the model is
-$\log{(\widehat{\text{count}})}_i=-1.089 + 0.724\cdot\log{(\text{DBC})}_i$
-and for the Cretaceous period (*TJK*=*Cretaceous*), the model is
-$\log{(\widehat{\text{count}})}_i=-1.089 + -0.75+0.724\cdot\log{(\text{DBC})}_i$
-which simplifies to $\log{(\widehat{\text{count}})}_i=-1.84 + 0.724\cdot\log{(\text{DBC})}_i$. This suggests that the sampling efforts
-have the same impacts on all observations and having an increase in *logDBCs*
+$\log{(\widehat{\text{count}})}_i = -1.089 + 0.724\cdot\log{(\text{DBC})}_i -0.75I_{\text{TJK},i}$. 
+This suggests that for the early observations (*TJK* = *Trias_Juras*), the model is
+$\log{(\widehat{\text{count}})}_i = -1.089 + 0.724\cdot\log{(\text{DBC})}_i$
+and for the Cretaceous period (*TJK* = *Cretaceous*), the model is
+$\log{(\widehat{\text{count}})}_i = -1.089 + -0.75+0.724\cdot\log{(\text{DBC})}_i$
+which simplifies to $\log{(\widehat{\text{count}})}_i = -1.84 + 0.724\cdot\log{(\text{DBC})}_i$.
+This suggests that the sampling efforts have the same impacts on all
+observations and having an increase in *logDBCs*
 is associated with increases in the mean *log-biodiversity*. Specifically, for 
 a 1 log-count increase in the *log-DBCs*, we estimate, on average, to have a 
 0.724 log-count change in the mean log-biodiversity, after accounting for 
@@ -1015,9 +1049,9 @@ question of interest involves the differences between the periods. The change
 in the y-intercepts of -0.76 suggests that the Cretaceous has a lower average
 log-biodiversity by 0.75 log-count, after controlling for the log-sampling 
 effort. This suggests that the *Cretaceous* had a lower corrected mean
-log-Sauropodomorph biodiversity $\require{enclose} (t_{23}=-3.41;\enclose{horizontalstrike}{\text{p-value}=0.0024})$ than the combined
+log-Sauropodomorph biodiversity $\require{enclose} (t_{23} = -3.41;\enclose{horizontalstrike}{\text{p-value} = 0.0024})$ than the combined
 results for the Triassic and Jurassic. On the original count scale, this 
-suggests $\exp(-0.76)=0.47$ times (53% drop in) the median biodiversity count 
+suggests $\exp(-0.76) = 0.47$ times (53% drop in) the median biodiversity count 
 per stage for Cretaceous versus the prior time period, after correcting for
 log-sampling effort in each stage. 
 
@@ -1052,11 +1086,11 @@ summary(bd1)
 
 
 ```r
-plot(allEffects(bd1, residuals=T), grid=T)
+plot(allEffects(bd1, residuals = T), grid = T)
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-12-1.png" alt="(ref:fig9-12)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-12-1.png" alt="(ref:fig9-12)" width="75%" />
 <p class="caption">(\#fig:Figure9-12)(ref:fig9-12)</p>
 </div>
 
@@ -1066,14 +1100,17 @@ AIC-based model selection methods across all the models but then used p-values
 to really make their final conclusions. This presents a philosophical
 inconsistency that bothers some more than others but should bother everyone. 
 One thought is whether they needed to use AICs at all since they wanted to use
-p-values? \newpage The one reason they might have preferred to use AICs is that it allows
+p-values? 
+
+
+The one reason they might have preferred to use AICs is that it allows
 the direct comparison of
 
-$$\log{(\text{count})}_i=\beta_0 + \beta_1\log{(\text{DBC})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i$$
+$$\log{(\text{count})}_i = \beta_0 + \beta_1\log{(\text{DBC})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i$$
 
 to 
 
-$$\log{(\text{count})}_i=\beta_0 + \beta_1\cdot\log{(\text{DBF})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i,$$
+$$\log{(\text{count})}_i = \beta_0 + \beta_1\cdot\log{(\text{DBF})}_i + \beta_2I_{\text{TJK},i} + \varepsilon_i,$$
 
 exploring whether *DBC* or *DBF* is "better" with *TJK* in the model. There
 is no hypothesis test to compare these two models because one is not ***nested***
@@ -1110,10 +1147,10 @@ despite a suite of errors in their work.
 \sectionmark{didgeridoos and sleepiness}
 
 In the practice problems at the end of Chapter 4, a study (@Puhan2006) related
-to a pre-post, two group comparison of the sleepiness ratings of subjects was introduced. They
-obtained $n=25$ volunteers and they randomized the subjects to either get a 
-lesson or be placed on a waiting list for lessons. They constrained the 
-randomization based on the high/low apnoea and high/low on the Epworth scale 
+to a pre-post, two group comparison of the sleepiness ratings of subjects was
+introduced. They obtained $n = 25$ volunteers and they randomized the subjects to
+either get a lesson or be placed on a waiting list for lessons. They constrained
+the randomization based on the high/low apnoea and high/low on the Epworth scale 
 of the subjects in their initial observations to make sure they balanced the 
 types of subjects going into the treatment and control groups. They measured 
 the subjects' Epworth value (daytime sleepiness, higher is more sleepy) 
@@ -1126,30 +1163,30 @@ the data set provided that is available at
 http://www.math.montana.edu/courses/s217/documents/epworthdata.csv.
 
 \indent The data set was not initially provided by the researchers, but they 
-did provide a plot very similar to Figure \@ref(fig:Figure9-13). Since this 
-is the last section of the book, I am going to use a new package to make the plot,
-``qplot`` from the ``ggplot2`` package [@R-ggplot2], that violates one of 
-the rules used for R functions to this point - it doesn't have a formula interface.
-\index{R packages!\textbf{ggplot2}}
-If you continue much further in learning to use R, you will see the benefits 
-of some other functions and styles of functions. You will also likely run into 
-the ``ggplot2`` package, which is part of the "tidyverse" and has been developed 
-to implement sophisticated graphics. For more on this, you can visit
-https://ggplot2.tidyverse.org/ and the related book by Hadley Wickham, who works for RStudio. We could have used ``ggplot2`` to make every graph in the 
-book, but elected to focus on functions that rely on formula interfaces. For now, I am going to use it to make Figure
-\@ref(fig:Figure9-13) with the ``qplot`` function that allows me to display a 
-line for each subject over the two time points (pre and post) of observation 
-and indicate which group the subjects were assigned to. This allows us to see 
-the variation at a given time across subjects and changes over time, which is 
-critical here as this shows clearly why we had a violation of the independence
-assumption in these data. In the plot, you can see that there are not clear differences in the two groups at the "Pre" time but that treated group seems 
-to have most of the lines go down to lower sleepiness ratings and that this is 
-not happening much for the subjects in the control group. The violation of the independence assumption is diagnosable from the study design (two observations on each subject). The plot allows us to go further and see that many subjects had similar Epworth scores from pre to post (high in pre, generally high in post) once we account for systematic changes in the treated subjects that seemed to drop a bit on average.
+did provide a plot very similar to Figure \@ref(fig:Figure9-13). To make
+Figure \@ref(fig:Figure9-13) ``geom_line`` \index{\texttt{geom\_line}} is used
+to display a line for each subject over the two time points (pre and post) of
+observation and indicate which group the subjects were assigned to. This allows
+us to see the variation at a given time across subjects and changes over time,
+which is critical here as this shows clearly why we had a violation of the
+independence assumption in these data. In the plot, you can see that there are
+not clear differences in the two groups at the "Pre" time but that treated group
+seems to have most of the lines go down to lower sleepiness ratings and that
+this is not happening much for the subjects in the control group. The violation
+of the independence assumption is diagnosable from the study design (two
+observations on each subject). The plot allows us to go further and see that
+many subjects had similar Epworth scores from pre to post (high in pre,
+generally high in post) once we account for systematic changes in the treated
+subjects that seemed to drop a bit on average.
+
+\small
 
 
 ```r
 epworthdata <- read_csv("http://www.math.montana.edu/courses/s217/documents/epworthdata.csv")
 ```
+
+\normalsize
 
 
 
@@ -1157,19 +1194,22 @@ epworthdata <- read_csv("http://www.math.montana.edu/courses/s217/documents/epwo
 
 
 ```r
-epworthdata$Time <- factor(epworthdata$Time)
+epworthdata <- epworthdata %>% mutate(Time = factor(Time),
+                                      Group = factor(Group)
+                                      )
 levels(epworthdata$Time) <- c("Pre" , "Post")
-epworthdata$Group <- factor(epworthdata$Group)
 levels(epworthdata$Group) <- c("Control" , "Didgeridoo")
 
-library(ggplot2); library(ggthemes)
-qplot(x = Time, y = Epworth, data = epworthdata, 
-      group = Subject, colour = Group, geom = c("line",
-      "point"))+theme_bw()+scale_color_viridis(discrete=TRUE) 
+epworthdata %>% 
+  ggplot(mapping = aes(x = Time, y = Epworth, group = Subject, color = Group)) +
+  geom_point() +
+  geom_line() + 
+  theme_bw() + 
+  scale_color_colorblind()
 ```
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-13-1.png" alt="(ref:fig9-13)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-13-1.png" alt="(ref:fig9-13)" width="75%" />
 <p class="caption">(\#fig:Figure9-13)(ref:fig9-13)</p>
 </div>
 
@@ -1177,17 +1217,22 @@ qplot(x = Time, y = Epworth, data = epworthdata,
 ANOVA (that is a repeat of what you would have seen had you done the practice 
 problem earlier in the book and the related interaction plot) -- there is 
 little to no evidence against the null hypothesis of no interaction between 
-Time and Treatment group on Epworth scale ratings ($F(1,46)=1.37$, p-value$=0.2484$
+Time and Treatment group on Epworth scale ratings ($F(1,46) = 1.37$, p-value $= 0.2484$
 as seen in Table \@ref(tab:Table9-2)). But this model assumes all the 
 observations are independent and so does not account for the repeated measures 
 on the same subjects. It ends up that if we account for systematic differences
 in subjects, we can (sometimes) find the differences we are interested in more 
-clearly. We can see that this model does not really seem to capture the full structure of the real data by comparing simulated data to the original one, as in Figure \@ref(fig:Figure9-14). The real data set had fairly strong relationships between the pre and post scores but this connection seems to disappear in responses simulated from the estimated Two-Way ANOVA model (that assumes all observations are independent).
+clearly. We can see that this model does not really seem to capture the full
+structure of the real data by comparing simulated data to the original one, as
+in Figure \@ref(fig:Figure9-14). The real data set had fairly strong
+relationships between the pre and post scores but this connection seems to
+disappear in responses simulated from the estimated Two-Way ANOVA model (that
+assumes all observations are independent).
 
 
 ```r
 library(car)
-lm_int <- lm(Epworth ~ Time*Group,data=epworthdata)
+lm_int <- lm(Epworth ~ Time * Group, data = epworthdata)
 Anova(lm_int)
 ```
 
@@ -1195,8 +1240,8 @@ Anova(lm_int)
 
 (ref:fig9-14) Plot of simulated data from the Two-Way ANOVA model that does not assume observations are on repeated measures on subjects to compare to the real data set. Even though the treatment levels seem to decrease on average, there is a much less clear relationship between the starting and ending values in the individuals.
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-14-1.png" alt="(ref:fig9-14)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-14-1.png" alt="(ref:fig9-14)" width="75%" />
 <p class="caption">(\#fig:Figure9-14)(ref:fig9-14)</p>
 </div>
 
@@ -1205,22 +1250,22 @@ Anova(lm_int)
 
 Table: (\#tab:Table9-2)(ref:tab9-2)
 
-               Sum Sq   Df   F value   Pr(>F)
------------  --------  ---  --------  -------
-Time          120.746    1     5.653    0.022
-Group           8.651    1     0.405    0.528
-Time:Group     29.265    1     1.370    0.248
-Residuals     982.540   46                   
+|           |  Sum Sq| Df| F value| Pr(>F)|
+|:----------|-------:|--:|-------:|------:|
+|Time       | 120.746|  1|   5.653|  0.022|
+|Group      |   8.651|  1|   0.405|  0.528|
+|Time:Group |  29.265|  1|   1.370|  0.248|
+|Residuals  | 982.540| 46|        |       |
 
 \indent If the issue is failing to account for differences in subjects, then 
 why not add "Subject" to the model? There are two things to consider. First, 
 we would need to make sure that "Subject" is a factor variable as the "Subject"
 variable is initially numerical from 1 to 25. Second, we have to deal with 
-having a factor variable with 25 levels (so 24 indicator variables!). \index{indicator} This is 
-a big number and would make writing out the model and interpreting the 
-term-plot for Subject extremely challenging. Fortunately, we are not too 
-concerned about how much higher or lower an individual is than a baseline 
-subject, but we do need to account for it in the model. This sort of "repeated
+having a factor variable with 25 levels (so 24 indicator variables!).
+\index{indicator} This is a big number and would make writing out the model and
+interpreting the term-plot for Subject extremely challenging. Fortunately, we
+are not too concerned about how much higher or lower an individual is than a
+baseline subject, but we do need to account for it in the model. This sort of "repeated
 measures" modeling is more often handled by a more complex set of extended 
 regression models that are called linear mixed models and are designed to 
 handle this sort of grouping variable with many levels. \index{repeated measures}
@@ -1233,15 +1278,15 @@ do this which means that it is not possible to estimate all the $\beta$s in
 this model (and why we more typically used mixed models to do this sort of 
 thing). Despite this, the test for ``Time:Group`` in Table \@ref(tab:Table9-3)
 is correct and now accounts for the repeated measures on the subject. It 
-provides $F(1,23)=5.43$ with a p-value of 0.029, suggesting that there is 
+provides $F(1,23) = 5.43$ with a p-value of 0.029, suggesting that there is 
 moderate evidence against the null hypothesis of no interaction of time and group once we account for subject. This is a 
 notably different result from what we observed in the Two-Way ANOVA 
 interaction model that didn't account for repeated measures on the subjects and matches the results in the original paper closely. 
 
 
 ```r
-epworthdata$Subject <- factor(epworthdata$Subject)
-lm_int_wsub <- lm(Epworth ~ Time * Group + Subject,data=epworthdata)
+epworthdata <- epworthdata %>% mutate(Subject = factor(Subject))
+lm_int_wsub <- lm(Epworth ~ Time * Group + Subject, data = epworthdata)
 Anova(lm_int_wsub)
 ```
 
@@ -1250,20 +1295,20 @@ Anova(lm_int_wsub)
 
 Table: (\#tab:Table9-3)(ref:tab9-3)
 
-               Sum Sq   Df   F value   Pr(>F)
------------  --------  ---  --------  -------
-Time          120.746    1    22.410    0.000
-Group                    0                   
-Subject       858.615   23     6.929    0.000
-Time:Group     29.265    1     5.431    0.029
-Residuals     123.924   23                   
+|           |  Sum Sq| Df| F value| Pr(>F)|
+|:----------|-------:|--:|-------:|------:|
+|Time       | 120.746|  1|  22.410|  0.000|
+|Group      |        |  0|        |       |
+|Subject    | 858.615| 23|   6.929|  0.000|
+|Time:Group |  29.265|  1|   5.431|  0.029|
+|Residuals  | 123.924| 23|        |       |
 
 \indent With this result, we would usually explore the term-plots from this 
 model to get a sense of the pattern of the changes over time in the treatment 
 and control groups. That aliasing issue means that the "effects" function also
 has some issues. To see the effects plots, we need to use a linear mixed model 
-from the ``nlme`` package. This model is beyond the scope of this material, but 
-it provides the same $F$-statistic for the interaction ($F(1,23)=5.43$) and the
+from the ``nlme`` package [@R-nlme]. This model is beyond the scope of this material, but 
+it provides the same $F$-statistic for the interaction ($F(1,23) = 5.43$) and the
 term-plots can now be produced (Figure \@ref(fig:Figure9-15)). In that plot, we 
 again see that the didgeridoo group mean for "Post" is noticeably lower than in 
 the "Pre" and that the changes in the control group were minimal over the four
@@ -1277,7 +1322,7 @@ at more possibilities if you learn more statistical methods.
 
 ```r
 library(nlme)
-lme_int <- lme(Epworth ~ Time*Group, random=~1|Subject, data=epworthdata)
+lme_int <- lme(Epworth ~ Time * Group, random = ~1|Subject, data = epworthdata)
 anova(lme_int)
 ```
 
@@ -1291,18 +1336,19 @@ anova(lme_int)
 
 
 ```r
-plot(allEffects(lme_int), multiline=T, lty=c(1,2), ci.style="bars", grid=T)
+plot(allEffects(lme_int), multiline = T, lty = c(1,2), ci.style = "bars", grid = T)
 ```
 
 <!-- \newpage -->
 
 (ref:fig9-15) Term-plot of Time by Group interaction, results are from model that accounts for subject-to-subject variation in a mixed model.
 
-<div class="figure">
-<img src="09-caseStudies_files/figure-html/Figure9-15-1.png" alt="(ref:fig9-15)" width="960" />
+<div class="figure" style="text-align: center">
+<img src="09-caseStudies_files/figure-html/Figure9-15-1.png" alt="(ref:fig9-15)" width="75%" />
 <p class="caption">(\#fig:Figure9-15)(ref:fig9-15)</p>
 </div>
 
+\newpage
 
 ## General summary	{#section9-6}
 
