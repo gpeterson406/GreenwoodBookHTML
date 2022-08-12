@@ -407,7 +407,7 @@ to check for nonlinear
 relationships, outliers, and clustering of observations that may be distorting
 the numerical measure of the linear relationship. \index{outlier} The ``ggpairs``
 function from the ``GGally`` package [@R-GGally] combines the numerical 
-correlation information and scatterplots in one display.
+correlation information and scatterplots in one display^[We will not use the "significance stars" in the plot that display with the estimated correlations. You can ignore them but we will sometimes remove them from the plot by using the more complex code of `ggpairs(upper = list(continuous = GGally::wrap(ggally_cor, stars = F)))`.].
 \index{R packages!\textbf{GGally}}
 As in the correlation matrix, you
 triangulate the variables for the pairwise relationship. The upper right
@@ -514,7 +514,7 @@ aisR %>% slice(56, 166)
 ```
 
 ```
-## # A tibble: 2 x 3
+## # A tibble: 2 × 3
 ##      Ht    Hc  Bfat
 ##   <dbl> <dbl> <dbl>
 ## 1  180.  37.6 35.5 
@@ -905,9 +905,7 @@ quantiles <- qdata(Tstar, c(0.025, 0.975)) #95% Confidence Interval
 
 <!-- \newpage -->
 
-(ref:fig6-10) Histogram and density curve of the bootstrap distribution of the
-correlation coefficient with bold vertical line for observed correlation and
-dashed lines for bounds for the 95% bootstrap confidence interval.
+(ref:fig6-10) Histogram and density curve of the bootstrap distribution of the correlation coefficient with bold vertical line for observed correlation and dashed lines for bounds for the 95% bootstrap confidence interval.
 
 
 ```r
@@ -1029,7 +1027,7 @@ ufc %>% slice(168)
 ```
 
 ```
-## # A tibble: 1 x 5
+## # A tibble: 1 × 5
 ##    plot  tree species dbh.cm height.m
 ##   <int> <int> <fct>    <dbl>    <dbl>
 ## 1    67     6 WL        57.5      3.4
@@ -1448,14 +1446,6 @@ using the ``lm`` function:
 
 ```r
 m2 <- lm(Hc ~ Bfat, data = aisR2 %>% filter(Sex == 1)) #Results for Females 
-```
-
-<!-- \newpage -->
-
-(ref:fig6-15) Scatterplot of Hematocrit versus Body Fat for female athletes. Note how the ``filter`` was used to pipe the subset of the data set to the plot.
-
-
-```r
 summary(m2)
 ```
 
@@ -1477,6 +1467,11 @@ summary(m2)
 ## Multiple R-squared:  0.02822,	Adjusted R-squared:  0.0182 
 ## F-statistic: 2.816 on 1 and 97 DF,  p-value: 0.09653
 ```
+
+<!-- \newpage -->
+
+(ref:fig6-15) Scatterplot of Hematocrit versus Body Fat for female athletes. Note how the ``filter`` was used to pipe the subset of the data set to the plot.
+
 
 ```r
 aisR2 %>% filter(Sex == 1) %>% ggplot(mapping = aes(x = Bfat, y = Hc)) +
@@ -1736,17 +1731,17 @@ model.
 
 \indent In regression models, we use the ***coefficient of determination*** 
 (symbol: **R^2^**) to accompany our regression line and describe
-the strength of the relationship. It can either be
+the strength of the relationship and assess the quality of the model fit. It can either be
 scaled between 0 and 1 or 0 to 100% and has "units" of the proportion or
 percentage of the variation in $y$ that is explained by the model that 
 includes $x$ (and later more than one $x$). For example, an **R^2^**
 of 0% corresponds to explaining 0% of the variation in the response with our
-model and $\boldsymbol{R^2} = 100\%$ means that all the variation in the
-response was explained by the model. In between, it provides a nice summary 
+model (worst possible fit) and $\boldsymbol{R^2} = 100\%$ means that all the variation in the
+response was explained by the model (best possible fit). In between, it provides a nice summary 
 of how much of the total variability in the response we can account for
 with our model
 including $x$ (and, in Chapter \@ref(chapter8), including multiple 
-predictor variables). \index{coefficient of determination} \index{R-squared}
+predictor variables). \index{coefficient of determination} \index{R-squared} \index{model fit}
 
 (ref:fig6-19) Three scatterplots with the same estimated regression line. 
 
@@ -2233,6 +2228,8 @@ examples:
     
         * Both variables are quantitative.
         
+    \newpage
+    
     * Independence of observations:
     
         * We can assume that all the subjects are independent of each 
@@ -2453,15 +2450,11 @@ we do not have to worry about non-constant variance here. So these results might
 be relatively trustworthy if we assume that the same relationship holds for all
 levels of duration of eruptions. 
 
+<!-- \vspace{22pt} -->
+
 
 ```r
 OF1 <- lm(Waiting ~ Duration, data = G2)
-```
-
-<!-- \newpage -->
-
-
-```r
 summary(OF1)
 ```
 

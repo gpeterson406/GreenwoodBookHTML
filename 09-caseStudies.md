@@ -129,11 +129,11 @@ biological applications because most come from a particular journal (*Biology Le
 our re-analyses possible. Use these sections to review the methods 
 from earlier in the book and to see some hints about possible extensions of the methods you have learned.
 
-\sectionmark{The impact of simulated chronic nitrogen deposition}
+<!-- \sectionmark{The impact of simulated chronic nitrogen deposition} -->
 
 ## The impact of simulated chronic nitrogen deposition on the biomass and N2-fixation activity of two boreal feather moss–cyanobacteria associations	{#section9-2}
 
-\sectionmark{The impact of simulated chronic nitrogen deposition}
+<!-- \sectionmark{The impact of simulated chronic nitrogen deposition} -->
 
 
 
@@ -263,7 +263,8 @@ summary(m1)
 
 ```r
 par(mfrow = c(2,2), oma = c(0,0,2,0))
-plot(m1, sub.caption = "Initial Massperha 2-WAY model", pch = 16)
+plot(m1, pch = 16, sub.caption = "")
+title(main="Initial Massperha 2-WAY model", outer=TRUE)
 ```
 
 <div class="figure" style="text-align: center">
@@ -405,7 +406,8 @@ Anova(m2)
 
 ```r
 par(mfrow = c(2,2), oma = c(0,0,2,0))
-plot(m2, sub.caption = "log-Massperha 2-WAY model", pch = 16)
+plot(m2, pch = 16, sub.caption = "")
+title(main="log-Massperha 2-WAY model", outer=TRUE)
 ```
 
 <div class="figure" style="text-align: center">
@@ -566,8 +568,8 @@ different. The following code creates the plot of these results using our
 
 
 ```r
-intplot(logMassperha ~ Species * Treatment, cld = T, cldshift = 0.15, data = gdn, lwd = 2, 
-        main = "Interaction with CLD from Tukey's HSD on One-Way ANOVA")
+intplot(logMassperha ~ Species * Treatment, cld = T, cldshift = 0.16, data = gdn, lwd = 2, 
+        main = "Interaction Plot with CLD from Tukey's HSD on One-Way ANOVA")
 ```
 
 <div class="figure" style="text-align: center">
@@ -591,11 +593,11 @@ intervals in the Tukey's HSD results printed above. Because these results are fo
 
 <!-- \newpage -->
 
-\sectionmark{Ants learn to rely on more informative attributes}
+<!-- \sectionmark{Ants learn to rely on more informative attributes} -->
 
 ## Ants learn to rely on more informative attributes during decision-making	{#section9-3}
 
-\sectionmark{Ants learn to rely on more informative attributes}
+<!-- \sectionmark{Ants learn to rely on more informative attributes} -->
 
 In @Sasaki2013, a set of ant colonies were randomly assigned to one
 of two treatments to study whether the ants could be "trained" to have a
@@ -753,11 +755,11 @@ of statistics if you continue exploring.
 
 <!-- \newpage -->
 
-\sectionmark{understanding vertebrate diversification in deep time}
+<!-- \sectionmark{understanding vertebrate diversification in deep time} -->
 
 ## Multi-variate models are essential for understanding vertebrate diversification in deep time	{#section9-4}
 
-\sectionmark{understanding vertebrate diversification in deep time}
+<!-- \sectionmark{understanding vertebrate diversification in deep time} -->
 
 @Benson2012 published a paleontology study that considered
 modeling the diversity of *Sauropodomorphs* across $n = 26$ "stage-level" time
@@ -1140,11 +1142,11 @@ access the results of interest; inaccurate usage of statistical models can
 provide inaccurate conclusions. They seemed to mostly get the right answers
 despite a suite of errors in their work. 
 
-\sectionmark{didgeridoos and sleepiness}
+<!-- \sectionmark{didgeridoos and sleepiness} -->
 
 ## What do didgeridoos really do about sleepiness?	{#section9-5}
 
-\sectionmark{didgeridoos and sleepiness}
+<!-- \sectionmark{didgeridoos and sleepiness} -->
 
 In the practice problems at the end of Chapter 4, a study (@Puhan2006) related
 to a pre-post, two group comparison of the sleepiness ratings of subjects was

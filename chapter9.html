@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Case studies | Intermediate Statistics with R</title>
   <meta name="description" content="Chapter 9 Case studies | Intermediate Statistics with R" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Case studies | Intermediate Statistics with R" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="gpeterson406/Greenwood_Book" />
@@ -32,8 +31,8 @@
   
 <link rel="prev" href="chapter8.html"/>
 <link rel="next" href="references.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,9 +48,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -229,7 +228,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.10" data-path="chapter5.html"><a href="chapter5.html#section5-10"><i class="fa fa-check"></i><b>5.10</b> Is cheating and lying related in students?</a></li>
 <li class="chapter" data-level="5.11" data-path="chapter5.html"><a href="chapter5.html#section5-11"><i class="fa fa-check"></i><b>5.11</b> Analyzing a stratified random sample of California schools</a></li>
 <li class="chapter" data-level="5.12" data-path="chapter5.html"><a href="chapter5.html#section5-12"><i class="fa fa-check"></i><b>5.12</b> Chapter summary</a></li>
-<li class="chapter" data-level="5.13" data-path="chapter5.html"><a href="chapter5.html#section5-13"><i class="fa fa-check"></i><b>5.13</b> Summary of important R commands</a></li>
+<li class="chapter" data-level="5.13" data-path="chapter5.html"><a href="chapter5.html#section5-13"><i class="fa fa-check"></i><b>5.13</b> Summary of important R code</a></li>
 <li class="chapter" data-level="5.14" data-path="chapter5.html"><a href="chapter5.html#section5-14"><i class="fa fa-check"></i><b>5.14</b> Practice problems</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>6</b> Correlation and Simple Linear Regression</a>
@@ -312,17 +311,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chapter9" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Case studies</h1>
-<div id="section9-1" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Overview of material covered</h2>
+<div id="chapter9" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Case studies<a href="chapter9.html#chapter9" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="section9-1" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Overview of material covered<a href="chapter9.html#section9-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>At the beginning of the text, we provided a schematic of methods that you would
 learn about that was (probably) gibberish. Hopefully, revisiting that same diagram
 (Figure <a href="chapter9.html#fig:Figure9-1">9.1</a>) will bring back memories of each of the chapters.
 One common theme was that categorical variables create special challenges whether they are explanatory or
 response variables.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:Figure9-1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-1"></span>
 <img src="chapter9_files/decisiontree.jpg" alt="Schematic of methods covered." width="75%" />
 <p class="caption">
 Figure 9.1: Schematic of methods covered.
@@ -341,7 +340,7 @@ as:</p>
 material, but we can now write out the same model using our indicator variable
 approach from Chapter <a href="chapter8.html#chapter8">8</a> for a <span class="math inline">\(J\)</span>-level categorical explanatory
 variable using <span class="math inline">\(J-1\)</span> indicator variables as:
- </p>
+</p>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1I_{\text{Level }2,i} + \beta_2I_{\text{Level }3,i} +
 \cdots + \beta_{J-1}I_{\text{Level }J,i} + \varepsilon_i.\]</span></p>
 <p>We now know how the indicator variables are either 0 or 1 for each observation
@@ -367,7 +366,7 @@ is <span class="math inline">\(I_{\text{Level }j,i}\)</span>:</li>
 </ul>
 <p><span class="math display">\[\begin{array}{rl}
   &amp;\beta_0 + \beta_1I_{\text{Level }2,i} + \beta_2I_{\text{Level }3,i} + \cdots + \beta_JI_{\text{Level }J,i} \\
-  &amp; =  \beta_0 + \beta_{j-1}\cdot1\\ 
+  &amp; =  \beta_0 + \beta_{j-1}\cdot1\\
   &amp; = \beta_0 + \beta_{j-1}
   \end{array}\]</span></p>
 <ul>
@@ -409,17 +408,19 @@ biological applications because most come from a particular journal (<em>Biology
 encourages authors to share their data sets, making
 our re-analyses possible. Use these sections to review the methods
 from earlier in the book and to see some hints about possible extensions of the methods you have learned.</p>
+<!-- \sectionmark{The impact of simulated chronic nitrogen deposition} -->
 </div>
-<div id="section9-2" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> The impact of simulated chronic nitrogen deposition on the biomass and N2-fixation activity of two boreal feather moss–cyanobacteria associations</h2>
+<div id="section9-2" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> The impact of simulated chronic nitrogen deposition on the biomass and N2-fixation activity of two boreal feather moss–cyanobacteria associations<a href="chapter9.html#section9-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- \sectionmark{The impact of simulated chronic nitrogen deposition} -->
 
-<div class="figure" style="text-align: center"><span id="fig:Figure9-2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-2"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-2-1.png" alt="Pirate-plot of biomass responses by treatment and species." width="75%" />
 <p class="caption">
 Figure 9.2: Pirate-plot of biomass responses by treatment and species.
 </p>
 </div>
-<p>In a 16-year experiment, <span class="citation"><a href="#ref-Gundale2013" role="doc-biblioref">Gundale, Bach, and Nordin</a> (<a href="#ref-Gundale2013" role="doc-biblioref">2013</a>)</span> studied the impacts
+<p>In a 16-year experiment, <span class="citation">Gundale, Bach, and Nordin (<a href="#ref-Gundale2013" role="doc-biblioref">2013</a>)</span> studied the impacts
 of Nitrogen (N) additions on the mass of two feather moss species
 (<em>Pleurozium schreberi</em> (<code>PS</code>) and <em>Hylocomium</em> (<code>HS</code>)) in the Svartberget
 Experimental Forest in Sweden. They used a randomized block design: here this
@@ -429,9 +430,6 @@ treatments were randomly applied. <strong><em>Randomized block designs</em></str
 randomization of levels within blocks or groups as opposed to <strong><em>completely
 randomized designs</em></strong> where each <strong><em>experimental unit</em></strong> (the subject or plot
 that will be measured) could be randomly assigned to any treatment.
-
-
-
 This is
 done in agricultural studies to control for systematic differences across the
 fields by making sure each treatment level is used in each area or <strong><em>block</em></strong>
@@ -451,40 +449,40 @@ about the responses. Initially there seem to be some differences in the
 combinations of groups and some differences in variability in the different
 groups, especially with much more variability in the <em>control</em> treatment level
 and more variability in the <em>PS</em> responses than for the <em>HS</em> responses.</p>
-<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb865-1"><a href="chapter9.html#cb865-1" aria-hidden="true" tabindex="-1"></a>gdn <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/gundalebachnordin_2.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="chapter9.html#cb866-1" aria-hidden="true" tabindex="-1"></a>gdn <span class="ot">&lt;-</span> gdn <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">factor</span>(Species),</span>
-<span id="cb866-2"><a href="chapter9.html#cb866-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Treatment =</span> <span class="fu">factor</span>(Treatment)</span>
-<span id="cb866-3"><a href="chapter9.html#cb866-3" aria-hidden="true" tabindex="-1"></a>                      )</span>
-<span id="cb866-4"><a href="chapter9.html#cb866-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(yarrr)</span>
-<span id="cb866-5"><a href="chapter9.html#cb866-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pirateplot</span>(Massperha <span class="sc">~</span> Species <span class="sc">+</span> Treatment, <span class="at">data =</span> gdn, <span class="at">inf.method =</span> <span class="st">&quot;ci&quot;</span>, </span>
-<span id="cb866-6"><a href="chapter9.html#cb866-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">inf.disp =</span> <span class="st">&quot;line&quot;</span>, <span class="at">theme =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">&quot;Biomass&quot;</span>, <span class="at">point.o =</span> <span class="dv">1</span>, </span>
-<span id="cb866-7"><a href="chapter9.html#cb866-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">pal =</span> <span class="st">&quot;southpark&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb862-1"><a href="chapter9.html#cb862-1" aria-hidden="true" tabindex="-1"></a>gdn <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/gundalebachnordin_2.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb863-1"><a href="chapter9.html#cb863-1" aria-hidden="true" tabindex="-1"></a>gdn <span class="ot">&lt;-</span> gdn <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">factor</span>(Species),</span>
+<span id="cb863-2"><a href="chapter9.html#cb863-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Treatment =</span> <span class="fu">factor</span>(Treatment)</span>
+<span id="cb863-3"><a href="chapter9.html#cb863-3" aria-hidden="true" tabindex="-1"></a>                      )</span>
+<span id="cb863-4"><a href="chapter9.html#cb863-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(yarrr)</span>
+<span id="cb863-5"><a href="chapter9.html#cb863-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pirateplot</span>(Massperha <span class="sc">~</span> Species <span class="sc">+</span> Treatment, <span class="at">data =</span> gdn, <span class="at">inf.method =</span> <span class="st">&quot;ci&quot;</span>, </span>
+<span id="cb863-6"><a href="chapter9.html#cb863-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">inf.disp =</span> <span class="st">&quot;line&quot;</span>, <span class="at">theme =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">&quot;Biomass&quot;</span>, <span class="at">point.o =</span> <span class="dv">1</span>, </span>
+<span id="cb863-7"><a href="chapter9.html#cb863-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">pal =</span> <span class="st">&quot;southpark&quot;</span>)</span></code></pre></div>
 <p>The Two-WAY ANOVA model that contains a <em>species</em> by <em>treatment</em> interaction is
 of interest (this has a quantitative response variable of <em>biomass</em> and two
-categorical predictors of <em>species</em> and <em>treatment</em>)<a href="#fn164" class="footnote-ref" id="fnref164"><sup>164</sup></a>. We can make an interaction plot to
+categorical predictors of <em>species</em> and <em>treatment</em>)<a href="#fn165" class="footnote-ref" id="fnref165"><sup>165</sup></a>. We can make an interaction plot to
 focus on the observed patterns of the means across the combinations of levels
 as provided in Figure <a href="chapter9.html#fig:Figure9-3">9.3</a>. The interaction
 plot suggests a relatively additive pattern of differences between <em>PS</em> and
 <em>HS</em> across the three treatment levels. However, the variability seems to be
 quite different based on this plot as well.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:Figure9-3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-3"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-3-1.png" alt="Interaction plot of biomass responses by treatment and species." width="75%" />
 <p class="caption">
 Figure 9.3: Interaction plot of biomass responses by treatment and species.
 </p>
 </div>
 <!-- \newpage -->
-<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb867-1"><a href="chapter9.html#cb867-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(catstats) <span class="co">#Or directly using:</span></span>
-<span id="cb867-2"><a href="chapter9.html#cb867-2" aria-hidden="true" tabindex="-1"></a><span class="co">#source(&quot;http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v3.R&quot;)</span></span>
-<span id="cb867-3"><a href="chapter9.html#cb867-3" aria-hidden="true" tabindex="-1"></a><span class="fu">intplotarray</span>(Massperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">data =</span> gdn, <span class="at">col =</span> <span class="fu">viridis</span>(<span class="dv">4</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
-<span id="cb867-4"><a href="chapter9.html#cb867-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">cex.main =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb864-1"><a href="chapter9.html#cb864-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(catstats) <span class="co">#Or directly using:</span></span>
+<span id="cb864-2"><a href="chapter9.html#cb864-2" aria-hidden="true" tabindex="-1"></a><span class="co">#source(&quot;http://www.math.montana.edu/courses/s217/documents/intplotfunctions_v3.R&quot;)</span></span>
+<span id="cb864-3"><a href="chapter9.html#cb864-3" aria-hidden="true" tabindex="-1"></a><span class="fu">intplotarray</span>(Massperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">data =</span> gdn, <span class="at">col =</span> <span class="fu">viridis</span>(<span class="dv">4</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>],</span>
+<span id="cb864-4"><a href="chapter9.html#cb864-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">cex.main =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>Based on the initial plots, we are going to be most concerned about the equal
 variance assumption. We can fit the interaction model and explore
 the diagnostic plots to verify that we have a problem.</p>
 
-<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="chapter9.html#cb868-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Massperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">data =</span> gdn)</span>
-<span id="cb868-2"><a href="chapter9.html#cb868-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
+<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb865-1"><a href="chapter9.html#cb865-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Massperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">data =</span> gdn)</span>
+<span id="cb865-2"><a href="chapter9.html#cb865-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Massperha ~ Species * Treatment, data = gdn)
@@ -505,16 +503,17 @@ the diagnostic plots to verify that we have a problem.</p>
 ## Residual standard error: 519 on 30 degrees of freedom
 ## Multiple R-squared:  0.6661, Adjusted R-squared:  0.6104 
 ## F-statistic: 11.97 on 5 and 30 DF,  p-value: 2.009e-06</code></pre>
-<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb870-1"><a href="chapter9.html#cb870-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
-<span id="cb870-2"><a href="chapter9.html#cb870-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1, <span class="at">sub.caption =</span> <span class="st">&quot;Initial Massperha 2-WAY model&quot;</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-4"></span>
+<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb867-1"><a href="chapter9.html#cb867-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
+<span id="cb867-2"><a href="chapter9.html#cb867-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">sub.caption =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb867-3"><a href="chapter9.html#cb867-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main=</span><span class="st">&quot;Initial Massperha 2-WAY model&quot;</span>, <span class="at">outer=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-4"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-4-1.png" alt="Diagnostic plots of treatment by species interaction model for Biomass." width="75%" />
 <p class="caption">
 Figure 9.4: Diagnostic plots of treatment by species interaction model for Biomass.
 </p>
 </div>
 <p>There is a clear problem with non-constant variance showing up in a fanning
-shape<a href="#fn165" class="footnote-ref" id="fnref165"><sup>165</sup></a>
+shape<a href="#fn166" class="footnote-ref" id="fnref166"><sup>166</sup></a>
 in the Residuals versus Fitted and Scale-Location plots in Figure
 <a href="chapter9.html#fig:Figure9-4">9.4</a>. Interestingly, the normality assumption is not an issue as the residuals track the 1-1 line in the QQ-plot quite closely
 so hopefully we will not worsen this result by using a transformation to try to
@@ -537,20 +536,20 @@ account for these other issues.</p>
 <div style="page-break-after: always;"></div>
 <p>Remember that <strong>before using a <em>log</em>-transformation, you always must check
 that the responses are strictly greater than 0</strong>:</p>
-<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb871-1"><a href="chapter9.html#cb871-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gdn<span class="sc">$</span>Massperha)</span></code></pre></div>
+<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="chapter9.html#cb868-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gdn<span class="sc">$</span>Massperha)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   319.1  1015.1  1521.8  1582.3  2026.6  3807.6</code></pre>
 <p>The minimum is 319.1 so it is safe to apply the natural log-transformation to
 the response variable (<em>Biomass</em>) and repeat the previous plots:</p>
 
-<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb873-1"><a href="chapter9.html#cb873-1" aria-hidden="true" tabindex="-1"></a>gdn <span class="ot">&lt;-</span> gdn <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">logMassperha =</span> <span class="fu">log</span>(Massperha))</span>
-<span id="cb873-2"><a href="chapter9.html#cb873-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
-<span id="cb873-3"><a href="chapter9.html#cb873-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pirateplot</span>(logMassperha <span class="sc">~</span> Species <span class="sc">+</span> Treatment, <span class="at">data =</span> gdn, <span class="at">inf.method =</span> <span class="st">&quot;ci&quot;</span>, </span>
-<span id="cb873-4"><a href="chapter9.html#cb873-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">inf.disp =</span> <span class="st">&quot;line&quot;</span>, <span class="at">theme =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">&quot;log-Biomass&quot;</span>, <span class="at">point.o =</span> <span class="dv">1</span>,</span>
-<span id="cb873-5"><a href="chapter9.html#cb873-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">pal =</span> <span class="st">&quot;southpark&quot;</span>, <span class="at">main =</span> <span class="st">&quot;(a)&quot;</span>)</span>
-<span id="cb873-6"><a href="chapter9.html#cb873-6" aria-hidden="true" tabindex="-1"></a><span class="fu">intplot</span>(logMassperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">data =</span> gdn, <span class="at">col =</span> <span class="fu">viridis</span>(<span class="dv">4</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], </span>
-<span id="cb873-7"><a href="chapter9.html#cb873-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">main =</span> <span class="st">&quot;(b)&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-5"></span>
+<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb870-1"><a href="chapter9.html#cb870-1" aria-hidden="true" tabindex="-1"></a>gdn <span class="ot">&lt;-</span> gdn <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">logMassperha =</span> <span class="fu">log</span>(Massperha))</span>
+<span id="cb870-2"><a href="chapter9.html#cb870-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb870-3"><a href="chapter9.html#cb870-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pirateplot</span>(logMassperha <span class="sc">~</span> Species <span class="sc">+</span> Treatment, <span class="at">data =</span> gdn, <span class="at">inf.method =</span> <span class="st">&quot;ci&quot;</span>, </span>
+<span id="cb870-4"><a href="chapter9.html#cb870-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">inf.disp =</span> <span class="st">&quot;line&quot;</span>, <span class="at">theme =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">&quot;log-Biomass&quot;</span>, <span class="at">point.o =</span> <span class="dv">1</span>,</span>
+<span id="cb870-5"><a href="chapter9.html#cb870-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">pal =</span> <span class="st">&quot;southpark&quot;</span>, <span class="at">main =</span> <span class="st">&quot;(a)&quot;</span>)</span>
+<span id="cb870-6"><a href="chapter9.html#cb870-6" aria-hidden="true" tabindex="-1"></a><span class="fu">intplot</span>(logMassperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">data =</span> gdn, <span class="at">col =</span> <span class="fu">viridis</span>(<span class="dv">4</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], </span>
+<span id="cb870-7"><a href="chapter9.html#cb870-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">main =</span> <span class="st">&quot;(b)&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-5"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-5-1.png" alt="Pirate-plot and interaction plot of the log-Biomass responses by treatment and species." width="75%" />
 <p class="caption">
 Figure 9.5: Pirate-plot and interaction plot of the log-Biomass responses by treatment and species.
@@ -580,8 +579,8 @@ conditions for both species making nitrogen appear to inhibit growth of these
 species.</p>
 <!-- \newpage -->
 
-<div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb874-1"><a href="chapter9.html#cb874-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logMassperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">data =</span> gdn)</span>
-<span id="cb874-2"><a href="chapter9.html#cb874-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb871-1"><a href="chapter9.html#cb871-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logMassperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">data =</span> gdn)</span>
+<span id="cb871-2"><a href="chapter9.html#cb871-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = logMassperha ~ Species * Treatment, data = gdn)
@@ -602,8 +601,8 @@ species.</p>
 ## Residual standard error: 0.2841 on 30 degrees of freedom
 ## Multiple R-squared:  0.7998, Adjusted R-squared:  0.7664 
 ## F-statistic: 23.96 on 5 and 30 DF,  p-value: 1.204e-09</code></pre>
-<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="chapter9.html#cb876-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb876-2"><a href="chapter9.html#cb876-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb873-1"><a href="chapter9.html#cb873-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb873-2"><a href="chapter9.html#cb873-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(m2)</span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: logMassperha
@@ -612,9 +611,10 @@ species.</p>
 ## Treatment         4.6725  2  28.952 9.923e-08
 ## Species:Treatment 0.6727  2   4.168   0.02528
 ## Residuals         2.4208 30</code></pre>
-<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb878-1"><a href="chapter9.html#cb878-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
-<span id="cb878-2"><a href="chapter9.html#cb878-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m2, <span class="at">sub.caption =</span> <span class="st">&quot;log-Massperha 2-WAY model&quot;</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-6"></span>
+<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb875-1"><a href="chapter9.html#cb875-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
+<span id="cb875-2"><a href="chapter9.html#cb875-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m2, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">sub.caption =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb875-3"><a href="chapter9.html#cb875-3" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main=</span><span class="st">&quot;log-Massperha 2-WAY model&quot;</span>, <span class="at">outer=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-6"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-6-1.png" alt="Diagnostic plots of treatment by species interaction model for log-Biomass." width="75%" />
 <p class="caption">
 Figure 9.6: Diagnostic plots of treatment by species interaction model for log-Biomass.
@@ -645,9 +645,9 @@ detailed questions. This sort of follow-up could be considered in any
 Two-Way ANOVA model but will be most interesting in situations where there are
 important interactions.</p>
 
-<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="chapter9.html#cb879-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
-<span id="cb879-2"><a href="chapter9.html#cb879-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">allEffects</span>(m2), <span class="at">multiline =</span> T, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">ci.style =</span> <span class="st">&quot;bars&quot;</span>, <span class="at">grid =</span> T)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-7"></span>
+<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="chapter9.html#cb876-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effects)</span>
+<span id="cb876-2"><a href="chapter9.html#cb876-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">allEffects</span>(m2), <span class="at">multiline =</span> T, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">ci.style =</span> <span class="st">&quot;bars&quot;</span>, <span class="at">grid =</span> T)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-7"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-7-1.png" alt="Term-plot of the interaction model for log-biomass." width="75%" />
 <p class="caption">
 Figure 9.7: Term-plot of the interaction model for log-biomass.
@@ -659,11 +659,11 @@ Figure 9.7: Term-plot of the interaction model for log-biomass.
 details about the source of the differences. We can re-fit the model with a
 unique mean for each combination of the two predictor variables, fitting a
 One-Way ANOVA model (here with six levels) and using Tukey’s HSD to provide
-safe inferences for differences among pairs of the true means.  There are six
+safe inferences for differences among pairs of the true means. There are six
 groups corresponding to all combinations of <em>Species</em> (<em>HS</em>, <em>PS</em>) and
 treatment levels (<em>Control</em>, <em>N12.5</em>, and <em>N50</em>) provided in the new
 variable <code>SpTrt</code> by the <code>interaction</code> function with new levels of
-<em>HS.Control</em>, <em>PS.Control</em>, <em>HS.N12.5</em>, <em>PS.N12.5</em>, <em>HS.N50</em>, and <em>PS.N50</em>.  The
+<em>HS.Control</em>, <em>PS.Control</em>, <em>HS.N12.5</em>, <em>PS.N12.5</em>, <em>HS.N50</em>, and <em>PS.N50</em>. The
 One-Way ANOVA <span class="math inline">\(F\)</span>-test (<span class="math inline">\(F(5,30) = 23.96\)</span>, p-value <span class="math inline">\(&lt; 0.0001\)</span>) suggests that there
 is strong evidence against the null hypothesis of no difference in the true mean log-biomass among the six
 treatment/species combinations and so we would conclude that at least one differs from the others. Note that the One-Way ANOVA table contains the test for
@@ -672,22 +672,22 @@ test above was testing a more refined hypothesis – does the effect of
 treatment differ between the two species? As in any situation with a small p-value from the overall
 One-Way ANOVA test, the pair-wise comparisons should be of interest.</p>
 <!-- \newpage -->
-<div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb880-1"><a href="chapter9.html#cb880-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new variable:</span></span>
-<span id="cb880-2"><a href="chapter9.html#cb880-2" aria-hidden="true" tabindex="-1"></a>gdn <span class="ot">&lt;-</span> gdn <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">SpTrt =</span> <span class="fu">interaction</span>(Species, Treatment))</span>
-<span id="cb880-3"><a href="chapter9.html#cb880-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gdn<span class="sc">$</span>SpTrt)</span></code></pre></div>
+<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="chapter9.html#cb877-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new variable:</span></span>
+<span id="cb877-2"><a href="chapter9.html#cb877-2" aria-hidden="true" tabindex="-1"></a>gdn <span class="ot">&lt;-</span> gdn <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">SpTrt =</span> <span class="fu">interaction</span>(Species, Treatment))</span>
+<span id="cb877-3"><a href="chapter9.html#cb877-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gdn<span class="sc">$</span>SpTrt)</span></code></pre></div>
 <pre><code>## [1] &quot;HS.Control&quot; &quot;PS.Control&quot; &quot;HS.N12.5&quot;   &quot;PS.N12.5&quot;   &quot;HS.N50&quot;    
 ## [6] &quot;PS.N50&quot;</code></pre>
-<div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb882-1"><a href="chapter9.html#cb882-1" aria-hidden="true" tabindex="-1"></a>newm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logMassperha <span class="sc">~</span> SpTrt, <span class="at">data =</span> gdn)</span>
-<span id="cb882-2"><a href="chapter9.html#cb882-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(newm2)</span></code></pre></div>
+<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="chapter9.html#cb879-1" aria-hidden="true" tabindex="-1"></a>newm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logMassperha <span class="sc">~</span> SpTrt, <span class="at">data =</span> gdn)</span>
+<span id="cb879-2"><a href="chapter9.html#cb879-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(newm2)</span></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: logMassperha
 ##           Sum Sq Df F value    Pr(&gt;F)
 ## SpTrt     9.6685  5  23.963 1.204e-09
 ## Residuals 2.4208 30</code></pre>
-<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="chapter9.html#cb884-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
-<span id="cb884-2"><a href="chapter9.html#cb884-2" aria-hidden="true" tabindex="-1"></a>PWnewm2 <span class="ot">&lt;-</span> <span class="fu">glht</span>(newm2, <span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">SpTrt =</span> <span class="st">&quot;Tukey&quot;</span>))</span>
-<span id="cb884-3"><a href="chapter9.html#cb884-3" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(PWnewm2)</span></code></pre></div>
+<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="chapter9.html#cb881-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
+<span id="cb881-2"><a href="chapter9.html#cb881-2" aria-hidden="true" tabindex="-1"></a>PWnewm2 <span class="ot">&lt;-</span> <span class="fu">glht</span>(newm2, <span class="at">linfct =</span> <span class="fu">mcp</span>(<span class="at">SpTrt =</span> <span class="st">&quot;Tukey&quot;</span>))</span>
+<span id="cb881-3"><a href="chapter9.html#cb881-3" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(PWnewm2)</span></code></pre></div>
 <pre><code>## 
 ##   Simultaneous Confidence Intervals
 ## 
@@ -719,7 +719,7 @@ One-Way ANOVA test, the pair-wise comparisons should be of interest.</p>
 ## PS.N50 - HS.N50 == 0          1.05374  0.55482  1.55266</code></pre>
 <p>We can also generate the Compact Letter Display (CLD) to help us group up the
 results. </p>
-<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="chapter9.html#cb886-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cld</span>(PWnewm2)</span></code></pre></div>
+<div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb883-1"><a href="chapter9.html#cb883-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cld</span>(PWnewm2)</span></code></pre></div>
 <pre><code>## HS.Control PS.Control   HS.N12.5   PS.N12.5     HS.N50     PS.N50 
 ##       &quot;bd&quot;        &quot;d&quot;        &quot;b&quot;       &quot;cd&quot;        &quot;a&quot;       &quot;bc&quot;</code></pre>
 <p>And we can add the CLD to an interaction plot to create Figure
@@ -729,9 +729,9 @@ to provide the same information about pairs that are or are not detectably
 different. The following code creates the plot of these results using our
 <code>intplot</code> function and the <code>cld = T</code> option. </p>
 
-<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb888-1"><a href="chapter9.html#cb888-1" aria-hidden="true" tabindex="-1"></a><span class="fu">intplot</span>(logMassperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">cld =</span> T, <span class="at">cldshift =</span> <span class="fl">0.15</span>, <span class="at">data =</span> gdn, <span class="at">lwd =</span> <span class="dv">2</span>, </span>
-<span id="cb888-2"><a href="chapter9.html#cb888-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Interaction with CLD from Tukey&#39;s HSD on One-Way ANOVA&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-8"></span>
+<div class="sourceCode" id="cb885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb885-1"><a href="chapter9.html#cb885-1" aria-hidden="true" tabindex="-1"></a><span class="fu">intplot</span>(logMassperha <span class="sc">~</span> Species <span class="sc">*</span> Treatment, <span class="at">cld =</span> T, <span class="at">cldshift =</span> <span class="fl">0.16</span>, <span class="at">data =</span> gdn, <span class="at">lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb885-2"><a href="chapter9.html#cb885-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Interaction Plot with CLD from Tukey&#39;s HSD on One-Way ANOVA&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-8"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-8-1.png" alt="Interaction plot for log-biomass with CLD from Tukey’s HSD for all pairwise comparisons." width="75%" />
 <p class="caption">
 Figure 9.8: Interaction plot for log-biomass with CLD from Tukey’s HSD for all pairwise comparisons.
@@ -751,10 +751,12 @@ results for the two species were not detectably different. Further explorations
 of the sizes of the differences that can be extracted from selected confidence
 intervals in the Tukey’s HSD results printed above. Because these results are for the log-scale responses, we could exponentiate coefficients for groups that are deviations from the baseline category and interpret those as multiplicative changes in the median relative to the baseline group, but at the end of this amount of material, I thought that might stop you from reading on any further…</p>
 <!-- \newpage -->
+<!-- \sectionmark{Ants learn to rely on more informative attributes} -->
 </div>
-<div id="section9-3" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Ants learn to rely on more informative attributes during decision-making</h2>
-<p>In <span class="citation"><a href="#ref-Sasaki2013" role="doc-biblioref">Sasaki and Pratt</a> (<a href="#ref-Sasaki2013" role="doc-biblioref">2013</a>)</span>, a set of ant colonies were randomly assigned to one
+<div id="section9-3" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Ants learn to rely on more informative attributes during decision-making<a href="chapter9.html#section9-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- \sectionmark{Ants learn to rely on more informative attributes} -->
+<p>In <span class="citation">Sasaki and Pratt (<a href="#ref-Sasaki2013" role="doc-biblioref">2013</a>)</span>, a set of ant colonies were randomly assigned to one
 of two treatments to study whether the ants could be “trained” to have a
 preference for or against certain attributes for potential nest sites. The
 colonies were either randomly assigned to experience the repeated choice of two
@@ -771,29 +773,29 @@ Once we recognize that there are two categorical variables being considered
 Chi-square testing framework. The random assignment of colonies (the subjects
 here) to treatment levels tells us that the <strong><em>Chi-square Homogeneity test</em></strong>
 is appropriate here and that we can make causal statements about the effects of the <em>Treatment</em> groups.</p>
-<div class="sourceCode" id="cb889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb889-1"><a href="chapter9.html#cb889-1" aria-hidden="true" tabindex="-1"></a>sasakipratt <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/sasakipratt.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="chapter9.html#cb886-1" aria-hidden="true" tabindex="-1"></a>sasakipratt <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/sasakipratt.csv&quot;</span>)</span></code></pre></div>
 
-<div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb890-1"><a href="chapter9.html#cb890-1" aria-hidden="true" tabindex="-1"></a>sasakipratt <span class="ot">&lt;-</span> sasakipratt <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">factor</span>(group),</span>
-<span id="cb890-2"><a href="chapter9.html#cb890-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">after =</span> <span class="fu">factor</span>(after),</span>
-<span id="cb890-3"><a href="chapter9.html#cb890-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">before =</span> <span class="fu">factor</span>(before)</span>
-<span id="cb890-4"><a href="chapter9.html#cb890-4" aria-hidden="true" tabindex="-1"></a>                                      )</span>
-<span id="cb890-5"><a href="chapter9.html#cb890-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sasakipratt<span class="sc">$</span>group) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Light&quot;</span>, <span class="st">&quot;Entrance&quot;</span>)</span>
-<span id="cb890-6"><a href="chapter9.html#cb890-6" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sasakipratt<span class="sc">$</span>after) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SmallBright&quot;</span>, <span class="st">&quot;LargeDark&quot;</span>)</span>
-<span id="cb890-7"><a href="chapter9.html#cb890-7" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sasakipratt<span class="sc">$</span>before) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SmallBright&quot;</span>, <span class="st">&quot;LargeDark&quot;</span>)</span>
-<span id="cb890-8"><a href="chapter9.html#cb890-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(after <span class="sc">~</span> group, <span class="at">data =</span> sasakipratt, <span class="at">col =</span> <span class="fu">cividis</span>(<span class="dv">2</span>))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-9"></span>
+<div class="sourceCode" id="cb887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb887-1"><a href="chapter9.html#cb887-1" aria-hidden="true" tabindex="-1"></a>sasakipratt <span class="ot">&lt;-</span> sasakipratt <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">factor</span>(group),</span>
+<span id="cb887-2"><a href="chapter9.html#cb887-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">after =</span> <span class="fu">factor</span>(after),</span>
+<span id="cb887-3"><a href="chapter9.html#cb887-3" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">before =</span> <span class="fu">factor</span>(before)</span>
+<span id="cb887-4"><a href="chapter9.html#cb887-4" aria-hidden="true" tabindex="-1"></a>                                      )</span>
+<span id="cb887-5"><a href="chapter9.html#cb887-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sasakipratt<span class="sc">$</span>group) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Light&quot;</span>, <span class="st">&quot;Entrance&quot;</span>)</span>
+<span id="cb887-6"><a href="chapter9.html#cb887-6" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sasakipratt<span class="sc">$</span>after) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SmallBright&quot;</span>, <span class="st">&quot;LargeDark&quot;</span>)</span>
+<span id="cb887-7"><a href="chapter9.html#cb887-7" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(sasakipratt<span class="sc">$</span>before) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SmallBright&quot;</span>, <span class="st">&quot;LargeDark&quot;</span>)</span>
+<span id="cb887-8"><a href="chapter9.html#cb887-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(after <span class="sc">~</span> group, <span class="at">data =</span> sasakipratt, <span class="at">col =</span> <span class="fu">cividis</span>(<span class="dv">2</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-9"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-9-1.png" alt="Stacked bar chart for Ant Colony results." width="75%" />
 <p class="caption">
 Figure 9.9: Stacked bar chart for Ant Colony results.
 </p>
 </div>
-<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="chapter9.html#cb891-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb891-2"><a href="chapter9.html#cb891-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span> group <span class="sc">+</span> after, <span class="at">data =</span> sasakipratt)</span></code></pre></div>
+<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb888-1"><a href="chapter9.html#cb888-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span>
+<span id="cb888-2"><a href="chapter9.html#cb888-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span> group <span class="sc">+</span> after, <span class="at">data =</span> sasakipratt)</span></code></pre></div>
 <pre><code>##           after
 ## group      SmallBright LargeDark
 ##   Light             19         9
 ##   Entrance           9        17</code></pre>
-<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="chapter9.html#cb893-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">&lt;-</span> <span class="fu">tally</span>(<span class="sc">~</span> group <span class="sc">+</span> after, <span class="at">data =</span> sasakipratt, <span class="at">margins =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb890-1"><a href="chapter9.html#cb890-1" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">&lt;-</span> <span class="fu">tally</span>(<span class="sc">~</span> group <span class="sc">+</span> after, <span class="at">data =</span> sasakipratt, <span class="at">margins =</span> F)</span></code></pre></div>
 <p>The null hypothesis of interest here is that there is no difference in the
 distribution of responses on <em>After</em> – the rates of their choice of den types
 – between the two treatment <em>groups</em> in the population of all ant colonies
@@ -804,14 +806,14 @@ we need all the expected cell counts to be larger than 5, so we should check
 that. Note that in the following, the <code>correct = F</code> option is used to keep the
 function from slightly modifying the statistic used that occurs when overall
 sample sizes are small.</p>
-<div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="chapter9.html#cb894-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table1, <span class="at">correct =</span> F)<span class="sc">$</span>expected</span></code></pre></div>
+<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="chapter9.html#cb891-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table1, <span class="at">correct =</span> F)<span class="sc">$</span>expected</span></code></pre></div>
 <pre><code>##           after
 ## group      SmallBright LargeDark
 ##   Light       14.51852  13.48148
 ##   Entrance    13.48148  12.51852</code></pre>
 <p>Our expected cell count condition is met, so we can proceed to explore the
 results of the parametric test:</p>
-<div class="sourceCode" id="cb896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb896-1"><a href="chapter9.html#cb896-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table1, <span class="at">correct =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="chapter9.html#cb893-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table1, <span class="at">correct =</span> F)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -828,7 +830,7 @@ colony choices. These results cannot be extended to ants beyond those being
 studied by these researchers because they were not randomly selected.</p>
 <p>Further exploration of the standardized residuals can provide more insights in
 some situations, although here they are similar for all the cells:</p>
-<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="chapter9.html#cb898-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table1, <span class="at">correct =</span> F)<span class="sc">$</span>residuals</span></code></pre></div>
+<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="chapter9.html#cb895-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(table1, <span class="at">correct =</span> F)<span class="sc">$</span>residuals</span></code></pre></div>
 <pre><code>##           after
 ## group      SmallBright LargeDark
 ##   Light       1.176144 -1.220542
@@ -855,10 +857,12 @@ found with our simpler analysis. Logistic regression models are a special case
 of what are called <em>generalized linear models</em> and are a topic for the next level
 of statistics if you continue exploring.</p>
 <!-- \newpage -->
+<!-- \sectionmark{understanding vertebrate diversification in deep time} -->
 </div>
-<div id="section9-4" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Multi-variate models are essential for understanding vertebrate diversification in deep time</h2>
-<p><span class="citation"><a href="#ref-Benson2012" role="doc-biblioref">Benson and Mannion</a> (<a href="#ref-Benson2012" role="doc-biblioref">2012</a>)</span> published a paleontology study that considered
+<div id="section9-4" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Multi-variate models are essential for understanding vertebrate diversification in deep time<a href="chapter9.html#section9-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- \sectionmark{understanding vertebrate diversification in deep time} -->
+<p><span class="citation">Benson and Mannion (<a href="#ref-Benson2012" role="doc-biblioref">2012</a>)</span> published a paleontology study that considered
 modeling the diversity of <em>Sauropodomorphs</em> across <span class="math inline">\(n = 26\)</span> “stage-level” time
 bins. Diversity is measured by the count of the number of different species
 that have been found in a particular level of fossils. Specifically, the counts
@@ -883,17 +887,17 @@ diversity was different between the <em>Triassic/Jurassic</em> (grouped together
 considered models that included two different versions of sampling effort
 variables and one for the comparisons of periods (an indicator variable
 <em>TJK</em> = 0 if the observation is in <em>Triassic</em> or <em>Jurassic</em> or 1 if in
-<em>Cretaceous</em>), which are more explicitly coded below.  They <em>log-e</em> transformed all their quantitative variables
+<em>Cretaceous</em>), which are more explicitly coded below. They <em>log-e</em> transformed all their quantitative variables
 because the untransformed variables created diagnostic issues including
-influential points.  They explored a model just based on the <em>DBC</em>
-predictor<a href="#fn166" class="footnote-ref" id="fnref166"><sup>166</sup></a> and they analyzed the residuals from that model to see if the
+influential points. They explored a model just based on the <em>DBC</em>
+predictor<a href="#fn167" class="footnote-ref" id="fnref167"><sup>167</sup></a> and they analyzed the residuals from that model to see if the
 biodiversity was different in the <em>Cretaceous</em> or before, finding a
-“p-value <strong>&gt;=</strong> 0.0001” (I think they meant &lt; 0.0001<a href="#fn167" class="footnote-ref" id="fnref167"><sup>167</sup></a>). They were comparing the MLR
+“p-value <strong>&gt;=</strong> 0.0001” (I think they meant &lt; 0.0001<a href="#fn168" class="footnote-ref" id="fnref168"><sup>168</sup></a>). They were comparing the MLR
 models you learned to some extended regression models that incorporated a
 correction for correlation in the responses over time, but we can proceed with
 fitting some of their MLR models and using an AIC comparison similar to what
 they used. There are some obvious flaws in their analysis and results that we
-will avoid<a href="#fn168" class="footnote-ref" id="fnref168"><sup>168</sup></a>.</p>
+will avoid<a href="#fn169" class="footnote-ref" id="fnref169"><sup>169</sup></a>.</p>
 <p>First, we start with a plot of the log-diversity vs the log-dinosaur bearing
 collections by period. We can see fairly strong positive relationships between
 the log amounts of collections and species found with potentially similar
@@ -903,21 +907,21 @@ about a curving relationship. Note that a similar plot can also be made using
 the formations version of the quantitative predictor variable and that the
 research questions involve whether <em>DBF</em> or <em>DBC</em> are better predictor
 variables.</p>
-<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb900-1"><a href="chapter9.html#cb900-1" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/bensonmanion.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="chapter9.html#cb897-1" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/bensonmanion.csv&quot;</span>)</span></code></pre></div>
 
-<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="chapter9.html#cb901-1" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> bm <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">logSpecies =</span> <span class="fu">log</span>(Species),</span>
-<span id="cb901-2"><a href="chapter9.html#cb901-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">logDBCs =</span> <span class="fu">log</span>(DBCs),</span>
-<span id="cb901-3"><a href="chapter9.html#cb901-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">logDBFs =</span> <span class="fu">log</span>(DBFs),</span>
-<span id="cb901-4"><a href="chapter9.html#cb901-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">TJK =</span> <span class="fu">factor</span>(TJK)</span>
-<span id="cb901-5"><a href="chapter9.html#cb901-5" aria-hidden="true" tabindex="-1"></a>                    )</span>
-<span id="cb901-6"><a href="chapter9.html#cb901-6" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bm<span class="sc">$</span>TJK) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Trias_Juras&quot;</span>,<span class="st">&quot;Cretaceous&quot;</span>)</span>
-<span id="cb901-7"><a href="chapter9.html#cb901-7" aria-hidden="true" tabindex="-1"></a>bm <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> logDBCs, <span class="at">y =</span> logSpecies, <span class="at">color =</span> TJK, <span class="at">shape =</span> TJK)) <span class="sc">+</span></span>
-<span id="cb901-8"><a href="chapter9.html#cb901-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
-<span id="cb901-9"><a href="chapter9.html#cb901-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> F, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb901-10"><a href="chapter9.html#cb901-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb901-11"><a href="chapter9.html#cb901-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb901-12"><a href="chapter9.html#cb901-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_colorblind</span>()</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-10"></span>
+<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="chapter9.html#cb898-1" aria-hidden="true" tabindex="-1"></a>bm <span class="ot">&lt;-</span> bm <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">logSpecies =</span> <span class="fu">log</span>(Species),</span>
+<span id="cb898-2"><a href="chapter9.html#cb898-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">logDBCs =</span> <span class="fu">log</span>(DBCs),</span>
+<span id="cb898-3"><a href="chapter9.html#cb898-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">logDBFs =</span> <span class="fu">log</span>(DBFs),</span>
+<span id="cb898-4"><a href="chapter9.html#cb898-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">TJK =</span> <span class="fu">factor</span>(TJK)</span>
+<span id="cb898-5"><a href="chapter9.html#cb898-5" aria-hidden="true" tabindex="-1"></a>                    )</span>
+<span id="cb898-6"><a href="chapter9.html#cb898-6" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bm<span class="sc">$</span>TJK) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Trias_Juras&quot;</span>,<span class="st">&quot;Cretaceous&quot;</span>)</span>
+<span id="cb898-7"><a href="chapter9.html#cb898-7" aria-hidden="true" tabindex="-1"></a>bm <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> logDBCs, <span class="at">y =</span> logSpecies, <span class="at">color =</span> TJK, <span class="at">shape =</span> TJK)) <span class="sc">+</span></span>
+<span id="cb898-8"><a href="chapter9.html#cb898-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
+<span id="cb898-9"><a href="chapter9.html#cb898-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> F, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb898-10"><a href="chapter9.html#cb898-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb898-11"><a href="chapter9.html#cb898-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb898-12"><a href="chapter9.html#cb898-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_colorblind</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-10"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-10-1.png" alt="Scatterplot of log-biodiversity vs log-DBCs by TJK." width="75%" />
 <p class="caption">
 Figure 9.10: Scatterplot of <em>log-biodiversity</em> vs <em>log-DBCs</em> by <em>TJK</em>.
@@ -926,29 +930,29 @@ Figure 9.10: Scatterplot of <em>log-biodiversity</em> vs <em>log-DBCs</em> by <e
 <!-- \newpage -->
 <p>The following results will allow us to explore models similar to theirs. One
 “full” model they considered is:</p>
-<p><span class="math display">\[\log{(\text{count})}_i = \beta_0 + \beta_1\cdot\log{(\text{DBC})}_i 
+<p><span class="math display">\[\log{(\text{count})}_i = \beta_0 + \beta_1\cdot\log{(\text{DBC})}_i
 + \beta_2I_{\text{TJK},i} + \varepsilon_i\]</span></p>
 <p>which was compared to</p>
-<p><span class="math display">\[\log{(\text{count})}_i = \beta_0 + \beta_1\cdot\log{(\text{DBF})}_i 
+<p><span class="math display">\[\log{(\text{count})}_i = \beta_0 + \beta_1\cdot\log{(\text{DBF})}_i
 + \beta_2I_{\text{TJK},i} + \varepsilon_i\]</span></p>
 <p>as well as the simpler models that each suggests:</p>
 <p><span class="math display">\[\begin{array}{rl}
-\log{(\text{count})}_i &amp; = \beta_0 + \beta_1\cdot\log{(\text{DBC})}_i 
+\log{(\text{count})}_i &amp; = \beta_0 + \beta_1\cdot\log{(\text{DBC})}_i
 + \varepsilon_i, \\
 \log{(\text{count})}_i &amp; = \beta_0 + \beta_1\cdot\log{(\text{DBF})}_i
 + \varepsilon_i, \\
-\log{(\text{count})}_i &amp; = \beta_0 + \beta_2I_{\text{TJK},i} 
+\log{(\text{count})}_i &amp; = \beta_0 + \beta_2I_{\text{TJK},i}
 + \varepsilon_i, \text{ and} \\
 \log{(\text{count})}_i &amp; = \beta_0 + \varepsilon_i.\\
 \end{array}\]</span></p>
 <p>Both versions of the models (based on <em>DBF</em> or <em>DBC</em>) start with an MLR model
 with a quantitative variable and two slopes. We can obtain some of the needed
 model selection results from the first full model using:</p>
-<div class="sourceCode" id="cb902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb902-1"><a href="chapter9.html#cb902-1" aria-hidden="true" tabindex="-1"></a>bd1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logSpecies <span class="sc">~</span> logDBCs <span class="sc">+</span> TJK, <span class="at">data =</span> bm)</span>
-<span id="cb902-2"><a href="chapter9.html#cb902-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MuMIn)</span>
-<span id="cb902-3"><a href="chapter9.html#cb902-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">na.action =</span> <span class="st">&quot;na.fail&quot;</span>)</span>
-<span id="cb902-4"><a href="chapter9.html#cb902-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dredge</span>(bd1, <span class="at">rank =</span> <span class="st">&quot;AIC&quot;</span>, </span>
-<span id="cb902-5"><a href="chapter9.html#cb902-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">extra =</span> <span class="fu">c</span>(<span class="st">&quot;R^2&quot;</span>, <span class="at">adjRsq =</span> <span class="cf">function</span>(x) <span class="fu">summary</span>(x)<span class="sc">$</span>adj.r.squared))</span></code></pre></div>
+<div class="sourceCode" id="cb899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb899-1"><a href="chapter9.html#cb899-1" aria-hidden="true" tabindex="-1"></a>bd1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logSpecies <span class="sc">~</span> logDBCs <span class="sc">+</span> TJK, <span class="at">data =</span> bm)</span>
+<span id="cb899-2"><a href="chapter9.html#cb899-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MuMIn)</span>
+<span id="cb899-3"><a href="chapter9.html#cb899-3" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">na.action =</span> <span class="st">&quot;na.fail&quot;</span>)</span>
+<span id="cb899-4"><a href="chapter9.html#cb899-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dredge</span>(bd1, <span class="at">rank =</span> <span class="st">&quot;AIC&quot;</span>, </span>
+<span id="cb899-5"><a href="chapter9.html#cb899-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">extra =</span> <span class="fu">c</span>(<span class="st">&quot;R^2&quot;</span>, <span class="at">adjRsq =</span> <span class="cf">function</span>(x) <span class="fu">summary</span>(x)<span class="sc">$</span>adj.r.squared))</span></code></pre></div>
 <pre><code>## Global model call: lm(formula = logSpecies ~ logDBCs + TJK, data = bm)
 ## ---
 ## Model selection table 
@@ -959,9 +963,9 @@ model selection results from the first full model using:</p>
 ## 3  2.5300          + 0.004823 -0.03664  3 -23.893 53.8 20.48  0.000
 ## Models ranked by AIC(x)</code></pre>
 <p>And from the second model:</p>
-<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb904-1"><a href="chapter9.html#cb904-1" aria-hidden="true" tabindex="-1"></a>bd2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logSpecies <span class="sc">~</span> logDBFs <span class="sc">+</span> TJK, <span class="at">data =</span> bm)</span>
-<span id="cb904-2"><a href="chapter9.html#cb904-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dredge</span>(bd2, <span class="at">rank =</span> <span class="st">&quot;AIC&quot;</span>,</span>
-<span id="cb904-3"><a href="chapter9.html#cb904-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">extra =</span> <span class="fu">c</span>(<span class="st">&quot;R^2&quot;</span>, <span class="at">adjRsq =</span> <span class="cf">function</span>(x) <span class="fu">summary</span>(x)<span class="sc">$</span>adj.r.squared))</span></code></pre></div>
+<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="chapter9.html#cb901-1" aria-hidden="true" tabindex="-1"></a>bd2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(logSpecies <span class="sc">~</span> logDBFs <span class="sc">+</span> TJK, <span class="at">data =</span> bm)</span>
+<span id="cb901-2"><a href="chapter9.html#cb901-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dredge</span>(bd2, <span class="at">rank =</span> <span class="st">&quot;AIC&quot;</span>,</span>
+<span id="cb901-3"><a href="chapter9.html#cb901-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">extra =</span> <span class="fu">c</span>(<span class="st">&quot;R^2&quot;</span>, <span class="at">adjRsq =</span> <span class="cf">function</span>(x) <span class="fu">summary</span>(x)<span class="sc">$</span>adj.r.squared))</span></code></pre></div>
 <pre><code>## Global model call: lm(formula = logSpecies ~ logDBFs + TJK, data = bm)
 ## ---
 ## Model selection table 
@@ -1063,15 +1067,15 @@ with nothing in it (mean-only) and 20.5 AIC units worse than the top model.
 But the two top models distinctly benefit from the inclusion of <em>TJK</em>. This
 suggests that after controlling for the sampling effort, either through <em>DBC</em> or
 <em>DBF</em>, the differences in the stages captured by <em>TJK</em> can be more clearly observed.</p>
-<p>So the top model in our (correct) results<a href="#fn169" class="footnote-ref" id="fnref169"><sup>169</sup></a> suggests that
+<p>So the top model in our (correct) results<a href="#fn170" class="footnote-ref" id="fnref170"><sup>170</sup></a> suggests that
 <em>log(DBC)</em> is important as well as different intercepts for the two periods. We can interrogate
 this model further but we should check the diagnostics (Figure
 <a href="chapter9.html#fig:Figure9-11">9.11</a>) and consider our model
 assumptions first as AICs are not valid if the model assumptions are clearly violated.</p>
 
-<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="chapter9.html#cb906-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
-<span id="cb906-2"><a href="chapter9.html#cb906-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bd1, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-11"></span>
+<div class="sourceCode" id="cb903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb903-1"><a href="chapter9.html#cb903-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>), <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
+<span id="cb903-2"><a href="chapter9.html#cb903-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bd1, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-11"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-11-1.png" alt="Diagnostic plots for the top AIC model." width="75%" />
 <p class="caption">
 Figure 9.11: Diagnostic plots for the top AIC model.
@@ -1089,7 +1093,7 @@ distribution”). The other assumption that <strong>is violated for all our mode
 that the observations are independent. Between neighboring stages in time,
 there would likely be some sort of relationship in the biodiversity so
 we should not assume that the observations are independent (this is another
-<strong><em>time series</em></strong> of observations).  The authors acknowledged
+<strong><em>time series</em></strong> of observations). The authors acknowledged
 this issue but unskillfully attempted to deal with it. Because an interaction
 was not considered in any of the models, there also is an assumption that the
 results are parallel enough for the two groups. The scatterplot in Figure
@@ -1124,7 +1128,7 @@ suggests <span class="math inline">\(\exp(-0.76) = 0.47\)</span> times (53% drop
 per stage for Cretaceous versus the prior time period, after correcting for
 log-sampling effort in each stage.</p>
 <!-- \newpage -->
-<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="chapter9.html#cb907-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bd1)</span></code></pre></div>
+<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb904-1"><a href="chapter9.html#cb904-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bd1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = logSpecies ~ logDBCs + TJK, data = bm)
@@ -1143,8 +1147,8 @@ log-sampling effort in each stage.</p>
 ## Multiple R-squared:  0.5809, Adjusted R-squared:  0.5444 
 ## F-statistic: 15.94 on 2 and 23 DF,  p-value: 4.54e-05</code></pre>
 
-<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb909-1"><a href="chapter9.html#cb909-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">allEffects</span>(bd1, <span class="at">residuals =</span> T), <span class="at">grid =</span> T)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-12"></span>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="chapter9.html#cb906-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">allEffects</span>(bd1, <span class="at">residuals =</span> T), <span class="at">grid =</span> T)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-12"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-12-1.png" alt="Term-plots for the top AIC model with partial residuals." width="75%" />
 <p class="caption">
 Figure 9.12: Term-plots for the top AIC model with partial residuals.
@@ -1187,10 +1191,12 @@ as well as hinting at the benefits. The statistical models are the only way to
 access the results of interest; inaccurate usage of statistical models can
 provide inaccurate conclusions. They seemed to mostly get the right answers
 despite a suite of errors in their work.</p>
+<!-- \sectionmark{didgeridoos and sleepiness} -->
 </div>
-<div id="section9-5" class="section level2" number="9.5">
-<h2><span class="header-section-number">9.5</span> What do didgeridoos really do about sleepiness?</h2>
-<p>In the practice problems at the end of Chapter 4, a study (<span class="citation"><a href="#ref-Puhan2006" role="doc-biblioref">Puhan et al.</a> (<a href="#ref-Puhan2006" role="doc-biblioref">2006</a>)</span>) related
+<div id="section9-5" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> What do didgeridoos really do about sleepiness?<a href="chapter9.html#section9-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- \sectionmark{didgeridoos and sleepiness} -->
+<p>In the practice problems at the end of Chapter 4, a study (<span class="citation">Puhan et al. (<a href="#ref-Puhan2006" role="doc-biblioref">2006</a>)</span>) related
 to a pre-post, two group comparison of the sleepiness ratings of subjects was
 introduced. They obtained <span class="math inline">\(n = 25\)</span> volunteers and they randomized the subjects to
 either get a lesson or be placed on a waiting list for lessons. They constrained
@@ -1207,7 +1213,7 @@ the data set provided that is available at
 <a href="http://www.math.montana.edu/courses/s217/documents/epworthdata.csv" class="uri">http://www.math.montana.edu/courses/s217/documents/epworthdata.csv</a>.</p>
 <p>The data set was not initially provided by the researchers, but they
 did provide a plot very similar to Figure <a href="chapter9.html#fig:Figure9-13">9.13</a>. To make
-Figure <a href="chapter9.html#fig:Figure9-13">9.13</a> <code>geom_line</code>  is used
+Figure <a href="chapter9.html#fig:Figure9-13">9.13</a> <code>geom_line</code> is used
 to display a line for each subject over the two time points (pre and post) of
 observation and indicate which group the subjects were assigned to. This allows
 us to see the variation at a given time across subjects and changes over time,
@@ -1221,21 +1227,21 @@ observations on each subject). The plot allows us to go further and see that
 many subjects had similar Epworth scores from pre to post (high in pre,
 generally high in post) once we account for systematic changes in the treated
 subjects that seemed to drop a bit on average.</p>
-<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="chapter9.html#cb910-1" aria-hidden="true" tabindex="-1"></a>epworthdata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/epworthdata.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="chapter9.html#cb907-1" aria-hidden="true" tabindex="-1"></a>epworthdata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://www.math.montana.edu/courses/s217/documents/epworthdata.csv&quot;</span>)</span></code></pre></div>
 
-<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="chapter9.html#cb911-1" aria-hidden="true" tabindex="-1"></a>epworthdata <span class="ot">&lt;-</span> epworthdata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">factor</span>(Time),</span>
-<span id="cb911-2"><a href="chapter9.html#cb911-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">Group =</span> <span class="fu">factor</span>(Group)</span>
-<span id="cb911-3"><a href="chapter9.html#cb911-3" aria-hidden="true" tabindex="-1"></a>                                      )</span>
-<span id="cb911-4"><a href="chapter9.html#cb911-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(epworthdata<span class="sc">$</span>Time) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Pre&quot;</span> , <span class="st">&quot;Post&quot;</span>)</span>
-<span id="cb911-5"><a href="chapter9.html#cb911-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(epworthdata<span class="sc">$</span>Group) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span> , <span class="st">&quot;Didgeridoo&quot;</span>)</span>
-<span id="cb911-6"><a href="chapter9.html#cb911-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb911-7"><a href="chapter9.html#cb911-7" aria-hidden="true" tabindex="-1"></a>epworthdata <span class="sc">%&gt;%</span> </span>
-<span id="cb911-8"><a href="chapter9.html#cb911-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> Epworth, <span class="at">group =</span> Subject, <span class="at">color =</span> Group)) <span class="sc">+</span></span>
-<span id="cb911-9"><a href="chapter9.html#cb911-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb911-10"><a href="chapter9.html#cb911-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb911-11"><a href="chapter9.html#cb911-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb911-12"><a href="chapter9.html#cb911-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_colorblind</span>()</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:Figure9-13"></span>
+<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="chapter9.html#cb908-1" aria-hidden="true" tabindex="-1"></a>epworthdata <span class="ot">&lt;-</span> epworthdata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Time =</span> <span class="fu">factor</span>(Time),</span>
+<span id="cb908-2"><a href="chapter9.html#cb908-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">Group =</span> <span class="fu">factor</span>(Group)</span>
+<span id="cb908-3"><a href="chapter9.html#cb908-3" aria-hidden="true" tabindex="-1"></a>                                      )</span>
+<span id="cb908-4"><a href="chapter9.html#cb908-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(epworthdata<span class="sc">$</span>Time) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Pre&quot;</span> , <span class="st">&quot;Post&quot;</span>)</span>
+<span id="cb908-5"><a href="chapter9.html#cb908-5" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(epworthdata<span class="sc">$</span>Group) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span> , <span class="st">&quot;Didgeridoo&quot;</span>)</span>
+<span id="cb908-6"><a href="chapter9.html#cb908-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb908-7"><a href="chapter9.html#cb908-7" aria-hidden="true" tabindex="-1"></a>epworthdata <span class="sc">%&gt;%</span> </span>
+<span id="cb908-8"><a href="chapter9.html#cb908-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> Epworth, <span class="at">group =</span> Subject, <span class="at">color =</span> Group)) <span class="sc">+</span></span>
+<span id="cb908-9"><a href="chapter9.html#cb908-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb908-10"><a href="chapter9.html#cb908-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb908-11"><a href="chapter9.html#cb908-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb908-12"><a href="chapter9.html#cb908-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_colorblind</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-13"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-13-1.png" alt="Plot of Epworth responses for each subject, initially and after four months, based on treatment groups with one line for each subject connecting observations made over time." width="75%" />
 <p class="caption">
 Figure 9.13: Plot of Epworth responses for each subject, initially and after four months, based on treatment groups with one line for each subject connecting observations made over time.
@@ -1256,11 +1262,11 @@ in Figure <a href="chapter9.html#fig:Figure9-14">9.14</a>. The real data set had
 relationships between the pre and post scores but this connection seems to
 disappear in responses simulated from the estimated Two-Way ANOVA model (that
 assumes all observations are independent).</p>
-<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="chapter9.html#cb912-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb912-2"><a href="chapter9.html#cb912-2" aria-hidden="true" tabindex="-1"></a>lm_int <span class="ot">&lt;-</span> <span class="fu">lm</span>(Epworth <span class="sc">~</span> Time <span class="sc">*</span> Group, <span class="at">data =</span> epworthdata)</span>
-<span id="cb912-3"><a href="chapter9.html#cb912-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(lm_int)</span></code></pre></div>
+<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb909-1"><a href="chapter9.html#cb909-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb909-2"><a href="chapter9.html#cb909-2" aria-hidden="true" tabindex="-1"></a>lm_int <span class="ot">&lt;-</span> <span class="fu">lm</span>(Epworth <span class="sc">~</span> Time <span class="sc">*</span> Group, <span class="at">data =</span> epworthdata)</span>
+<span id="cb909-3"><a href="chapter9.html#cb909-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(lm_int)</span></code></pre></div>
 
-<div class="figure" style="text-align: center"><span id="fig:Figure9-14"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-14"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-14-1.png" alt="Plot of simulated data from the Two-Way ANOVA model that does not assume observations are on repeated measures on subjects to compare to the real data set. Even though the treatment levels seem to decrease on average, there is a much less clear relationship between the starting and ending values in the individuals." width="75%" />
 <p class="caption">
 Figure 9.14: Plot of simulated data from the Two-Way ANOVA model that does not assume observations are on repeated measures on subjects to compare to the real data set. Even though the treatment levels seem to decrease on average, there is a much less clear relationship between the starting and ending values in the individuals.
@@ -1314,7 +1320,7 @@ why not add “Subject” to the model? There are two things to consider. First,
 we would need to make sure that “Subject” is a factor variable as the “Subject”
 variable is initially numerical from 1 to 25. Second, we have to deal with
 having a factor variable with 25 levels (so 24 indicator variables!).
- This is a big number and would make writing out the model and
+This is a big number and would make writing out the model and
 interpreting the term-plot for Subject extremely challenging. Fortunately, we
 are not too concerned about how much higher or lower an individual is than a
 baseline subject, but we do need to account for it in the model. This sort of “repeated
@@ -1333,9 +1339,9 @@ provides <span class="math inline">\(F(1,23) = 5.43\)</span> with a p-value of 0
 moderate evidence against the null hypothesis of no interaction of time and group once we account for subject. This is a
 notably different result from what we observed in the Two-Way ANOVA
 interaction model that didn’t account for repeated measures on the subjects and matches the results in the original paper closely.</p>
-<div class="sourceCode" id="cb913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb913-1"><a href="chapter9.html#cb913-1" aria-hidden="true" tabindex="-1"></a>epworthdata <span class="ot">&lt;-</span> epworthdata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Subject =</span> <span class="fu">factor</span>(Subject))</span>
-<span id="cb913-2"><a href="chapter9.html#cb913-2" aria-hidden="true" tabindex="-1"></a>lm_int_wsub <span class="ot">&lt;-</span> <span class="fu">lm</span>(Epworth <span class="sc">~</span> Time <span class="sc">*</span> Group <span class="sc">+</span> Subject, <span class="at">data =</span> epworthdata)</span>
-<span id="cb913-3"><a href="chapter9.html#cb913-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(lm_int_wsub)</span></code></pre></div>
+<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="chapter9.html#cb910-1" aria-hidden="true" tabindex="-1"></a>epworthdata <span class="ot">&lt;-</span> epworthdata <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Subject =</span> <span class="fu">factor</span>(Subject))</span>
+<span id="cb910-2"><a href="chapter9.html#cb910-2" aria-hidden="true" tabindex="-1"></a>lm_int_wsub <span class="ot">&lt;-</span> <span class="fu">lm</span>(Epworth <span class="sc">~</span> Time <span class="sc">*</span> Group <span class="sc">+</span> Subject, <span class="at">data =</span> epworthdata)</span>
+<span id="cb910-3"><a href="chapter9.html#cb910-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(lm_int_wsub)</span></code></pre></div>
 
 <table>
 <caption><span id="tab:Table9-3">Table 9.3: </span>ANOVA table from Two-Way ANOVA interaction model.</caption>
@@ -1390,7 +1396,7 @@ interaction model that didn’t account for repeated measures on the subjects an
 model to get a sense of the pattern of the changes over time in the treatment
 and control groups. That aliasing issue means that the “effects” function also
 has some issues. To see the effects plots, we need to use a linear mixed model
-from the <code>nlme</code> package <span class="citation">(<a href="#ref-R-nlme" role="doc-biblioref">Pinheiro, Bates, and R-core 2021</a>)</span>. This model is beyond the scope of this material, but
+from the <code>nlme</code> package <span class="citation">(<a href="#ref-R-nlme" role="doc-biblioref">Pinheiro, Bates, and R Core Team 2022</a>)</span>. This model is beyond the scope of this material, but
 it provides the same <span class="math inline">\(F\)</span>-statistic for the interaction (<span class="math inline">\(F(1,23) = 5.43\)</span>) and the
 term-plots can now be produced (Figure <a href="chapter9.html#fig:Figure9-15">9.15</a>). In that plot, we
 again see that the didgeridoo group mean for “Post” is noticeably lower than in
@@ -1401,18 +1407,18 @@ able to detect this difference. While these results rely on more complex models
 than we have time to discuss here, hopefully the similarity of the results of
 interest should resonate with the methods we have been exploring while hinting
 at more possibilities if you learn more statistical methods.</p>
-<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="chapter9.html#cb914-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
-<span id="cb914-2"><a href="chapter9.html#cb914-2" aria-hidden="true" tabindex="-1"></a>lme_int <span class="ot">&lt;-</span> <span class="fu">lme</span>(Epworth <span class="sc">~</span> Time <span class="sc">*</span> Group, <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>Subject, <span class="at">data =</span> epworthdata)</span>
-<span id="cb914-3"><a href="chapter9.html#cb914-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lme_int)</span></code></pre></div>
+<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="chapter9.html#cb911-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb911-2"><a href="chapter9.html#cb911-2" aria-hidden="true" tabindex="-1"></a>lme_int <span class="ot">&lt;-</span> <span class="fu">lme</span>(Epworth <span class="sc">~</span> Time <span class="sc">*</span> Group, <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>Subject, <span class="at">data =</span> epworthdata)</span>
+<span id="cb911-3"><a href="chapter9.html#cb911-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lme_int)</span></code></pre></div>
 <pre><code>##             numDF denDF   F-value p-value
 ## (Intercept)     1    23 132.81354  &lt;.0001
 ## Time            1    23  22.41014  0.0001
 ## Group           1    23   0.23175  0.6348
 ## Time:Group      1    23   5.43151  0.0289</code></pre>
-<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="chapter9.html#cb916-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">allEffects</span>(lme_int), <span class="at">multiline =</span> T, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">ci.style =</span> <span class="st">&quot;bars&quot;</span>, <span class="at">grid =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb913-1"><a href="chapter9.html#cb913-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">allEffects</span>(lme_int), <span class="at">multiline =</span> T, <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">ci.style =</span> <span class="st">&quot;bars&quot;</span>, <span class="at">grid =</span> T)</span></code></pre></div>
 <!-- \newpage -->
 
-<div class="figure" style="text-align: center"><span id="fig:Figure9-15"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure9-15"></span>
 <img src="09-caseStudies_files/figure-html/Figure9-15-1.png" alt="Term-plot of Time by Group interaction, results are from model that accounts for subject-to-subject variation in a mixed model." width="75%" />
 <p class="caption">
 Figure 9.15: Term-plot of Time by Group interaction, results are from model that accounts for subject-to-subject variation in a mixed model.
@@ -1420,8 +1426,8 @@ Figure 9.15: Term-plot of Time by Group interaction, results are from model that
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="section9-6" class="section level2" number="9.6">
-<h2><span class="header-section-number">9.6</span> General summary</h2>
+<div id="section9-6" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> General summary<a href="chapter9.html#section9-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As we wrap up, it is important to remember that these tools are limited by the
 quality of the data collected. If you are ever involved in applying these
 statistical models, whether in a research or industrial setting, make sure that
@@ -1452,7 +1458,7 @@ statistics courses.</p>
 
 </div>
 </div>
-<h3>References</h3>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Benson2012" class="csl-entry">
 Benson, Roger B. J., and Philip D. Mannion. 2012. <span>“Multi-Variate Models Are Essential for Understanding Vertebrate Diversification in Deep Time.”</span> <em>Biology Letters</em> 8: 127–30. <a href="https://doi.org/10.1098/rsbl.2011.0460">https://doi.org/10.1098/rsbl.2011.0460</a>.
@@ -1461,7 +1467,7 @@ Benson, Roger B. J., and Philip D. Mannion. 2012. <span>“Multi-Variate Models 
 Gundale, Michael J., Lisbet H. Bach, and Annika Nordin. 2013. <span>“The Impact of Simulated Chronic Nitrogen Deposition on the Biomass and <span>N2</span>-Fixation Activity of Two Boreal Feather Moss–Cyanobacteria Associations.”</span> <em>Biology Letters</em> 9 (6). <a href="https://doi.org/10.1098/rsbl.2013.0797">https://doi.org/10.1098/rsbl.2013.0797</a>.
 </div>
 <div id="ref-R-nlme" class="csl-entry">
-Pinheiro, José, Douglas Bates, and R-core. 2021. <em>Nlme: Linear and Nonlinear Mixed Effects Models</em>. <a href="https://svn.r-project.org/R-packages/trunk/nlme/">https://svn.r-project.org/R-packages/trunk/nlme/</a>.
+Pinheiro, José, Douglas Bates, and R Core Team. 2022. <em>Nlme: Linear and Nonlinear Mixed Effects Models</em>. <a href="https://svn.r-project.org/R-packages/trunk/nlme/">https://svn.r-project.org/R-packages/trunk/nlme/</a>.
 </div>
 <div id="ref-Puhan2006" class="csl-entry">
 Puhan, Milo A, Alex Suarez, Christian Lo Cascio, Alfred Zahn, Markus Heitz, and Otto Braendli. 2006. <span>“Didgeridoo Playing as Alternative Treatment for Obstructive Sleep Apnoea Syndrome: Randomised Controlled Trial.”</span> <em>BMJ</em> 332 (7536): 266–70. <a href="https://doi.org/10.1136/bmj.38705.470590.55">https://doi.org/10.1136/bmj.38705.470590.55</a>.
@@ -1472,19 +1478,19 @@ Sasaki, Takao, and Stephen C. Pratt. 2013. <span>“Ants Learn to Rely on More I
 </div>
 <div class="footnotes">
 <hr />
-<ol start="164">
-<li id="fn164"><p>The researchers did not
+<ol start="165">
+<li id="fn165"><p>The researchers did not
 do this analysis so never directly addressed this research question although
-they did discuss it in general ways.<a href="chapter9.html#fnref164" class="footnote-back">↩︎</a></p></li>
-<li id="fn165"><p>Instructors often get asked what a problem with
-non-constant variance actually looks like – this is a perfect example of it!<a href="chapter9.html#fnref165" class="footnote-back">↩︎</a></p></li>
-<li id="fn166"><p>This was not even close to their top AIC model so they made an odd
-choice.<a href="chapter9.html#fnref166" class="footnote-back">↩︎</a></p></li>
-<li id="fn167"><p>I had students read this
+they did discuss it in general ways.<a href="chapter9.html#fnref165" class="footnote-back">↩︎</a></p></li>
+<li id="fn166"><p>Instructors often get asked what a problem with
+non-constant variance actually looks like – this is a perfect example of it!<a href="chapter9.html#fnref166" class="footnote-back">↩︎</a></p></li>
+<li id="fn167"><p>This was not even close to their top AIC model so they made an odd
+choice.<a href="chapter9.html#fnref167" class="footnote-back">↩︎</a></p></li>
+<li id="fn168"><p>I had students read this
 paper in a class and one decided that this was a reasonable way to report small
 p-values – it is WRONG. We are interested in how small a p-value might be and
-saying it is over a value is never useful, especially if you say it is larger than a tiny number.<a href="chapter9.html#fnref167" class="footnote-back">↩︎</a></p></li>
-<li id="fn168"><p>All too often, I read journal articles that have under-utilized,
+saying it is over a value is never useful, especially if you say it is larger than a tiny number.<a href="chapter9.html#fnref168" class="footnote-back">↩︎</a></p></li>
+<li id="fn169"><p>All too often, I read journal articles that have under-utilized,
 under-reported, mis-applied, or mis-interpreted statistical methods and
 results. One of the reasons that I wanted to write this book was to help more
 people move from basic statistical knowledge to correct use of intermediate
@@ -1495,12 +1501,12 @@ courses are not enough to get you there, but you have to start somewhere. You
 are only maybe two or three hundred hours into your 10,000 hours required for mastery.
 This book is intended get you some solid fundamentals to build on or a
 few intermediate tools to use if this is your last statistics training
-experience.<a href="chapter9.html#fnref168" class="footnote-back">↩︎</a></p></li>
-<li id="fn169"><p>They also had an error in their AIC
+experience.<a href="chapter9.html#fnref169" class="footnote-back">↩︎</a></p></li>
+<li id="fn170"><p>They also had an error in their AIC
 results that is difficult to explain here but was due to an un-careful usage of
 the results from the more advanced models that account for autocorrelation,
 which seems to provide the proper ranking of models (<em>that they ignored</em>) but
-did not provide the correct differences among models.<a href="chapter9.html#fnref169" class="footnote-back">↩︎</a></p></li>
+did not provide the correct differences among models.<a href="chapter9.html#fnref170" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1513,7 +1519,6 @@ did not provide the correct differences among models.<a href="chapter9.html#fnre
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1543,6 +1548,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Greenwood_Book.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 },
@@ -1559,7 +1568,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

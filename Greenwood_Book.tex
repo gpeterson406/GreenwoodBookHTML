@@ -6,8 +6,8 @@
 ]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -33,14 +33,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Intermediate Statistics with R},
-  pdfauthor={Mark C Greenwood},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -121,6 +113,9 @@
 \usepackage{cancel}
 \usepackage{geometry}
 \usepackage{framed}
+\usepackage[fit]{truncate}
+\usepackage{fancyhdr}
+
 
 \definecolor{WhiteSmoke}{RGB}{245, 245, 245} % #F5F5F5
 \definecolor{Silver}{RGB}{192, 192, 192} % #C0C0C0
@@ -191,9 +186,15 @@
 
 \renewcommand*{\maketitle}{%
 \begin{titlepage}
-\includegraphics{titlepage.pdf}
+\includegraphics{titlepage_summer_2022.pdf}
 \end{titlepage}
 }
+
+\pagestyle{fancy}
+\fancyhf{} % --- clear all fields
+\fancyhead[LE, RO]{\thepage} %Add page number to outside of page in header
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\truncate{0.95\headwidth}{\rightmark}}
 
 % Uncomment below to make an index (only for pdf version).
 % Will also need to figure out how to make the bookmark jump to the Index
@@ -201,11 +202,19 @@
 \makeindex
 \usepackage{amsmath}
 \usepackage{color}
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Intermediate Statistics with R},
+  pdfauthor={Mark C Greenwood},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Intermediate Statistics with R}
 \usepackage{etoolbox}
@@ -214,7 +223,7 @@
   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
-\subtitle{Version 3.0 -- Published Fall 2021}
+\subtitle{Version 3.1 -- Published Fall 2022}
 \author{Mark C Greenwood}
 \date{}
 
@@ -232,13 +241,13 @@
 \chapter*{Acknowledgments}\label{acknowledgments}}
 \addcontentsline{toc}{chapter}{Acknowledgments}
 
-I would like to thank all the students and instructors who have provided input in the development of the current version of STAT 217 and that have impacted the choice of topics and how we try to teach them that show up in this book. Dr.~Jim Robison-Cox initially developed this course using R and much of this work retains his initial ideas. The first three editions of the book were co-authored with Dr.~Katharine Banner, who had a major impact on all aspects of the book as it exists today. I would also like to thank Jacob Rich, who introduced me to pirate-plots that are incorporated in the newest version. Many years of teaching these topics and helping researchers use these topics has helped to refine how they are presented here. Observing students years after the course has also impacted what we try to teach in the course, trying to prepare these students for the next levels of statistics courses that they might encounter, the next class where they might need or want to use statistics, and for potentially using statistics in the rest of their lives.
+I would like to thank all the students and instructors who have provided input in the development of the current version of STAT 217 and that have impacted the choice of topics and how we try to teach them that show up in this book. Dr.~Jim Robison-Cox initially developed this course using R and much of this work retains his initial ideas. The first three editions of the original versions of the book were co-authored with Dr.~Katharine Banner, who had a major impact on all aspects of the book as it exists today. Many years of teaching these topics and helping researchers use these topics has helped to refine how they are presented here. Observing students years after the course has also impacted what we try to teach in the course, trying to prepare these students for the next levels of statistics courses that they might encounter, the next class where they might need or want to use statistics, and for potentially using statistics in the rest of their lives.
 
 I have intentionally taken a first person perspective at times to be able to include stories from some of those interactions to try to help you avoid some of their pitfalls in your current or future usage of statistics. When I take the perspective of ``we'', I am referring to the team of instructors that help to deliver this material to the students. I would also like to thank my wife, Teresa Greenwood, for allowing me the time and providing support as I repeatedly work on this. Buster Greenwood (our dog) played a role in approving everything that I wrote. I would like to acknowledge Dr.~Gordon Bril (Luther College) who introduced me to statistics while I was an undergraduate and Dr.~Snehalata Huzurbazar when I was at the University of Wyoming that guided me to completing my Master's and Ph.D.~in Statistics and continues to be a valued mentor and friend to me.
 
-The development of this text was initially supported with funding from Montana State University's Instructional Innovation Grant Program with the grant \emph{Towards more active learning in STAT 217} and versions 2.1 and 2.2 were supported by an Open Educational Research Award from the Montana State University Library, and Version 3.0 was developed with their continuing support. This book was born with the goal of having a targeted presentation of topics that we cover (and few that we don't) that minimizes cost to students and incorporates the statistical software R (and the interface RStudio) from day one and every day after that. The software is a free, open-source platform and so is dynamically changing over time. This has necessitated frequent revisions of the text.
+The development of this text was initially supported with funding from Montana State University's Instructional Innovation Grant Program with the grant \emph{Towards more active learning in STAT 217} and versions 2.1 and 2.2 were supported by an Open Educational Research Award from the Montana State University Library, and Versions 3.0 and 3.1 were developed with their continuing support. This book was born with the goal of having a targeted presentation of topics that we cover (and few that we don't) that minimizes cost to students and incorporates the statistical software R (and the interface RStudio) from day one and every day after that. The software is a free, open-source platform and so is dynamically changing over time. This has necessitated frequent revisions of the text.
 
-This is Version 3.0 of the book with this title but the eighth version of most of the content. Version 3.0 changes to using the ``tidyverse'' for data wrangling and \texttt{ggplot} for many of the data visualizations. This modernizes the way data are modified and prepared for analyses as well as allowing much more customization for the user for data visualizations. There are places where the code is more involved but the benefits of learning to data wrangle and plot using these tools is to create a more understandable flow of both (often done together) and the ability to layer multiple commands and plots together to attain a final destination of analysis and plots.
+This is Version 3.1 of the book with this title but the ninth version of most of the content. Version 3.1 is a modest update to 3.0 to fix some typos, add a few critical discussions, and update code in a few spots to respond to the evolving R landscape. Version 3.0 changed to using the ``tidyverse'' for data wrangling and \texttt{ggplot} for many of the data visualizations. This modernizes the way data are modified and prepared for analyses as well as allowing much more customization for the user for data visualizations. There are places where the code is more involved but the benefits of learning to data wrangle and plot using these tools is to create a more understandable flow of both (often done together) and the ability to layer multiple commands and plots together to attain a final destination of analysis and plots.
 
 This text has been created by Greta Linse of Great Lines Writing and Consulting Services (\url{https://www.greatlineswriting.com/}) who ported the book into RStudio's bookdown format and tried to edit and improve the writing in the text. Any remaining errors are the responsibility of Mark Greenwood. The book was initially developed during Fall 2013 and the text has continually evolved since its creation. The frequent updates are primarily motivated by changes in the R software that impact the methods and results that are provided here and hopefully the code will work when you try it.
 
@@ -505,12 +514,12 @@ from two groups, make some graphical displays, do hypothesis testing \index{hypo
 confidence intervals in a couple of different ways.
 
 \indent You will have two\footnote{There is a cloud version of R Studio available at \url{https://rstudio.cloud/} that is free for limited usage and some institutions have locally hosted versions that you can use with a web-browser (check with your instructor for those options). We recommend following the steps to be able to work locally but try this option if you have issues with the installation process and need to complete an assignment or two until you get the installation sorted out.} downloading activities to complete before you can do anything
-more than read this book\footnote{I created this interactive website (\url{https://greenwood-stat.shinyapps.io/InstallDemo/}) that contains discussions and activities related to installing and using R and RStudio.}. First, you need to download R. It is the engine that will do all the computing
+more than read this book\footnote{I created this interactive website (\url{https://rconnect.math.montana.edu/InstallDemo/}) that contains discussions and activities related to installing and using R and RStudio.}. First, you need to download R. It is the engine that will do all the computing
 for us, but you will only interact with it once. Go to \url{http://cran.rstudio.com}
 and click on the ``\textbf{Download R for\ldots{}}'' button that
 corresponds to your operating system. On the next page, click on ``\textbf{base}'' and then it will take you
 to a screen to download the most current version of R that is compiled for your
-operating system, something like ``\textbf{Download R 4.1.1 for Windows}''. Click on that link and then open
+operating system, something like ``\textbf{Download R 4.2.1 for Windows}''. Click on that link and then open
 the file you downloaded. You will need to select your preferred language (choose English so your instructor can help you), then hit ``\textbf{Next}''
 until it starts to unpack and install the program (all the base settings will be fine). After you hit ``\textbf{Finish}'' you will not do anything further with R directly.
 
@@ -524,8 +533,8 @@ more than a few months previously, you should download the up-to-date versions,
 especially if something you are trying to do is not working. Sometimes code
 will not work in older versions of R and sometimes old code won't work in new
 versions of R.\footnote{The need to keep the code up-to-date as R continues to evolve is
-  one reason that this book is locally published and that this is the 8\textsuperscript{th} time
-  it has been revised in eight years\ldots{}}
+  one reason that this book is locally published and that this is the 9\textsuperscript{th} time
+  it has been revised in nine years\ldots{}}
 
 
 
@@ -695,10 +704,10 @@ package, make sure it appears in the list in the \textbf{Packages} tab. If it
 doesn't, repeat the previous steps to install it.
 
 \begin{longtable}[]{@{}l@{}}
-\toprule
+\toprule()
 \endhead
 \textbf{Important}: R is case sensitive! \texttt{Readr} is not the same as \texttt{readr}! \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \newpage
@@ -726,28 +735,44 @@ starts and ends with the following information (only results for Subjects 1, 2,
 30, and 31 shown here):
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.09}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.13}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.17}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.12}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.13}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.11}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.17}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.07}}@{}}
-\toprule
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0933}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1733}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1200}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1067}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1733}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0667}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
 Sub-
-ject & Tread-
-MillOx & TreadMill-
-MaxPulse & RunTime & RunPulse & Rest
-Pulse & BodyWeight & Age \\
-\midrule
+ject
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tread-
+MillOx
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+TreadMill-
+MaxPulse
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RunTime
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RunPulse
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rest
+Pulse
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+BodyWeight
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Age
+\end{minipage} \\
+\midrule()
 \endhead
 1 & 60.05 & 186 & 8.63 & 170 & 48 & 81.87 & 38 \\
 2 & 59.57 & 172 & 8.17 & 166 & 40 & 68.15 & 42 \\
 \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} \\
 30 & 39.2 & 172 & 12.88 & 168 & 44 & 91.63 & 54 \\
 31 & 37.39 & 192 & 14.03 & 186 & 56 & 87.66 & 45 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \indent The variables contain information on the subject number (\emph{Subject}), subjects'
@@ -870,7 +895,7 @@ edit code -- then save the file as something like ``MyFileName.R'' in your prefe
 Saving your code will mean that you can return to where you
 were working last by simply re-running the saved script file. With code in the
 script window, you can place the cursor on a line of code or highlight a chunk
-of code and hit the ``Run'' button\footnote{You can also use Ctrl+Enter if you like hot keys.}
+of code and hit the ``Run'' button\footnote{You can also use Ctrl+Enter if you like hot keys (Command+Enter on Mac OS).}
 on the upper part of the panel. It will appear
 in the console with results just like what you would obtain if you typed it
 after the command prompt and hit enter for each line. Figure \ref{fig:Figure1-4}
@@ -1308,14 +1333,14 @@ defines which layer is ``on top'', with the plot built up sequentially. So we ca
 add a boxplot on top of a histogram by putting it after the histogram layer.
 Also in Figure \ref{fig:Figure1-12}, the \texttt{geom\_rug} is also added, which puts
 a tick mark for each observation on the lower part of the x-axis. \index{rug}
-Rug plots use a graphical technique called \textbf{\emph{jittering}} to add a little
-noise\footnote{Jittering typically involves adding random variability to each
+Rug plots can also use a graphical technique called \textbf{\emph{jittering}} to add a little
+noise using the options \texttt{geom\_rug(sides\ =\ "b",\ aes(y\ =\ 0),\ position\ =\ "jitter")}\footnote{Jittering typically involves adding random variability to each
   observation that is uniformly distributed in a range determined based on the
-  spacing of the observation. The idea is to jitter just enough to see all the
-  points but not too much. This means that if you re-run the \texttt{jitter} function,
+  spacing of the observations. The idea is to jitter just enough to see all the
+  points but not too much. Because it is random noise being added, this also means that if you re-run the \texttt{jitter} function,
   the results will change if you do not set the random number seed using
-  \texttt{set.seed} that is discussed more below. For more details, type \texttt{help(jitter)}
-  in the console in RStudio.} to each observation so that multiple similar or
+  \texttt{set.seed} that is discussed more below. For more details, type \texttt{help(geom\_rug)}
+  in the console in RStudio. The code is unfortunately clumsy to add jittering to the rug, so a simpler option is to use \texttt{geom\_rug(alpha\ =\ 0.3)} where the transparency is modified with the \texttt{alpha} option to help with identifying overplotting of lines in the rug.} to each observation so that multiple similar or
 tied observations do not plot as a single line. \index{jitter} There are options
 to control the color of individual components when we add them (the histogram is
 filled with grey (\texttt{fill\ =\ "grey"}), the boxplot is in ``tomato''
@@ -1345,7 +1370,7 @@ options there). \index{themes} \index{\texttt{theme\_bw()}}
 \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ treadmill, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ RunTime)) }\SpecialCharTok{+} 
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{fill =} \StringTok{"grey"}\NormalTok{, }\AttributeTok{bins =} \DecValTok{8}\NormalTok{) }\SpecialCharTok{+} 
   \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{color =} \StringTok{"tomato"}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_rug}\NormalTok{(}\AttributeTok{color =} \StringTok{"skyblue"}\NormalTok{) }\SpecialCharTok{+} 
+    \FunctionTok{geom\_rug}\NormalTok{(}\AttributeTok{color =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{sides =} \StringTok{"b"}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =} \DecValTok{0}\NormalTok{), }\AttributeTok{position =} \StringTok{"jitter"}\NormalTok{) }\SpecialCharTok{+} 
   \FunctionTok{theme\_light}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
@@ -1647,7 +1672,7 @@ They collected data (distance to the vehicle in cm for each car ``overtake'') on
 \end{Highlighting}
 \end{Shaded}
 
-It is always good to review the data you have read by running the code and printing the tibble \index{R packages!\textbf{tibble}} by typing the tibble name (here \texttt{\textgreater{}\ dd}) at the command prompt in the console, using the \texttt{View} function, (here \texttt{View(dd)}), to open a spreadsheet-like view, or using the \texttt{head} and \texttt{tail} functions have been show the first and last ten observations:
+It is always good to review the data you have read by running the code and printing the tibble \index{R packages!\textbf{tibble}} by typing the tibble name (here \texttt{\textgreater{}\ dd}) at the command prompt in the console, using the \texttt{View} function, (here \texttt{View(dd)}), to open a spreadsheet-like view, or using the \texttt{head} and \texttt{tail} functions to show the first and last six observations:
 
 \newpage
 
@@ -1884,7 +1909,7 @@ contains the histogram with a boxplot and a rug of \emph{Distance}, all ignoring
 \begin{Highlighting}[]
 \NormalTok{dd }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Distance)) }\SpecialCharTok{+}
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{20}\NormalTok{, }\AttributeTok{fill =} \StringTok{"grey"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_rug}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_rug}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{color =} \StringTok{"tomato"}\NormalTok{, }\AttributeTok{width =} \DecValTok{30}\NormalTok{) }\SpecialCharTok{+} 
       \CommentTok{\# width used to scale boxplot to make it more visible}
   \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
@@ -1949,7 +1974,7 @@ either display and will rarely make both together. \index{\texttt{geom\_density(
 \NormalTok{dd }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Distance)) }\SpecialCharTok{+}
   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{15}\NormalTok{, }\AttributeTok{fill =} \StringTok{"grey"}\NormalTok{, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ ..density..)) }\SpecialCharTok{+}
   \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{fill =} \StringTok{"purple"}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_rug}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{geom\_rug}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{+} 
   \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Plot of Passing Distances"}\NormalTok{,}
        \AttributeTok{x =} \StringTok{"Distance (cm)"}\NormalTok{,}
@@ -2270,12 +2295,8 @@ having a difference of \(-3.003\) cm versus \(3.003\) cm could be important.
 ## -3.003105
 \end{verbatim}
 
-\sectionmark{Models, hypotheses, and permutations for 2 sample means}
-
 \hypertarget{section2-3}{%
 \section{Models, hypotheses, and permutations for the two sample mean situation}\label{section2-3}}
-
-\sectionmark{Models, hypotheses, and permutations for 2 sample means}
 
 There appears to be some evidence that the \emph{casual} clothing group is
 getting higher average overtake distances than
@@ -2872,7 +2893,7 @@ the vertical line and a bin count are in the same horizontal position.
 
 }
 
-\caption{Histogram (left) and density curve (right) of values of test statistic for 1,000 permutations with bold vertical line for value of observed test statistic.}\label{fig:Figure2-9}
+\caption{Histogram and density curve of values of test statistic for 1,000 permutations with bold vertical line for the value of observed test statistic.}\label{fig:Figure2-9}
 \end{figure}
 
 \small
@@ -3219,23 +3240,35 @@ limited to the sampled subjects.
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.33}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.34}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.34}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3271}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3364}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3364}}@{}}
 \caption{\label{tab:Table2-1} Scope of inference summary.}\tabularnewline
-\toprule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Random Sampling/}
-\textbf{Random Assignment} & \textbf{Random Assignment (RA) -- Yes}
-\textbf{(controlled experiment)} & \textbf{Random Assignment (RA) -- No}
-\textbf{(observational study)} \\
-\midrule
+\textbf{Random Assignment}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Random Assignment (RA) -- Yes}
+\textbf{(controlled experiment)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Random Assignment (RA) -- No}
+\textbf{(observational study)}
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Random Sampling/}
-\textbf{Random Assignment} & \textbf{Random Assignment (RA) -- Yes}
-\textbf{(controlled experiment)} & \textbf{Random Assignment (RA) -- No}
-\textbf{(observational study)} \\
-\midrule
+\textbf{Random Assignment}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Random Assignment (RA) -- Yes}
+\textbf{(controlled experiment)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Random Assignment (RA) -- No}
+\textbf{(observational study)}
+\end{minipage} \\
+\midrule()
 \endhead
 \textbf{Random Sampling (RS) -- Yes}
 \textbf{(or some method that results}
@@ -3274,7 +3307,7 @@ the population of interest.
 Cannot establish causal
 inference due to lack of RA of
 the treatment. \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \indent A simple example helps to clarify how the scope of inference can change
@@ -3398,21 +3431,33 @@ to help you remember all the possibilities.
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.35}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.32}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.33}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3457}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3210}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
 \caption{\label{tab:Table2-2} Table of decisions and truth scenarios in a hypothesis testing situation. But we never know the truth in a real situation.}\tabularnewline
-\toprule
-~ & \(\mathbf{H_0}\) \textbf{True} & \(\mathbf{H_0}\) \textbf{False} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\mathbf{H_0}\) \textbf{True}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\mathbf{H_0}\) \textbf{False}
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-~ & \(\mathbf{H_0}\) \textbf{True} & \(\mathbf{H_0}\) \textbf{False} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\mathbf{H_0}\) \textbf{True}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\mathbf{H_0}\) \textbf{False}
+\end{minipage} \\
+\midrule()
 \endhead
 \textbf{FTR} \(\mathbf{H_0}\) & Correct decision & Type II error \\
 \textbf{Reject} \(\mathbf{H_0}\) & Type I error & Correct decision \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \indent In comparing different procedures or in planning studies, there is an
@@ -3460,8 +3505,8 @@ make inferences to a larger group than those in the sample (due to RS)?
 complete to make sure you have thought through and reported all aspects of the results.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.00}}@{}}
-\toprule
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule()
 \endhead
 \textbf{Outline of 6+ steps to perform a Hypothesis Test} \\
 Preliminary steps: \\
@@ -3474,7 +3519,7 @@ Preliminary steps: \\
 4. Write a conclusion specific to the problem based on the p-value, reporting the strength of evidence \index{strength of evidence} against the null hypothesis (include test statistic, its distribution under the null hypothesis, and p-value). \\
 5. Report and discuss an estimate of the size of the differences, with confidence interval(s) if appropriate. \index{size interpretation} \\
 6. Scope of inference discussion for results. \index{scope of inference} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \hypertarget{section2-6}{%
@@ -4160,12 +4205,8 @@ using the permutation \index{permutation} results for the grade data:
 
 \newpage
 
-\sectionmark{Reproducibility Crisis}
-
 \hypertarget{section2-8}{%
 \section{Reproducibility Crisis: Moving beyond p \textless{} 0.05, publication bias, and multiple testing issues}\label{section2-8}}
-
-\sectionmark{Reproducibility Crisis}
 
 In the previous examples, some variation in p-values was observed as different methods (parametric, nonparametric) were applied to the same data set and in the permutation approach, the p-values can vary as well from one set of permutations to another. P-values also vary based on randomness in the data that were collected -- take a different (random) sample and you will get different data and a different p-value. We want the best estimate of a p-value we can obtain, so should use the best sampling method and inference technique that we can. But it is just an estimate of the evidence against the null hypothesis. These sources of variability make fixed \(\alpha\) NHST especially worry-some as sampling variability could take a p-value from just below to just above \(\alpha\) and this would lead to completely different inferences if the only focus is on rejecting the null hypothesis at a fixed significance level. But viewing p-values on a gradient from extremely strong (close to 0) to no (1) evidence against the null hypothesis, p-values of, say, 0.046 and 0.054 provide basically the same evidence against the null hypothesis. The fixed \(\alpha\) decision-making is tied into the use of the terminology of ``significant results'' or, slightly better, ``statistically significant results'' \index{statistically significant} that are intended to convey that there was sufficient evidence to reject the null hypothesis at some pre-decided \(\alpha\) level. You will notice that this is the only time that the ``s-word'' (significant) is considered here.
 
@@ -5823,9 +5864,9 @@ no deviation from the baseline for any group -- that all the \({\color{purple}{\
 
 \[\boldsymbol{H_0: \tau_2 = \ldots = \tau_J = 0}.\]
 
-The alternative hypothesis is that at least one of the deviations is not 0,
+The alternative hypothesis is that at least one of the deviations (\(j = 2, \ldots, J\)) is not 0,
 
-\[\boldsymbol{H_A:} \textbf{ Not all } \boldsymbol{\tau_j} \textbf{ equal } \bf{0}.\]
+\[\boldsymbol{H_A:} \textbf{ Not all } \boldsymbol{\tau_j} \textbf{ equal } \bf{0} \textbf{, for }\boldsymbol{j = 2, \ldots, J.}\]
 
 In this chapter, you are welcome to use either version (unless we instruct you
 otherwise) but we have to use the reference-coding in subsequent chapters. The
@@ -5857,7 +5898,7 @@ new ideas:
 \item
   \(H_0: \color{purple}{\boldsymbol{\tau_2 = \ldots = \tau_J = 0}}\)
   ~~~~~~~~
-  \(H_A: \color{purple}{\text{ Not all } \tau_j \text{ equal 0}}\)
+  \(H_A: \color{purple}{\text{ Not all } \tau_j \text{ equal 0, for }j = 2, \ldots, J }\)
 \item
   Null hypothesis in words: No deviation of the true mean for any groups from the
   baseline group.
@@ -5972,17 +6013,29 @@ a pertinent deviation as shown in Table \ref{tab:Table3-1}.
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.12}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.48}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.40}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4750}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4000}}@{}}
 \caption{\label{tab:Table3-1} Constructing group mean estimates from the reference-coded linear model estimates.}\tabularnewline
-\toprule
-Group & Formula & Estimates \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formula
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estimates
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-Group & Formula & Estimates \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Group
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Formula
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estimates
+\end{minipage} \\
+\midrule()
 \endhead
 casual & \(\widehat{\alpha}\) & \textbf{117.61} cm \\
 commute & \(\widehat{\alpha}+\widehat{\tau}_2\) & 117.61 - 3.00 = \textbf{114.61} cm \\
@@ -5991,7 +6044,7 @@ novice & \(\widehat{\alpha}+\widehat{\tau}_4\) & 117.61 - 0.67 = \textbf{116.94}
 police & \(\widehat{\alpha}+\widehat{\tau}_5\) & 117.61 + 4.51 = \textbf{122.12} cm \\
 polite & \(\widehat{\alpha}+\widehat{\tau}_6\) & 117.61 - 3.56 = \textbf{114.05} cm \\
 racer & \(\widehat{\alpha}+\widehat{\tau}_7\) & 117.61 - 0.86 = \textbf{116.75} cm \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \indent We can also visualize the results of our linear models using what are called
@@ -6462,25 +6515,51 @@ components. Note the general format of the ANOVA table is in Table \ref{tab:Tabl
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.15}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.08}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.20}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.15}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.22}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.20}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1469}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0769}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2028}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1469}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2238}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2028}}@{}}
 \caption{\label{tab:Table3-2} General One-Way ANOVA table.}\tabularnewline
-\toprule
-Source~~ & DF~ & \vtop{\hbox{\strut Sums of}\hbox{\strut Squares}} & Mean Squares & F-ratio & P-value \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Source~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+DF~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sums of\\
+Squares\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mean Squares
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+F-ratio
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+P-value
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-Source~~ & DF~ & \vtop{\hbox{\strut Sums of}\hbox{\strut Squares}} & Mean Squares & F-ratio & P-value \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Source~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+DF~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sums of\\
+Squares\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Mean Squares
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+F-ratio
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+P-value
+\end{minipage} \\
+\midrule()
 \endhead
 Variable A & \(J-1\) & \(\text{SS}_A\) & \(\text{MS}_A = \text{SS}_A/(J-1)\) & \(F = \text{MS}_A/\text{MS}_E\) & Right tail of \(F(J-1,N-J)\) \\
 Residuals & \(N-J\) & \(\text{SS}_E\) & \(\text{MS}_E = \text{SS}_E/(N-J)\) & & \\
 Total & \(N-1\) & \(\text{SS}_{\text{Total}}\) & & & \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 The table is oriented to help you reconstruct the \(F\)-ratio from each of its
@@ -6995,7 +7074,7 @@ a single variable, we use \texttt{tally(\textasciitilde{}\ x,\ data\ =\ ...)}:
 So the sample sizes do vary among the groups and the design is not
 balanced, but all the sample sizes are between 737 and 868 so it is (in percentage terms at least) not too far from balanced. It is better then having, say, 50 in one group and 1,200 in another. This
 tells us that the \(F\)-test should have some resistance to violations of
-assumptions. We also get more resistance to violation of assumptions as our sample sizes increase. With such as large data set here and only minor concerns with the normality assumption, the inferences generated for the means should be trustworthy and we will get similar results from parametric and nonparametric procedures. If we had only 15 observations per group and a slightly skewed residual distribution, then we might want to appeal to the permutation approach to have more trustworthy results, even if the design were balanced.
+assumptions. We also get more resistance to violation of assumptions as our sample sizes increase. With such a large data set here and only minor concerns with the normality assumption, the inferences generated for the means should be trustworthy and we will get similar results from parametric and nonparametric procedures. If we had only 15 observations per group and a slightly skewed residual distribution, then we might want to appeal to the permutation approach to have more trustworthy results, even if the design were balanced.
 
 \hypertarget{section3-5}{%
 \section{Guinea pig tooth growth One-Way ANOVA example}\label{section3-5}}
@@ -7539,12 +7618,8 @@ output and Figure \ref{fig:Figure3-17}. Also note that Figure
 \end{Highlighting}
 \end{Shaded}
 
-\sectionmark{Multiple (pair-wise) comparisons using Tukey's HSD and CLD}
-
 \hypertarget{section3-6}{%
 \section{Multiple (pair-wise) comparisons using Tukey's HSD and the compact letter display}\label{section3-6}}
-
-\sectionmark{Multiple (pair-wise) comparisons using Tukey's HSD and CLD}
 
 With evidence against all the true means being equal and concluding that not all are equal, many researchers
 want to explore which groups show evidence of differing from one another. This
@@ -8181,7 +8256,7 @@ need to be installed and loaded for this code to have a chance of working:
   B \texttt{\textless{}-} 1000\\
   Tstar \texttt{\textless{}-} matrix(NA, nrow = B)\\
   for (b in (1:B))\{\\
-  Tstar{[}b{]} \texttt{\textless{}-} anova(lm(\textcolor{red}{Y} \textasciitilde{} \textcolor{red}{X}, data = \textcolor{red}{DATASETNAME})){[}1,4{]}\\
+  Tstar{[}b{]} \texttt{\textless{}-} anova(lm(\textcolor{red}{Y} \textasciitilde{} shuffle(\textcolor{red}{X}), data = \textcolor{red}{DATASETNAME})){[}1,4{]}\\
   \}\\
   pdata(Tstar, Tobs, lower.tail = F){[}{[}1{]}{]}}
 
@@ -8978,50 +9053,90 @@ error need to equal \(N-1\), just like in the One-Way ANOVA table.
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.21}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.24}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.18}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.18}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1968}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2074}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2447}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1755}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1755}}@{}}
 \caption{\label{tab:Table4-1} Interaction Model ANOVA Table.}\tabularnewline
-\toprule
-\textbf{Source}~~~~ & \textbf{DF}~~~~~ & \textbf{SS} & \textbf{MS} & \textbf{F-statistics} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Source}~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{DF}~~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{SS}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{MS}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{F-statistics}
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-\textbf{Source}~~~~ & \textbf{DF}~~~~~ & \textbf{SS} & \textbf{MS} & \textbf{F-statistics} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Source}~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{DF}~~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{SS}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{MS}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{F-statistics}
+\end{minipage} \\
+\midrule()
 \endhead
 A & \(J-1\) & \(\text{SS}_A\) & \(\text{MS}_A = \text{SS}_A/\text{df}_A\) & \(\text{MS}_A/\text{MS}_E\) \\
 B & \(K-1\) & \(\text{SS}_B\) & \(\text{MS}_B = \text{SS}_B/\text{df}_B\) & \(\text{MS}_B/\text{MS}_E\) \\
 A:B (interaction) & \((J-1)(K-1)\) & \(\text{SS}_{AB}\) & \(\text{MS}_{AB} = \text{SS}_{AB}/\text{df}_{AB}\) & \(\text{MS}_{AB}/\text{MS}_E\) \\
 Error & \(N-JK\) & \(\text{SS}_E\) & \(\text{MS}_E = \text{SS}_E/\text{df}_E\) & \\
 \textcolor{red}{\textbf{Total}} & \(\color{red}{\mathbf{N-1}}\) & \(\color{red}{\textbf{SS}_{\textbf{Total}}}\) & & \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.21}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.22}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.26}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.15}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.16}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2090}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2203}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2599}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1525}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1582}}@{}}
 \caption{\label{tab:Table4-2} Additive Model ANOVA Table.}\tabularnewline
-\toprule
-\textbf{Source}~~~~ & \textbf{DF}~~~~~ & \textbf{SS} & \textbf{MS} & \textbf{F-statistics} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Source}~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{DF}~~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{SS}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{MS}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{F-statistics}
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-\textbf{Source}~~~~ & \textbf{DF}~~~~~ & \textbf{SS} & \textbf{MS} & \textbf{F-statistics} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Source}~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{DF}~~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{SS}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{MS}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{F-statistics}
+\end{minipage} \\
+\midrule()
 \endhead
 A & \(J-1\) & \(\text{SS}_A\) & \(\text{MS}_A = \text{SS}_A/\text{df}_A\) & \(\text{MS}_A/\text{MS}_E\) \\
 B & \(K-1\) & \(\text{SS}_B\) & \(\text{MS}_B = \text{SS}_B/\text{df}_B\) & \(\text{MS}_B/\text{MS}_E\) \\
 Error & \(N-J-K+1\) & \(\text{SS}_E\) & \(\text{MS}_E = \text{SS}_E/\text{df}_E\) & \\
 \textcolor{red}{\textbf{Total}} & \(\color{red}{\mathbf{N-1}}\) & \(\color{red}{\textbf{SS}_{\textbf{Total}}}\) & & \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 The mean squares are formed by taking the sums of squares (we'll let R find those
@@ -10241,24 +10356,102 @@ six combinations can be found in Table \ref{tab:Table4-3}.
 \small
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.12}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.13}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.19}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.19}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.19}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.19}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1194}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1323}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1871}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1871}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1871}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1871}}@{}}
 \caption{\label{tab:Table4-3} Calculations to construct the estimates for all combinations of variables for the \texttt{prodebt} additive model.}\tabularnewline
-\toprule
-\vtop{\hbox{\strut \(\color{red}{\text{Cig}}\)}\hbox{\strut \(\color{red}{\text{Buy}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 1}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 2}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 3}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 4}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 5}}\)}} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\(\color{red}{\text{Cig}}\)\\
+\(\color{red}{\text{Buy}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 1}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 2}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 3}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 4}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 5}}\)\strut
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-\vtop{\hbox{\strut \(\color{red}{\text{Cig}}\)}\hbox{\strut \(\color{red}{\text{Buy}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 1}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 2}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 3}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 4}}\)}} & \vtop{\hbox{\strut \(\color{blue}{\textbf{Income}}\)}\hbox{\strut \(\color{blue}{\textbf{Group 5}}\)}} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\(\color{red}{\text{Cig}}\)\\
+\(\color{red}{\text{Buy}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 1}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 2}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 3}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 4}}\)\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\color{blue}{\textbf{Income}}\)\\
+\(\color{blue}{\textbf{Group 5}}\)\strut
+\end{minipage} \\
+\midrule()
 \endhead
-\(\color{red}{\text{0:No}}\) & \(\widehat{\alpha} ={3.131}\) & \vtop{\hbox{\strut \(\widehat{\alpha} + \widehat{\tau}_2\)}\hbox{\strut \(=3.131 - 0.016\)}\hbox{\strut \(= 3.115\)}} & \vtop{\hbox{\strut \(\widehat{\alpha} + \widehat{\tau}_3\)}\hbox{\strut \(=3.131 + 0.027\)}\hbox{\strut \(= 3.158\)}} & \vtop{\hbox{\strut \(\widehat{\alpha} + \widehat{\tau}_4\)}\hbox{\strut \(=3.131 + 0.091\)}\hbox{\strut \(= 3.222\)}} & \vtop{\hbox{\strut \(\widehat{\alpha} + \widehat{\tau}_5\)}\hbox{\strut \(=3.131 + 0.408\)}\hbox{\strut \(= 3.539\)}} \\
-\(\color{red}{\text{1:}\text{Yes}}\) & \vtop{\hbox{\strut \(\widehat{\alpha}+\widehat{\gamma}_2\)}\hbox{\strut \(=3.131\)}\hbox{\strut \(-0.011\)}\hbox{\strut \(=3.142\)}} & \vtop{\hbox{\strut \(\widehat{\alpha}+\widehat{\tau}_2+\widehat{\gamma}_2\)}\hbox{\strut \(=3.131 - 0.016\)}\hbox{\strut \(- 0.011\)}\hbox{\strut \(=3.104\)}} & \vtop{\hbox{\strut \(\widehat{\alpha}+\widehat{\tau}_3+\widehat{\gamma}_2\)}\hbox{\strut \(=3.131 + 0.027\)}\hbox{\strut \(- 0.011\)}\hbox{\strut \(=3.147\)}} & \vtop{\hbox{\strut \(\widehat{\alpha}+\widehat{\tau}_4+\widehat{\gamma}_2\)}\hbox{\strut \(=3.131 + 0.091\)}\hbox{\strut \(- 0.011\)}\hbox{\strut \(=3.211\)}} & \vtop{\hbox{\strut \(\widehat{\alpha}+\widehat{\tau}_5+\widehat{\gamma}_2\)}\hbox{\strut \(=3.131 + 0.408\)}\hbox{\strut \(- 0.011\)}\hbox{\strut \(=3.528\)}} \\
-\bottomrule
+\(\color{red}{\text{0:No}}\) & \(\widehat{\alpha} ={3.131}\) & \begin{minipage}[t]{\linewidth}\raggedright
+\(\widehat{\alpha} + \widehat{\tau}_2\)\\
+\(=3.131 - 0.016\)\\
+\(= 3.115\)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\(\widehat{\alpha} + \widehat{\tau}_3\)\\
+\(=3.131 + 0.027\)\\
+\(= 3.158\)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\(\widehat{\alpha} + \widehat{\tau}_4\)\\
+\(=3.131 + 0.091\)\\
+\(= 3.222\)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\(\widehat{\alpha} + \widehat{\tau}_5\)\\
+\(=3.131 + 0.408\)\\
+\(= 3.539\)\\
+\strut
+\end{minipage} \\
+\(\color{red}{\text{1:}\text{Yes}}\) & \begin{minipage}[t]{\linewidth}\raggedright
+\(\widehat{\alpha}+\widehat{\gamma}_2\)\\
+\(=3.131\)\\
+\(-0.011\)\\
+\(=3.142\)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\(\widehat{\alpha}+\widehat{\tau}_2+\widehat{\gamma}_2\)\\
+\(=3.131 - 0.016\)\\
+\(- 0.011\)\\
+\(=3.104\)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\(\widehat{\alpha}+\widehat{\tau}_3+\widehat{\gamma}_2\)\\
+\(=3.131 + 0.027\)\\
+\(- 0.011\)\\
+\(=3.147\)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\(\widehat{\alpha}+\widehat{\tau}_4+\widehat{\gamma}_2\)\\
+\(=3.131 + 0.091\)\\
+\(- 0.011\)\\
+\(=3.211\)\strut
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\(\widehat{\alpha}+\widehat{\tau}_5+\widehat{\gamma}_2\)\\
+\(=3.131 + 0.408\)\\
+\(- 0.011\)\\
+\(=3.528\)\strut
+\end{minipage} \\
+\bottomrule()
 \end{longtable}
 
 \normalsize
@@ -10338,12 +10531,8 @@ group 5 much higher than the other four groups. The minor differences in cigaret
 Whether you end up favoring an additive or interaction model or do further model refinement, all steps of the
 hypothesis testing protocol should be engaged and a story based on the final results should be compiled, supported by the graphical displays such as the term-plots and interaction plots.
 
-\sectionmark{Pushing Two-Way ANOVA to the limit}
-
 \hypertarget{section4-6}{%
 \section{Pushing Two-Way ANOVA to the limit: Un-replicated designs and Estimability}\label{section4-6}}
-
-\sectionmark{Pushing Two-Way ANOVA to the limit}
 
 In some situations, it is too expensive
 or impossible to replicate combinations of treatments and only one observation at each
@@ -10355,8 +10544,6 @@ freedom and so we have to drop the interaction and call that potential
 interaction variability ``error''.
 \index{degrees of freedom}
 \index{replicate}
-
-\newpage
 
 \indent Without replication we can still perform an analysis of the
 responses and estimate all the coefficients in the interaction model but an issue occurs with trying to calculate the interaction
@@ -10419,8 +10606,6 @@ trying to form the ANOVA table as you would see this when you run the
   function only reports \texttt{Error\ in\ Anova.lm(lm(responses\ \textasciitilde{}\ dropsf\ *\ brand,\ data\ =\ ptR))\ :\ residual\ df\ =\ 0}, which is fine but not as useful for
   understanding this issue as what \texttt{anova} provides.} function on the
 interaction model: \index{\texttt{anova()}}
-
-\newpage
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10518,7 +10703,7 @@ seen in the error bars around each point estimate.
 
 \indent In the extreme unreplicated situation it is possible to estimate all model coefficients in the interaction model but we can't do inferences for those estimates since there is no residual variability. Another issue in really any model with categorical predictors but especially noticeable in the Two-Way ANOVA situation is \textbf{\emph{estimability}} issues. \index{estimability} Instead of having issues with running out of degrees of freedom for tests we can run into situations where we do not have information to estimate some of the model coefficients. This happens any time you fail to have observations at either a level of a main effect or at a combination of levels in an interaction model.
 
-\indent To illustrate estimability issues, we will revisit the overtake data. Each of the seven levels of outfits was made up of a combination of different characteristics of the outfits, such as which helmet and pants were chosen, whether reflective leg clips were worn or not, etc. To see all these additional variables, we will introduce a new plot that will feature more prominently in Chapter \ref{chapter5} that allows us to explore relationships among a suite of categorical variables -- the \texttt{tableplot} from the \texttt{tabplot}\footnote{This is the first package we have encountered that is not on the ``CRAN'' repository and we will need to install it from its ``github'' repository. This happens for packages in early development and for other packages where researchers decide to avoid the ongoing challenges involved maintaining the package status on CRAN. In order to install this package, we can use the following code after installing the \texttt{remotes} \citep{R-remotes} package in the regular way: \texttt{library(remotes);\ remotes::install\_github("mtennekes/tabplot")}} package \citep{R-tabplot}. It allows us to sort the variables based on a single variable (think about how you might sort a spreadsheet based on one column and look at the results in other columns). The \texttt{tableplot} function displays bars for each response in a row\footnote{In larger data sets,
+\indent To illustrate estimability issues, we will revisit the overtake data. Each of the seven levels of outfits was made up of a combination of different characteristics of the outfits, such as which helmet and pants were chosen, whether reflective leg clips were worn or not, etc. To see all these additional variables, we will introduce a new plot that will feature more prominently in Chapter \ref{chapter5} that allows us to explore relationships among a suite of categorical variables -- the \texttt{tableplot} from the \texttt{tabplot}\footnote{This package is not on the ``CRAN'' repository and from time to time involves more complex installation requirements to install it from its ``github'' repository and some packages it depends on. In order to install this package, we usually can use the following code after installing the \texttt{remotes} \citep{R-remotes} package in the regular way: \texttt{library(remotes);\ remotes::install\_github("mtennekes/tabplot")}} package \citep{R-tabplot}. If this does not work, please contact your instructor or me for more information on possibly additional steps to get it working. The tabplot package allows us to sort the variables based on a single variable (think about how you might sort a spreadsheet based on one column and look at the results in other columns). The \texttt{tableplot} function displays bars for each response in a row\footnote{In larger data sets,
   multiple subjects are displayed in each row as proportions of
   the rows in each category.} based on the
 category of responses or as a bar with the height corresponding
@@ -10563,10 +10748,6 @@ simply as \texttt{tableplot(DATASETNAME)} which will sort the data set based on 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(remotes); }
-\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(}\StringTok{"tabplot"}\NormalTok{, }\AttributeTok{character.only =} \ConstantTok{TRUE}\NormalTok{)) \{}
-\NormalTok{        remotes}\SpecialCharTok{::}\FunctionTok{install\_github}\NormalTok{(}\StringTok{"mtennekes/tabplot"}\NormalTok{)}
-\NormalTok{        \}}
 \FunctionTok{library}\NormalTok{(tabplot)}
 \FunctionTok{library}\NormalTok{(RColorBrewer)}
 \CommentTok{\# Options (sometimes) needed to prevent errors on PC}
@@ -11152,28 +11333,56 @@ function is provided in Table \ref{tab:Table5-1}.
 
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.08}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.17}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.17}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.17}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.06}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.17}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.17}}@{}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0782}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1732}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1732}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1732}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0559}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1732}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1732}}@{}}
 \caption{\label{tab:Table5-1} General notation for counts in an \emph{R} by \emph{C} contingency table.}\tabularnewline
-\toprule
-~ & \textbf{Response Level 1} & \textbf{Response Level 2} & \textbf{Response Level 3} & \textbf{\ldots{}} & \textbf{Response Level C} & \textbf{Totals} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\centering
+~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 1}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 2}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 3}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\ldots{}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level C}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Totals}
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-~ & \textbf{Response Level 1} & \textbf{Response Level 2} & \textbf{Response Level 3} & \textbf{\ldots{}} & \textbf{Response Level C} & \textbf{Totals} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\centering
+~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 1}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 2}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 3}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\ldots{}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level C}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Totals}
+\end{minipage} \\
+\midrule()
 \endhead
 \textbf{Group 1} & \(n_{11}\) & \(n_{12}\) & \(n_{13}\) & \ldots{} & \(n_{1C}\) & \(\boldsymbol{n_{1 \bullet}}\) \\
 \textbf{Group 2} & \(n_{21}\) & \(n_{22}\) & \(n_{23}\) & \ldots{} & \(n_{2C}\) & \(\boldsymbol{n_{2 \bullet}}\) \\
 \textbf{\ldots{}} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \textbf{\ldots{}} \\
 \textbf{Group R} & \(n_{R1}\) & \(n_{R2}\) & \(n_{R3}\) & \ldots{} & \(n_{RC}\) & \(\boldsymbol{n_{R \bullet}}\) \\
 \textbf{Totals} & \(\boldsymbol{n_{\bullet 1}}\) & \(\boldsymbol{n_{\bullet 2}}\) & \(\boldsymbol{n_{\bullet 3}}\) & \ldots{} & \(\boldsymbol{n_{\bullet C}}\) & \(\boldsymbol{N}\) \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \indent Comparing counts from the contingency table is useful, but comparing proportions
@@ -11271,7 +11480,7 @@ as explanatory or response although it is certainly possible. Data that often
 align with Independence testing are collected using surveys of
 subjects randomly selected from a single, large population. An example,
 analyzed below, involves a survey of voters and whether their party affiliation
-is related to who they voted for -- the republican, democrat, or other
+is related to who they voted for -- the Republican, Democrat, or other
 candidate. There is clearly an explanatory variable of the \emph{Party affiliation}
 but a single large sample was taken from the population of all likely voters
 so the Independence test needs to be applied.
@@ -11338,28 +11547,56 @@ produced by the \texttt{tally} function if you use the formula \texttt{\textasci
 
 
 \begin{longtable}[]{@{}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.08}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.18}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.18}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.18}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.06}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.18}}
-  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.12}}@{}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0828}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1834}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1834}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1834}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0592}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1834}}
+  >{\centering\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1243}}@{}}
 \caption{\label{tab:Table5-2} Table of conditional proportions in the Homogeneity testing scenario.}\tabularnewline
-\toprule
-~ & \textbf{Response Level 1} & \textbf{Response Level 2} & \textbf{Response Level 3} & \textbf{\ldots{}} & \textbf{Response Level C} & \textbf{Totals} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\centering
+~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 1}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 2}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 3}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\ldots{}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level C}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Totals}
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-~ & \textbf{Response Level 1} & \textbf{Response Level 2} & \textbf{Response Level 3} & \textbf{\ldots{}} & \textbf{Response Level C} & \textbf{Totals} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\centering
+~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 1}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 2}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level 3}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{\ldots{}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Response Level C}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{Totals}
+\end{minipage} \\
+\midrule()
 \endhead
 \textbf{Group 1} & \(p_{11}\) & \(p_{12}\) & \(p_{13}\) & \ldots{} & \(p_{1C}\) & \(\boldsymbol{1.0}\) \\
 \textbf{Group 2} & \(p_{21}\) & \(p_{22}\) & \(p_{23}\) & \ldots{} & \(p_{2C}\) & \(\boldsymbol{1.0}\) \\
 \textbf{\ldots{}} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \textbf{\ldots{}} \\
 \textbf{Group R} & \(p_{R1}\) & \(p_{R2}\) & \(p_{R3}\) & \ldots{} & \(p_{RC}\) & \(\boldsymbol{1.0}\) \\
 \textbf{Totals} & \(\boldsymbol{p_{\bullet 1}}\) & \(\boldsymbol{n_{\bullet 2}}\) & \(\boldsymbol{p_{\bullet 3}}\) & \ldots{} & \(\boldsymbol{p_{\bullet C}}\) & \(\boldsymbol{1.0}\) \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 In the Homogeneity situation, the null hypothesis is that the distributions are the same in all
@@ -11400,7 +11637,7 @@ The alternative hypothesis is then:
 \end{itemize}
 
 To make this concrete, consider what the proportions could look like if they satisfied
-the null hypothesis for the \emph{Arthritis} example, as displayed in Figure \ref{fig:Figure5-4}.
+the null hypothesis for the \emph{Arthritis} example, as displayed in Figure \ref{fig:Figure5-4}. Stacked bar charts provide a natural way to visualize the null hypothesis (equal distributions) to compare to the observed proportions in the observed data. \textbf{Stacked bar charts are the appropriate visual display to present the summarized data in homogeneity test situations.}
 
 
 
@@ -11410,7 +11647,7 @@ the null hypothesis for the \emph{Arthritis} example, as displayed in Figure \re
 
 }
 
-\caption{Plot of one way that the Arthritis proportions could have been if the null hypothesis had been true.}\label{fig:Figure5-4}
+\caption{Stacked bar chart of one way that the Arthritis proportions could have been if the null hypothesis had been true.}\label{fig:Figure5-4}
 \end{figure}
 
 \indent Note that the proportions in the different response categories do not need to be the
@@ -11480,8 +11717,8 @@ will contain the candidate that the participants voted for (the data set was
 originally coded with 1, 2, and 3 for the candidates and we replaced those
 \texttt{levels} \index{\texttt{levels}} with the candidate names). The contingency table shows some expected
 results, that individuals with strong party affiliations tend to vote for the
-party nominee with strong support for Gore in the democrats
-(\texttt{PARTY} = 1 and 2) and strong support for Bush in the republicans
+party nominee with strong support for Gore in the Democrats
+(\texttt{PARTY} = 1 and 2) and strong support for Bush in the Republicans
 (\texttt{PARTY} = 6 and 7). As always, we want to support our explorations with
 statistical inferences, here with the potential to extend inferences to
 the overall population of
@@ -11768,19 +12005,39 @@ table.
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.09}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.26}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.26}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.26}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.14}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0897}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2558}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2558}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1362}}@{}}
 \caption{\label{tab:Table5-3} Demonstration of calculation of expected cell counts for Arthritis data.}\tabularnewline
-\toprule
-~~~~ & \textbf{None} & \textbf{Some} & \textbf{Marked} & \textbf{Totals} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{None}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Some}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Marked}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Totals}
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-~~~~ & \textbf{None} & \textbf{Some} & \textbf{Marked} & \textbf{Totals} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{None}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Some}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Marked}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Totals}
+\end{minipage} \\
+\midrule()
 \endhead
 \textbf{Placebo} & \(\boldsymbol{\dfrac{n_{\text{Placebo}\bullet}*n_{\bullet\text{None}}}{N}}\)
 \(\boldsymbol{ = \dfrac{43*42}{84}}\)
@@ -11797,7 +12054,7 @@ table.
 \(\boldsymbol{ = \dfrac{41*28}{84}}\)
 \(\boldsymbol{ = \color{red}{\mathbf{13.67}}}\) & \(\boldsymbol{n_{\text{Treated}\bullet} = 41}\) \\
 \textbf{Totals} & \(\boldsymbol{n_{\bullet\text{None}} = 42}\) & \(\boldsymbol{n_{\bullet\text{Some}} = 14}\) & \(\boldsymbol{n_{\bullet\text{Marked}} = 28}\) & \(\boldsymbol{N = 84}\) \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \normalsize
@@ -11858,22 +12115,38 @@ in Table \ref{tab:Table5-4}.
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.16}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.27}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.28}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.29}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1607}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2738}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2798}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2857}}@{}}
 \caption{\label{tab:Table5-4} \(X^2\) contributions for the Arthritis data.}\tabularnewline
-\toprule
-~~~~ & \textbf{None} & \textbf{Some} & \textbf{Marked} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{None}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Some}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Marked}
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-~~~~ & \textbf{None} & \textbf{Some} & \textbf{Marked} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{None}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Some}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Marked}
+\end{minipage} \\
+\midrule()
 \endhead
 \textbf{Placebo} & \(\left(\frac{29-21.5}{\sqrt{21.5}}\right)^2 = \color{red}{\mathbf{2.616}}\) & \(\left(\frac{7-7.167}{\sqrt{7.167}}\right)^2 = \color{red}{\mathbf{0.004}}\) & \(\left(\frac{7-14.33}{\sqrt{14.33}}\right)^2 = \color{red}{\mathbf{3.752}}\) \\
 \textbf{Treated} & \(\left(\frac{13-20.5}{\sqrt{20.5}}\right)^2 = \color{red}{\mathbf{2.744}}\) & \(\left(\frac{7-6.833}{\sqrt{6.833}}\right)^2 = \color{red}{\mathbf{0.004}}\) & \(\left(\frac{21-13.67}{\sqrt{13.67}}\right)^2 = \color{red}{\mathbf{3.935}}\) \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 Finally, the \(X^2\) statistic here is the sum of these six results
@@ -12272,7 +12545,7 @@ null hypothesis (expected cell counts) and what was observed (observed cell
 counts). It is possible to explore the ``size'' and direction of the differences
 between observed and expected counts to learn something about the behavior of
 the relationship between the variables, especially as it relates to evidence
-against the null hypothesis of no difference or no relationship. The\textbf{\emph{standardized residual}},
+against the null hypothesis of no difference or no relationship. The \textbf{\emph{standardized residual}},
 
 \[\boldsymbol{\left(\frac{\textbf{Observed}_i - 
 \textbf{Expected}_i}{\sqrt{\textbf{Expected}_i}}\right)},\]
@@ -12331,8 +12604,7 @@ magnitude so Figure \ref{fig:Figure5-12} isn't
 too helpful but this type of plot is in other examples. The largest
 contributions to the \(X^2\) statistic come from the \emph{Placebo} and \emph{Treated}
 groups in the \emph{Marked} improvement cells. Those standardized residuals
-are -1.94 and 1.98 (both really close to 2), showing that the \emph{placebo}
-group had\textbf{noticeably fewer} \emph{Marked} improvement
+are -1.94 and 1.98 (both really close to 2), showing that the \emph{placebo} group had \textbf{noticeably fewer} \emph{Marked} improvement
 \textbf{results than expected} and the \emph{Treated} group \textbf{had noticeably more}
 \emph{Marked} improvement responses \textbf{than expected if the null hypothesis was true}. Similarly but with smaller magnitudes, there were more \emph{None}
 results than expected in the \emph{Placebo} group and fewer \emph{None} results
@@ -13013,6 +13285,10 @@ variable. This creates two new variables called \texttt{liar2} and \texttt{copie
 (tableplot in Figure \ref{fig:Figure5-20}). The code to create these
 variables and make the plot is below which employs the \texttt{levels} function to assign the same label to two different levels from the original list. \index{\texttt{levels()}}
 
+\vspace{22pt}
+
+
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Collapse the middle categories of both variables by making both have the same level name:}
@@ -13021,23 +13297,6 @@ variables and make the plot is below which employs the \texttt{levels} function 
 \NormalTok{                                )}
 \FunctionTok{levels}\NormalTok{(cheating}\SpecialCharTok{$}\NormalTok{liar2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"None"}\NormalTok{, }\StringTok{"ExamorPaper"}\NormalTok{, }\StringTok{"ExamorPaper"}\NormalTok{, }\StringTok{"LieBoth"}\NormalTok{)}
 \FunctionTok{levels}\NormalTok{(cheating}\SpecialCharTok{$}\NormalTok{copier2) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"None"}\NormalTok{, }\StringTok{"ExamorPaper"}\NormalTok{, }\StringTok{"ExamorPaper"}\NormalTok{, }\StringTok{"CopyBoth"}\NormalTok{)}
-\NormalTok{cheatlietable }\OtherTok{\textless{}{-}} \FunctionTok{tally}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ liar2 }\SpecialCharTok{+}\NormalTok{ copier2, }\AttributeTok{data =}\NormalTok{ cheating)}
-\NormalTok{cheatlietable}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##              copier2
-## liar2         None ExamorPaper CopyBoth
-##   None         207          53        5
-##   ExamorPaper   23           9        4
-##   LieBoth       11           5        2
-\end{verbatim}
-
-
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{tableplot}\NormalTok{(cheating, }\AttributeTok{sort =}\NormalTok{ liar2, }\AttributeTok{select =} \FunctionTok{c}\NormalTok{(liar2, copier2), }\AttributeTok{pals =} \FunctionTok{list}\NormalTok{(}\StringTok{"BrBG"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
@@ -13050,6 +13309,21 @@ variables and make the plot is below which employs the \texttt{levels} function 
 
 \caption{Tableplot of lying and copying variables after combining categories.}\label{fig:Figure5-20}
 \end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cheatlietable }\OtherTok{\textless{}{-}} \FunctionTok{tally}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ liar2 }\SpecialCharTok{+}\NormalTok{ copier2, }\AttributeTok{data =}\NormalTok{ cheating)}
+\NormalTok{cheatlietable}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              copier2
+## liar2         None ExamorPaper CopyBoth
+##   None         207          53        5
+##   ExamorPaper   23           9        4
+##   LieBoth       11           5        2
+\end{verbatim}
 
 This \(3\times 3\) table is more manageable and has few really small
 cells so we will proceed with the 6+ steps of hypothesis
@@ -13268,6 +13542,13 @@ single sample was taken from the population so that is the appropriate procedure
     there is a relationship between lying and copying behavior at the university
     in the population of students studied.
   \end{itemize}
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
 \item
   \textbf{Size:}
 
@@ -13479,8 +13760,7 @@ create new categories with those names in a new variable called
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{apistrat }\OtherTok{\textless{}{-}}\NormalTok{ apistrat }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{growthcut =} \FunctionTok{cut}\NormalTok{(growth, }\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{47}\NormalTok{,}\FloatTok{6.75}\NormalTok{,}\DecValTok{25}\NormalTok{,}\DecValTok{48}\NormalTok{,}\DecValTok{133}\NormalTok{),}
-                                                \AttributeTok{include.lowest =}\NormalTok{ T)}
-\NormalTok{                                )}
+                                                \AttributeTok{include.lowest =}\NormalTok{ T))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -13565,7 +13845,6 @@ using the \(\boldsymbol{\chi^2}\)-distribution to find the p-value:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{growthtable }\OtherTok{\textless{}{-}} \FunctionTok{tally}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{ stype }\SpecialCharTok{+}\NormalTok{ growthcut, }\AttributeTok{data =}\NormalTok{ apistrat)}
-
 \NormalTok{growthtable}
 \end{Highlighting}
 \end{Shaded}
@@ -13704,7 +13983,7 @@ understand the results. This should tie back into the original data display (tab
 contingency table where you identified initial patterns and help to tell the story of the results.
 
 \hypertarget{section5-13}{%
-\section{Summary of important R commands}\label{section5-13}}
+\section{Summary of important R code}\label{section5-13}}
 
 The main components of R code used in this chapter follow with components
 to modify in lighter and/or ALL CAPS text where \texttt{y} is a response variable and \texttt{x} is a predictor
@@ -13975,12 +14254,12 @@ the is/are preferences move away from the null hypothesis for people that care
 more about this?
 
 \begin{longtable}[]{@{}l@{}}
-\toprule
+\toprule()
 \endhead
 We might be fighting a losing battle on ``data is a plural word'', \\
 but since we are in the group that cares a lot about this, we are going to \\
 keep trying\ldots{} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 
@@ -14458,7 +14737,7 @@ to check for nonlinear
 relationships, outliers, and clustering of observations that may be distorting
 the numerical measure of the linear relationship. \index{outlier} The \texttt{ggpairs}
 function from the \texttt{GGally} package \citep{R-GGally} combines the numerical
-correlation information and scatterplots in one display.
+correlation information and scatterplots in one display\footnote{We will not use the ``significance stars'' in the plot that display with the estimated correlations. You can ignore them but we will sometimes remove them from the plot by using the more complex code of \texttt{ggpairs(upper\ =\ list(continuous\ =\ GGally::wrap(ggally\_cor,\ stars\ =\ F)))}.}.
 \index{R packages!\textbf{GGally}}
 As in the correlation matrix, you
 triangulate the variables for the pairwise relationship. The upper right
@@ -15004,8 +15283,6 @@ on the middle \(C\%\) of the distribution or by finding the values that put
 
 
 
-
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{quantiles}
@@ -15037,9 +15314,7 @@ on the middle \(C\%\) of the distribution or by finding the values that put
 
 }
 
-\caption{Histogram and density curve of the bootstrap distribution of the
-correlation coefficient with bold vertical line for observed correlation and
-dashed lines for bounds for the 95\% bootstrap confidence interval.}\label{fig:Figure6-10}
+\caption{Histogram and density curve of the bootstrap distribution of the correlation coefficient with bold vertical line for observed correlation and dashed lines for bounds for the 95\% bootstrap confidence interval.}\label{fig:Figure6-10}
 \end{figure}
 
 These results tell us that the bootstrap 95\% CI is from 0.76 to 0.95 -- we are 95\%
@@ -15600,13 +15875,6 @@ using the \texttt{lm} function:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{m2 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Hc }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Bfat, }\AttributeTok{data =}\NormalTok{ aisR2 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(Sex }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)) }\CommentTok{\#Results for Females }
-\end{Highlighting}
-\end{Shaded}
-
-
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{summary}\NormalTok{(m2)}
 \end{Highlighting}
 \end{Shaded}
@@ -15629,6 +15897,8 @@ using the \texttt{lm} function:
 ## Multiple R-squared:  0.02822,    Adjusted R-squared:  0.0182 
 ## F-statistic: 2.816 on 1 and 97 DF,  p-value: 0.09653
 \end{verbatim}
+
+
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -15909,17 +16179,17 @@ model.
 
 \indent In regression models, we use the \textbf{\emph{coefficient of determination}}
 (symbol: \textbf{R\textsuperscript{2}}) to accompany our regression line and describe
-the strength of the relationship. It can either be
+the strength of the relationship and assess the quality of the model fit. It can either be
 scaled between 0 and 1 or 0 to 100\% and has ``units'' of the proportion or
 percentage of the variation in \(y\) that is explained by the model that
 includes \(x\) (and later more than one \(x\)). For example, an \textbf{R\textsuperscript{2}}
 of 0\% corresponds to explaining 0\% of the variation in the response with our
-model and \(\boldsymbol{R^2} = 100\%\) means that all the variation in the
-response was explained by the model. In between, it provides a nice summary
+model (worst possible fit) and \(\boldsymbol{R^2} = 100\%\) means that all the variation in the
+response was explained by the model (best possible fit). In between, it provides a nice summary
 of how much of the total variability in the response we can account for
 with our model
 including \(x\) (and, in Chapter \ref{chapter8}, including multiple
-predictor variables). \index{coefficient of determination} \index{R-squared}
+predictor variables). \index{coefficient of determination} \index{R-squared} \index{model fit}
 
 
 
@@ -16461,6 +16731,11 @@ examples:
     \item
       Both variables are quantitative.
     \end{itemize}
+  \end{itemize}
+
+  \newpage
+
+  \begin{itemize}
   \item
     Independence of observations:
 
@@ -16745,11 +17020,6 @@ levels of duration of eruptions.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{OF1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Waiting }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Duration, }\AttributeTok{data =}\NormalTok{ G2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{summary}\NormalTok{(OF1)}
 \end{Highlighting}
 \end{Shaded}
@@ -17158,12 +17428,8 @@ The next sections develop those inferential tools.
 \caption{Variability in realized regression lines based on sampling variation. Light grey lines are simulated realizations assuming the bold (red) line is the true SLR model and variability is similar to the original BAC data set. Simulated observations from the estimated models using the \texttt{simulate} function as was used in Chapter \ref{chapter2} were used to create this plot. \index{\texttt{simulate()}}}\label{fig:Figure7-3}
 \end{figure}
 
-\sectionmark{CI and Hypothesis tests for slope and intercept}
-
 \hypertarget{section7-2}{%
 \section{Confidence interval and hypothesis tests for the slope and intercept}\label{section7-2}}
-
-\sectionmark{CI and Hypothesis tests for slope and intercept}
 
 Our inference techniques will resemble previous material with an
 interest in forming confidence intervals and
@@ -17471,8 +17737,6 @@ but certainly would never say that this presents strong evidence.
 \index{R packages!\textbf{alr4}}
 \index{R packages!\textbf{tibble}}
 
-\vspace{22pt}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(alr4)}
@@ -17481,7 +17745,6 @@ but certainly would never say that this presents strong evidence.
 \NormalTok{ais }\OtherTok{\textless{}{-}} \FunctionTok{as\_tibble}\NormalTok{(ais)}
 \NormalTok{aisR }\OtherTok{\textless{}{-}}\NormalTok{ ais }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{slice}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{56}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{166}\NormalTok{) }\CommentTok{\#Removes observations in rows 56 and 166}
 \NormalTok{m2 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Hc }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Bfat, }\AttributeTok{data =}\NormalTok{ aisR }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(Sex }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)) }\CommentTok{\#Results for Females }
-
 \FunctionTok{summary}\NormalTok{(m2)}
 \end{Highlighting}
 \end{Shaded}
@@ -18264,6 +18527,8 @@ systematic issues noted above using \textbf{\emph{transformations}}, discussed i
 Sections \ref{section7-5} and \ref{section7-6}.
 \index{transformation}
 
+\newpage
+
 \hypertarget{section7-4}{%
 \section{Randomization-based inferences for the slope coefficient}\label{section7-4}}
 
@@ -18589,17 +18854,29 @@ transformations are all nonlinear functions of \(y\).
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.13}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.34}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.53}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1319}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3407}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5275}}@{}}
 \caption{\label{tab:Table7-1} Ladder of powers of transformations that are often used in statistical modeling.}\tabularnewline
-\toprule
-\textbf{Power} & \textbf{Formula} & \textbf{Usage}~~~~~~ \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Power}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Formula}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Usage}~~~~~~
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-\textbf{Power} & \textbf{Formula} & \textbf{Usage}~~~~~~ \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Power}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Formula}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Usage}~~~~~~
+\end{minipage} \\
+\midrule()
 \endhead
 2 & \(y^2\) & seldom used \\
 1 & \(y^1=y\) & no change \\
@@ -18609,7 +18886,7 @@ non-constant variance \\
 \(-1/2\) & \(y^{-0.5}=1/\sqrt{y}\) & uncommon \\
 \(-1\) & \(y^{-1}=1/y\) & for ratios \\
 \(-2\) & \(y^{-2}=1/y^2\) & seldom used \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 There are even more transformations possible, for example \(y^{0.33}\) is sometimes useful
@@ -18885,18 +19162,14 @@ this serves as a reminder at how important communication is in group projects
 defaulted to different bases.
 
 \begin{longtable}[]{@{}c@{}}
-\toprule
+\toprule()
 \endhead
 Generally, in statistics, it's safe to assume that everything is log base \emph{e} unless otherwise specified. \\
-\bottomrule
+\bottomrule()
 \end{longtable}
-
-\sectionmark{Transformations part II: Impacts on SLR interpretations}
 
 \hypertarget{section7-6}{%
 \section{Transformations part II: Impacts on SLR interpretations: log(y), log(x), \& both log(y) \& log(x)}\label{section7-6}}
-
-\sectionmark{Transformations part II: Impacts on SLR interpretations}
 
 The previous attempts to linearize relationships imply a desire to be
 able to fit SLR models.
@@ -18971,6 +19244,18 @@ medians instead of means, and we don't do this because
 we want to, we do it because it is result of modeling on the \(\log(y)\) scale,
 if successful.
 
+So there are a couple of ways to interpret these results in general:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{\emph{log-scale interpretation of log(y) only model}}: for a 1 unit
+  increase in \(x\), we estimate a \(b_1\) unit change in the mean of \(\log(y)\) or
+\item
+  \textbf{\emph{original scale interpretation of log(y) only model}}: for a 1 unit
+  increase in \(x\), we estimate a \(exp(b_1)\) times change in the median of \(y\).
+\end{enumerate}
+
 \indent When we are working with regression equations, slopes can either be positive or
 negative and our interpretations change based on this result to either result
 in growth (\(b_1>0\)) or decay (\(b_1<0\)) in the responses as the explanatory
@@ -19017,7 +19302,7 @@ there are two versions of the interpretation possible:
   in \(x\), the median of \(y\) is estimated to decrease by 25.9\%.
 \end{enumerate}
 
-We suspect that you will typically prefer interpretation \#1 for both
+We suspect that you will typically prefer the ``times'' interpretation over the ``percentage'' change one for both
 directions but it is important to be able
 think about the results in terms of \textbf{\emph{\% change of the medians}} to make
 the scale of change more understandable. Some examples will help us see how
@@ -19353,12 +19638,8 @@ that the model is at least reasonable to consider in each situation, possibly af
 are some of the most sensitive results to violations of the assumptions that we
 will explore.
 
-\sectionmark{Confidence intervals and prediction intervals}
-
 \hypertarget{section7-7}{%
 \section{Confidence interval for the mean and prediction intervals for a new observation}\label{section7-7}}
-
-\sectionmark{Confidence intervals and prediction intervals}
 
 Figure \ref{fig:Figure7-7} provided a term-plot of the estimated
 regression line and a shaded area surrounding
@@ -19450,8 +19731,8 @@ in 95\% of applications of the methods and fails the other 5\% of the time.
 Remember that for any interval estimate, the true value is either in the
 interval or it is not and our confidence level essentially sets our failure
 rate! Because PIs push into the tails of the assumed distribution of the
-responses these methods are very sensitive to violations of assumptions so we
-should not use these if there are any concerns about violations of assumptions as they will work as advertised (at the \textbf{\emph{nominal}} (specified) level).
+responses, these methods are very sensitive to violations of assumptions. We
+should not use these if there are any concerns about violations of assumptions as they will not work as advertised (at the \textbf{\emph{nominal}} (specified) level).
 
 \indent There are two ways to explore CIs for the mean and PIs for a new observation.
 The first is to focus on a specific \(x\)-value of interest. The second is to
@@ -19495,8 +19776,6 @@ confidence interval and degrees of freedom.
 \index{degrees of freedom!SLR}
 Note that elements returned
 are labeled as \texttt{\$fit}, \texttt{\$se.fit}, etc. and provide some of the information to calculate CIs or PIs ``by hand''.
-
-\newpage
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20731,7 +21010,8 @@ For the \emph{Snow Depth} data, the conditions can be assessed as:
 To assess the remaining assumptions, we can use our diagnostic plots.
 \index{assumptions} The same code as before will provide diagnostic plots. There
 is some extra code (\texttt{par(...)}) added to allow us to add labels to the plots
-(\texttt{sub.caption\ =\ "..."}) to know which model is being displayed since we have so
+(\texttt{sub.caption\ =\ ""} and \texttt{title(main="...",\ outer=TRUE)}) to know which model
+is being displayed since we have so
 many to discuss here. We can also employ a new approach, which is to simulate
 new observations from the model and make plots to compare simulated data sets to
 what was observed. The \texttt{simulate} function from Chapter \ref{chapter2}
@@ -20750,7 +21030,8 @@ clear issue. The regular steps in assessing each assumption are discussed first.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(m4, }\AttributeTok{sub.caption =} \StringTok{"Diagnostics for m4"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(m4, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{sub.caption =} \StringTok{""}\NormalTok{)}
+\FunctionTok{title}\NormalTok{(}\AttributeTok{main=}\StringTok{"Diagnostics for m4"}\NormalTok{, }\AttributeTok{outer=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -21107,7 +21388,8 @@ observation to be able to work towards a model that is fully trustworthy.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(m5, }\AttributeTok{sub.caption =} \StringTok{"Diagnostics for m5"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(m5, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{sub.caption =} \StringTok{""}\NormalTok{)}
+\FunctionTok{title}\NormalTok{(}\AttributeTok{main=}\StringTok{"Diagnostics for m5"}\NormalTok{, }\AttributeTok{outer=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -21179,7 +21461,8 @@ remaining. This model (\texttt{m6}) seems to contain residual diagnostics (Figur
 \NormalTok{m6 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Snow.Depth }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Elevation }\SpecialCharTok{+}\NormalTok{ Min.Temp }\SpecialCharTok{+}\NormalTok{ Max.Temp, }\AttributeTok{data =}\NormalTok{ snotel\_s }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{slice}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{22}\NormalTok{)))}
 \FunctionTok{summary}\NormalTok{(m6)}
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(m6, }\AttributeTok{sub.caption =} \StringTok{"Diagnostics for m6"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(m6, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{sub.caption =} \StringTok{""}\NormalTok{)}
+\FunctionTok{title}\NormalTok{(}\AttributeTok{main=}\StringTok{"Diagnostics for m6"}\NormalTok{, }\AttributeTok{outer=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -21265,6 +21548,7 @@ have been assessed using other tools.
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{col =} \StringTok{"forestgreen"}\NormalTok{) }\SpecialCharTok{+} 
   \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"First Simulated Responses"}\NormalTok{)}
+
 \NormalTok{s2 }\OtherTok{\textless{}{-}}\NormalTok{ snotel\_final }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Max.Temp, }\AttributeTok{y =}\NormalTok{ SimulatedSnow)) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{col =} \StringTok{"forestgreen"}\NormalTok{) }\SpecialCharTok{+} 
   \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
@@ -21341,6 +21625,12 @@ For a 1 \textbf{{[}\emph{units of \(\boldsymbol{x_k}\)}{]}} increase in
 term-plot. To do this, we first need the mean of the ``other'' predictors,
 \emph{Min.Temp} and \emph{Max.Temp}.
 
+\newpage
+
+\phantom{force new page}
+
+\newpage
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{mean}\NormalTok{(snotel\_final}\SpecialCharTok{$}\NormalTok{Min.Temp)}
@@ -21350,12 +21640,6 @@ term-plot. To do this, we first need the mean of the ``other'' predictors,
 \begin{verbatim}
 ## [1] 27.82609
 \end{verbatim}
-
-\newpage
-
-\phantom{force new page}
-
-\newpage
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21489,6 +21773,7 @@ constant. \index{\texttt{seq()}} \index{\texttt{rep()}}
 ##  9     5828.     27.8     36.4
 ## 10     5931.     27.8     36.4
 ## # ... with 20 more rows
+## # i Use `print(n = ...)` to see more rows
 \end{verbatim}
 
 The first 10 predicted snow depths along with 95\% confidence intervals for the mean,
@@ -21860,21 +22145,41 @@ will always have that characteristic.
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.34}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.11}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.12}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.22}}
-  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.22}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.3371}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1067}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1180}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2191}}
+  >{\centering\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2191}}@{}}
 \caption{\label{tab:Table8-1} Model comparisons for Snow Depth data, sorted by model complexity.}\tabularnewline
-\toprule
-\textbf{Model}~~~~~~~~ & \(\boldsymbol{K}\) & \(\boldsymbol{R^2}\) & \(\boldsymbol{R^2_{\text{adjusted}}}\) & \(\boldsymbol{R^2_{\text{adjusted}}}\)
-\textbf{Rank} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Model}~~~~~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\boldsymbol{K}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(\boldsymbol{R^2}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(\boldsymbol{R^2_{\text{adjusted}}}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\boldsymbol{R^2_{\text{adjusted}}}\)
+\textbf{Rank}
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-\textbf{Model}~~~~~~~~ & \(\boldsymbol{K}\) & \(\boldsymbol{R^2}\) & \(\boldsymbol{R^2_{\text{adjusted}}}\) & \(\boldsymbol{R^2_{\text{adjusted}}}\)
-\textbf{Rank} \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Model}~~~~~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\boldsymbol{K}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(\boldsymbol{R^2}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\(\boldsymbol{R^2_{\text{adjusted}}}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(\boldsymbol{R^2_{\text{adjusted}}}\)
+\textbf{Rank}
+\end{minipage} \\
+\midrule()
 \endhead
 SD \(\sim\) Elevation & 1 & 0.8087 & 0.7996 & 3 \\
 SD \(\sim\) Min.Temp & 1 & 0.6283 & 0.6106 & 5 \\
@@ -21884,7 +22189,7 @@ SD \(\sim\) Elevation + Max.Temp & 2 & 0.8495 & 0.8344 & 1 \\
 SD \(\sim\) Min.Temp + Max.Temp & 2 & 0.6308 & 0.5939 & 6 \\
 SD \(\sim\) Elevation + Min.Temp
 + Max.Temp & 3 & 0.8535 & 0.8304 & 2 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 \indent The top adjusted \textbf{\emph{R}}\textsuperscript{2} model contained \emph{Elevation} and \emph{Max.Temp}
@@ -22603,7 +22908,8 @@ and the diagnostic plots, allowing us to consider the tests of interest:
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(gpa1, }\AttributeTok{sub.caption =} \StringTok{"Diagnostics for GPA model with satv and satm"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(gpa1, }\AttributeTok{sub.caption =} \StringTok{""}\NormalTok{)}
+\FunctionTok{title}\NormalTok{(}\AttributeTok{main=}\StringTok{"Diagnostics for GPA model with satv and satm"}\NormalTok{, }\AttributeTok{outer=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -23078,12 +23384,8 @@ their means. \index{effects plot} \index{prediction interval}
 \caption{Term-plots for the \(\text{fygpa}\sim\text{satv} + \text{satm}\) model with 95\% confidence intervals (dark, dashed lines) and 95\% PIs (light grey, dotted lines).}\label{fig:Figure8-21}
 \end{figure}
 
-\sectionmark{Different intercepts for different groups}
-
 \hypertarget{section8-9}{%
 \section{Different intercepts for different groups: MLR with indicator variables}\label{section8-9}}
-
-\sectionmark{Different intercepts for different groups}
 
 One of the implicit assumptions up to this point was that the models were being
 applied to a single homogeneous population.
@@ -23557,9 +23859,8 @@ set had set \texttt{T1} as the baseline in the \texttt{treatment} variable.
 ##  9 Migrane T1         1.38  2.33  2.23  3.98
 ## 10 Tension T3         0.85  1.42  1.37  1.89
 ## # ... with 88 more rows
+## # i Use `print(n = ...)` to see more rows
 \end{verbatim}
-
-\newpage
 
 
 
@@ -23809,10 +24110,10 @@ since all the Cook's D values are less than 0.5. \index{influential}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(head1, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{,}
-     \AttributeTok{sub.caption =} \StringTok{"Plot of diagnostics for additive model with du1 and }
-\StringTok{     treatment for du2"}\NormalTok{)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(head1, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{sub.caption =} \StringTok{""}\NormalTok{)}
+\FunctionTok{title}\NormalTok{(}\AttributeTok{main=}\StringTok{"Plot of diagnostics for additive model with du1 and }
+\StringTok{     treatment for du2"}\NormalTok{, }\AttributeTok{outer=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -23829,7 +24130,7 @@ since all the Cook's D values are less than 0.5. \index{influential}
 to see if any patterns in residuals look different in different groups, like
 linearity or non-constant variance, when we are fitting models that might
 contain multiple groups. We can use the same scatterplot tools to make our own
-plot the residuals (extracted using the \texttt{residuals} function) versus the
+plot of the residuals (extracted using the \texttt{residuals} function) versus the
 fitted values (extracted using the \texttt{fitted} function) by groups as in
 Figure \ref{fig:Figure8-30}. This provides an opportunity to introduce
 faceting, where we can split our plots into panels by a grouping variable, here
@@ -23872,17 +24173,14 @@ but it is a good additional check in these multi-group situations.
 \caption{Faceted scatterplot of residuals versus fitted values by treatment group from the additive decibel tolerance model.}\label{fig:Figure8-30}
 \end{figure}
 
-\indent The VIFs are different for categorical variables than for quantitative
-predictors in MLR. The 4 levels are combined in a measure called the
-\textbf{\emph{generalized VIF (GVIF)}}. For GVIFs, we only focus on the inflation of the
-SE scale (square root for 1 df effects and raised to the power \(1/(2*J)\) for a
-\(J\)-level predictor). On this scale, the interpretation is as \textbf{the
+\indent The VIFs are different for models with categorical variables than for models with only quantitative
+predictors in MLR, even though we are still concerned with shared information across the predictors of all kinds. For categorical predictors, the \(J\) levels are combined to create a single measure for the predictor all together called the
+\textbf{\emph{generalized VIF (GVIF)}}. \index{GVIF} \index{generalized variance inflation factor} For GVIFs, interpretations are based on the GVIF measure to the power \(1/(2*(J-1))\). For quantitative predictors when GVIFS are present, \(J\) = 2, and the power simplifies to \(1/2\), which is our regular square-root scale for inflation of standard errors due to multicollinearity (so the GVIF is the VIF for quantitative predictors). For a \(J\)-level categorical predictor, the power is also \(1/2\) for \(J=2\) levels and increases for more levels. There are no rules of thumb for GVIFs for \(J>2\). In the following output, there are four levels, so \(J=4\). When raised to the requisite power, the GVIF interpretation for multi-category categorical predictors is \textbf{the
 multiplicative increase in the SEs for the coefficients on all the indicator
 variables due to multicollinearity with other predictors}. In this model, the
-SE for \texttt{du1} is 1.009 times larger due to multicollinearity with other
-predictors and the SEs for the indicator variables for \texttt{treatment} are 1.003
-times larger due to multicollinearity than they otherwise would have been.
-Neither are large so multicollinearity is not a problem in this model.
+SE for the quantitative predictor \texttt{du1} is 1.009 times larger due to multicollinearity with other
+predictors and the SEs for the indicator variables for the four-level categorical \texttt{treatment} predictor are 1.003
+times larger due to multicollinearity, both compared to what they would have been with no shared information in the predictors in the model. Neither are large, so multicollinearity is not a problem in this model.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -24223,8 +24521,8 @@ any influential points because no points have Cook's D over 0.5. \index{censored
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(dys\_model,}
-     \AttributeTok{sub.caption =} \StringTok{"Plot of diagnostics for Dyslexia Interaction model"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(dys\_model, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{sub.caption =} \StringTok{""}\NormalTok{)}
+\FunctionTok{title}\NormalTok{(}\AttributeTok{main=}\StringTok{"Plot of diagnostics for Dyslexia Interaction model"}\NormalTok{, }\AttributeTok{outer=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -24622,12 +24920,8 @@ need to develop \(F\)-tests for the interaction part of the model.
 
 \phantom{Make the sectionmark actually work!}
 
-\sectionmark{F-tests for MLR models with Q and C variables and interactions}
-
 \hypertarget{section8-12}{%
 \section{F-tests for MLR models with quantitative and categorical variables and interactions}\label{section8-12}}
-
-\sectionmark{F-tests for MLR models with Q and C variables and interactions}
 
 For models with multi-category \((J>2)\) categorical variables we need a method
 for deciding if all the extra complexity present in the additive or interaction
@@ -24690,6 +24984,8 @@ this tree of models and might stop earlier in the tree if that fully addresses
 our research question, but it is good to consider the potential paths that an
 analysis could involve before it is started if model refinement is being
 considered.
+
+\newpage
 
 \indent To perform the first test (after checking that assumptions are not
 problematic, of course), we can apply the \texttt{Anova} function from the \texttt{car}
@@ -24908,7 +25204,7 @@ model than the \textbf{\emph{adjusted}} \textbf{\emph{R}}\textsuperscript{2}. Th
   AIC nomenclature to mean An Information Criterion -- he was not so vain as to
   name the method after himself in the original paper that proposed it. But it is
   now common to use ``A'' for his last name.}, \citep{Akaike1974}). It is extremely
-popular, but sometimes misused, in some fields such as Ecology and has been
+popular, but sometimes misused, in some fields such as Ecology, and has been
 applied in almost every other potential application area where statistical
 models can be compared. \citet{Burnham2002} have been responsible for popularizing the
 use of AIC for model selection, especially in Ecology. The \textbf{AIC is an estimate
@@ -25233,18 +25529,10 @@ involved in the interaction if we don't need the interaction.
 \NormalTok{FEV }\OtherTok{\textless{}{-}} \FunctionTok{as\_tibble}\NormalTok{(FEV)}
 \NormalTok{FEV }\OtherTok{\textless{}{-}}\NormalTok{ FEV }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sex =} \FunctionTok{factor}\NormalTok{(sex), }\CommentTok{\#Make sex and smoke factors, log.FEV}
                       \AttributeTok{smoke =} \FunctionTok{factor}\NormalTok{(smoke),}
-                      \AttributeTok{log.FEV =} \FunctionTok{log}\NormalTok{(FEV)}
-\NormalTok{                      )}
-
+                      \AttributeTok{log.FEV =} \FunctionTok{log}\NormalTok{(FEV))}
 \FunctionTok{levels}\NormalTok{(FEV}\SpecialCharTok{$}\NormalTok{sex) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Female"}\NormalTok{,}\StringTok{"Male"}\NormalTok{) }\CommentTok{\#Make sex labels explicit}
 \FunctionTok{levels}\NormalTok{(FEV}\SpecialCharTok{$}\NormalTok{smoke) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Nonsmoker"}\NormalTok{,}\StringTok{"Smoker"}\NormalTok{) }\CommentTok{\#Make smoking status labels explicit}
-\end{Highlighting}
-\end{Shaded}
 
-\newpage
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{p1 }\OtherTok{\textless{}{-}}\NormalTok{ FEV }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ log.FEV, }\AttributeTok{color =}\NormalTok{ smoke, }\AttributeTok{shape =}\NormalTok{ smoke)) }\SpecialCharTok{+}
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{) }\SpecialCharTok{+}
@@ -25252,7 +25540,6 @@ involved in the interaction if we don't need the interaction.
   \FunctionTok{scale\_color\_viridis\_d}\NormalTok{(}\AttributeTok{end =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Plot of log(FEV) vs Age of children by smoking  status"}\NormalTok{,}
        \AttributeTok{y =} \StringTok{"log(FEV)"}\NormalTok{) }
-
 
 \NormalTok{p2 }\OtherTok{\textless{}{-}}\NormalTok{ FEV }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ age, }\AttributeTok{y =}\NormalTok{ log.FEV, }\AttributeTok{color =}\NormalTok{ smoke, }\AttributeTok{shape =}\NormalTok{ smoke)) }\SpecialCharTok{+}
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
@@ -25309,7 +25596,8 @@ specified as \texttt{log(FEV)\ \textasciitilde{}\ height\ +\ age\ *\ smoke\ +\ s
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(fm1, }\AttributeTok{sub.caption =} \StringTok{"Diagnostics for full FEV model"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(fm1, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{sub.caption =} \StringTok{""}\NormalTok{)}
+\FunctionTok{title}\NormalTok{(}\AttributeTok{main=}\StringTok{"Diagnostics for full FEV model"}\NormalTok{, }\AttributeTok{outer=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -25578,8 +25866,6 @@ components and so this estimate is after adjusting for them.}
 
 \caption{Term-plots for the top AIC model for log(FEV) that includes height, age, smoking status, and sex in the model.}\label{fig:Figure8-46}
 \end{figure}
-
-\newpage
 
 \indent Like any statistical method, the AIC works better with larger sample
 sizes and when assumptions are not clearly violated. It also will detect
@@ -25906,7 +26192,8 @@ differ across the age groups.
 \begin{Highlighting}[]
 \NormalTok{treadmill }\OtherTok{\textless{}{-}}\NormalTok{ treadmill }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Ageb =} \FunctionTok{factor}\NormalTok{(}\FunctionTok{cut}\NormalTok{(Age, }\AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\DecValTok{37}\NormalTok{, }\FloatTok{44.5}\NormalTok{, }\FloatTok{50.5}\NormalTok{, }\DecValTok{58}\NormalTok{))))}
 \FunctionTok{summary}\NormalTok{(treadmill}\SpecialCharTok{$}\NormalTok{Ageb)}
-\NormalTok{treadmill }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ RunTime, }\AttributeTok{y =}\NormalTok{ TreadMillOx, }\AttributeTok{color =}\NormalTok{ Ageb, }\AttributeTok{shape =}\NormalTok{ Ageb)) }\SpecialCharTok{+} 
+\NormalTok{treadmill }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ RunTime, }\AttributeTok{y =}\NormalTok{ TreadMillOx, }
+                                   \AttributeTok{color =}\NormalTok{ Ageb, }\AttributeTok{shape =}\NormalTok{ Ageb)) }\SpecialCharTok{+} 
   \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
@@ -26070,12 +26357,8 @@ encourages authors to share their data sets, making
 our re-analyses possible. Use these sections to review the methods
 from earlier in the book and to see some hints about possible extensions of the methods you have learned.
 
-\sectionmark{The impact of simulated chronic nitrogen deposition}
-
 \hypertarget{section9-2}{%
 \section{The impact of simulated chronic nitrogen deposition on the biomass and N2-fixation activity of two boreal feather moss--cyanobacteria associations}\label{section9-2}}
-
-\sectionmark{The impact of simulated chronic nitrogen deposition}
 
 
 
@@ -26214,7 +26497,8 @@ the diagnostic plots to verify that we have a problem.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(m1, }\AttributeTok{sub.caption =} \StringTok{"Initial Massperha 2{-}WAY model"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(m1, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{sub.caption =} \StringTok{""}\NormalTok{)}
+\FunctionTok{title}\NormalTok{(}\AttributeTok{main=}\StringTok{"Initial Massperha 2{-}WAY model"}\NormalTok{, }\AttributeTok{outer=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -26369,7 +26653,8 @@ species.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\AttributeTok{oma =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(m2, }\AttributeTok{sub.caption =} \StringTok{"log{-}Massperha 2{-}WAY model"}\NormalTok{, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(m2, }\AttributeTok{pch =} \DecValTok{16}\NormalTok{, }\AttributeTok{sub.caption =} \StringTok{""}\NormalTok{)}
+\FunctionTok{title}\NormalTok{(}\AttributeTok{main=}\StringTok{"log{-}Massperha 2{-}WAY model"}\NormalTok{, }\AttributeTok{outer=}\ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -26541,8 +26826,8 @@ different. The following code creates the plot of these results using our
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{intplot}\NormalTok{(logMassperha }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Species }\SpecialCharTok{*}\NormalTok{ Treatment, }\AttributeTok{cld =}\NormalTok{ T, }\AttributeTok{cldshift =} \FloatTok{0.15}\NormalTok{, }\AttributeTok{data =}\NormalTok{ gdn, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }
-        \AttributeTok{main =} \StringTok{"Interaction with CLD from Tukey\textquotesingle{}s HSD on One{-}Way ANOVA"}\NormalTok{)}
+\FunctionTok{intplot}\NormalTok{(logMassperha }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Species }\SpecialCharTok{*}\NormalTok{ Treatment, }\AttributeTok{cld =}\NormalTok{ T, }\AttributeTok{cldshift =} \FloatTok{0.16}\NormalTok{, }\AttributeTok{data =}\NormalTok{ gdn, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }
+        \AttributeTok{main =} \StringTok{"Interaction Plot with CLD from Tukey\textquotesingle{}s HSD on One{-}Way ANOVA"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -26569,12 +26854,8 @@ results for the two species were not detectably different. Further explorations
 of the sizes of the differences that can be extracted from selected confidence
 intervals in the Tukey's HSD results printed above. Because these results are for the log-scale responses, we could exponentiate coefficients for groups that are deviations from the baseline category and interpret those as multiplicative changes in the median relative to the baseline group, but at the end of this amount of material, I thought that might stop you from reading on any further\ldots{}
 
-\sectionmark{Ants learn to rely on more informative attributes}
-
 \hypertarget{section9-3}{%
 \section{Ants learn to rely on more informative attributes during decision-making}\label{section9-3}}
-
-\sectionmark{Ants learn to rely on more informative attributes}
 
 In \citet{Sasaki2013}, a set of ant colonies were randomly assigned to one
 of two treatments to study whether the ants could be ``trained'' to have a
@@ -26740,12 +27021,8 @@ found with our simpler analysis. Logistic regression models are a special case
 of what are called \emph{generalized linear models} and are a topic for the next level
 of statistics if you continue exploring.
 
-\sectionmark{understanding vertebrate diversification in deep time}
-
 \hypertarget{section9-4}{%
 \section{Multi-variate models are essential for understanding vertebrate diversification in deep time}\label{section9-4}}
-
-\sectionmark{understanding vertebrate diversification in deep time}
 
 \citet{Benson2012} published a paleontology study that considered
 modeling the diversity of \emph{Sauropodomorphs} across \(n = 26\) ``stage-level'' time
@@ -26925,21 +27202,49 @@ AICs based on the top model from the first full model considered to make it easi
 
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.57}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.06}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.11}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.05}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.10}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.05}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.06}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.5684}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0579}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0474}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1000}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0526}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0632}}@{}}
 \caption{\label{tab:Table9-1} Model comparison table.}\tabularnewline
-\toprule
-\textbf{Model}~~~~~~~~~~~~~~~~ & \textbf{R\textsuperscript{2}} & \textbf{adj R\textsuperscript{2}}~ & \textbf{df} & \textbf{logLik}~ & \textbf{AIC} & Delta AIC \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Model}~~~~~~~~~~~~~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{R\textsuperscript{2}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{adj R\textsuperscript{2}}~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{df}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{logLik}~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{AIC}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Delta AIC
+\end{minipage} \\
+\midrule()
 \endfirsthead
-\toprule
-\textbf{Model}~~~~~~~~~~~~~~~~ & \textbf{R\textsuperscript{2}} & \textbf{adj R\textsuperscript{2}}~ & \textbf{df} & \textbf{logLik}~ & \textbf{AIC} & Delta AIC \\
-\midrule
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Model}~~~~~~~~~~~~~~~~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{R\textsuperscript{2}}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{adj R\textsuperscript{2}}~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{df}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{logLik}~
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\textbf{AIC}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Delta AIC
+\end{minipage} \\
+\midrule()
 \endhead
 \(\log(\text{count})_i = \beta_0 + \beta_1\cdot\log(\text{DBC})_i + \beta_2I_{\text{TJK},i} + \varepsilon_i\) & 0.5809 & 0.5444 & 4 & -12.652 & 33.3 & 0 \\
 \(\log(\text{count})_i = \beta_0 + \beta_1\cdot\log(\text{DBF})_i + \beta_2I_{\text{TJK},i} + \varepsilon_i\) & 0.5199 & 0.4781 & 4 & -14.418 & 36.8 & 3.5 \\
@@ -26947,7 +27252,7 @@ AICs based on the top model from the first full model considered to make it easi
 \(\log(\text{count})_i = \beta_0 + \beta_1\cdot\log(\text{DBF})_i + \varepsilon_i\) & 0.2098 & 0.1769 & 3 & -20.895 & 47.8 & 14.5 \\
 \(\log(\text{count})_i = \beta_0 + \varepsilon_i\) & 0 & 0 & 2 & -23.956 & 51.9 & 18.6 \\
 \(\log(\text{count})_i = \beta_0 + \beta_2I_{\text{TJK},i} + \varepsilon_i\) & 0.0048 & -0.0366 & 3 & -23.893 & 53.8 & 20.5 \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 Table \ref{tab:Table9-1} suggests some interesting results. By itself, \(TJK\)
@@ -27120,12 +27425,8 @@ access the results of interest; inaccurate usage of statistical models can
 provide inaccurate conclusions. They seemed to mostly get the right answers
 despite a suite of errors in their work.
 
-\sectionmark{didgeridoos and sleepiness}
-
 \hypertarget{section9-5}{%
 \section{What do didgeridoos really do about sleepiness?}\label{section9-5}}
-
-\sectionmark{didgeridoos and sleepiness}
 
 In the practice problems at the end of Chapter 4, a study (\citet{Puhan2006}) related
 to a pre-post, two group comparison of the sleepiness ratings of subjects was

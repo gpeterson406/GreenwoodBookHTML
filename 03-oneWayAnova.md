@@ -207,9 +207,9 @@ no deviation from the baseline for any group -- that all the ${\color{purple}{\b
 
 $$\boldsymbol{H_0: \tau_2 = \ldots = \tau_J = 0}.$$
 
-The alternative hypothesis is that at least one of the deviations is not 0, 
+The alternative hypothesis is that at least one of the deviations ($j = 2, \ldots, J$) is not 0, 
 
-$$\boldsymbol{H_A:} \textbf{ Not all } \boldsymbol{\tau_j} \textbf{ equal } \bf{0}.$$
+$$\boldsymbol{H_A:} \textbf{ Not all } \boldsymbol{\tau_j} \textbf{ equal } \bf{0} \textbf{, for }\boldsymbol{j = 2, \ldots, J.}$$
 
 In this chapter, you are welcome to use either version (unless we instruct you
 otherwise) but we have to use the reference-coding in subsequent chapters. The 
@@ -236,7 +236,7 @@ the groups.
 
 * $H_0: \color{purple}{\boldsymbol{\tau_2 = \ldots = \tau_J = 0}}$
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-$H_A: \color{purple}{\text{ Not all } \tau_j \text{ equal 0}}$
+$H_A: \color{purple}{\text{ Not all } \tau_j \text{ equal 0, for }j = 2, \ldots, J }$
 
 * Null hypothesis in words: No deviation of the true mean for any groups from the
 baseline group. 
@@ -1153,7 +1153,7 @@ dd[2709, c(1:2)]
 ```
 
 ```
-## # A tibble: 1 x 2
+## # A tibble: 1 × 2
 ##   Condition Distance
 ##   <fct>        <dbl>
 ## 1 novice         274
@@ -1295,7 +1295,7 @@ tally(~ Condition, data = dd)
 So the sample sizes do vary among the groups and the design is not
 balanced, but all the sample sizes are between 737 and 868 so it is (in percentage terms at least) not too far from balanced. It is better then having, say, 50 in one group and 1,200 in another. This 
 tells us that the $F$-test should have some resistance to violations of 
-assumptions. We also get more resistance to violation of assumptions as our sample sizes increase. With such as large data set here and only minor concerns with the normality assumption, the inferences generated for the means should be trustworthy and we will get similar results from parametric and nonparametric procedures. If we had only 15 observations per group and a slightly skewed residual distribution, then we might want to appeal to the permutation approach to have more trustworthy results, even if the design were balanced. 
+assumptions. We also get more resistance to violation of assumptions as our sample sizes increase. With such a large data set here and only minor concerns with the normality assumption, the inferences generated for the means should be trustworthy and we will get similar results from parametric and nonparametric procedures. If we had only 15 observations per group and a slightly skewed residual distribution, then we might want to appeal to the permutation approach to have more trustworthy results, even if the design were balanced. 
 
 
 
@@ -1760,11 +1760,11 @@ summary(m3)
 plot(allEffects(m2), rotx = 45)
 ```
 
-\sectionmark{Multiple (pair-wise) comparisons using Tukey's HSD and CLD}
+<!-- \sectionmark{Multiple (pair-wise) comparisons using Tukey's HSD and CLD} -->
 
 ## Multiple (pair-wise) comparisons using Tukey's HSD and the compact letter display {#section3-6}
 
-\sectionmark{Multiple (pair-wise) comparisons using Tukey's HSD and CLD}
+<!-- \sectionmark{Multiple (pair-wise) comparisons using Tukey's HSD and CLD} -->
 
 With evidence against all the true means being equal and concluding that not all are equal, many researchers 
 want to explore which groups show evidence of differing from one another. This 
@@ -2352,7 +2352,7 @@ df2 = <font color='red'>DENOMDF</font>, lower.tail = F)**
     B ``<-`` 1000  
     Tstar ``<-`` matrix(NA, nrow = B)  
     for (b in (1:B)){  
-      Tstar[b] ``<-`` anova(lm(<font color='red'>Y</font> ~ <font color='red'>X</font>, data = <font color='red'>DATASETNAME</font>))[1,4]  
+      Tstar[b] ``<-`` anova(lm(<font color='red'>Y</font> ~ shuffle(<font color='red'>X</font>), data = <font color='red'>DATASETNAME</font>))[1,4]  
     }  
     pdata(Tstar, Tobs, lower.tail = F)[[1]]**  
 

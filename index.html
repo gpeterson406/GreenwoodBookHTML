@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Intermediate Statistics with R</title>
   <meta name="description" content="Intermediate Statistics with R" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Intermediate Statistics with R" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="gpeterson406/Greenwood_Book" />
@@ -32,7 +31,6 @@
   
 
 <link rel="next" href="acknowledgments.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -229,7 +228,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.10" data-path="chapter5.html"><a href="chapter5.html#section5-10"><i class="fa fa-check"></i><b>5.10</b> Is cheating and lying related in students?</a></li>
 <li class="chapter" data-level="5.11" data-path="chapter5.html"><a href="chapter5.html#section5-11"><i class="fa fa-check"></i><b>5.11</b> Analyzing a stratified random sample of California schools</a></li>
 <li class="chapter" data-level="5.12" data-path="chapter5.html"><a href="chapter5.html#section5-12"><i class="fa fa-check"></i><b>5.12</b> Chapter summary</a></li>
-<li class="chapter" data-level="5.13" data-path="chapter5.html"><a href="chapter5.html#section5-13"><i class="fa fa-check"></i><b>5.13</b> Summary of important R commands</a></li>
+<li class="chapter" data-level="5.13" data-path="chapter5.html"><a href="chapter5.html#section5-13"><i class="fa fa-check"></i><b>5.13</b> Summary of important R code</a></li>
 <li class="chapter" data-level="5.14" data-path="chapter5.html"><a href="chapter5.html#section5-14"><i class="fa fa-check"></i><b>5.14</b> Practice problems</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chapter6.html"><a href="chapter6.html"><i class="fa fa-check"></i><b>6</b> Correlation and Simple Linear Regression</a>
@@ -314,12 +313,12 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Intermediate Statistics with R</h1>
-<h2 class="subtitle"><em>Version 3.0 – Published Fall 2021</em></h2>
+<h2 class="subtitle"><em>Version 3.1 – Published Fall 2022</em></h2>
 <p class="author"><em>Mark C Greenwood</em></p>
 </div>
-<div id="cover" class="section level1 unnumbered">
-<h1>Cover</h1>
-<p><img src="frontMatter/titlepage_summer_2021.png" width="1632" /></p>
+<div id="cover" class="section level1 unnumbered hasAnchor">
+<h1>Cover<a href="index.html#cover" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="frontMatter/titlepage_summer_2022.png" width="1164" /></p>
 <!-- \frontmatter -->
 </div>
             </section>
@@ -381,7 +380,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

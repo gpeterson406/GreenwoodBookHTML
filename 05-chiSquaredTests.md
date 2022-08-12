@@ -223,7 +223,7 @@ here, *Improved* on *Treatment*)^[The vertical line, "``|``", in ``~ y | x``
 is available on most keyboards on the same key as "``\``". It is the mathematical 
 symbol that means "conditional on" whatever follows.]. 
 \index{\texttt{tally()}}
-Note that they sum to 1.0 in each level of x, *placebo* or *treated*:
+Note that they sum to 1.0 in each level of x, *placebo*  or *treated*:
 
 
 ```r
@@ -301,7 +301,7 @@ as explanatory or response although it is certainly possible. Data that often
 align with Independence testing are collected using surveys of
 subjects randomly selected from a single, large population. An example, 
 analyzed below, involves a survey of voters and whether their party affiliation
-is related to who they voted for -- the republican, democrat, or other
+is related to who they voted for -- the Republican, Democrat, or other
 candidate. There is clearly an explanatory variable of the *Party affiliation*
 but a single large sample was taken from the population of all likely voters 
 so the Independence test needs to be applied. 
@@ -413,9 +413,9 @@ The alternative hypothesis is then:
 **are NOT ALL the same across the** $\mathbf{R}$ **groups**.
 
 To make this concrete, consider what the proportions could look like if they satisfied 
-the null hypothesis for the *Arthritis* example, as displayed in Figure \@ref(fig:Figure5-4).
+the null hypothesis for the *Arthritis* example, as displayed in Figure \@ref(fig:Figure5-4). Stacked bar charts provide a natural way to visualize the null hypothesis (equal distributions) to compare to the observed proportions in the observed data. **Stacked bar charts are the appropriate visual display to present the summarized data in homogeneity test situations.**
 
-(ref:fig5-4) Plot of one way that the Arthritis proportions could have been if the null hypothesis had been true.
+(ref:fig5-4) Stacked bar chart of one way that the Arthritis proportions could have been if the null hypothesis had been true.
 
 <div class="figure" style="text-align: center">
 <img src="05-chiSquaredTests_files/figure-html/Figure5-4-1.png" alt="(ref:fig5-4)" width="75%" />
@@ -477,8 +477,8 @@ will contain the candidate that the participants voted for (the data set was
 originally coded with 1, 2, and 3 for the candidates and we replaced those
 ``levels`` \index{\texttt{levels}} with the candidate names). The contingency table shows some expected
 results, that individuals with strong party affiliations tend to vote for the
-party nominee with strong support for Gore in the democrats 
-(``PARTY`` = 1 and 2) and strong support for Bush in the republicans
+party nominee with strong support for Gore in the Democrats 
+(``PARTY`` = 1 and 2) and strong support for Bush in the Republicans
 (``PARTY`` = 6 and 7). As always, we want to support our explorations with
 statistical inferences, here with the potential to extend inferences to 
 the overall population of
@@ -1211,7 +1211,7 @@ null hypothesis (expected cell counts) and what was observed (observed cell
 counts). It is possible to explore the "size" and direction of the differences
 between observed and expected counts to learn something about the behavior of
 the relationship between the variables, especially as it relates to evidence
-against the null hypothesis of no difference or no relationship. The***standardized residual***, 
+against the null hypothesis of no difference or no relationship. The ***standardized residual***, 
 
 $$\boldsymbol{\left(\frac{\textbf{Observed}_i - 
 \textbf{Expected}_i}{\sqrt{\textbf{Expected}_i}}\right)},$$
@@ -1266,8 +1266,7 @@ magnitude so Figure \@ref(fig:Figure5-12) isn't
 too helpful but this type of plot is in other examples. The largest
 contributions to the $X^2$ statistic come from the *Placebo* and *Treated*
 groups in the *Marked* improvement cells. Those standardized residuals 
-are -1.94 and 1.98 (both really close to 2), showing that the *placebo* 
-group had**noticeably fewer** *Marked* improvement 
+are -1.94 and 1.98 (both really close to 2), showing that the *placebo* group had **noticeably fewer** *Marked* improvement 
 **results than expected** and the *Treated* group **had noticeably more**
 *Marked* improvement responses **than expected if the null hypothesis was true**. Similarly but with smaller magnitudes, there were more *None*
 results than expected in the *Placebo* group and fewer *None* results 
@@ -1831,6 +1830,10 @@ variable. This creates two new variables called ``liar2`` and ``copier2``
 (tableplot in Figure \@ref(fig:Figure5-20)). The code to create these 
 variables and make the plot is below which employs the ``levels`` function to assign the same label to two different levels from the original list. \index{\texttt{levels()}}
 
+\vspace{22pt}
+
+(ref:fig5-20) Tableplot of lying and copying variables after combining categories. 
+
 
 ```r
 # Collapse the middle categories of both variables by making both have the same level name:
@@ -1839,6 +1842,20 @@ cheating <- cheating %>% mutate(liar2 = liar,
                                 )
 levels(cheating$liar2) <- c("None", "ExamorPaper", "ExamorPaper", "LieBoth")
 levels(cheating$copier2) <- c("None", "ExamorPaper", "ExamorPaper", "CopyBoth")
+tableplot(cheating, sort = liar2, select = c(liar2, copier2), pals = list("BrBG"))
+```
+
+<div class="figure" style="text-align: center">
+<img src="05-chiSquaredTests_files/figure-html/Figure5-20-1.png" alt="(ref:fig5-20)" width="75%" />
+<p class="caption">(\#fig:Figure5-20)(ref:fig5-20)</p>
+</div>
+
+<!-- \newpage -->
+
+
+
+
+```r
 cheatlietable <- tally(~ liar2 + copier2, data = cheating)
 cheatlietable
 ```
@@ -1852,18 +1869,6 @@ cheatlietable
 ```
 
 <!-- \newpage -->
-
-(ref:fig5-20) Tableplot of lying and copying variables after combining categories. 
-
-
-```r
-tableplot(cheating, sort = liar2, select = c(liar2, copier2), pals = list("BrBG"))
-```
-
-<div class="figure" style="text-align: center">
-<img src="05-chiSquaredTests_files/figure-html/Figure5-20-1.png" alt="(ref:fig5-20)" width="75%" />
-<p class="caption">(\#fig:Figure5-20)(ref:fig5-20)</p>
-</div>
 
 This $3\times 3$ table is more manageable and has few really small 
 cells so we will proceed with the 6+ steps of hypothesis
@@ -2027,7 +2032,9 @@ single sample was taken from the population so that is the appropriate procedure
     ($X^2$-statistic = 13.24, permutation p-value of 0.0174), so conclude that
     there is a relationship between lying and copying behavior at the university
     in the population of students studied. 
-    
+
+\newpage
+
 5. **Size:**
     
     * The standardized residuals can help us more fully understand this result
@@ -2212,8 +2219,7 @@ create new categories with those names in a new variable called
 
 ```r
 apistrat <- apistrat %>% mutate(growthcut = cut(growth, breaks = c(-47,6.75,25,48,133),
-                                                include.lowest = T)
-                                )
+                                                include.lowest = T))
 ```
 
 <!-- \newpage -->
@@ -2294,7 +2300,6 @@ using the $\boldsymbol{\chi^2}$-distribution to find the p-value:
 
 ```r
 growthtable <- tally(~ stype + growthcut, data = apistrat)
-
 growthtable
 ```
 
@@ -2430,7 +2435,7 @@ contingency table where you identified initial patterns and help to tell the sto
 
 <!-- \newpage -->
 
-## Summary of important R commands	{#section5-13}
+## Summary of important R code	{#section5-13}
 
 The main components of R code used in this chapter follow with components
 to modify in lighter and/or ALL CAPS text where ``y`` is a response variable and ``x`` is a predictor 

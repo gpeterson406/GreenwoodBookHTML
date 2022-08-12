@@ -254,12 +254,12 @@ from two groups, make some graphical displays, do hypothesis testing \index{hypo
 confidence intervals in a couple of different ways. 
 
 \indent You will have two^[There is a cloud version of R Studio available at https://rstudio.cloud/ that is free for limited usage and some institutions have locally hosted versions that you can use with a web-browser (check with your instructor for those options). We recommend following the steps to be able to work locally but try this option if you have issues with the installation process and need to complete an assignment or two until you get the installation sorted out.] downloading activities to complete before you can do anything
-more than read this book^[I created this interactive website (https://greenwood-stat.shinyapps.io/InstallDemo/) that contains discussions and activities related to installing and using R and RStudio.]. First, you need to download R. It is the engine that will do all the computing
+more than read this book^[I created this interactive website (https://rconnect.math.montana.edu/InstallDemo/) that contains discussions and activities related to installing and using R and RStudio.]. First, you need to download R. It is the engine that will do all the computing
 for us, but you will only interact with it once. Go to http://cran.rstudio.com
 and click on the "**Download R for...**" button that
 corresponds to your operating system. On the next page, click on "**base**" and then it will take you 
 to a screen to download the most current version of R that is compiled for your
-operating system, something like "**Download R 4.1.1 for Windows**". Click on that link and then open 
+operating system, something like "**Download R 4.2.1 for Windows**". Click on that link and then open 
 the file you downloaded. You will need to select your preferred language (choose English so your instructor can help you), then hit "**Next**"
 until it starts to unpack and install the program (all the base settings will be fine). After you hit "**Finish**" you will not do anything further with R directly. 
 
@@ -273,8 +273,8 @@ more than a few months previously, you should download the up-to-date versions,
 especially if something you are trying to do is not working. Sometimes code
 will not work in older versions of R and sometimes old code won't work in new
 versions of R.^[The need to keep the code up-to-date as R continues to evolve is
-one reason that this book is locally published and that this is the 8^th^ time 
-it has been revised in eight years...]
+one reason that this book is locally published and that this is the 9^th^ time 
+it has been revised in nine years...]
  
 (ref:fig1-2) Initial RStudio layout.
 
@@ -585,7 +585,7 @@ edit code -- then save the file as something like "MyFileName.R" in your preferr
 Saving your code will mean that you can return to where you
 were working last by simply re-running the saved script file. With code in the
 script window, you can place the cursor on a line of code or highlight a chunk
-of code and hit the "Run" button^[You can also use Ctrl+Enter if you like hot keys.] 
+of code and hit the "Run" button^[You can also use Ctrl+Enter if you like hot keys (Command+Enter on Mac OS).] 
 on the upper part of the panel. It will appear
 in the console with results just like what you would obtain if you typed it
 after the command prompt and hit enter for each line. Figure \@ref(fig:Figure1-4) 
@@ -968,14 +968,14 @@ defines which layer is "on top", with the plot built up sequentially. So we can
 add a boxplot on top of a histogram by putting it after the histogram layer. 
 Also in Figure \@ref(fig:Figure1-12), the `geom_rug` is also added, which puts 
 a tick mark for each observation on the lower part of the x-axis. \index{rug} 
-Rug plots use a graphical technique called ***jittering*** to add a little 
-noise^[Jittering typically involves adding random variability to each 
+Rug plots can also use a graphical technique called ***jittering*** to add a little 
+noise using the options `geom_rug(sides = "b", aes(y = 0), position = "jitter")`^[Jittering typically involves adding random variability to each 
 observation that is uniformly distributed in a range determined based on the 
-spacing of the observation. The idea is to jitter just enough to see all the 
-points but not too much. This means that if you re-run the ``jitter`` function, 
+spacing of the observations. The idea is to jitter just enough to see all the 
+points but not too much. Because it is random noise being added, this also means that if you re-run the ``jitter`` function, 
 the results will change if you do not set the random number seed using 
-`set.seed` that is discussed more below. For more details, type ``help(jitter)`` 
-in the console in RStudio.] to each observation so that multiple similar or 
+`set.seed` that is discussed more below. For more details, type ``help(geom_rug)`` 
+in the console in RStudio. The code is unfortunately clumsy to add jittering to the rug, so a simpler option is to use `geom_rug(alpha = 0.3)` where the transparency is modified with the `alpha` option to help with identifying overplotting of lines in the rug.] to each observation so that multiple similar or 
 tied observations do not plot as a single line. \index{jitter} There are options 
 to control the color of individual components when we add them (the histogram is 
 filled with grey (``fill = "grey"``), the boxplot is in "tomato" 
@@ -1001,7 +1001,7 @@ options there). \index{themes} \index{\texttt{theme\_bw()}}
 ggplot(data = treadmill, mapping = aes(x = RunTime)) + 
   geom_histogram(fill = "grey", bins = 8) + 
   geom_boxplot(color = "tomato") + 
-  geom_rug(color = "skyblue") + 
+    geom_rug(color = "skyblue", sides = "b", aes(y = 0), position = "jitter") + 
   theme_light()
 ```
 

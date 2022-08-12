@@ -157,6 +157,8 @@ estimates.
 \index{random sampling}
 The next sections develop those inferential tools. 
 
+
+
 (ref:fig7-3) Variability in realized regression lines based on sampling variation. Light grey lines are simulated realizations assuming the bold (red) line is the true SLR model and variability is similar to the original BAC data set. Simulated observations from the estimated models using the ``simulate`` function as was used in Chapter \@ref(chapter2) were used to create this plot. \index{\texttt{simulate()}}
 
 <div class="figure" style="text-align: center">
@@ -166,11 +168,15 @@ The next sections develop those inferential tools.
 
 <!-- \newpage -->
 
-\sectionmark{CI and Hypothesis tests for slope and intercept}
+<!-- \phantom{force newpage} -->
+
+<!-- \newpage -->
+
+<!-- \sectionmark{CI and Hypothesis tests for slope and intercept} -->
 
 ## Confidence interval and hypothesis tests for the slope and intercept	{#section7-2}
 
-\sectionmark{CI and Hypothesis tests for slope and intercept}
+<!-- \sectionmark{CI and Hypothesis tests for slope and intercept} -->
 
 Our inference techniques will resemble previous material with an 
 interest in forming confidence intervals and
@@ -466,7 +472,7 @@ but certainly would never say that this presents strong evidence.
 \index{R packages!\textbf{alr4}}
 \index{R packages!\textbf{tibble}}
 
-\vspace{22pt}
+<!-- \vspace{22pt} -->
 
 
 ```r
@@ -476,7 +482,6 @@ library(tibble)
 ais <- as_tibble(ais)
 aisR <- ais %>% slice(-56, -166) #Removes observations in rows 56 and 166
 m2 <- lm(Hc ~ Bfat, data = aisR %>% filter(Sex == 1)) #Results for Females 
-
 summary(m2)
 ```
 
@@ -1121,6 +1126,8 @@ systematic issues noted above using ***transformations***, discussed in
 Sections \@ref(section7-5) and \@ref(section7-6).
 \index{transformation}
 
+\newpage
+
 ## Randomization-based inferences for the slope coefficient	{#section7-4}
 
 Exploring permutation testing in SLR provides an opportunity to gauge the observed
@@ -1697,11 +1704,11 @@ defaulted to different bases.
  Generally, in statistics, it's safe to assume that everything is log base *e* unless otherwise specified.
 -----------------------------------------------------------------------------------------------------------
  
-\sectionmark{Transformations part II: Impacts on SLR interpretations}
+<!-- \sectionmark{Transformations part II: Impacts on SLR interpretations} -->
 
 ## Transformations part II: Impacts on SLR interpretations: log(y), log(x), & both log(y) & log(x)	{#section7-6}
 
-\sectionmark{Transformations part II: Impacts on SLR interpretations}
+<!-- \sectionmark{Transformations part II: Impacts on SLR interpretations} -->
 
 The previous attempts to linearize relationships imply a desire to be 
 able to fit SLR models.
@@ -1771,6 +1778,14 @@ medians instead of means, and we don't do this because
 we want to, we do it because it is result of modeling on the $\log(y)$ scale, 
 if successful. 
 
+So there are a couple of ways to interpret these results in general:
+
+1. ***log-scale interpretation of log(y) only model***: for a 1 unit
+increase in $x$, we estimate a $b_1$ unit change in the mean of $\log(y)$ or 
+
+2. ***original scale interpretation of log(y) only model***: for a 1 unit
+increase in $x$, we estimate a $exp(b_1)$ times change in the median of $y$. 
+
 \indent When we are working with regression equations, slopes can either be positive or
 negative and our interpretations change based on this result to either result
 in growth ($b_1>0$) or decay ($b_1<0$) in the responses as the explanatory
@@ -1808,7 +1823,7 @@ as $(1-\exp(b_1))*100\%$. For $\exp(-0.3) = 0.741$, this is
 $(1-0.741)*100 = 25.9\%$. This is interpreted as: For a 1 unit increase
 in $x$, the median of $y$ is estimated to decrease by 25.9%. 
 
-We suspect that you will typically prefer interpretation #1 for both 
+We suspect that you will typically prefer the "times" interpretation over the "percentage" change one for both 
 directions but it is important to be able
 think about the results in terms of ***% change of the medians*** to make
 the scale of change more understandable. Some examples will help us see how
@@ -2109,11 +2124,11 @@ will explore.
 
 <!-- \newpage -->
 
-\sectionmark{Confidence intervals and prediction intervals}
+<!-- \sectionmark{Confidence intervals and prediction intervals} -->
 
 ## Confidence interval for the mean and prediction intervals for a new observation {#section7-7}
 
-\sectionmark{Confidence intervals and prediction intervals}
+<!-- \sectionmark{Confidence intervals and prediction intervals} -->
 
 Figure \@ref(fig:Figure7-7) provided a term-plot of the estimated 
 regression line and a shaded area surrounding
@@ -2201,8 +2216,8 @@ in 95% of applications of the methods and fails the other 5% of the time.
 Remember that for any interval estimate, the true value is either in the
 interval or it is not and our confidence level essentially sets our failure
 rate! Because PIs push into the tails of the assumed distribution of the
-responses these methods are very sensitive to violations of assumptions so we
-should not use these if there are any concerns about violations of assumptions as they will work as advertised (at the ***nominal*** (specified) level).
+responses, these methods are very sensitive to violations of assumptions. We
+should not use these if there are any concerns about violations of assumptions as they will not work as advertised (at the ***nominal*** (specified) level).
 
 \indent There are two ways to explore CIs for the mean and PIs for a new observation.
 The first is to focus on a specific $x$-value of interest. The second is to 
@@ -2246,7 +2261,7 @@ confidence interval and degrees of freedom.
 Note that elements returned 
 are labeled as ``$fit``, ``$se.fit``, etc. and provide some of the information to calculate CIs or PIs "by hand".
 
-\newpage
+<!-- \newpage -->
 
 
 ```r
@@ -2392,7 +2407,7 @@ head(BBCI)
 ```
 
 ```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##         fit      lwr    upr
 ##       <dbl>    <dbl>  <dbl>
 ## 1 -0.0127   -0.0398  0.0144
@@ -2414,7 +2429,7 @@ head(BBPI)
 ```
 
 ```
-## # A tibble: 6 x 3
+## # A tibble: 6 × 3
 ##         fit     lwr    upr
 ##       <dbl>   <dbl>  <dbl>
 ## 1 -0.0127   -0.0642 0.0388

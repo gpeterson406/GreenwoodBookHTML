@@ -1838,11 +1838,11 @@ diagnostics are reasonable to proceed:
 Whether you end up favoring an additive or interaction model or do further model refinement, all steps of the
 hypothesis testing protocol should be engaged and a story based on the final results should be compiled, supported by the graphical displays such as the term-plots and interaction plots. 
 
-\sectionmark{Pushing Two-Way ANOVA to the limit}
+<!-- \sectionmark{Pushing Two-Way ANOVA to the limit} -->
 
 ## Pushing Two-Way ANOVA to the limit: Un-replicated designs and Estimability	{#section4-6}
 
-\sectionmark{Pushing Two-Way ANOVA to the limit}
+<!-- \sectionmark{Pushing Two-Way ANOVA to the limit} -->
 
 In some situations, it is too expensive
 or impossible to replicate combinations of treatments and only one observation at each
@@ -1854,8 +1854,6 @@ freedom and so we have to drop the interaction and call that potential
 interaction variability "error". 
 \index{degrees of freedom}
 \index{replicate}
-
-\newpage
 
 \indent Without replication we can still perform an analysis of the
 responses and estimate all the coefficients in the interaction model but an issue occurs with trying to calculate the interaction 
@@ -1874,7 +1872,7 @@ ptR
 
 
 ```
-## # A tibble: 6 x 4
+## # A tibble: 6 × 4
 ##   brand drops responses dropsf
 ##   <fct> <dbl>     <dbl> <fct> 
 ## 1 B1       10     1.91  10    
@@ -1915,7 +1913,7 @@ data = ptR)) : residual df = 0``, which is fine but not as useful for
 understanding this issue as what ``anova`` provides.] function on the
 interaction model: \index{\texttt{anova()}}
 
-\newpage
+<!-- \newpage -->
 
 <!-- \small -->
 
@@ -2011,7 +2009,7 @@ plot(allEffects(norep1))
 
 \indent In the extreme unreplicated situation it is possible to estimate all model coefficients in the interaction model but we can't do inferences for those estimates since there is no residual variability. Another issue in really any model with categorical predictors but especially noticeable in the Two-Way ANOVA situation is ***estimability*** issues. \index{estimability} Instead of having issues with running out of degrees of freedom for tests we can run into situations where we do not have information to estimate some of the model coefficients. This happens any time you fail to have observations at either a level of a main effect or at a combination of levels in an interaction model. 
 
-\indent To illustrate estimability issues, we will revisit the overtake data. Each of the seven levels of outfits was made up of a combination of different characteristics of the outfits, such as which helmet and pants were chosen, whether reflective leg clips were worn or not, etc. To see all these additional variables, we will introduce a new plot that will feature more prominently in Chapter \@ref(chapter5) that allows us to explore relationships among a suite of categorical variables -- the `tableplot` from the ``tabplot``^[This is the first package we have encountered that is not on the "CRAN" repository and we will need to install it from its "github" repository. This happens for packages in early development and for other packages where researchers decide to avoid the ongoing challenges involved maintaining the package status on CRAN. In order to install this package, we can use the following code after installing the `remotes` [@R-remotes] package in the regular way: `library(remotes); remotes::install_github("mtennekes/tabplot")`] package [@R-tabplot]. It allows us to sort the variables based on a single variable (think about how you might sort a spreadsheet based on one column and look at the results in other columns). The ``tableplot`` function displays bars for each response in a row^[In larger data sets, 
+\indent To illustrate estimability issues, we will revisit the overtake data. Each of the seven levels of outfits was made up of a combination of different characteristics of the outfits, such as which helmet and pants were chosen, whether reflective leg clips were worn or not, etc. To see all these additional variables, we will introduce a new plot that will feature more prominently in Chapter \@ref(chapter5) that allows us to explore relationships among a suite of categorical variables -- the `tableplot` from the ``tabplot``^[This package is not on the "CRAN" repository and from time to time involves more complex installation requirements to install it from its "github" repository and some packages it depends on. In order to install this package, we usually can use the following code after installing the `remotes` [@R-remotes] package in the regular way: `library(remotes); remotes::install_github("mtennekes/tabplot")`] package [@R-tabplot]. If this does not work, please contact your instructor or me for more information on possibly additional steps to get it working. The tabplot package allows us to sort the variables based on a single variable (think about how you might sort a spreadsheet based on one column and look at the results in other columns). The ``tableplot`` function displays bars for each response in a row^[In larger data sets, 
 multiple subjects are displayed in each row as proportions of
 the rows in each category.] based on the 
 category of responses or as a bar with the height corresponding
@@ -2055,10 +2053,6 @@ remotes::install_github("mtennekes/tabplot") # Only do this once on your compute
 
 
 ```r
-library(remotes); 
-if (!require("tabplot", character.only = TRUE)) {
-        remotes::install_github("mtennekes/tabplot")
-        }
 library(tabplot)
 library(RColorBrewer)
 # Options (sometimes) needed to prevent errors on PC

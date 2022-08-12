@@ -577,7 +577,8 @@ For the *Snow Depth* data, the conditions can be assessed as:
 To assess the remaining assumptions, we can use our diagnostic plots.
 \index{assumptions} The same code as before will provide diagnostic plots. There
 is some extra code (``par(...)``) added to allow us to add labels to the plots
-(``sub.caption = "..."``) to know which model is being displayed since we have so
+(``sub.caption = ""`` and ``title(main="...", outer=TRUE)``) to know which model 
+is being displayed since we have so
 many to discuss here. We can also employ a new approach, which is to simulate
 new observations from the model and make plots to compare simulated data sets to
 what was observed. The ``simulate`` function from Chapter \@ref(chapter2)
@@ -596,7 +597,8 @@ clear issue. The regular steps in assessing each assumption are discussed first.
 
 ```r
 par(mfrow = c(2,2), oma = c(0,0,2,0))
-plot(m4, sub.caption = "Diagnostics for m4", pch = 16)
+plot(m4, pch = 16, sub.caption = "")
+title(main="Diagnostics for m4", outer=TRUE)
 ```
 
 <div class="figure" style="text-align: center">
@@ -690,7 +692,7 @@ snotel_s %>% slice(9,10)
 ```
 
 ```
-## # A tibble: 2 x 6
+## # A tibble: 2 × 6
 ##      ID Station            Snow.Depth Max.Temp Min.Temp Elevation
 ##   <dbl> <chr>                   <dbl>    <dbl>    <dbl>     <dbl>
 ## 1    18 Northeast Entrance       11.2       45       28      7350
@@ -907,7 +909,8 @@ observation to be able to work towards a model that is fully trustworthy.
 
 ```r
 par(mfrow = c(2,2), oma = c(0,0,2,0))
-plot(m5, sub.caption = "Diagnostics for m5", pch = 16)
+plot(m5, pch = 16, sub.caption = "")
+title(main="Diagnostics for m5", outer=TRUE)
 ```
 
 <div class="figure" style="text-align: center">
@@ -956,7 +959,7 @@ snotel_s %>% slice(22)
 ```
 
 ```
-## # A tibble: 1 x 6
+## # A tibble: 1 × 6
 ##      ID Station          Snow.Depth Max.Temp Min.Temp Elevation
 ##   <dbl> <fct>                 <dbl>    <dbl>    <dbl>     <dbl>
 ## 1    36 Bloody [Redact.]       27.2       39       26      7550
@@ -972,7 +975,8 @@ remaining. This model (``m6``) seems to contain residual diagnostics (Figure
 m6 <- lm(Snow.Depth ~ Elevation + Min.Temp + Max.Temp, data = snotel_s %>% slice(-c(9,22)))
 summary(m6)
 par(mfrow = c(2,2), oma = c(0,0,2,0))
-plot(m6, sub.caption = "Diagnostics for m6", pch = 16)
+plot(m6, pch = 16, sub.caption = "")
+title(main="Diagnostics for m6", outer=TRUE)
 ```
 
 It is hard to suggest that there any curvature issues and the slight variation
@@ -1051,6 +1055,7 @@ s1 <- snotel_final %>% ggplot(aes(x = Elevation, y = SimulatedSnow)) +
   geom_point(col = "forestgreen") + 
   theme_bw() + 
   labs(title = "First Simulated Responses")
+
 s2 <- snotel_final %>% ggplot(aes(x = Max.Temp, y = SimulatedSnow)) + 
   geom_point(col = "forestgreen") + 
   theme_bw() + 
@@ -1121,6 +1126,12 @@ $\boldsymbol{b_k}$ **[*units of y*]**, after controlling for
 term-plot. To do this, we first need the mean of the "other" predictors, 
 *Min.Temp* and *Max.Temp*. 
 
+\newpage
+
+\phantom{force new page}
+
+\newpage
+
 
 ```r
 mean(snotel_final$Min.Temp)
@@ -1130,11 +1141,6 @@ mean(snotel_final$Min.Temp)
 ## [1] 27.82609
 ```
 
-\newpage
-
-\phantom{force new page}
-
-\newpage
 
 
 ```r
@@ -1249,7 +1255,7 @@ newdata1
 ```
 
 ```
-## # A tibble: 30 x 3
+## # A tibble: 30 × 3
 ##    Elevation Min.Temp Max.Temp
 ##        <dbl>    <dbl>    <dbl>
 ##  1     5000      27.8     36.4
@@ -1262,7 +1268,8 @@ newdata1
 ##  8     5724.     27.8     36.4
 ##  9     5828.     27.8     36.4
 ## 10     5931.     27.8     36.4
-## # ... with 20 more rows
+## # … with 20 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
 The first 10 predicted snow depths along with 95% confidence intervals for the mean,
@@ -2325,7 +2332,8 @@ summary(gpa1)
 
 ```r
 par(mfrow = c(2,2), oma = c(0,0,2,0))
-plot(gpa1, sub.caption = "Diagnostics for GPA model with satv and satm")
+plot(gpa1, sub.caption = "")
+title(main="Diagnostics for GPA model with satv and satm", outer=TRUE)
 ```
 
 <div class="figure" style="text-align: center">
@@ -2704,11 +2712,13 @@ grid.arrange(v1, m1, ncol = 2)
 <p class="caption">(\#fig:Figure8-21)(ref:fig8-21)</p>
 </div>
 
-\sectionmark{Different intercepts for different groups}
+<!-- \newpage -->
+
+<!-- \sectionmark{Different intercepts for different groups} -->
 
 ## Different intercepts for different groups: MLR with indicator variables	{#section8-9}
 
-\sectionmark{Different intercepts for different groups}
+<!-- \sectionmark{Different intercepts for different groups} -->
 
 One of the implicit assumptions up to this point was that the models were being
 applied to a single homogeneous population.
@@ -2860,7 +2870,7 @@ satgpa %>% select(GENDER, GENDERINDICATOR) %>% head(10)
 ```
 
 ```
-## # A tibble: 10 x 2
+## # A tibble: 10 × 2
 ##    GENDER GENDERINDICATOR
 ##    <fct>            <dbl>
 ##  1 MALE                 0
@@ -3132,7 +3142,7 @@ Headache
 ```
 
 ```
-## # A tibble: 98 x 6
+## # A tibble: 98 × 6
 ##    type    treatment    u1   du1    u2   du2
 ##    <fct>   <fct>     <dbl> <dbl> <dbl> <dbl>
 ##  1 Migrane T3         2.34  5.3   5.8   8.52
@@ -3145,10 +3155,11 @@ Headache
 ##  8 Migrane T1         2.31  3.25  2     3.3 
 ##  9 Migrane T1         1.38  2.33  2.23  3.98
 ## 10 Tension T3         0.85  1.42  1.37  1.89
-## # ... with 88 more rows
+## # … with 88 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ```
 
-\newpage
+<!-- \newpage -->
 
 (ref:fig8-26) Scatterplot of post-treatment decibel tolerance (du2) vs pre-treatment tolerance (du1) by treatment level (4 groups).
 
@@ -3367,10 +3378,10 @@ since all the Cook's D values are less than 0.5. \index{influential}
 
 
 ```r
-par(mfrow = c(2,2), oma = c(0,0,2,0))
-plot(head1, pch = 16,
-     sub.caption = "Plot of diagnostics for additive model with du1 and 
-     treatment for du2")
+par(mfrow = c(2,2), oma = c(0,0,3,0))
+plot(head1, pch = 16, sub.caption = "")
+title(main="Plot of diagnostics for additive model with du1 and 
+     treatment for du2", outer=TRUE)
 ```
 
 <div class="figure" style="text-align: center">
@@ -3383,7 +3394,7 @@ plot(head1, pch = 16,
 to see if any patterns in residuals look different in different groups, like
 linearity or non-constant variance, when we are fitting models that might
 contain multiple groups. We can use the same scatterplot tools to make our own
-plot the residuals (extracted using the ``residuals`` function) versus the
+plot of the residuals (extracted using the ``residuals`` function) versus the
 fitted values (extracted using the ``fitted`` function) by groups as in
 Figure \@ref(fig:Figure8-30). This provides an opportunity to introduce
 faceting, where we can split our plots into panels by a grouping variable, here
@@ -3424,17 +3435,14 @@ Headache %>% ggplot(mapping = aes(x = fits, y = resids,
 </div>
 
 
-\indent The VIFs are different for categorical variables than for quantitative
-predictors in MLR. The 4 levels are combined in a measure called the
-***generalized VIF (GVIF)***. For GVIFs, we only focus on the inflation of the
-SE scale (square root for 1 df effects and raised to the power $1/(2*J)$ for a
-$J$-level predictor). On this scale, the interpretation is as **the
+\indent The VIFs are different for models with categorical variables than for models with only quantitative
+predictors in MLR, even though we are still concerned with shared information across the predictors of all kinds. For categorical predictors, the $J$ levels are combined to create a single measure for the predictor all together called the
+***generalized VIF (GVIF)***. \index{GVIF} \index{generalized variance inflation factor} For GVIFs, interpretations are based on the GVIF measure to the power $1/(2*(J-1))$. For quantitative predictors when GVIFS are present, $J$ = 2, and the power simplifies to $1/2$, which is our regular square-root scale for inflation of standard errors due to multicollinearity (so the GVIF is the VIF for quantitative predictors). For a $J$-level categorical predictor, the power is also $1/2$ for $J=2$ levels and increases for more levels. There are no rules of thumb for GVIFs for $J>2$. In the following output, there are four levels, so $J=4$. When raised to the requisite power, the GVIF interpretation for multi-category categorical predictors is **the
 multiplicative increase in the SEs for the coefficients on all the indicator
-variables due to multicollinearity with other predictors**. In this model, the
-SE for ``du1`` is 1.009 times larger due to multicollinearity with other
-predictors and the SEs for the indicator variables for ``treatment`` are 1.003
-times larger due to multicollinearity than they otherwise would have been.
-Neither are large so multicollinearity is not a problem in this model. 
+variables due to multicollinearity with other predictors**.  In this model, the
+SE for the quantitative predictor ``du1`` is 1.009 times larger due to multicollinearity with other
+predictors and the SEs for the indicator variables for the four-level categorical ``treatment`` predictor are 1.003
+times larger due to multicollinearity, both compared to what they would have been with no shared information in the predictors in the model. Neither are large, so multicollinearity is not a problem in this model. 
 
 
 ```r
@@ -3751,8 +3759,8 @@ any influential points because no points have Cook's D over 0.5. \index{censored
 
 ```r
 par(mfrow = c(2,2), oma = c(0,0,2,0))
-plot(dys_model,
-     sub.caption = "Plot of diagnostics for Dyslexia Interaction model", pch = 16)
+plot(dys_model, pch = 16, sub.caption = "")
+title(main="Plot of diagnostics for Dyslexia Interaction model", outer=TRUE)
 ```
 
 <div class="figure" style="text-align: center">
@@ -4114,11 +4122,11 @@ need to develop $F$-tests for the interaction part of the model.
 
 \phantom{Make the sectionmark actually work!}
 
-\sectionmark{F-tests for MLR models with Q and C variables and interactions}
+<!-- \sectionmark{F-tests for MLR models with Q and C variables and interactions} -->
 
 ## F-tests for MLR models with quantitative and categorical variables and interactions	{#section8-12}
 
-\sectionmark{F-tests for MLR models with Q and C variables and interactions}
+<!-- \sectionmark{F-tests for MLR models with Q and C variables and interactions} -->
 
 For models with multi-category $(J>2)$ categorical variables we need a method
 for deciding if all the extra complexity present in the additive or interaction
@@ -4177,6 +4185,8 @@ this tree of models and might stop earlier in the tree if that fully addresses
 our research question, but it is good to consider the potential paths that an
 analysis could involve before it is started if model refinement is being
 considered.
+
+\newpage
 
 \indent To perform the first test (after checking that assumptions are not
 problematic, of course), we can apply the ``Anova`` function from the ``car``
@@ -4368,7 +4378,7 @@ model than the ***adjusted*** ***R***^2^. The measure is called the ***AIC***
 AIC nomenclature to mean An Information Criterion -- he was not so vain as to
 name the method after himself in the original paper that proposed it. But it is
 now common to use "A" for his last name.], [@Akaike1974]). It is extremely
-popular, but sometimes misused, in some fields such as Ecology and has been
+popular, but sometimes misused, in some fields such as Ecology, and has been
 applied in almost every other potential application area where statistical
 models can be compared. @Burnham2002 have been responsible for popularizing the
 use of AIC for model selection, especially in Ecology. The **AIC is an estimate
@@ -4677,17 +4687,10 @@ data(FEV)
 FEV <- as_tibble(FEV)
 FEV <- FEV %>% mutate(sex = factor(sex), #Make sex and smoke factors, log.FEV
                       smoke = factor(smoke),
-                      log.FEV = log(FEV)
-                      )
-
+                      log.FEV = log(FEV))
 levels(FEV$sex) <- c("Female","Male") #Make sex labels explicit
 levels(FEV$smoke) <- c("Nonsmoker","Smoker") #Make smoking status labels explicit
-```
 
-\newpage
-
-
-```r
 p1 <- FEV %>% ggplot(mapping = aes(x = age, y = log.FEV, color = smoke, shape = smoke)) +
   geom_point(size = 1.5, alpha = 0.5) +
   geom_smooth(method = "lm") +
@@ -4695,7 +4698,6 @@ p1 <- FEV %>% ggplot(mapping = aes(x = age, y = log.FEV, color = smoke, shape = 
   scale_color_viridis_d(end = 0.8) +
   labs(title = "Plot of log(FEV) vs Age of children by smoking  status",
        y = "log(FEV)") 
-
 
 p2 <- FEV %>% ggplot(mapping = aes(x = age, y = log.FEV, color = smoke, shape = smoke)) +
   geom_point(size = 1.5, alpha = 0.5) +
@@ -4749,7 +4751,8 @@ summary(fm1)
 
 ```r
 par(mfrow = c(2,2), oma = c(0,0,2,0))
-plot(fm1, sub.caption = "Diagnostics for full FEV model", pch = 16)
+plot(fm1, pch = 16, sub.caption = "")
+title(main="Diagnostics for full FEV model", outer=TRUE)
 ```
 
 <div class="figure" style="text-align: center">
@@ -5001,7 +5004,7 @@ plot(allEffects(fm1R), grid = T)
 <p class="caption">(\#fig:Figure8-46)(ref:fig8-46)</p>
 </div>
 
-\newpage
+<!-- \newpage -->
 
 \indent Like any statistical method, the AIC works better with larger sample
 sizes and when assumptions are not clearly violated. It also will detect
@@ -5267,7 +5270,8 @@ differ across the age groups.
 ```r
 treadmill <- treadmill %>% mutate(Ageb = factor(cut(Age, breaks = c(37, 44.5, 50.5, 58))))
 summary(treadmill$Ageb)
-treadmill %>% ggplot(mapping = aes(x = RunTime, y = TreadMillOx, color = Ageb, shape = Ageb)) + 
+treadmill %>% ggplot(mapping = aes(x = RunTime, y = TreadMillOx, 
+                                   color = Ageb, shape = Ageb)) + 
   geom_point(size = 1.5, alpha = 0.5) +
   geom_smooth(method = "lm") +
   theme_bw() +
